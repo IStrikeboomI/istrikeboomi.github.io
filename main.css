@@ -4,8 +4,11 @@ html {
 body {
     background-color: #fcc93a;
 }
-h1 {
+h1, h2{
     text-align: center;
+}
+h3 {
+    display:inline;
 }
 #content {
     margin-left: 150px;
@@ -14,6 +17,7 @@ h1 {
     border: 2px solid black;
     justify-content: center;
     position:absolute;
+    width: 50%;
 }
 #side-bar {
     background-color: #eb9c36;

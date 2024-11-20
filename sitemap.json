@@ -1,13 +1,13 @@
 [
     {
         "subject" : "Pre-Calculus",
-        "notes" : 
+        "topics" : 
         [
         ]
     },
     {
         "subject" : "Calculus 1",
-        "notes" : 
+        "topics" : 
         [
             {
                 "section":"Limits", 
@@ -34,13 +34,13 @@
     },
     {
         "subject" : "Calculus 2",
-        "notes" : 
+        "topics" : 
         [
         ]
     },
     {
         "subject" : "Linear Algebra",
-        "notes" : 
+        "topics" : 
         [
         ]
     }
