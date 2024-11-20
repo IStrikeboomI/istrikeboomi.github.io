@@ -1,0 +1,48 @@
+html {
+    height: 100%;
+}
+body {
+    background-color: #fcc93a;
+}
+h1 {
+    text-align: center;
+}
+#content {
+    margin-left: 150px;
+    padding: 30px;
+    background-color: #f4f2dc;
+    border: 2px solid black;
+    justify-content: center;
+    position:absolute;
+}
+#side-bar {
+    background-color: #eb9c36;
+    border: 2px solid black;
+    float: left;
+}
+.align-left-cell {
+    padding: 10px;
+    text-align: left;
+}
+.no-bullets {
+    list-style-type: none;      
+}
+@keyframes open {
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+}
+  
+  /* closing animation */
+@keyframes close {
+    0% { opacity: 1 }
+    100% { opacity: 0 }
+}
+  
+details[open] summary~* {
+    animation: open .5s
+}
+  
+  /* closing class */
+details.closing summary~* {
+    animation: close .5s
+}

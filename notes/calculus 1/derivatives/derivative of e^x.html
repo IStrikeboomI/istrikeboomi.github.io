@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Derivative of e^x</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Strike's Notes</h1>
+        <table id="side-bar">
+            <tr><th class="align-left-cell"><a href="notes/pre-calculus/pre-calculus.html">Pre-Calculus</a></th></tr>
+            <tr><th class="align-left-cell"><a href="notes/calculus 1/calculus 1.html">Calculus 1</a></th></tr>
+            <tr><th class="align-left-cell"><a href="notes/calculus 2/calculus 2.html">Calculus 2</a></th></tr>
+            <tr><th class="align-left-cell"><a href="notes/linear algebra/linear algebra.html">Linear Algebra</a></th></tr>
+            <tr><th class="align-left-cell"><br></th></tr>
+            <tr><th class="align-left-cell"><a href="about.html">About</a></th></tr>
+        </table>
+        <div id="content">
+            <p>The derivative of $e^x$ is</p>
+            <p>$$\frac{d}{dx} e^x = e^x$$</p>
+            <p>This means that $e^x$ is it's own derivative!</p>
+            <hr>
+            <details>
+                <summary>Proof</summary>
+                <p>Definition <b>1</b> of $e \approx 2.71828$: </p>
+                <p>$$\begin{align}
+                    e &= \lim_{n \to \infty}{{(1+\frac{1}{n})}^n}  \\
+                    &= \lim_{h \to 0}{{(1+h)}^{1/h}} &&\text{let $h = \frac{1}{n}$, as $n \rightarrow \infty, h \rightarrow 0$ }
+                    \end{align}$$</p>
+                
+                <p>Derivative: </p>
+                <p>$$\begin{align}
+                    
+                    \frac{d}{dx}e^x &= \lim_{h \to 0}{\frac{e^{x+h} - e^{x}}{h}} \\
+                    &= \lim_{h \to 0}{\frac{e^{x}e^{h} - e^{x}}{h}} &&\text{Exponent Property } a^{m+n} = a^ma^n \\
+                    &= \lim_{h \to 0}{\frac{e^{x}(e^{h} - 1)}{h}} \\
+                    &= e^x\lim_{h \to 0}{\frac{e^{h} - 1}{h}} &&\text{The $e^x$ is not being affected by the limit (it can be factored out)} \\
+                    &= e^x\lim_{h \to 0}{\frac{{({(1+h)}^{1/h})}^{h} - 1}{h}}  &&\text{by definition } \textbf{1} \\
+                    &= e^x\lim_{h \to 0}{\frac{(1+h) - 1}{h}} \\
+                    &= e^x\lim_{h \to 0}{\frac{h}{h}} \\
+                    &= e^x(1) \\
+                    &= e^x
+                \end{align}$$</p>
+            </details>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>$\frac{d}{dx}e^{3x}$</summary>
+                            <p>$$\begin{align}
+                                \frac{d}{dx}e^{3x} = 3e^{3x} &&\text{Using Chain Rule}
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\frac{d}{dx}xe^{x}$</summary>
+                            <p>$$\begin{align}
+                                \frac{d}{dx}xe^{x} &= (1)(e^x) + (x)(e^x) &&\text{Using Product Rule} \\
+                                &= e^x + xe^x
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\frac{d}{dx}\frac{cos(e^x)}{2e^x}$</summary>
+                            
+                            <p>$$\begin{align}
+                                &\text{We need to use Quotient Rule} \\ \\
+                                &\begin{array} {c | c}
+                                f(x) = cos(e^x) & g(x) = 2e^x \\
+                                \hline 
+                                f'(x) = -e^xsin(e^x) & g'(x) = 2e^x 
+                                \end{array} \\ \\
+                                \frac{d}{dx}\frac{cos(e^x)}{2e^x} &= \frac{(2e^x)(-e^xsin(e^x)) - (cos(e^x))(2e^x)) }{(2e^x)^2} &&\text{Using Quotient Rule} \\
+                                &= \frac{-2(e^x)^2sin(e^x) - 2e^xcos(e^x)}{4(e^x)^2} \\
+                                &= \frac{(-2e^x)(e^xsin(e^x)+cos(e^x)}{4(e^x)^2} \\
+                                &= \frac{-(e^xsin(e^x) + cos(e^x))}{2e^x} 
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
