@@ -34,7 +34,7 @@ for (let i = 0;i < json.length;i++) {
                 let notesLi = document.createElement("li");
                 let p = document.createElement("p");
                 let a = document.createElement("a");
-                a.href = "/notes/" + subject + "/" + topics[j].section + "/" + notes[k].name + ".html";
+                a.href = "/notes/" + subject + "/" + topics[j].section.toLowerCase() + "/" + notes[k].name + ".html";
                 a.innerHTML = notes[k].title;
                 p.appendChild(a);
                 notesLi.appendChild(p);
