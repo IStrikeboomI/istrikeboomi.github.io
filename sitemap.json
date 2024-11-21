@@ -20,7 +20,9 @@
                 "section":"Derivatives", 
                 "notes" : 
                 [
-                    {"name":"derivative of e^x", "title": "Derivative of $e^x$"}
+                    {"name":"derivatives of inverse functions", "title": "Derivative of Inverse Functions"},
+                    {"name":"derivative of e^x", "title": "Derivative of $e^x$"},
+                    {"name":"derivative of ln(x)", "title": "Derivative of Logarithms"}
                 ]
             },
             {

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Strike's Notes</h1>
+        <table id="side-bar">
+            <tr><th class="align-left-cell"><a href="/">Home</a></th></tr>
+            <tr><th class="align-left-cell"><a href="/about.html">About</a></th></tr>
+            <tr><th class="align-left-cell"><a href="/other.html">Other</a></th></tr>
+        </table>
+        <div id="content">
+            
+            <p>The derivative of $ln(x)$ is</p>
+            <p>$$\frac{d}{dx} ln(x) = \frac{1}{x}$$</p>
+            <p>For logarithims of other bases such as $log_2(x), log_{10}(x), log_5(x)$</p>
+            <p>You can utilize the change of base formula for logs</p>
+            <p>$$
+                log_a(x) = \frac{ln(x)}{ln(a)}
+            $$</p>
+            <p>Since $ln(a)$ is a constant, you can factor it out</p>
+            <p>$$\begin{align}
+                \frac{d}{dx}log_a(x) &= \frac{1}{ln(a)} \left(\frac{1}{x}\right) \\ 
+                &= \frac{1}{ln(a)x}   
+            \end{align}$$</p>
+            <hr>
+            <details>
+                <summary>Proof 1</summary>
+                <p>Definition of $e \approx 2.71828$: </p>
+                <p>$$\begin{align}
+                    e &= \lim_{n \to \infty}{{(1+\frac{1}{n})}^n}  \\
+                    &= \lim_{h \to 0}{{(1+h)}^{1/h}} &&\text{let $h = \frac{1}{n}$, as $n \rightarrow \infty, h \rightarrow 0$ } \label{e def} \tag{1}
+                \end{align}$$</p>
+                
+                <p>Derivative: </p>
+                <p>$$\begin{align}
+                    
+                    \frac{d}{dx}ln(x) &= \lim_{h \to 0}\frac{ln(x + h) - ln(x)}{h} \\
+                    &= \lim_{h \to 0}\frac{ln(\frac{x + h}{x})}{h} &&\text{Using log property } log(a/b) = log(a) - log(b) \\
+                    &= \lim_{h \to 0} \left(\frac{1}{h}\right) ln(\frac{x + h}{x}) &&\text{Using log property } log(a^b) = b\cdot log(a)\\
+                    &= \lim_{h \to 0} ln((\frac{x + h}{x})^{1/h})\\
+                    &= \lim_{h \to 0} ln((1 + \frac{h}{x})^{1/h})\\
+                    &= \lim_{t \to 0} ln((1 + t)^{1/tx}) &&\text{Let $t = \frac{h}{x} \rightarrow \frac{1}{h} = \frac{1}{tx}$, as $h \rightarrow 0, t \rightarrow 0$}\\
+                    &= \lim_{t \to 0} ln((1 + t)^{\frac{1}{t} \cdot \frac{1}{x}})\\
+                    &= \lim_{t \to 0} \frac{1}{x}ln((1 + t)^{\frac{1}{t}}) &&\text{Using log property } log(a^b) = b\cdot log(a)\\
+                    &= \frac{1}{x} \cdot \lim_{t \to 0} ln((1 + t)^{\frac{1}{t}}) &&\text{The $\frac{1}{x}$ is not affected by the limit (it can be factored out)}\\
+                    &= \frac{1}{x} \cdot ln(\lim_{t \to 0}(1 + t)^{\frac{1}{t}}) &&\text{In a limit of a continous function, they can both be flipped}\\
+                    &= \frac{1}{x} \cdot ln(e) &&\text{By (1)}\\
+                    &= \frac{1}{x}
+
+                    \end{align}$$</p>
+            </details>
+            <hr>
+            <details>
+                <summary>Proof 2</summary>
+                <p>Using the inverse function rule</p>
+                <p>$$
+                  (f^{-1})'(x) = \frac{1}{f'(f^{-1}(x))}  
+                $$</p>
+                Here,
+                <p>$$ \begin{align}
+                    f(x) &= e^x \\ f'(x) &= e^x \\ f^{-1}(x) &= ln(x)
+                \end{align}$$</p>
+                <p>$$\begin{align}
+                    \frac{d}{dx} ln(x) &= \frac{1}{e^{ln(x)}} \\
+                    &= \frac{1}{x}
+                \end{align}$$</p>
+            </details>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>$\frac{d}{dx} ln(3x)$</summary>
+                            <p>$$\begin{align}
+                                \frac{d}{dx}ln(3x) = \frac{3}{3x} &&\text{Using Chain Rule}
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\frac{d}{dx}xln(x)$</summary>
+                            <p>$$\begin{align}
+                                \frac{d}{dx}xe^{x} &= (1)(ln(x)) + (x)(\frac{1}{x}) &&\text{Using Product Rule} \\
+                                &= ln(x) + 1
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\frac{d}{dx}ln(cos(x))$</summary>
+                            
+                            <p>$$\begin{align}
+                                \frac{d}{dx}ln(cos(x)) &= \frac{-sin(x)}{cos(x)} &&\text{Using Chain Rule} \\
+                                &= -tan(x) &&\text{Using } tan(x) = \frac{sin(x)}{cos(x)}
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\frac{d}{dx} log_{10}(2x^2 + 4x - 5)$</summary>
+                            
+                            <p>$$\begin{align}
+                                \frac{d}{dx} log_{10}(2x^2 + 4x - 5) &= \frac{4x + 4}{ln(10)(2x^2 + 4x - 5)} &&\text{Using Chain Rule} \\
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

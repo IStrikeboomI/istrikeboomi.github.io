@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Strike's Notes</h1>
+        <table id="side-bar">
+            <tr><th class="align-left-cell"><a href="/">Home</a></th></tr>
+            <tr><th class="align-left-cell"><a href="/about.html">About</a></th></tr>
+            <tr><th class="align-left-cell"><a href="/other.html">Other</a></th></tr>
+        </table>
+        <div id="content">
+            
+            <p>let $f(x)$ be a differentiable function (meaning $f'(x)$ exists)</p>
+            <p>if $f(x)$ is bijective (one-to-one) meaning each input its own unique output</p>
+            <p>Then the derivative of $f^{-1}(x)$ (the inverse of $f(x)$) can be found</p>
+            <p>Inverse Function Rule: </p>
+            <p>$$
+                (f^{-1})'(x) = \frac{1}{f'(f^{-1}(x))}   
+            $$</p>           
+            <hr>
+            <details open>
+                <summary>Proof</summary>
+                <p>$$\begin{align}                  
+                    f(f^{-1}(x)) &= x \\
+                    \frac{d}{dx}f(f^{-1}(x)) &= \frac{d}{dx}x \\
+                    (f^{-1})'(x) \cdot f'(f^{-1}(x)) &= 1 &&\text{Using Chain Rule} \\
+                    (f^{-1})'(x) &= \frac{1}{f'(f^{-1}(x))}  
+                    \end{align}$$</p>
+            </details>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Use Inverse function rule for $\frac{d}{dx} \sqrt[3]{x}$</summary>
+                            <p>We first we make &\sqrt[3]{x} - 8$ the inverse and find the original function from that</p>
+                            <p>$$\begin{align}
+                                f^{-1}(x) &= \sqrt[3]{x} \\ 
+                                y &= \sqrt[3]{x}  \\ 
+                                x &= \sqrt[3]{y} &&\text{Switch $x$ and $y$ and solve for y}\\
+                                (x)^{3} &= y \\
+                                f(x) &= (x)^{3} \\
+                                f'(x) &= 3x^2
+                                \end{align}$$</p>
+                            <p>Now we can apply the inverse function rule</p>
+                            <p>$$\begin{align}
+                                \frac{d}{dx} \sqrt[3]{x} &= \frac{1}{3(\sqrt[3]{x^2})} \\
+                                &= \frac{1}{3x^{\frac{2}{3}}}
+                            \end{align}$$
+                            </p>
+                        </details>
+                    </li>
+                    <li>
+                        <details open>
+                            <summary>Use Inverse function rule for $\frac{d}{dx}tan^{-1}(x)$</summary>
+                            <p>We first we make &tan^{-1}(x)$ the inverse and find the original function from that</p>
+                            <p>$$\begin{align}
+                                f^{-1}(x) &= tan^{-1}(x) \\ 
+                                f(x) &= tan(x) \\
+                                f'(x) &= sec^2(x)
+                                \end{align}$$</p>
+                            <p>Now we can apply the inverse function rule</p>
+                            <p>$$\begin{align}
+                                \frac{d}{dx}tan^{-1}(x) &= \frac{1}{sec^2(tan^{=1}(x))} \\
+                                &=
+                                
+                            \end{align}$$
+                            </p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
