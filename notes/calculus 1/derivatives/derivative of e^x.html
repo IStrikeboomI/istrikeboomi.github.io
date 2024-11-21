@@ -25,11 +25,11 @@
             <hr>
             <details>
                 <summary>Proof</summary>
-                <p>Definition <b>1</b> of $e \approx 2.71828$: </p>
+                <p>Definition of $e \approx 2.71828$: </p>
                 <p>$$\begin{align}
                     e &= \lim_{n \to \infty}{{(1+\frac{1}{n})}^n}  \\
-                    &= \lim_{h \to 0}{{(1+h)}^{1/h}} &&\text{let $h = \frac{1}{n}$, as $n \rightarrow \infty, h \rightarrow 0$ }
-                    \end{align}$$</p>
+                    &= \lim_{h \to 0}{{(1+h)}^{1/h}} &&\text{let $h = \frac{1}{n}$, as $n \rightarrow \infty, h \rightarrow 0$ } \label{e def} \tag{1}
+                \end{align}$$</p>
                 
                 <p>Derivative: </p>
                 <p>$$\begin{align}
@@ -38,7 +38,7 @@
                     &= \lim_{h \to 0}{\frac{e^{x}e^{h} - e^{x}}{h}} &&\text{Exponent Property } a^{m+n} = a^ma^n \\
                     &= \lim_{h \to 0}{\frac{e^{x}(e^{h} - 1)}{h}} \\
                     &= e^x\lim_{h \to 0}{\frac{e^{h} - 1}{h}} &&\text{The $e^x$ is not being affected by the limit (it can be factored out)} \\
-                    &= e^x\lim_{h \to 0}{\frac{{({(1+h)}^{1/h})}^{h} - 1}{h}}  &&\text{by definition } \textbf{1} \\
+                    &= e^x\lim_{h \to 0}{\frac{{({(1+h)}^{1/h})}^{h} - 1}{h}}  &&\text{by (1)} \\
                     &= e^x\lim_{h \to 0}{\frac{(1+h) - 1}{h}} \\
                     &= e^x\lim_{h \to 0}{\frac{h}{h}} \\
                     &= e^x(1) \\
