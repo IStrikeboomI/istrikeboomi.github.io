@@ -15,6 +15,7 @@ h3 {
     padding: 30px;
     background-color: #f4f2dc;
     border: 2px solid black;
+    border-radius: 10px;
     justify-content: center;
     position:absolute;
     width: 50%;
@@ -22,6 +23,7 @@ h3 {
 #side-bar {
     background-color: #eb9c36;
     border: 2px solid black;
+    border-radius: 10px;
     float: left;
 }
 .align-left-cell {
