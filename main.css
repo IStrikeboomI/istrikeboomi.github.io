@@ -14,6 +14,14 @@ h3 {
     overflow-x: auto;
     overflow-y: hidden;
 }
+/*center svgs*/
+svg {
+    position: relative;
+    left: 100%;
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+}
 #content {
     margin-left: 150px;
     padding: 30px;

@@ -5,6 +5,8 @@
         <script type="text/javascript" id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
         </script>
+        <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+        <script src="https://tikzjax.com/v1/tikzjax.js"></script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="">
@@ -27,7 +29,7 @@
                 (f^{-1})'(x) = \frac{1}{f'(f^{-1}(x))}   
             $$</p>           
             <hr>
-            <details open>
+            <details>
                 <summary>Proof</summary>
                 <p>$$\begin{align}                  
                     f(f^{-1}(x)) &= x \\
@@ -71,11 +73,43 @@
                                 \end{align}$$</p>
                             <p>Now we can apply the inverse function rule</p>
                             <p>$$\begin{align}
-                                \frac{d}{dx}tan^{-1}(x) &= \frac{1}{sec^2(tan^{=1}(x))} \\
-                                &=
-                                
+                                \frac{d}{dx}tan^{-1}(x) &= \frac{1}{sec^2(tan^{-1}(x))} \\                                
                             \end{align}$$
                             </p>
+                            <p>This can be simplified further using right triangles</p>
+                            <p>The $sec$ takes in a $\theta$, and the $tan^{-1}$ outputs a $\theta$</p>
+                            <p>This means they can be used to make a triangle</p>
+                            <p>
+                            $$\begin{align}
+                            tan^{-1}(x) = \theta \rightarrow tan(\theta) = \frac{x}{1}
+                            \end{align}$$
+                            </p>
+                            <p>Since $tan(\theta) = \frac{opposite}{adjacent}$, that means we have a right triangle with opposite of $x$ and adjacent of $1$</p>
+                            <script type="text/tikz">
+                                \begin{tikzpicture}
+                                    \coordinate (a) at (0,0);
+                                    \coordinate (b) at (4,0);
+                                    \coordinate (c) at (4,2);
+                                    \draw (a) -- (b)node[midway, below]{1} -- (c)node[midway,right]{x} -- (a)node[midway,left, above]{h}; % Triangle.
+                                    \draw pic[draw,fill=blue!30,angle radius=1.2cm,"$\theta$" shift={(2mm,1mm)}] {angle=b--a--c};
+                                \end{tikzpicture}
+                            </script>
+                            <p>We can use the pythagorean theorem ($a^2 + b^2 = c^2$) to find the hypotenuse</p>
+                            <p>$$\begin{align}
+                                a^2 + b^2 &= c^2 \\
+                                x^2 + 1^2 &= c^2 \\
+                                c &= \sqrt{x^2 + 1}
+                            \end{align}$$</p>
+                            <script type="text/tikz">
+                                \begin{tikzpicture}
+                                    \coordinate (a) at (0,0);
+                                    \coordinate (b) at (4,0);
+                                    \coordinate (c) at (4,2);
+                                    \draw (a) -- (b)node[midway, below]{1} -- (c)node[midway,right]{x} -- (a)node[midway,left, above]{sqrt(x + 1)}; % Triangle
+                                    \draw pic[draw,fill=blue!30,angle radius=1.2cm,"$\theta$" shift={(2mm,1mm)}] {angle=b--a--c};
+                                    \fill[red!60!white] (3.5,0) rectangle (4,.5);                          
+                                    \end{tikzpicture}
+                            </script>
                         </details>
                     </li>
                 </ul>
