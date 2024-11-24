@@ -1,2 +1,3 @@
-# istrikeboomi.github.io
-Formatted math notes from my college math classes
+# Strike's Notes
+Formatted notes from my college classes
+<https://istrikeboomi.github.io/>
