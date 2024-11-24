@@ -23,12 +23,13 @@
         <div id="content">
             
             <p>let $f(x)$ be a differentiable function (meaning $f'(x)$ exists)</p>
-            <p>if $f(x)$ is bijective (one-to-one) meaning each input its own unique output</p>
+            <p>if $f(x)$ is bijective (one-to-one) meaning each input its own unique output,</p>
             <p>Then the derivative of $f^{-1}(x)$ (the inverse of $f(x)$) can be found</p>
             <p>Inverse Function Rule: </p>
             <p>$$
                 (f^{-1})'(x) = \frac{1}{f'(f^{-1}(x))}   
-            $$</p>           
+            $$</p>
+                      
             <hr>
             <details>
                 <summary>Proof</summary>
@@ -64,9 +65,9 @@
                         </details>
                     </li>
                     <li>
-                        <details open>
+                        <details>
                             <summary>Use Inverse function rule for $\frac{d}{dx}tan^{-1}(x)$</summary>
-                            <p>We first we make &tan^{-1}(x)$ the inverse and find the original function from that</p>
+                            <p>We first we make $tan^{-1}(x)$ the inverse and find the original function from that</p>
                             <p>$$\begin{align}
                                 f^{-1}(x) &= tan^{-1}(x) \\ 
                                 f(x) &= tan(x) \\
@@ -106,11 +107,21 @@
                                     \coordinate (a) at (0,0);
                                     \coordinate (b) at (4,0);
                                     \coordinate (c) at (4,2);
-                                    \draw (a) -- (b)node[midway, below]{1} -- (c)node[midway,right]{x} -- (a)node[midway,left, above]{sqrt(x + 1)}; % Triangle
+                                    \draw (a) -- (b)node[midway, below]{1} -- (c)node[midway,right]{x} -- (a)node[midway,left, above, label={[rotate = 30,label distance=-.25cm]:{$\sqrt{x^2 + 1}$}}]{};
                                     \draw pic[draw,fill=blue!30,angle radius=1.2cm,"$\theta$" shift={(2mm,1mm)}] {angle=b--a--c};
                                     \fill[red!60!white] (3.5,0) rectangle (4,.5);                          
                                     \end{tikzpicture}
                             </script>
+                            <p>Since $sec(\theta) = \frac{hypotenuse}{adjacent}$,</p>
+                            <p>$$\begin{align}
+                                sec(\theta) = \frac{\sqrt{x^2 + 1}}{1}
+                            \end{align}$$</p>
+                            <p>Plugging this back in,</p>
+                            <p>$$\begin{align}
+                                \frac{d}{dx}tan^{-1}(x) &= \frac{1}{\sqrt{x^2 + 1}^2} \\               
+                                &= \frac{1}{x^2 + 1}
+                            \end{align}$$
+                            </p>
                         </details>
                     </li>
                 </ul>

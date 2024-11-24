@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+        <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>Strike's Notes</h1>
+        <table id="side-bar">
+            <tr><th class="align-left-cell"><a href="/">Home</a></th></tr>
+            <tr><th class="align-left-cell"><a href="/about.html">About</a></th></tr>
+            <tr><th class="align-left-cell"><a href="/other.html">Other</a></th></tr>
+            <tr><th class="align-left-cell"></th></tr>
+        </table>
+        <div id="content">
+            <p>Imagine a function $f(x)$ is a continuous function</p>
+            <p>What this means intuitively is that there are no breaks or sudden changes in its output (y value)</p>
+            <p>This means that any holes and asymptotes makes the function <b>not</b> continuous</p>
+            <p>Another way to think of it is if can you draw the function with a pencil without needing to lift it up, it's continous</p>
+
+            <p>Observe the graph of $f(x) = x^2$ below</p>
+            <script type="text/tikz">
+                \begin{tikzpicture}[domain=-4:4]
+                    \draw[help lines,dashed] (-4,-1) grid (4,10);
+
+                    \draw[very thick,latex-latex] (-4.25,0) -- (4.25,0) 
+                        node[below,scale = 1.5]{$x$};
+                    \draw[very thick,latex-latex] (0,-1.25) -- (0,10.5) 
+                        node[above,scale = 1.5]{$f(x)$};
+
+                    \draw[color=black,domain=-3.17:3.17, range=-1:10,{Latex[length=3mm]}-{Latex[length=3mm]},very thick] plot (\x,{\x * \x}) node[right,scale=2] {$x^2$};
+                \end{tikzpicture}
+            </script>
+            <p>The graph has no breaks or sudden or jumps, which continues throughout the function, meaning it is continous</p>
+            <p>Now observe the graph of $f(x) = sec^{-1}(x)$</p>
+            <script type="text/tikz">
+                \begin{tikzpicture}[domain=-2:2]
+                    \draw[help lines,dashed] (-2,-1) grid (2,3.5);
+
+                    \draw[very thick,latex-latex] (-2.25,0) -- (2.25,0) 
+                        node[below,scale = 1.5]{$x$};
+                    \draw[very thick,latex-latex] (0,-1.25) -- (0,4) 
+                        node[above,scale = 1.5]{$f(x)$};
+
+                    \draw[color=black,{Latex[length=3mm]}-{Latex[length=3mm]},very thick] plot (\x,{arcsec(\x)}) node[right,scale=2] {$sec^{-1}(x)$};
+                \end{tikzpicture}
+            </script>
+            <p>There is a sudden jump between $-1$ and $1$ showing that this is not continous</p>
+            <p>A function that is <b>NOT</b> continuous is called <b>discontinuous</b></p>
+            <p>For a more precise definition, a function $f(x)$ is continuous at $x=c$, if and only if </p>
+            <p>$$\begin{align}
+                f(c) \text{ exists} \tag{1} \\
+                \lim_{n \to c}{f(x)} \text{ exists} \tag{2} \\
+                \lim_{n \to c}{f(x)} = f(c) \tag{3}
+            \end{align}$$</p>
+            <p>Criteria (1), (2), and (3) all have to satisified</p>
+            <p>If Criteria (1) and (3) are failed, then it is referd to as a <b>removable discontinuity</b> (This is what occurs with a hole)</p>
+            <p>If Criteria (2) and (3) are failed, then it is referd to as a <b>non-removable discontinuity</b> or also <b>jump discontinuity</b></p>
+            <p>If all criteria fail, then it is referd to as an <b>infinite discontinuity</b> if either side of the limit goes to infinity</p>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

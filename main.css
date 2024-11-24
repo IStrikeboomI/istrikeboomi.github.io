@@ -16,11 +16,7 @@ h3 {
 }
 /*center svgs*/
 svg {
-    position: relative;
-    left: 100%;
-    -webkit-transform: translateX(100%);
-    -ms-transform: translateX(100%);
-    transform: translateX(100%);
+    margin: auto;
 }
 #content {
     margin-left: 150px;
