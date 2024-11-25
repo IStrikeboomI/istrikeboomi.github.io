@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>Strike's Notes</h1>
+        <table id="side-bar">
+            <tr><th class="align-left-cell"><a href="/">Home</a></th></tr>
+            <tr><th class="align-left-cell"><a href="/about.html">About</a></th></tr>
+            <tr><th class="align-left-cell"><a href="/other.html">Other</a></th></tr>
+            <tr><th class="align-left-cell"></th></tr>
+        </table>
+        <div id="content">
+            <p>The derivatives of $sin(x)$ and $cos(x)$ are:</p>
+            <p>$$\begin{align}
+                \frac{d}{dx}sin(x) &= cos(x) \\
+                \frac{d}{dx}cos(x) &= -sin(x)
+            \end{align}$$</p>
+            <p>One intresting thing about this is if you take repeated derivatives of sine or cosine, you get into a chain</p>
+            <p>$$\begin{align}
+                f(x) &= sin(x) \\
+                f'(x) &= cos(x) \\
+                f''(x) &= -sin(x) \\
+                f'''(x) &= -cos(x) \\
+                f^{(4)}(x) &= sin(x) &&\text{Notice we are back to the original function}\\
+                f^{(5)}(x) &= sin(x) \\
+            \end{align}$$</p>
+            <hr>
+            <details >
+                <summary>Proof of $\frac{d}{dx}sin(x)$</summary>
+                <p>First establish two important limits</p>
+                <p>$$\begin{align}
+                    \lim_{x \to 0}\frac{sin(x)}{x} &= 1 \tag{1}\\
+                    \lim_{x \to 0}\frac{cos(x) - 1}{x} &= 0 \tag{2}
+                \end{align}$$</p>
+                <p>Derivative:</p>
+                <p>$$\begin{align}
+                    \frac{d}{dx} sin(x) &= \lim_{h \to 0}\frac{sin(x+h) - sin(x)}{h} \\
+                    &= \lim_{h \to 0}\frac{(sin(x)cos(h) + cos(x)sin(h)) - sin(x)}{h} &&\text{Using $sin(\alpha + \beta) = sin(\alpha)cos(\beta) + cos(\alpha)sin(\beta)$} \\
+                    &= \lim_{h \to 0}\frac{sin(x)cos(h) - sin(x) + cos(x)sin(h)}{h} &&\text{Rearrange terms} \\
+                    &= \lim_{h \to 0}\frac{sin(x)cos(h) - sin(x)}{h} + \frac{ cos(x)sin(h)}{h} \\
+                    &= \lim_{h \to 0}\left(\frac{sin(x)(cos(h) - 1)}{h} + \frac{ cos(x)sin(h)}{h}\right) \\
+                    &= \lim_{h \to 0}\left(\frac{sin(x)(cos(h) - 1)}{h}\right) + \lim_{h \to 0}\left(\frac{ cos(x)sin(h)}{h}\right) &&\text{Using limit sum property}\\
+                    &= sin(x)\lim_{h \to 0}\left(\frac{cos(h) - 1}{h}\right) + cos(x)\lim_{h \to 0}\left(\frac{sin(h)}{h}\right) &&\text{Terms with an x can be factored out since they don't involve the limit variable of h}\\
+                    &= sin(x)\left(0\right) + cos(x)\left(1\right) &&\text{By (1) and (2)}\\
+                    &= cos(x)
+                \end{align}$$</p>
+            </details>
+            <hr>
+            <details>
+                <summary>Proof of $\frac{d}{dx}cos(x)$</summary>
+                <p>First establish two important limits</p>
+                <p>$$\begin{align}
+                    \lim_{x \to 0}\frac{sin(x)}{x} &= 1 \tag{1}\\
+                    \lim_{x \to 0}\frac{cos(x) - 1}{x} &= 0 \tag{2}
+                \end{align}$$</p>
+                <p>Derivative:</p>
+                <p>$$\begin{align}
+                    \frac{d}{dx} cos(x) &= \lim_{h \to 0}\frac{cos(x+h) - cos(x)}{h} \\
+                    &= \lim_{h \to 0}\frac{(cos(x)cos(h) - sin(x)sin(h)) - cos(x)}{h} &&\text{Using $cos(\alpha + \beta) = cos(\alpha)cos(\beta) - sin(\alpha)sin(\beta)$} \\
+                    &= \lim_{h \to 0}\frac{cos(x)cos(h) - cos(x) - sin(x)sin(h)}{h} &&\text{Rearrange terms} \\
+                    &= \lim_{h \to 0}\frac{cos(x)cos(h) - cos(x)}{h} - \frac{ sin(x)sin(h)}{h} \\
+                    &= \lim_{h \to 0}\left(\frac{cos(x)(cos(h) - 1)}{h} - \frac{ sin(x)sin(h)}{h}\right) \\
+                    &= \lim_{h \to 0}\left(\frac{cos(x)(cos(h) - 1)}{h}\right) - \lim_{h \to 0}\left(\frac{sin(x)sin(h)}{h}\right) &&\text{Using limit sum property}\\
+                    &= cos(x)\lim_{h \to 0}\left(\frac{cos(h) - 1}{h}\right) - sin(x)\lim_{h \to 0}\left(\frac{sin(h)}{h}\right) &&\text{Terms with an x can be factored out since they don't involve the limit variable of h}\\
+                    &= cos(x)\left(0\right) - sin(x)\left(1\right) &&\text{By (1) and (2)}\\
+                    &= -sin(x)
+                \end{align}$$</p>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
