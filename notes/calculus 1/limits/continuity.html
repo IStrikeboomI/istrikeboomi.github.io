@@ -5,13 +5,10 @@
         <script type="text/javascript" id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
         </script>
-        <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
-        <script src="https://tikzjax.com/v1/tikzjax.js"></script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
     </head>
     <body>
         <h1>Strike's Notes</h1>
@@ -28,31 +25,37 @@
             <p>Another way to think of it is if can you draw the function with a pencil without needing to lift it up, it's continous</p>
 
             <p>Observe the graph of $f(x) = x^2$ below</p>
-            <script type="text/tikz">
-                \begin{tikzpicture}[domain=-4:4]
-                    \draw[help lines,dashed] (-4,-1) grid (4,10);
-
-                    \draw[very thick,latex-latex] (-4.25,0) -- (4.25,0) 
-                        node[below,scale = 1.5]{$x$};
-                    \draw[very thick,latex-latex] (0,-1.25) -- (0,10.5) 
-                        node[above,scale = 1.5]{$f(x)$};
-
-                    \draw[color=black,domain=-3.17:3.17, range=-1:10,{Latex[length=3mm]}-{Latex[length=3mm]},very thick] plot (\x,{\x * \x}) node[right,scale=2] {$x^2$};
-                \end{tikzpicture}
-            </script>
+            <img src="assets/svg/x^2 graph.svg">
             <p>The graph has no breaks or sudden or jumps, which continues throughout the function, meaning it is continous</p>
             <p>Now observe the graph of $f(x) = sec^{-1}(x)$</p>
+            <img src="assets/svg/arccos graph.svg">
             <script type="text/tikz">
-                \begin{tikzpicture}[domain=-2:2]
-                    \draw[help lines,dashed] (-2,-1) grid (2,3.5);
-
-                    \draw[very thick,latex-latex] (-2.25,0) -- (2.25,0) 
-                        node[below,scale = 1.5]{$x$};
-                    \draw[very thick,latex-latex] (0,-1.25) -- (0,4) 
-                        node[above,scale = 1.5]{$f(x)$};
-
-                    \draw[color=black,{Latex[length=3mm]}-{Latex[length=3mm]},very thick] plot (\x,{arcsec(\x)}) node[right,scale=2] {$sec^{-1}(x)$};
+                \usepackage{pgfplots}
+                \begin{document}
+                \begin{tikzpicture}
+                \begin{axis}[
+                axis lines=middle,
+                grid=major,
+                xmin=-5,
+                xmax=5,
+                ymin=-3,
+                ymax=5,
+                xlabel=$x$,
+                ylabel=$y$,
+                xtick={-4,-3,...,4},
+                ytick={-2,-1,...,4},
+                tick style={very thick},
+                legend style={
+                at={(rel axis cs:0,1)},
+                anchor=north west,draw=none,inner sep=0pt,fill=gray!10}
+                ]
+                \addplot[blue,thick,domain=-5:5,samples=10000] gnuplot {acos(1/x)};
+                \node[fill,circle,inner sep=1.5pt,label={above right:$(1,0)$}] at (1,0){};
+                \node[fill,circle,inner sep=1.5pt,label={above:$(-1,\pi)$}] at (-1,3.14){};
+                \addlegendentry{$y=sec^{-1}(x)$}
+                \end{axis}
                 \end{tikzpicture}
+                \end{document}
             </script>
             <p>There is a sudden jump between $-1$ and $1$ showing that this is not continous</p>
             <p>A function that is <b>NOT</b> continuous is called <b>discontinuous</b></p>
