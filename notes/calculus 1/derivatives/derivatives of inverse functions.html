@@ -87,31 +87,14 @@
                             \end{align}$$
                             </p>
                             <p>Since $tan(\theta) = \frac{opposite}{adjacent}$, that means we have a right triangle with opposite of $x$ and adjacent of $1$</p>
-                            <script type="text/tikz">
-                                \begin{tikzpicture}
-                                    \coordinate (a) at (0,0);
-                                    \coordinate (b) at (4,0);
-                                    \coordinate (c) at (4,2);
-                                    \draw (a) -- (b)node[midway, below]{1} -- (c)node[midway,right]{x} -- (a)node[midway,left, above]{h}; % Triangle.
-                                    \draw pic[draw,fill=blue!30,angle radius=1.2cm,"$\theta$" shift={(2mm,1mm)}] {angle=b--a--c};
-                                \end{tikzpicture}
-                            </script>
+                            <img src="assets/svg/arctan triangle incomplete.svg">
                             <p>We can use the pythagorean theorem ($a^2 + b^2 = c^2$) to find the hypotenuse</p>
                             <p>$$\begin{align}
                                 a^2 + b^2 &= c^2 \\
                                 x^2 + 1^2 &= c^2 \\
                                 c &= \sqrt{x^2 + 1}
                             \end{align}$$</p>
-                            <script type="text/tikz">
-                                \begin{tikzpicture}
-                                    \coordinate (a) at (0,0);
-                                    \coordinate (b) at (4,0);
-                                    \coordinate (c) at (4,2);
-                                    \draw (a) -- (b)node[midway, below]{1} -- (c)node[midway,right]{x} -- (a)node[midway,left, above, label={[rotate = 30,label distance=-.25cm]:{$\sqrt{x^2 + 1}$}}]{};
-                                    \draw pic[draw,fill=blue!30,angle radius=1.2cm,"$\theta$" shift={(2mm,1mm)}] {angle=b--a--c};
-                                    \fill[red!60!white] (3.5,0) rectangle (4,.5);                          
-                                    \end{tikzpicture}
-                            </script>
+                            <img src="assets/svg/arctan triangle.svg">
                             <p>Since $sec(\theta) = \frac{hypotenuse}{adjacent}$,</p>
                             <p>$$\begin{align}
                                 sec(\theta) = \frac{\sqrt{x^2 + 1}}{1}
