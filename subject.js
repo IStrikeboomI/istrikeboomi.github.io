@@ -5,7 +5,6 @@ subject = window.location.pathname;
 subject = subject.substring(subject.lastIndexOf("/") + 1);
 subject = subject.substring(0,subject.length - 5);
 subject = subject.replaceAll("%20"," ");
-console.log(subject);
 const content = document.getElementById("content");
 let title;
 for (let i = 0;i < json.length;i++) {
