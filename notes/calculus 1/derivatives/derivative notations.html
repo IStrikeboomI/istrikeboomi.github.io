@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="content">
+            <p>The way you write taking the derivative of $f(x)$</p>
+            <p>$$\frac{d}{dx}f(x)$$</p>
+            <p>It's important to know $\frac{d}{dx}$ is an <b>OPERATOR</b> that is applied to $f(x)$</p>
+            <p>The $dx$ in the denominator means we are differentiating in respect to the variable $x$</p>
+            <p>For Example if we had a function for distance in respect to time, $s(t)$, we would take the derivative by: </p>
+            <p>$$\frac{d}{dt} s(t)$$</p>
+            <p>Here are the different ways to write the derivative for $f(x)$</p>
+            <p>This is the final answer, not the operation</p>
+            <p>Lagrange's Notation: </p>
+            <p>$$f'(x)$$</p>
+            <p>Leibniz's Notation: </p>
+            <p>$$\frac{dy}{dx} \text{ or } \frac{df(x)}{dx}$$</p>
+            <p>Euler's Notation: </p>
+            <p>$$D_{x}f(x)$$</p>
+            <p>Newtons's Notation: </p>
+            <p>$$\dot{y}$$</p>
+            <p>Euler's and Newton's notation is rarely ever used</p>
+            <p>Lagrange's Notation is the most common for single variable calculus (like calculus 1)</p>
+            <p>Leibniz's Notation is more common in physics and multi-variable calculus</p>
+            <p>We will be using Lagrange's notation most in these notes</p>
+            <h3>Higher Order Derivatives</h3>
+            <p>Since the derivative of a function outputs another function, we can also take the derivative of this function</p>
+            <p>Taking the derivative of the derivative is called the 2nd derivative</p>
+            <p>Taking the derivative of a function n times is called the nth derivative</p>
+            <p>There are many reasons why you would need to take the derivative multiple times</p>
+            <p>For Example, if $s(t)$ is distance, then the derivative of $s(t)$ is velocity, and the derivative of the derivative of $s(t)$ is acceleration</p>
+            <p>Here is the <b>OPERATOR</b> for taking the nth derivative of $f(x)$</p>
+            <p>$$\frac{d^n}{{dx}^n}f(x)$$</p>
+            <p>Here are the different ways to write the nth derivative for $f(x)$</p>
+            <p>Lagrange's Notation: </p>
+            <p>$$f''(x)$$</p>
+            <p>$$f'''(x)$$</p>
+            <p>$$f^{(4)}(x)$$</p>
+            <p>You keep adding tick marks (') until you get 4 or higher where you then just write the nth in parenthese</p>
+            <p>Leibniz's Notation: </p>
+            <p>$$\frac{d^{n}y}{{dx}^n} \text{ or } \frac{d^{n}f(x)}{{dx}^n}$$</p>
+            <p>Euler's Notation: </p>
+            <p>$$D_{x}^{n}f(x)$$</p>
+            <p>Newtons's Notation: </p>
+            <p>$$\ddot{y}$$</p>
+            <p>$$\dddot{y}$$</p>
+            <p>You keep adding dots (.) on top until you get 4 or higher where you then just write the nth on top</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>If the derivative of $f(x) = 2x^3 + 4x^2 - x + 1$ is $6x^2 + 8x - 1$, what are the ways to write this?</summary>
+                            <p>$$f'(x) = 6x^2 + 8x - 1$$</p>
+                            <p>$$\frac{dy}{dx} = 6x^2 + 8x - 1$$</p>
+                            <p>$$D_{x}f(x) = 6x^2 + 8x - 1$$</p>
+                            <p>$$\dot{y} = 6x^2 + 8x - 1$$</p>
+                        </details>
+                        <details>
+                            <summary>If the derivative of $f(x) = x^9 + 4x^4 + x - 1$ is $9x^8 + 16x^3 + 1$, write this in Lagrange and Leibniz notation</summary>
+                            <p>$$f'(x) = 9x^8 + 16x^3 + 1$$</p>
+                            <p>$$\frac{dy}{dx} = 9x^8 + 16x^3 + 1$$</p>
+                        </details>
+                        <details>
+                            <summary>Rewrite $\frac{d}{dx}x^2 = 2x$ in Lagrange and Leibniz notation</summary>
+                            <p>$$f'(x) = 2x$$</p>
+                            <p>$$\frac{dy}{dx} =  2x$$</p>
+                        </details>
+                        <details>
+                            <summary>If the 2nd derivative of $f(x) = 3x^3 + 2x^2 + x$ is $18x + 4$, write this in Lagrange and Leibniz notation</summary>
+                            <p>$$f''(x) = 18x + 4$$</p>
+                            <p>$$\frac{d^2y}{dx^2} =  18x + 4$$</p>
+                        </details>
+                        <details>
+                            <summary>Rewrite $f'(x) = 4x^2$ in Leibniz notation and using the derivative operator</summary>
+                            <p>$$\frac{d}{dx}f(x) = 4x^2$$</p>
+                            <p>$$\frac{dy}{dx} = 4x^2$$</p>
+                        </details>
+                        <details>
+                            <summary>Rewrite $f^{4}(x) = 2$ in Leibniz notation and using the derivative operator</summary>
+                            <p>$$\frac{d^4}{dx^4}f(x) = 2$$</p>
+                            <p>$$\frac{d^4y}{dx^4} = 2$$</p>
+                        </details>
+                        <details>
+                            <summary>Rewrite $\frac{d^3y}{dx^3} = x + 1$ in Lagrange notation and using the derivative operator</summary>
+                            <p>$$f'''(x) = x + 1$$</p>
+                            <p>$$\frac{d^3}{dx^3}f(x) = x+1$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>
+        <script src="/main.js"></script>
+    </body>
+</html>
