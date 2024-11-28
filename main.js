@@ -21,6 +21,49 @@ window.MathJax = {
         inlineMath: [['$', '$'], ['\\(', '\\)']]
     }
 };
+
+
+//create sidebar
+let sidebar = document.createElement("table");
+sidebar.id = "side-bar";
+
+//home
+let homeTr = document.createElement("tr");
+let homeTh = document.createElement("th");
+homeTh.classList.add("align-left-cell");
+let homeA = document.createElement("a");
+homeA.innerHTML = "Home";
+homeA.href = "/";
+homeTh.appendChild(homeA);
+homeTr.appendChild(homeTh);
+sidebar.appendChild(homeTr);
+
+//other
+let otherTr = document.createElement("tr");
+let otherTh = document.createElement("th");
+otherTh.classList.add("align-left-cell");
+let otherA = document.createElement("a");
+otherA.innerHTML = "Other";
+otherA.href = "/other.html";
+otherTh.appendChild(otherA);
+otherTr.appendChild(otherTh);
+sidebar.appendChild(otherTr);
+
+
+//empty gap in sidebar
+let emptyTr = document.createElement("tr");
+let emptyTh = document.createElement("th");
+emptyTh.classList.add("align-left-cell");
+emptyTr.appendChild(emptyTh);
+sidebar.appendChild(emptyTr);
+
+document.getElementsByTagName("body")[0].prepend(sidebar);
+
+//add Strike's Notes header to top of page
+let siteHeader = document.createElement("h1");
+siteHeader.innerHTML = "Strike's Notes";
+document.getElementsByTagName("body")[0].prepend(siteHeader);
+
 let json;
 let subject, topic, notesName;
 
@@ -68,7 +111,6 @@ if (request.status === 200) {
         }
     }
     //add to side bar
-    const sidebar = document.getElementById("side-bar");
     for (let i = 0;i < json.length;i++) {
         let tr = document.createElement("tr");
         let th = document.createElement("th");
