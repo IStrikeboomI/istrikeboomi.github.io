@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="content">
+            <p>A derivative of a function $f(x)$ can be formally written as:</p>
+            <p>$$f'(x) = \lim_{h \to 0}\frac{f(x+h) - f(x)}{h} \tag{1}$$</p>
+            <p>But, what does that even mean?</p>
+            <p>The derivative of a function $f(x)$ gives a new function that can be written many ways, commonly $f'(x)$</p>
+            <p>At a point $x = c$ (also can be written as $(c,f(c))$), then $f'(c)$ gives the <b>slope of the tangent line</b> at $x = c$</p>
+            <p>The tangent line at a point is the line that "just touches" the curve of $f(x)$ at $x=c$</p>
+            <img src="assets/svg/polynomial with tangent line.svg">
+            <p>In the above graph the blue curve is a polynomial and the red line is the <b>tangent line</b> at a point</p>
+            <h3>Why Is The Tangent Line Important?</h3>
+            <p>The tangent line can be interpreted as the <b>instantaneous rate of change</b></p>
+            <p>This is relevant because rate of change is used in many fields</p>
+            <p>For example if we had a function $d(t)$ which gave the distance in a time $t$</p>
+            <p>Then the derivative $d'(t)$ would be the rate of change of distance aka <b>velocity</b></p>
+            <p>TLDR, the derivative is rate of change</p>
+            <h3>So How Do We Calculate It?</h3>
+            <p>We can use the slope formula with rise over run</p>
+            <p>$$
+                \frac{Rise}{Run} = \frac{y_2 - y_1}{x_2 - x_1} \tag{2}
+            $$</p>
+            <p>The problem with this is we need 2 points, but we only have 1 point for a tangent line</p>
+            <p>So what we do is to create a second point that is some distance on the x-axis away from the first point at $x=c$</p>
+            <p>Point 1: $(c,f(c))$</p>
+            <p>Point 2: $(c +\Delta x,f(c + \Delta x))$</p>
+            <p>In Point 2, $\Delta x$ is the distance from the the first point's x coordinate</p>
+            <p>We can now apply the slope formula above</p>
+            <p>$$\frac{y_2 - y_1}{x_2 - x_1} = \frac{f(c + \Delta x) - f(c)}{c +\Delta x - c} = \frac{f(c + \Delta x) - f(c)}{\Delta x}$$</p>
+            <img src="assets/svg/polynomial with secant line long.svg">
+            <p>This doesn't look like a tangent line, because it's not, it's a <b>secant line</b> because it crosses at two points</p>
+            <p>But, if we make the distance $\Delta X$ smaller, the points get closer to each other</p>
+            <p>when the points get closer, the secant line resembles a tangent line</p>
+            <img src="assets/svg/polynomial with secant line short.svg">
+            <p>So what we do for a derivative is to the use the slope formula (2) above and take $\Delta x$ closer to 0 with a limit</p>
+            <p>The reason we take $\Delta x$ to 0 is because we want the distance $\Delta x$ between the points to be as small as possible</p>
+            <p>Combining this all together we get the <b>limit definition of a derivative</b>: </p>
+            <p>$$f'(x) = \lim_{h \to 0}\frac{f(x+h) - f(x)}{h} \tag{1}$$</p>
+            <p>For derivative of $f'(x)$ at a point $x = c$: </p>
+            <p>$$f'(c) = \lim_{h \to c}\frac{f(h) - f(c)}{h - c} \tag{2}$$</p>
+            <p>We also change the $\Delta x$ to an $h$ because it's easier to write, but they represent the same thing</p>
+            <p>Whenever taking the derivative of the function there are many different ways to express the derivative of a fucntion</p>
+            <p>Two common are: </p>
+            <p>$$\frac{d}{dx}f(x)$$</p>
+            <p>$$f'(x)$$</p>
+            <p>We go over more derivative notations in the next section</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>$\frac{d}{dx} 4x$</summary>
+                            <p>$$\begin{align}
+                                \frac{d}{dx}4x &= \lim_{h \to 0}\frac{4(x+h) - 4x}{h} \\
+                                &= \lim_{h \to 0}\frac{4x + 4h - 4x}{h} \\
+                                &= \lim_{h \to 0}\frac{4h}{h} \\
+                                &= \lim_{h \to 0}4 \\
+                                &= 4
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details >
+                            <summary>$\frac{d}{dx} x^2 + 3x - 2$</summary>
+                            <p>$$\begin{align}
+                                \frac{d}{dx} x^2 + 3x - 2 &= \lim_{h \to 0}\frac{(x+h)^2 + 3(x+h) - 2 - (x^2 + 3x - 2)}{h} \\
+                                &= \lim_{h \to 0}\frac{(x^2 + 2xh + h^2) + 3x+3h - 2 - (x^2 + 3x - 2)}{h} &&\text{Distribute polynomials}\\
+                                &= \lim_{h \to 0}\frac{h^2 + 2xh + 3h + x^2 + 3x - 2 - (x^2 + 3x - 2)}{h} &&\text{Rearrange Terms}\\
+                                &= \lim_{h \to 0}\frac{h^2 + 2xh + 3h}{h} &&\text{Cancel Like Terms}\\
+                                &= \lim_{h \to 0}\frac{h(h + 2x + 3)}{h} &&\text{Factor out $h$}\\
+                                &= \lim_{h \to 0}(h + 2x + 3) &&\text{Cancel Like Terms}\\
+                                &= 2x + 3 &&\text{Direct substitution}\\
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details >
+                            <summary>Find slope of the tangent line at $x=2$ for $f(x) = 2x^2 + 1$</summary>
+                            <p>We can solve this either using definition (1) and then plugging in x = 2</p>
+                            <p>Or, we can use definition (2) directly</p>
+                            <p>Using definition (1): </p>
+                            <p>$$\begin{align}
+                                \frac{d}{dx}2x^2 + 1 &= \lim_{h \to 0}\frac{2(x+h)^2 + 1 - (2x^2 + 1)}{h} \\
+                                &= \lim_{h \to 0}\frac{2(x^2 + 2xh + h^2) + 1 - (2x^2 + 1)}{h} \\
+                                &= \lim_{h \to 0}\frac{2x^2 + 4xh + 2h^2 + 1 - (2x^2 + 1)}{h} \\
+                                &= \lim_{h \to 0}\frac{4xh + 2h^2}{h} \\
+                                &= \lim_{h \to 0}\frac{2h(2x + h^2)}{h} \\
+                                &= \lim_{h \to 0} 2(2x + h^2) \\
+                                &= 2(2x) \\
+                                &= 4x \\
+                                \end{align}$$</p>
+                            <p>$$\begin{align}
+                                f'(x) &= 4x \\
+                                f(2) &= 8
+                                \end{align}$$</p>
+                            <p>Using definition (2): </p>
+                            <p>$$\begin{align}
+                                f'(2) &= \lim_{h \to 2}\frac{2h^2 + 1 - f(2)}{h - 2} \\
+                                &= \lim_{h \to 2}\frac{2h^2 + 1 - 9}{h - 2} \\
+                                &= \lim_{h \to 2}\frac{2h^2 - 8}{h - 2} \\
+                                &= \lim_{h \to 2}\frac{2(h^2 - 4)}{h - 2} \\
+                                &= \lim_{h \to 2}\frac{2(h - 2)(h + 2)}{h - 2} &&\text{Using difference of two squares} \\
+                                &= \lim_{h \to 2} 2(h + 2) \\
+                                &= 2(2 + 2) &&\text{Using direct substitution}\\
+                                &= 8\\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find $f'(x)$ for $f(x) = \sqrt{x}$</summary>
+                            <p>$$\begin{align}
+                                \frac{d}{dx} \sqrt{x} &= \lim_{h \to 0}\frac{\sqrt{x + h} - \sqrt{x}}{h} \\
+                                &= \lim_{h \to 0}\left(\frac{\sqrt{x + h} - \sqrt{x}}{h} \cdot \frac{\sqrt{x + h} + \sqrt{x}}{\sqrt{x + h} + \sqrt{x}}\right) &&\text{Multiply by conjugate} \\
+                                &= \lim_{h \to 0}\frac{(\sqrt{x + h})^2 - (\sqrt{x})^2}{h(\sqrt{x + h} + \sqrt{x})} &&\text{Using Difference of Two Squares}\\
+                                &= \lim_{h \to 0}\frac{x + h - x}{h(\sqrt{x + h} + \sqrt{x})} \\
+                                &= \lim_{h \to 0}\frac{h}{h(\sqrt{x + h} + \sqrt{x})} \\
+                                &= \lim_{h \to 0}\frac{1}{\sqrt{x + h} + \sqrt{x}} \\
+                                &= \frac{1}{\sqrt{x + 0} + \sqrt{x}} &&\text{Using Direct Substitution}\\
+                                &= \frac{1}{\sqrt{x} + \sqrt{x}} \\
+                                &= \frac{1}{2\sqrt{x}} \\
+                                f'(x) &= \frac{1}{2\sqrt{x}}
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
