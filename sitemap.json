@@ -13,6 +13,7 @@
                 "section":"Limits", 
                 "notes" : 
                 [
+                    {"name":"indeterminate forms", "title": "Indeterminate Forms"},
                     {"name":"continuity", "title": "Continuity (Continuous Functions)"}
                 ]
             },

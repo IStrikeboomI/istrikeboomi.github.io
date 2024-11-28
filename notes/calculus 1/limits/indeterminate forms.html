@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="content">
+            <p>When solving limits you might get a final answer that looks correct, but it might not work sometimes</p>
+            <p>If you end up with a limit's answer in one the <b>7</b> forms below, you are <b>NOT</b> at the final answer</p>
+            <p>$$ \frac{0}{0}, \frac{\infty}{\infty},\infty - \infty, 0^0, 0 \cdot \infty, 1^{\infty}, \infty^0,$$</p>
+            <p>If you do encounter one of these answers, you need to apply some sort of techniques to get rid of it</p>
+            <p>Here's an example of why \frac{0}{0} is not an acceptable answer</p>
+            <p>Observe the two limits below</p>
+            <p>$$\begin{align}
+            \lim_{x \to 0}\frac{sin(x)}{x} &= 1 \\
+            \lim_{x \to 3}\frac{x^2 + 2x - 15}{x - 3} &= 8 \\
+            \end{align}$$</p>
+            <p>If you used direct substituion, you would get $\frac{0}{0}$ for both, even though the actual answers are differnet</p>
+            <img src="assets/svg/indeterminate forms graph.svg">
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
