@@ -30,6 +30,14 @@ img {
     position:absolute;
     width: fit-content; 
 }
+#previous-note {
+    float: left;
+    padding-right: 50px;
+}
+#next-note {
+    float: right;
+    padding-left: 50px;
+}
 #side-bar {
     background-color: #eb9c36;
     border: 2px solid black;

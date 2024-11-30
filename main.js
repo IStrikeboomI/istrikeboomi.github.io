@@ -33,12 +33,8 @@ otherTr.appendChild(otherTh);
 sidebar.appendChild(otherTr);
 
 
-//empty gap in sidebar
-let emptyTr = document.createElement("tr");
-let emptyTh = document.createElement("th");
-emptyTh.classList.add("align-left-cell");
-emptyTr.appendChild(emptyTh);
-sidebar.appendChild(emptyTr);
+//horizontal line separator in sidebar
+sidebar.appendChild(document.createElement("hr"));
 
 document.getElementsByTagName("body")[0].prepend(sidebar);
 
@@ -86,10 +82,47 @@ if (request.status === 200) {
                                 content.prepend(header);
                                 console.log(n[k].title);
                                 document.title = n[k].title.replaceAll("$","");
+
+                                //create back and forth arrows for notes
+                                let previousNote = document.createElement("a");
+                                previousNote.id = "previous-note";
+                                let nextNote = document.createElement("a");
+                                nextNote.id = "next-note"
+                                //go back
+                                if (k != 0) {
+                                    previousNote.innerHTML = "<-- (" + s[j].section + ") " + n[k-1].title;
+                                    previousNote.href = "/notes/" + json[i].subject.toLowerCase() + "/" + s[j].section.toLowerCase() + "/" + n[k-1].name + ".html";
+                                } else {
+                                    //means this is first note in the section
+                                    if (j != 0) {
+                                        let previousSection = s[j - 1];
+                                        let previousSectionLastNote = previousSection.notes[previousSection.notes.length - 1];
+                                        previousNote.innerHTML = "<-- (" + s[j - 1].section + ") " + previousSectionLastNote.title;
+                                        previousNote.href = "/notes/" + json[i].subject.toLowerCase() + "/" + s[j - 1].section.toLowerCase() + "/" + previousSectionLastNote.name + ".html";
+                                    }
+                                }
+                                //go forth
+                                if (k != n.length - 1) {
+                                    nextNote.innerHTML = "(" + s[j].section + ") " + n[k+1].title + " -->";
+                                    nextNote.href = "/notes/" + json[i].subject.toLowerCase() + "/" + s[j].section.toLowerCase() + "/" + n[k+1].name + ".html";
+                                } else {
+                                    //means this is the last note in the section
+                                    if (j != s.length - 1) {
+                                        let nextSection = s[j + 1];
+                                        let nextSectionFirstNote = nextSection.notes[0];
+                                        console.log(nextSectionFirstNote);
+                                        nextNote.innerHTML = "(" + s[j + 1].section + ") " + nextSectionFirstNote.title + "-->";
+                                        nextNote.href = "/notes/" + json[i].subject.toLowerCase() + "/" + s[j + 1].section.toLowerCase() + "/" + nextSectionFirstNote.name + ".html";
+                                    }
+                                }
+                                
+                                content.prepend(nextNote);
+                                content.prepend(previousNote);
                             }
                         }
                     }
                 }
+
             }
         }
     }
