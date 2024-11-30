@@ -26,7 +26,8 @@
                     {"name":"derivatives of sin and cos", "title": "Derivative of $sin(x)$ and $cos(x)$"},
                     {"name":"derivatives of inverse functions", "title": "Derivative of Inverse Functions"},
                     {"name":"derivative of e^x", "title": "Derivative of $e^x$"},
-                    {"name":"derivative of ln(x)", "title": "Derivative of Logarithms"}
+                    {"name":"derivative of ln(x)", "title": "Derivative of Logarithms"},
+                    {"name":"logarithmic differentiation", "title": "Logarithmic Differentiation"}
                 ]
             },
             {

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Logarithmic differentiation is a technique that utilizes the property of logarithms to make solving difficult derivatives easier</p>
+            <p>Look at the following function</p>
+            <p>$$f(x) = \frac{x^4\sqrt{x+2}}{3^x(x^2 + 1)}$$</p>
+            <p>This would be a difficult derivative to solve using just previous rules</p>
+            <p>Instead, we could take the natural log of both sides and use logarithim rules to solve each part</p>
+            <p>Here are the following logarithim rules: </p>
+            <p>$$\begin{align}
+                ln(ab) &= ln(a) + ln(b) \tag{1} \\
+                ln(\frac{a}{b}) &= ln(a) - ln(b) \tag{2}\\
+                ln(a^b) &= b \cdot ln(a) \tag{3}
+            \end{align}$$</p>
+            <p>And then using the derivative of logarithim</p>
+            <p>$$\begin{align}
+                \frac{d}{dx} ln(u) = \frac{u'}{u} \tag{4} \\
+                \text{Where $u$ is a function of $x$}
+            \end{align}$$</p>
+            <p>So lets try to simplyify the function above</p>
+            <p>$$\begin{align}
+                f(x) &= \frac{x^4\sqrt{x+2}}{3^x(x^2 + 1)} \\
+                ln(f(x)) &= ln(\frac{x^4\sqrt{x+2}}{3^x(x^2 + 1)}) \\
+                ln(f(x)) &= ln(x^4\sqrt{x+2}) - ln({3^x(x^2 + 1)}) &&\text{Using (1)}\\
+                ln(f(x)) &= ln(x^4) + ln(\sqrt{x+2}) - (ln(3^x) + ln(x^2 + 1)) &&\text{Using (2)}\\
+                ln(f(x)) &= 4ln(x) + \frac{1}{2}ln(x+2) - (xln(3) + ln(x^2 + 1)) &&\text{Using (3)}\\
+            \end{align}$$</p>
+            <p>This simplified function is much easier to differentiate because we can use the sum rule for derivative to split it</p>
+            <p>Also, another easy way to use log rules for a fraction, if it's in the numerator the log is being added, if it's in the denominator the log is being subtracted</p>
+            <p>$$\begin{align}
+                ln(f(x)) &= 4ln(x) + \frac{1}{2}ln(x+2) - xln(3) - ln(x^2 + 1) \\
+                \frac{d}{dx} ln(f(x)) &= \frac{d}{dx}[4ln(x) + \frac{1}{2}ln(x+2) - xln(3) - ln(x^2 + 1)] \\
+                \frac{f'(x)}{f(x)} &= \left[\frac{4}{x} + \frac{1}{2(x+2)} - ln(3) - \frac{2x}{x^2 + 1}\right] &&\text{Using (4)}\\
+            \end{align}$$</p>
+            <p>We are not finished yet because we need $f'(x)$ by itself, we can achieve this by multiply $f(x)$ to the other side</p>
+            <p>$$\begin{align}
+                \frac{f'(x)}{f(x)} &= \left[\frac{4}{x} + \frac{1}{2(x+2)} - ln(3) - \frac{2x}{x^2 + 1}\right] \\
+                f'(x) &= f(x)\left[\frac{4}{x} + \frac{1}{2(x+2)} - ln(3) - \frac{2x}{x^2 + 1}\right] \\
+                f'(x) &= \left[\frac{x^4\sqrt{x+2}}{3^x(x^2 + 1)}\right]\left[\frac{4}{x} + \frac{1}{2(x+2)} - ln(3) - \frac{2x}{x^2 + 1}\right] \\
+            \end{align}$$</p>
+            <p>And we are done! We could simplify if we wanted to, but it's fine to leave like this</p>
+            <p>To recap, here are the steps</p>
+            <ol>
+                <li>Take $ln$ of both sides</li>
+                <li>Use log rules and simplify the right side</li>
+                <li>Take derivative of both sides</li>
+                <li>Multiply original function on both sides</li>
+            </ol>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>$\frac{d}{dx}x^x$</summary>
+                            <p>$$\begin{align}
+                                f(x) &= x^x \\
+                                ln(f(x)) &= xln(x) \\
+                                \frac{f'(x)}{f(x)} &= (x)(\frac{1}{x}) + (1)(ln(x)) &&\text{Using Product Rule} \\
+                                \frac{f'(x)}{f(x)} &= 1 + ln(x) &&\text{Simplify} \\
+                                f'(x) &= f(x)\left[1 + ln(x)\right] \\
+                                f'(x) &= (x^x)\left[1 + ln(x)\right] \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\frac{d}{dx}\frac{e^{4x}(x+3)^8}{(2x + 2)^2\sqrt{x}}$</summary>
+                            <p>$$\begin{align}
+                                f(x) &= \frac{e^{4x}(x+3)^8}{(2x + 2)^2\sqrt{x}} \\
+                                ln(f(x)) &= ln(\frac{e^{4x}(x+3)^8}{(2x + 2)^2\sqrt{x}}) \\
+                                ln(f(x)) &= 4xln(e) + 8ln(x+3) - 2ln(2x + 2) - \frac{1}{2}ln(x) \\
+                                ln(f(x)) &= 4x + 8ln(x+3) - 2ln(2x + 2) - \frac{1}{2}ln(x) &&\text{Simplify}\\
+                                \frac{d}{dx}ln(f(x)) &= \frac{d}{dx} \left[4x + 8ln(x+3) - 2ln(2x + 2) - \frac{1}{2}ln(x)\right]\\
+                                \frac{f'(x)}{f(x)} &= 4 + \frac{8}{x+3} - \frac{4}{2x + 2}  - \frac{1}{2x} \\
+                                f'(x) &= f(x)\left[4 + \frac{8}{x+3} - \frac{4}{2x + 2}  - \frac{1}{2x}\right] \\
+                                f'(x) &= \left[\frac{e^{4x}(x+3)^8}{(2x + 2)^2\sqrt{x}}\right]\left[4 + \frac{8}{x+3} - \frac{4}{2x + 2}  - \frac{1}{2x}\right]
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
