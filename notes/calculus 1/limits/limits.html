@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>The main idea behing limits is <b>approaching</b> a point on a graph for a function</p>
+            <p>The notation for a limit is: </p>
+            <p>$$\lim_{x \to c}f(x) = n$$</p>
+            <p>Here $f(x)$ is the function that we are approaching</p>
+            <p>$x$ is the variable for the function</p>
+            <p>$c$ is some constant value that we are approaching</p>
+            <p>$n$ is the answer for the limit</p>
+            <img src="assets/svg/function for limit.svg">
+            <p>Let's solve some limits for the graph above</p>
+            <p>$$\begin{align} 
+                \lim_{x \to -1}f(x) &= 1 \tag{1} \\
+                \lim_{x \to 1}f(x) &= 0 \\
+                \lim_{x \to 2}f(x) &= 2
+            \end{align}$$</p>
+            <p>The way you would say a limit like (1) is "As $x$ approaches $-1$, $f(x)$ approaches $1$"</p>
+            <p>While this just seems like plugging in numbers for $f(x)$, it's not about the value of $f(x)$ it's about what it approaches</p>
+            <img src="assets/svg/hole limit.svg">
+            <p>Here: </p>
+            <p>$$f(2) = -3$$</p>
+            <p>But the limit: </p>
+            <p>$$\lim_{x \to 2}f(x) = 2$$</p>
+            <p>Sometimes, the limit might not exist</p>
+            <img src="assets/svg/sided limit.svg">
+            <p>Here: </p>
+            <p>$$f(-1) = 0$$</p>
+            <p>But the limit: </p>
+            <p>$$\lim_{x \to -1}f(x) = DNE$$</p>
+            <p>The limit is <b>DNE</b>, which mean <b>"Does Not Exist"</b></p>
+            <p>The limit doesn't exist because on the left side the limit approaches 1, but the right side approaches -1</p>
+            <p>A limit is <b>DNE</b> if there is nothing to approach, or it is different both on sides</p>
+            <p>For Example: </p>
+            <img src="assets/svg/limit DNE.svg">
+            <p>Limits: </p>
+            <p>$$\begin{align} 
+                \lim_{x \to -3} f(x) &= 0 \\
+                \lim_{x \to -2} f(x) &= 0 \\
+                \lim_{x \to -1} f(x) &= DNE \\
+                \lim_{x \to 0} f(x) &= DNE \\
+                \lim_{x \to 1} f(x) &= 1 \\
+            \end{align}$$</p>
+            <h3>How Do We Solve Limits?</h3>
+            <p>For many limits, you don't have a graph provided, just a function</p>
+            <p>The most basic method is <b>direct substitution</b>, which is plugging in the x value</p>
+            <p>For Example: </p>
+            <p>$$\begin{align} 
+                \lim_{x \to 1}\frac{cos(\pi x)}{x} &= \frac{cos(\pi(1))}{(1)} \\
+                &= cos(\pi) \\
+                &= -1
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                \lim_{h \to -1}\frac{h^3 - 4h^2 + h - 6}{h - 5} &= \frac{(-1)^3 - 4(-1)^2 + (-1) - 6}{(-1) - 5}\\
+                &= \frac{-1 - 4(1) -1 - 6}{-1 - 5}\\
+                &= \frac{-12}{-6}\\
+                &= 2
+            \end{align}$$</p>
+            <p>Note: direct substituion will <b>NOT</b> work if it's one of the <a href="/notes/calculus 1/limits/indeterminate forms.html">indeterminate forms</a>, most commonly $\frac{0}{0}$</p>
+            <p>For Example: </p>
+            <p>$$\begin{align} 
+                \lim_{x \to 0}\frac{sin(x)}{x} &= \frac{sin(0)}{0}\\
+                &= \frac{0}{0}
+            \end{align}$$</p>
+            <p>So, direct substituion will <b>NOT</b> work for the limit above</p>
+            <p>In order to solve it you will need to use other methods (which we will learn later), or look at the graph</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>$ \lim_{x \to 1}\frac{4 - x}{x + 1} $</summary>
+                            <p>$$\begin{align} 
+                                \lim_{x \to 1}\frac{4 - x}{x + 1} &= \frac{4 - 1}{1 + 1}\\
+                                &= \frac{3}{2}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$ \lim_{x \to 3}\frac{x^2 - 5x + 6}{x - 3} $</summary>
+                            <p>$$\begin{align} 
+                                \lim_{x \to 3}\frac{x^2 - 5x + 6}{x - 3} &= \frac{3^2 - 5(3) + 6}{3 - 3}\\
+                                &= \frac{0}{0}
+                            \end{align}$$</p>
+                            <p>Since we got $\frac{0}{0}$ we can't use direct substituion</p>
+                            <p>We can instead look at the graph</p>
+                            <img src="assets/svg/graph with hole at 3.svg">
+                            <p>We can see that when x approaches 3, the function approaches 1</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$ \lim_{t \to e}ln(\sqrt{t}) $</summary>
+                            <p>$$\begin{align} 
+                                \lim_{t \to e}ln(\sqrt{t}) &= ln(\sqrt{e})\\
+                                &= \frac{1}{2}ln(e) &&\text{Using log property $ln(a^b) = bln(a)$}\\
+                                &= \frac{1}{2}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
