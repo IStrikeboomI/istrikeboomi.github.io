@@ -5,7 +5,6 @@ window.MathJax = {
     }
 };
 
-
 //create sidebar
 let sidebar = document.createElement("table");
 sidebar.id = "side-bar";
@@ -32,6 +31,16 @@ otherTh.appendChild(otherA);
 otherTr.appendChild(otherTh);
 sidebar.appendChild(otherTr);
 
+//random page
+let randomTr = document.createElement("tr");
+let randomTh = document.createElement("th");
+randomTh.classList.add("align-left-cell");
+let randomA = document.createElement("a");
+randomA.innerHTML = "Random Note";
+randomA.href = "javascript:goToRandomPage()";
+randomTh.appendChild(randomA);
+randomTr.appendChild(randomTh);
+sidebar.appendChild(randomTr);
 
 //horizontal line separator in sidebar
 sidebar.appendChild(document.createElement("hr"));
@@ -138,4 +147,11 @@ if (request.status === 200) {
         tr.appendChild(th);
         sidebar.appendChild(tr);
     }
+}
+//get random element in array
+Array.prototype.random = function () {
+    return this[Math.floor((Math.random()*this.length))];
+}
+function goToRandomPage() {
+    console.log("TODO: add random page redirect");
 }
