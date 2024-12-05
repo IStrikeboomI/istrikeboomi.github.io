@@ -1,0 +1,41 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+\tikzset{
+  jumpdot/.style={mark=*,solid},
+  excl/.append style={jumpdot,fill=white},
+  incl/.append style={jumpdot,fill=black},
+}
+\usetikzlibrary{arrows.meta}
+\pgfplotsset{compat=1.11}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  axis lines=middle,
+  grid=major,
+  xmin=-5,
+  xmax=5,
+  ymin=-5,
+  ymax=5,
+  xlabel=$x$,
+  ylabel=$y$,
+  xtick={-4,-3,...,4},
+  ytick={-4,-3,...,4},
+  %xticklabel = \empty,
+  %yticklabel = \empty,
+  tick style={very thick},
+  legend style={at={(rel axis cs:0,1)},anchor=north west,draw=none,inner sep=0pt, fill = none}
+]
+\addplot +[no markers, raw gnuplot, thick] gnuplot {
+      set contour base;
+      set cntrparam levels discrete 0.003;
+      unset surface;
+      set view map;
+      set isosamples 500;
+      splot exp(x*y)-2*y-x**2;
+    };
+\addplot[incl, draw=blue] coordinates {(1,0)};
+\addplot[green,very thick,domain=-5:5,samples=1000] gnuplot {-2*x + 2};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

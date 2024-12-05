@@ -13,7 +13,67 @@
     </head>
     <body>
         <div id="content">
-            test
+            <p>Imagine the implicit function $e^{xy} = 2y + x^2$</p>
+            <img src="assets/svg/implicit graph.svg">
+            <p>This function still has tangent lines at points, like at (-1, 0) </p>
+            <img src="assets/svg/implicit graph with tangent line.svg">
+            <p>Since this function has tangent lines, we can find the derivative for this</p>
+            <p>The end goal that we want is the derivative, $y'$ or $\frac{dy}{dx}$</p>
+            <p>The strategy we will use is implicit differentation</p>
+            <p>Implicit differentation steps: </p>
+            <ol>
+                <li>Take derivative of both sides (when you are taking derivative of y, you treat it like a normal derivative and then Multiply by $y'$ or $\frac{dy}{dx}$)</li>
+                <li>Distribute $\frac{dy}{dx}$</li>
+                <li>Move all $\frac{dy}{dx}$ to one side and everything without $\frac{dy}{dx}$ to the other side</li>
+                <li>Factor out $\frac{dy}{dx}$</li>
+                <li>Isolate $\frac{dy}{dx}$ by dividing the factored out part to the other side</li>
+            </ol>
+            <p>The reason we can treat y as a normal derivative and then multiply by $\frac{dy}{dx}$: </p>
+            <p>$$\begin{align} 
+                \frac{d}{dx}y = \frac{dy}{dx}
+            \end{align}$$</p>
+            <p>And then use chain rule to multiply by derivative of $y$ (which is $\frac{dy}{dx}$)</p>
+            <p>For example: </p>
+            <p>$$\begin{align} 
+                \frac{d}{dx} y^3
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                &\begin{array} {c | c}
+                    f(x) = x^3 & g(x) = y \\
+                    \hline 
+                    f'(x) = 3x^2 & g'(x) = \frac{dy}{dx}
+                \end{array} \\
+            \end{align}$$</p>
+            <p>For example:</p>
+            <p>$$\begin{align} 
+                \frac{d}{dx} y^3 = 2y^3 \cdot \frac{dy}{dx}
+            \end{align}$$</p>
+            <p>Lets solve the implicit function above: </p>
+            <p>$$\begin{align} 
+                e^{xy} &= 2y + x^2 \\
+                \frac{d}{dx} e^{xy}  &= \frac{d}{dx} 2y + x^2 &&\text{Step 1}\\
+                e^{xy} \cdot (\frac{d}{dx}(xy)   &= 2\frac{dy}{dx} + 2x &&\text{Still Step 1}\\
+                e^{xy} \cdot \left((1)(y) + (x)(\frac{dy}{dx})\right)  &= 2\frac{dy}{dx} + 2x &&\text{Still Step 1}\\
+                e^{xy}y + e^{xy}x\frac{dy}{dx}  &= 2\frac{dy}{dx} + 2x &&\text{Step 2}\\
+                e^{xy}x\frac{dy}{dx} - 2\frac{dy}{dx}  &= 2x - e^{xy}y &&\text{Step 3}\\
+                \frac{dy}{dx}\left(e^{xy}x - 2\right)  &= 2x - e^{xy}y &&\text{Step 4}\\
+                \frac{dy}{dx}  &= \frac{2x - e^{xy}y}{e^{xy}x - 2} &&\text{Step 5}\\
+            \end{align}$$</p>
+            <p>And now we are done!</p>
+            <p>If you want the slope of the tangent line at a point $(x,y)$ you plug it into the final $\frac{dy}{dx}$</p>
+            <p>If you want the equation of the tangent line at a point $(x_1,y_1)$ you use use point-slope form</p>
+            <p>$$\begin{align} 
+                y - y_1 = m(x - x_1)
+            \end{align}$$</p>
+            <p>Where $x_1$ is your x-coordinate, $y_1$ is your y-coordinate, and $m$ is your $\frac{dy}{dx}$ evaluated at $(x_1,y_1)$</p>
+            <p>So the equation of the function above at $(1,0)$ is</p>
+            <p>$$\begin{align} 
+                y - 0 &= \frac{2(1) - e^{(1)(0)}(0)}{e^{(1)(0)}(1) - 2}(x - 1) \\
+                y &= \frac{2 - 0}{e(0) - 2}(x - 1) \\
+                y &= \frac{2}{1 - 2}(x - 1) \\
+                y &= -2(x - 1) \\
+                y &= -2x + 2 \\
+            \end{align}$$</p>
             <hr>
             <details open>
                 <summary>Practice Problems</summary>
