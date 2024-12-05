@@ -1,1 +1,9 @@
-\tex
+#ignore tex extra files it creates, but keep the .tex
+tex/*.pdf
+tex/*.aux
+tex/*.bbl
+tex/*.log
+tex/*.pgf-plot.gnuplot
+tex/*.pgf-plot.table
+tex/*.synctex.gz
+tex/*.svg
