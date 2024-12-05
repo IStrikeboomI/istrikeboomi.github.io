@@ -86,7 +86,29 @@
                 <summary>Practice Problems</summary>
                 <ul class="no-bullets">
                     <li>
+                        <details>  
+                            <summary>$\frac{d}{dx} (x^2 + 8)^{14}$</summary>
+                            <p>$$\begin{align} 
+                                \frac{d}{dx} (x^2 + 8)^{14}
+                            \end{align}$$</p>
+                            <p>We could expand the expression and get a giant polynomial</p>
+                            <p>Or we could use chain rule</p>
+                            <p>$$\begin{align} 
+                                &\begin{array} {c | c}
+                                    f(x) = x^{14} & g(x) = x^2 + 8 \\
+                                    \hline 
+                                    f'(x) = 14x^{13} & g'(x) = 2x
+                                \end{array}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \frac{d}{dx} (x^2 + 8)^{14} &= 14(x^2 + 8)^{13} \cdot (2x)\\
+                                &= 28x(x^2 + 8)^{13}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
                         <details>
+                            
                             <summary>$\frac{d}{dx} xcos(2x^2)$</summary>
                             <p>$$\begin{align} 
                                 \frac{d}{dx} xcos(2x^2)
@@ -237,7 +259,7 @@
                         </details>
                     </li>
                     <li>
-                        <details open>
+                        <details>
                             <summary>Quotient Rule (Using limit defintion)</summary>
                             <p>$$\begin{align} 
                                 \frac{d}{dx} \frac{f(x)}{g(x)} &= \lim_{h \to 0} \left(\frac{\frac{f(x + h)}{g(x + h)} - \frac{f(x)}{g(x)}}{h}\right)\\
@@ -253,7 +275,7 @@
                                 &= \lim_{h \to 0} \left(\frac{1}{g(x + h)g(x)}\right) \cdot \left[\lim_{h \to 0}\frac{g(x)(f(x + h)- f(x))}{h} + \lim_{h \to 0}\frac{f(x)(g(x) - g(x + h))}{h}\right] &&\text{Factor out terms}\\
                                 &= \lim_{h \to 0} \left(\frac{1}{g(x + h)g(x)}\right) \cdot \left[\lim_{h \to 0}g(x) \cdot \lim_{h \to 0}\frac{f(x + h)- f(x)}{h} + \lim_{h \to 0}-f(x) \cdot \lim_{h \to 0}\frac{g(x + h) - g(x)}{h}\right] &&\text{Using limit product property}\\
                                 &= \left(\frac{1}{g(x + 0)g(x)}\right) \cdot \left[g(x) \cdot \lim_{h \to 0}\frac{f(x + h)- f(x)}{h} - f(x) \cdot \lim_{h \to 0}\frac{g(x) - g(x + h)}{h}\right] &&\text{Solve some limits}\\
-                                &= \left(\frac{1}{g(x)^2}\right) \cdot \left[g(x)f'(x) - f(x)g'(x)\right] &&\text{Solve some limits}\\
+                                &= \left(\frac{1}{g(x)^2}\right) \cdot \left[g(x)f'(x) - f(x)g'(x)\right] &&\text{Replace some limits with derivative defintion}\\
                                 &= \frac{g(x)f'(x) - f(x)g'(x)}{g(x)^2}&&\text{Multiply limits}\\
                                 &= \frac{f'(x)g(x) - g'(x)f(x)}{g(x)^2}&&\text{Rearrange Terms}\\
 
@@ -306,10 +328,35 @@
                         </details>
                     </li>
                     <li>
-                        <details>
+                        <details open>
                             <summary>Chain rule</summary>
                             <p>$$\begin{align} 
-
+                                (f \circ g)'(a) &= \lim_{x \to a}\frac{f(g(x) - f(g(a)))}{x-a} \\
+                                &= \lim_{x \to a}\frac{f(g(x) - f(g(a)))}{x-a} \cdot  \frac{g(x) - g(a)}{g(x)-g(a)} \\
+                                &= \lim_{x \to a}\frac{f(g(x) - f(g(a)))}{g(x)-g(a)} \cdot  \frac{g(x) - g(a)}{x - a} &&\text{Since we are multiplying fractions, we can switch terms}
+                            \end{align}$$</p>
+                            <p>The function on the right looks the limit defintion of derivative at a point a</p>
+                            <p>The left function looks like the limit defintion of derivatve at point g(a)</p>
+                            <p>But this wont work if $g(x) = g(a)$ because $g(x) - g(a) = 0$ which leads to a divsion by 0</p>
+                            <p>We can fix this though by taking both cases</p>
+                            <p>Let's create a new function $k(x)$</p>
+                            <p style="font-size:25px">$$\begin{align} 
+                                k(x) = \begin{cases}
+                                \frac{f(x) - f(g(a))}{x-g(a)} & \text{if } x \neq g(a)\\
+                                f'(g(a)) & \text{if } x = g(a)
+                                \end{cases}
+                            \end{align}$$</p>
+                            <p>$k(x)$ is continous at $g(a)$ because: </p>
+                            <p>$$\begin{align} 
+                                k(g(a)) = f'(g(a)) = \lim_{t \to g(a)} \frac{f(t) - f(g(a))}{t-g(a)} = \lim_{t \to g(a)} k(t)
+                            \end{align}$$</p>
+                            <p>So now we can do ($x \neq a$): </p>
+                            <p>$$\begin{align} 
+                                (f \circ g)'(a) &= \lim_{x \to a}\frac{f(g(x) - f(g(a)))}{g(x)-g(a)} \cdot  \frac{g(x) - g(a)}{x - a} \\
+                                &= \lim_{x \to a}k(g(x)) \cdot  \lim_{x \to a}\frac{g(x) - g(a)}{x - a} &&\text{Because left limit is $h(g(x))$} \\
+                                &= k(g(a)) \cdot \lim_{x \to a}\frac{g(x) - g(a)}{x - a} &&\text{Because $h(g(x))$ is continous} \\
+                                &= k(g(a)) \cdot g'(a) &&\text{Replace limit with derivative} \\
+                                &= f'(g(a)) \cdot g'(a)
                             \end{align}$$</p>
                         </details>
                     </li>
