@@ -79,10 +79,62 @@
                 <summary>Practice Problems</summary>
                 <ul class="no-bullets">
                     <li>
-                        <details>
-                            <summary>Practice 1</summary>
+                        <details >
+                            <summary>$\frac{d}{dx} \left(x^{2}y+xy^{3}=3\right)$</summary>
+                            <p>For this example I'm going to use $y'$ instead of $\frac{dy}{dx}$, but it means the same thing</p>
                             <p>$$\begin{align} 
-
+                                \frac{d}{dx} x^{2}y+xy^{3} &= 3 \\
+                                \frac{d}{dx} \left(x^{2}y+xy^{3}\right) &= \frac{d}{dx}(3) \\
+                                (2x)(y)+(x^2)(y') + (1)(y^3) + (x)(3y^2y') &= 0 \\
+                                2xy + y'x^2 + y^3 + y'3xy^2 &= 0 \\
+                                y'x^2+ y'3xy^2 &= -y^3 - 2xy \\
+                                y'(x^2+ 3xy^2) &= -y^3 - 2xy \\
+                                y' &= \frac{-y^3 - 2xy}{x^2+ 3xy^2} \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\frac{d}{dt} \left(cos(2t)+4sin(3y)=2y\right)$</summary>
+                            <p>For this example I'm going to be taking the derivative in respect to $t$ instead of $x$ to show how to do it for other variables</p>
+                            <p>$$\begin{align} 
+                                \frac{d}{dt} cos(2t)+4sin(3y) &= 2y \\
+                                \frac{d}{dt} \left(cos(2t)+4sin(3y)\right) &= \frac{d}{dt}\left(2y\right) \\
+                                -2sin(2t) + 12cos(3y)\frac{dy}{dt} &= 2\frac{dy}{dt} \\
+                                12cos(3y)\frac{dy}{dt} - 2\frac{dy}{dt} &= 2sin(2t)  \\
+                                \frac{dy}{dt} \left(12cos(3y) - 2\right) &= 2sin(2t)  \\
+                                \frac{dy}{dt} &= \frac{2sin(2t)}{12cos(3y) - 2}  \\
+                                \frac{dy}{dt} &= \frac{sin(2t)}{6cos(3y) - 1}  \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\frac{d}{dy} \left(\sqrt{yx} + sin(y) + e^x = x + y + 2\right)$</summary>
+                            <p>In this example we are differentating in respect to y instead of x</p>
+                            <p>$$\begin{align} 
+                                \frac{d}{dy} \sqrt{yx} + sin(y) + e^x &= x + y + 2\\
+                                \frac{d}{dy} \left(\sqrt{yx} + sin(y) + e^x\right) &= \frac{d}{dy}\left(x + y + 2\right)\\
+                                \frac{(1)(x) + (\frac{dx}{dy})(y)}{2\sqrt{yx}} + cos(y) + \frac{dx}{dy}e^x &= \frac{dx}{dy} + 1 + 0\\
+                                \frac{x+ y\frac{dx}{dy}}{2\sqrt{yx}} + cos(y) + \frac{dx}{dy}e^x &= \frac{dx}{dy} + 1\\
+                                \frac{x}{2\sqrt{yx}} + \frac{y\frac{dx}{dy}}{2\sqrt{yx}} + cos(y) + \frac{dx}{dy}e^x &= \frac{dx}{dy} + 1\\
+                                \frac{y\frac{dx}{dy}}{2\sqrt{yx}} + \frac{dx}{dy}e^x - \frac{dx}{dy} &=  1 - cos(y) - \frac{x}{2\sqrt{yx}} \\
+                                \frac{dx}{dy}\left[\frac{y}{2\sqrt{yx}} + e^x - 1\right] &=  1 - cos(y) - \frac{x}{2\sqrt{yx}} \\
+                                \frac{dx}{dy} &=  \frac{1 - cos(y) - \frac{x}{2\sqrt{yx}}}{\frac{y}{2\sqrt{yx}} + e^x - 1} \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\frac{d}{dx} \left(x^2 + y^2 = 3^2\right)$</summary>
+                            <p>This is also the function for a circle with a radius of 3</p>
+                            <p>$$\begin{align} 
+                                \frac{d}{dx} x^2 + y^2 &= 3^2\\
+                                \frac{d}{dx} \left(x^2 + y^2\right) &= \frac{d}{dx} \left(3^2\right)\\
+                                2x + 2y\frac{dy}{dx} &= 0\\
+                                2y\frac{dy}{dx} &= -2x\\
+                                \frac{dy}{dx} &= \frac{-2x}{2y}\\
+                                \frac{dy}{dx} &= -\frac{x}{y}\\
                             \end{align}$$</p>
                         </details>
                     </li>
