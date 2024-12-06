@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>We talked earlier about how limits that result in $\frac{0}{0}$ by direct substituion doesn't work</p>
+            <p>Solving limits algebraically is using algebra to simplyfy the limit to where direct substituion works</p>
+            <p>The main goal to prevent $\frac{0}{0}$ is to cancel out a term in the numerator and denominator that were going to 0</p>
+            <p>Imagine the limit: </p>
+            <p>$$\begin{align} 
+                \lim_{x \to 3}\frac{x^2 - 5x + 6}{x - 3} &= \frac{3^2 - 5(3) + 6}{3 - 3}\\
+                &= \frac{0}{0}
+            \end{align}$$</p>
+            <p>Direct substituion gives us \frac{0}{0}, so we need to simplyfy it so it can work</p>
+            <p>First technique is to factor</p>
+            <p>$$\begin{align} 
+                \lim_{x \to 3}\frac{x^2 - 5x + 6}{x - 3} &= \lim_{x \to 3}\frac{(x - 3)(x-2)}{x - 3}\\
+            \end{align}$$</p>
+            <p>We can cancel the $(x - 3)$</p>
+            <p>Normally when we cancel, it creates a hole, but since we are dealing with limits and approaching, we don't need to care about the hole</p>
+            <p>$$\begin{align} 
+                \lim_{x \to 3}\frac{(x - 3)(x-2)}{x - 3} &= \lim_{x \to 3}(x-2)\\
+                &= 3 - 2\\
+                &= 1
+            \end{align}$$</p>
+            <p>We get 1 and we can verify with the graph</p>
+            <img src="assets/svg/graph with hole at 3.svg">
+            <p>Another technique, commonly involving square roots, is to multiply by the conjugate</p>
+            <p>$$\begin{align} 
+                \lim_{x \to 4}\frac{\sqrt{x} - 2}{x - 4} &= \frac{\sqrt{4} - 2}{4 - 4}
+                &= \frac{0}{0}
+            \end{align}$$</p>
+            <p>With direct substituion, we get $\frac{0}{0}$</p>
+            <p>$$\begin{align} 
+                \lim_{x \to 4}\frac{\sqrt{x} - 2}{x - 4} &= \lim_{x \to 4}\frac{\sqrt{x} - 2}{x - 4} \cdot \frac{\sqrt{x} + 2}{\sqrt{x} + 2}
+            \end{align}$$</p>
+            <p>We multiply by the conjugate, because it is essentially multiplying by 1, we just rewrite 1 as $\frac{\sqrt{x} + 2}{\sqrt{x} + 2}$</p>
+            <p>$$\begin{align} 
+                \lim_{x \to 4}\frac{\sqrt{x} - 2}{x - 4} &= \lim_{x \to 4}\frac{\sqrt{x} - 2}{x - 4} \cdot \frac{\sqrt{x} + 2}{\sqrt{x} + 2}
+                &= \lim_{x \to 4}\frac{(\sqrt{x})^2 - (2)^2}{(x - 4)(\sqrt{x} + 2)} &&\text{We can distribute the numerator easily using difference of squares} \\
+                &= \lim_{x \to 4}\frac{x - 4}{(x - 4)(\sqrt{x} + 2)} \\
+                &= \lim_{x \to 4}\frac{1}{\sqrt{x} + 2} \\
+                &= \frac{1}{\sqrt{4} + 2} \\
+                &= \frac{1}{2 + 2} \\
+                &= \frac{1}{4} \\
+                \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>$ \lim_{x \to -1}\frac{x^3 + 1}{x + 1}$</summary>
+                            <p>$$\begin{align} 
+                                \lim_{x \to -1}\frac{x^3 + 1}{x + 1} &= \lim_{x \to -1}\frac{(x+1)(x^2 - x + 1)}{x + 1} &&\text{Using difference of cubes}\\
+                                &= \lim_{x \to -1}(x^2 - x + 1) \\
+                                &= (-1)^2 - (-1) + 1 \\
+                                &= 1 + 1 + 1 \\
+                                &= 3
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$ \lim_{x \to -2} \frac{(2 + x)^2 - (2 + x)}{x + 2}$</summary>
+                            <p>$$\begin{align} 
+                                \lim_{x \to -2} \frac{(2 + x)^2 - (2 + x)}{x + 2} &= \lim_{x \to -2} \frac{4 + 4x + x^2 - (2 + x)}{x + 2}\\
+                                &= \lim_{x \to -2} \frac{2 + 3x + x^2}{x + 2}\\
+                                &= \lim_{x \to -2} \frac{x^2 + 3x + 2}{x + 2} &&\text{Rearrange Terms}\\
+                                &= \lim_{x \to -2} \frac{(x + 2)(x + 1)}{x + 2}
+                                &= \lim_{x \to -2} (x + 1) \\
+                                &= -2 + 1 \\
+                                &= -1
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$ \lim_{x \to 1}\frac{x - 1}{x^2 + x - 2}$</summary>
+                            <p>$$\begin{align} 
+                                \lim_{x \to 1}\frac{x - 1}{x^2 + x - 2} &= \lim_{x \to 1}\frac{x - 1}{(x-1)(x+2)}\\
+                                &= \lim_{x \to 1}(x+2)\\
+                                &= 1 + 2\\
+                                &= 3
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$ \lim_{t \to 4}\frac{\frac{1}{t} - \frac{1}{4}}{t - 4}$</summary>
+                            <p>$$\begin{align} 
+                                \lim_{t \to 4}\frac{\frac{1}{t} - \frac{1}{4}}{t - 4} &= \lim_{t \to 4}\frac{\frac{4}{4t} - \frac{t}{4t}}{t - 4} &&\text{Make fractions on top match denominators}\\
+                                &= \lim_{t \to 4}\frac{\frac{4 - t}{4t}}{t - 4} &&\text{Add fractions}\\
+                                &= \lim_{t \to 4}\frac{4 - t}{4t(t - 4)} &&\text{Distribute fractions}\\
+                                &= \lim_{t \to 4}\frac{-(t - 4)}{4t(t - 4)} &&\text{Factor out negative in numerator to cancel later}\\
+                                &= \lim_{t \to 4}\frac{-1}{4t} &&\text{Cancel out terms}\\
+                                &= \frac{-1}{4(4)} \\
+                                &= -\frac{1}{16}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details >
+                            <summary>$\lim_{k \to 5}\frac{\sqrt{k^2 + 11} - 6}{k - 5}$</summary>
+                            <p>$$\begin{align} 
+                                \lim_{k \to 5}\frac{\sqrt{k^2 + 11} - 6}{k - 5} &= \lim_{k \to 5}\frac{\sqrt{k^2 + 11} - 6}{k - 5} \cdot \frac{\sqrt{k^2 + 11} + 6}{\sqrt{k^2 + 11} + 6} \\
+                                &= \lim_{k \to 5}\frac{(\sqrt{k^2 + 11})^2 - 6^2}{(k - 5)(\sqrt{k^2 + 11} + 6)} \\
+                                &= \lim_{k \to 5}\frac{k^2 + 11 - 36}{(k - 5)(\sqrt{k^2 + 11} + 6)} \\
+                                &= \lim_{k \to 5}\frac{k^2 - 25}{(k - 5)(\sqrt{k^2 + 11} + 6)} \\
+                                &= \lim_{k \to 5}\frac{(k - 5)(k + 5)}{(k - 5)(\sqrt{k^2 + 11} + 6)} \\
+                                &= \lim_{k \to 5}\frac{k + 5}{\sqrt{k^2 + 11} + 6} \\
+                                &= \frac{5 + 5}{\sqrt{5^2 + 11} + 6} \\
+                                &= \frac{10}{\sqrt{36} + 6} \\
+                                &= \frac{10}{6 + 6} \\
+                                &= \frac{10}{12} \\
+                                &= \frac{5}{6} \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
