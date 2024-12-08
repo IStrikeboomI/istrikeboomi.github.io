@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>There are many differnet defintions of the definite integrals, but here we focus on riemann sum</p>
+            <p>$$\begin{align} 
+                \int_{a}^b f(x) dx = D
+            \end{align}$$</p>
+            <p>Here, our lower bound ia $a$, and upper bound is $b$</p>
+            <p>We are integrating by the the function $f(x)$ in respect to $x$</p>
+            <p>The $D$ denotes the area under the curve of $f(x)$ between $a$ and $b$</p>
+            <p>The way we will achieve this is by building a number $n$ of rectangles of equal width below the curve, and adding them all up</p>
+            <img src="assets/svg/riemann sum with 3.svg">
+            <img src="assets/svg/riemann sum with 10.svg">
+            <img src="assets/svg/riemann sum with 25.svg">
+            <img src="assets/svg/riemann sum with 100.svg">
+            <p>Notice the more rectangles, the closer it apporaches the area</p>
+            <p>Time for some notation: </p>
+            <p>$n$ is the amount of rectangles</p>
+            <p>$\Delta x$ will denote the width of each rectangle, $\Delta x$ can be written as:</p>
+            <p>$$\begin{align} 
+                \Delta x = \frac{\text{Total width}}{\text{Number of rectangles}} = \frac{b - a}{n}
+            \end{align}$$</p>
+            <p>The height of the rectangle is $y$ or $f(x_i)$, where $x_i$ is x-coordinate of the $i$'th rectangle</p>
+            <p>$x_i$ can be rewritten as: </p>
+            <p>$$\begin{align} 
+                x_i = \left(a + \Delta x\cdot i\right)
+            \end{align}$$</p>
+            <p>We shift over by $a$ and then get to the $i$'th rectangle by Multiplying $\Delta x$ by $i$</p>
+            <p>We can then add the area of the rectangles with the following summation</p>
+            <p>$$\begin{align} 
+                \sum_{i = 1}^n f(x_i) \Delta x \\
+                \sum_{i = 1}^n f\left(a + \Delta x\cdot i\right) \Delta x \\
+                \sum_{i = 1}^n f\left(a + \left(\frac{b - a}{n}\right) i\right) \frac{b - a}{n}
+            \end{align}$$</p>
+            <p>Since the more rectangles, the closer it the area becomes to the true area</p>
+            <p>We use a limit and take $n$ to $\infty$</p>
+            <p>$$\begin{align} 
+                \int_{a}^b f(x) dx= \lim_{n \to \infty} \left[\sum_{i = 1}^n f(x_i) \Delta x\right] \\
+            \end{align}$$</p>
+            <p>We get the definition of the definite integral!</p>
+            <hr>
+            <p>As a sidenote, these summations show up many times when doing Riemann sums of polynomials</p>
+            <p>$$\begin{align} 
+                \sum_{i = 1}^n 1 &= n \\
+                \sum_{i = 1}^n i &= \frac{n(n+1)}{2} \\
+                \sum_{i = 1}^n i^2 &= \frac{n(n+1)(2n+1)}{6} \\
+                \sum_{i = 1}^n i^3 &= \left(\frac{n(n+1)}{2}\right)^2 \\
+            \end{align}$$</p>
+            <p>Applying these will make it easier to solve limits</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Find area under the curve of $f(x) = x^2$ between 0 and 3 using Riemann Sums</summary>
+                            <p>$$\begin{align} 
+                                \int_0^3 x^2dx 
+                            \end{align}$$</p>
+                            <p>Lets find $\Delta x$ and $x_i$</p>
+                            <p>$$\begin{align} 
+                                \Delta x = \frac{3 - 0}{n} = \frac{3}{n} \\
+                                x_i = \left(0 + \Delta x\cdot i\right) =  \frac{3i}{n}
+                            \end{align}$$</p>
+                            <p>Let's plug this into the defintion</p>
+                            <p>$$\begin{align} 
+                                \lim_{n \to \infty} \left[\sum_{i = 1}^n \left(\frac{3i}{n}\right)^2 \frac{3}{n}  \right]
+                            \end{align}$$</p>
+                            <p>We can solve this further</p>
+                            <p>$$\begin{align} 
+                                \lim_{n \to \infty} \left[\sum_{i = 1}^n \frac{9i^2}{n^2} \cdot \frac{3}{n}  \right] \\
+                                \lim_{n \to \infty} \left[\sum_{i = 1}^n \frac{27i^2}{n^3}  \right] \\
+                                \lim_{n \to \infty} \left[\sum_{i = 1}^n \frac{27}{n^3} i^2 \right] \\
+                                \lim_{n \to \infty} \frac{27}{n^3} \left[\sum_{i = 1}^ni^2 \right] &&\text{We can factor because it doesn't involve summation variable}\\
+                                \lim_{n \to \infty} \frac{27}{n^3} \cdot \frac{n(n + 1)(2n + 1)}{6} &&\text{Replace sum with $\sum x^2 property$}\\
+                                \lim_{n \to \infty} \frac{27n(n + 1)(2n + 1)}{6n^3}\\
+                                \lim_{n \to \infty} \frac{27(n + 1)(2n + 1)}{6n^2}\\
+                                \lim_{n \to \infty} \frac{54 n^2 + 81n + 27}{6n^2}\\
+                                \frac{54}{6}\\
+                                9
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \int_0^3 x^2dx = 9
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Solve $\int_4^6 4x + 3dx$ Using riemann sums</summary>
+                            <p>$$\begin{align} 
+                                \int_4^6 4x + 3dx 
+                            \end{align}$$</p>
+                            <p>Lets find $\Delta x$ and $x_i$</p>
+                            <p>$$\begin{align} 
+                                \Delta x = \frac{6 - 4}{n} = \frac{2}{n} \\
+                                x_i = \left(4 + \Delta x\cdot i\right) =  4 + \frac{2i}{n}
+                            \end{align}$$</p>
+                            <p>Let's plug this into the defintion</p>
+                            <p>$$\begin{align} 
+                                \lim_{n \to \infty} \left[\sum_{i = 1}^n \left(4\left(4 +\frac{2i}{n}\right) + 3\right) \frac{2}{n}  \right]
+                            \end{align}$$</p>
+                            <p>We can solve this further</p>
+                            <p>$$\begin{align} 
+                                \lim_{n \to \infty} \left[\sum_{i = 1}^n \left(4\left(4 +\frac{2i}{n}\right) + 3\right) \frac{2}{n}  \right] \\
+                                \lim_{n \to \infty} \left[\sum_{i = 1}^n \left(16 +\frac{8i}{n} + 3\right) \frac{2}{n} \right] \\
+                                \lim_{n \to \infty} \left[\sum_{i = 1}^n \left(19 +\frac{8i}{n}\right) \frac{2}{n} \right] \\
+                                \lim_{n \to \infty} \left[\sum_{i = 1}^n \frac{38}{n} +\frac{16i}{n^2} \right] \\
+                                \lim_{n \to \infty} \left[\sum_{i = 1}^n \frac{38}{n} + \sum_{i = 1}^n \frac{16i}{n^2} \right] &&\text{Using sum of summations property}\\
+                                \lim_{n \to \infty} \left[\frac{38}{n} \sum_{i = 1}^n 1 + \frac{16}{n^2}\sum_{i = 1}^n i \right] &&\text{Factor out of summation}\\
+                                \lim_{n \to \infty} \left[\frac{38}{n} \cdot n + \frac{16}{n^2} \cdot \frac{n(n+1)}{2}\right] &&\text{Using Summation Properties}\\
+                                \lim_{n \to \infty} \left[38 + \frac{16n(n+1)}{2n^2}\right]\\
+                                \lim_{n \to \infty} \left[38 + \frac{8(n+1)}{n}\right]\\
+                                \lim_{n \to \infty} \left[38 + \frac{8n+8}{n}\right]\\
+                                \lim_{n \to \infty} 38 + \lim_{n \to \infty} \frac{8n+8}{n} &&\text{Using Limit Sum Property}\\
+                                38 + 8 &&\text{Using Limit Sum Property}\\
+                                46
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \int_4^6 4x + 3dx = 46
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
