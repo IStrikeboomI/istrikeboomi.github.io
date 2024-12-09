@@ -28,7 +28,7 @@
             <h3>Proof</h3>
             <p>First, create a unit circle (circle with radius of 1)</p>
             <p>Next create an arc sector with an angle $\theta$</p>
-            <p>Using the arc sector length area $\theta \cdot r$, we get an arc length of $\theta$</p>
+            <p>Using the arc sector length formula, $\theta \cdot r$, we get an arc length of $\theta$</p>
             <img src="assets/svg/circle with arc.svg">
             <p>Lets make 2 right triangles</p>
             <p>One triangle is inside the circle with a hypotenuse of 1, we mark this triangle <span style="color: #00FF00;">green</span></p>
@@ -42,18 +42,18 @@
             \end{align}$$</p>
             <img src="assets/svg/circle with arc and triangles.svg">
             <p>Looking at the picture, we can see that the order of the length sizes are $sin(\theta)$, then $\theta$, then $tan(\theta)$</p>
-            <p>Since our limit variable x is approaching 0, it means if we plug 0 into the thetas, we get 0 for all if at 0</p>
+            <p>Since our limit variable x is approaching 0, it means if we plug 0 into all 3 $\theta$, we get 0 for all (making them equal)</p>
             <p>This can be expressed as the inequality: </p>
             <p>$$\begin{align} 
                 sin(\theta) \leq \theta \leq tan(\theta) \\
                 sin(\theta) \leq \theta \leq \frac{sin(\theta)}{cos(\theta)} &&\text{Rewrite tan as $\frac{sin}{cos}$}\\
                 \frac{1}{sin(\theta)} \geq \frac{1}{\theta} \geq \frac{cos(\theta)}{sin(\theta)} &&\text{Take Reciprocal (Don't forget to switch inequality signs)}\\
-                1 \geq \frac{sin(\theta)}{\theta} \geq cos(\theta)&&\text{Multiply each by $sin(\theta)$}\\
+                1 \geq \frac{sin(\theta)}{\theta} \geq cos(\theta)&&\text{Multiply term each by $sin(\theta)$}\\
             \end{align}$$</p>
             <p>We can apply squeeze theorem here</p>
             <p>$$\begin{align} 
-                \lim_{\theta \to 0}1 \geq \lim_{\theta \to 0}\frac{sin(\theta)}{\theta} \geq \lim_{\theta \to 0}cos(\theta) \\
-                1 \geq \lim_{\theta \to 0}\frac{sin(\theta)}{\theta} \geq 1 \\
+                \lim_{\theta \to 0}1 \geq &\lim_{\theta \to 0}\frac{sin(\theta)}{\theta} \geq \lim_{\theta \to 0}cos(\theta) \\
+                1 \geq &\lim_{\theta \to 0}\frac{sin(\theta)}{\theta} \geq 1 \\
             \end{align}$$</p>
             <p>This means that: </p>
             <p>$$\begin{align} 
@@ -65,9 +65,9 @@
             <p>$$\begin{align} 
                 \lim_{x \to 0}\frac{cos(x) - 1}{x} = 0
             \end{align}$$</p>
-            <p>We can use some algebra to manipulate the above limit so we can use (1) and direct substituion</p>
+            <p>We can use some algebra to manipulate the above limit so we can use (1), and then direct substituion</p>
             <p>$$\begin{align} 
-                \lim_{x \to 0}\frac{cos(x) - 1}{x} &= \lim_{x \to 0}\frac{cos(x) - 1}{x} \cdot \frac{cos(x) + 1}{cos(x) + 1} \\
+                \lim_{x \to 0}\frac{cos(x) - 1}{x} &= \lim_{x \to 0}\frac{cos(x) - 1}{x} \cdot \frac{cos(x) + 1}{cos(x) + 1} &&\text{Multiply By Conjugate} \\
                 &=  \lim_{x \to 0}\frac{cos(x)^2 - 1^2}{x(cos(x) + 1)} &&\text{Using Difference of Two Squares on Numerator} \\
                 &=  \lim_{x \to 0}\frac{-(-cos(x)^2 + 1)}{x(cos(x) + 1)} &&\text{Factor Out Negative Sign} \\
                 &=  \lim_{x \to 0} - \frac{1 - cos(x)^2}{x(cos(x) + 1)} \\ 
