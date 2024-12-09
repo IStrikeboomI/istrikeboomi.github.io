@@ -22,34 +22,6 @@
             <p>The graph has no breaks or sudden or jumps, which continues throughout the function, meaning it is continous</p>
             <p>Now observe the graph of $f(x) = sec^{-1}(x)$</p>
             <img src="assets/svg/arccos graph.svg">
-            <script type="text/tikz">
-                \usepackage{pgfplots}
-                \begin{document}
-                \begin{tikzpicture}
-                \begin{axis}[
-                axis lines=middle,
-                grid=major,
-                xmin=-5,
-                xmax=5,
-                ymin=-3,
-                ymax=5,
-                xlabel=$x$,
-                ylabel=$y$,
-                xtick={-4,-3,...,4},
-                ytick={-2,-1,...,4},
-                tick style={very thick},
-                legend style={
-                at={(rel axis cs:0,1)},
-                anchor=north west,draw=none,inner sep=0pt,fill=gray!10}
-                ]
-                \addplot[blue,thick,domain=-5:5,samples=10000] gnuplot {acos(1/x)};
-                \node[fill,circle,inner sep=1.5pt,label={above right:$(1,0)$}] at (1,0){};
-                \node[fill,circle,inner sep=1.5pt,label={above:$(-1,\pi)$}] at (-1,3.14){};
-                \addlegendentry{$y=sec^{-1}(x)$}
-                \end{axis}
-                \end{tikzpicture}
-                \end{document}
-            </script>
             <p>There is a sudden jump between $-1$ and $1$ showing that this is not continous</p>
             <p>A function that is <b>NOT</b> continuous is called <b>discontinuous</b></p>
             <p>For a more precise definition, a function $f(x)$ is continuous at $x=c$, if and only if </p>
@@ -62,6 +34,34 @@
             <p>If Criteria (1) and (3) are failed, then it is referd to as a <b>removable discontinuity</b> (This is what occurs with a hole)</p>
             <p>If Criteria (2) and (3) are failed, then it is referd to as a <b>non-removable discontinuity</b> or also <b>jump discontinuity</b></p>
             <p>If all criteria fail, then it is referd to as an <b>infinite discontinuity</b> if either side of the limit goes to infinity</p>
+            <hr>
+            <h3>What functions Are Continous?</h3>
+            <p>A lot of common functions are continous</p>
+            <p>All polynomials are continous</p>
+            <p>$sin(x)$ and $cos(x)$ are continous</p>
+            <p>All exponentials ($e^x$,$2^x$,$10^x$,...etc) are continous</p>
+            <p>All logarithms are continous on their domains</p>
+            <p>The list goes on and on</p>
+            <hr>
+            <h3>Continous Function Properties</h3>
+            <p>Using limit properties (the next note), you can see a lot of the properties can be used on continous functions</p>
+            <p>For the following, assume $f(x)$ and $g(x)$ are continous</p>
+            <p>Sum/Difference Property: </p>
+            <p>$$\begin{align} 
+                f(x) \pm g(x) \text{ Is Continous}
+            \end{align}$$</p>
+            <p>Product Property: </p>
+            <p>$$\begin{align} 
+                f(x) \cdot g(x) \text{ Is Continous}
+            \end{align}$$</p>
+            <p>Quotient Property: </p>
+            <p>$$\begin{align} 
+                \frac{f(x)}{g(x)} \text{ Is Continous (if $g(x) \neq 0$)}
+            \end{align}$$</p>
+            <p>Composition: </p>
+            <p>$$\begin{align} 
+                f(g(x)) \text{ Is Continous}
+            \end{align}$$</p>
         </div>  
         <script src="/main.js"></script>
     </body>
