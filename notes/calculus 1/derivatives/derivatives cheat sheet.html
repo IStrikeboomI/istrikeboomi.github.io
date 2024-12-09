@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Make sure to check out <a href="derivative notations.html">Derivative Notations</a> to understand the notation here</p>
+            <h3>Derivatives</h3>
+            <p>The derivative of $f(x)$ gives a function $f'(x)$</p>
+            <p>$f'(x)$ gives the slope of the tangent line, or the rate of change at $x$</p>
+            <p>Limit Defintion</p>
+            <p>$$\begin{align} 
+                f'(x) = \lim_{h \to 0}\frac{f(x + h) - f(x)}{h} \\
+                f'(a) = \lim_{x \to a}\frac{f(x) - f(a)}{x - a} 
+            \end{align}$$</p>
+            <hr>
+            <h3>Common Derivatives</h3>
+            <p>Assume $c$ is a constant</p>
+            <p>$$\begin{align} 
+                \begin{array}{| c | c | c | c |}
+                \hline
+                \frac{d}{dx} c = 0 &
+                \frac{d}{dx} x = 1 &
+                \frac{d}{dx} x^2 = 2x &
+                \frac{d}{dx} \sqrt{x} = \frac{1}{2\sqrt{x}} \\ \hline
+                \frac{d}{dx} x^2 = 2x  &
+                \frac{d}{dx} sin(x) = cos(x)  &
+                \frac{d}{dx} cos(x) = -sin(x)  &
+                \frac{d}{dx} tan(x) = sec^2(x)  \\ \hline
+                \frac{d}{dx} cot(x) = -csc^2(x)  &
+                \frac{d}{dx} sec(x) = sec(x)tan(x)  &
+                \frac{d}{dx} csc(x) = -csc(x)cot(x)  &
+                \frac{d}{dx} sin^{-1}(x) = \frac{1}{\sqrt{1-x^2}}  \\ \hline
+                \frac{d}{dx} cos^{-1}(x) = -\frac{1}{\sqrt{1-x^2}}  &
+                \frac{d}{dx} tan^{-1}(x) = \frac{1}{x^2 + 1}  &
+                \frac{d}{dx} cot^{-1}(x) = -\frac{1}{x^2 + 1}  &
+                \frac{d}{dx} sec^{-1}(x) = \frac{1}{|x|\sqrt{x^2 - 1}}  \\ \hline
+                \frac{d}{dx} csc^{-1}(x) = -\frac{1}{|x|\sqrt{x^2 - 1}}  &
+                \frac{d}{dx} c^x = c^xln(c) &
+                \frac{d}{dx} e^x = e^x &
+                \frac{d}{dx} ln(x) = \frac{1}{x} \\ \hline
+                \frac{d}{dx} log_c(x) = \frac{1}{ln(c)x} &
+                \frac{d}{dx} sinh(x) = cosh(x)  &
+                \frac{d}{dx} cosh(x) = sinh(x)  &
+                \frac{d}{dx} tanh(x) = sech^2(x)  \\ \hline
+                \frac{d}{dx} coth(x) = -csch^2(x)  &
+                \frac{d}{dx} sech(x) = -sech(x)tanh(x)  &
+                \frac{d}{dx} csch(x) = -csch(x)coth(x)  &
+                \frac{d}{dx} sinh^{-1}(x) = \frac{1}{\sqrt{1-x^2}}  \\ \hline
+                \frac{d}{dx} cosh^{-1}(x) = \frac{1}{\sqrt{1-x^2}}  &
+                \frac{d}{dx} tanh^{-1}(x) = \frac{1}{1 - x^2}  &
+                \frac{d}{dx} coth^{-1}(x) = -\frac{1}{1 - x^2}  &
+                \frac{d}{dx} sech^{-1}(x) = \frac{1}{|x|\sqrt{1-x^2}}  \\ \hline
+                \frac{d}{dx} csch^{-1}(x) = -\frac{1}{|x|\sqrt{1 + x^2}}  &
+                \frac{d}{dx} y = \frac{dy}{dx} &
+                \frac{d}{dx} z = \frac{dz}{dx} &
+                \frac{d}{dx} t = \frac{dt}{dx} \\ \hline
+                \end{array}
+            \end{align}$$</p>
+            <hr>
+            <h3>Derivative Properties</h3>
+            <p>For the following, assume $f'(x)$ and $g'(x)$ exist and $c$ is a constant</p>
+            <p>Constant Coefficiant Property: </p>
+            <p>$$\begin{align} 
+                \frac{d}{dx} cf(x) = cf'(x)
+            \end{align}$$</p>
+            <p>Sum/Difference Property: </p>
+            <p>$$\begin{align} 
+                \frac{d}{dx} f(x) \pm g(x) = f'(x) \pm g'(x)
+            \end{align}$$</p>
+            <p>Power Rule: </p>
+            <p>$$\begin{align} 
+                \frac{d}{dx} x^c = cx^{c-1}
+            \end{align}$$</p>
+            <p>Product Rule: </p>
+            <p>$$\begin{align} 
+                \frac{d}{dx} f(x)g(x) = f'(x)g(x) + g'(x)f(x)
+            \end{align}$$</p>
+            <p>Quotient Rule: </p>
+            <p>$$\begin{align} 
+                \frac{d}{dx} \frac{f(x)}{g(x)} = \frac{f'(x)g(x) - g'(x)f(x)}{g(x)^2}
+            \end{align}$$</p>
+            <p>Chain Rule: </p>
+            <p>$$\begin{align} 
+                \frac{d}{dx} f(g(x)) = g'(x)f'(g(x))
+            \end{align}$$</p>
+        </div>
+        <script src="/main.js"></script>
+    </body>
+</html>

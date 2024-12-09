@@ -34,7 +34,8 @@
                     {"name":"derivative of ln(x)", "title": "Derivative of Logarithms"},
                     {"name":"implicit differentiation", "title": "Implicit Differentiation"},
                     {"name":"trig and inverse derivatives", "title": "Trig (and Inverse) derivatives"},
-                    {"name":"logarithmic differentiation", "title": "Logarithmic Differentiation"}
+                    {"name":"logarithmic differentiation", "title": "Logarithmic Differentiation"},
+                    {"name":"derivatives cheat sheet", "title": "Derivatives Cheat Sheet"}
                 ]
             },
             {
