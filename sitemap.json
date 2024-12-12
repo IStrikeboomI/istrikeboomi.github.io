@@ -45,6 +45,7 @@
                 "section":"Integrals", 
                 "notes" : 
                 [
+                    {"name":"integration by substitution", "title": "Integration By Substitution (U-Sub)"},
                     {"name":"definition of the definite integral", "title": "Definition of the Definite Integral"}
                 ]
             }
