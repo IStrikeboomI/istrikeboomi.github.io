@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>When solving limits, it's easier to split the limits up and solve each indivually</p>
+            <p>This is what limit properties achieve</p>
+            <p>Assume that $\lim_\limits{x \to c} f(x)$ and $\lim_\limits{x \to c} g(x)$ exist</p>
+            <p>Sum/Difference Property: </p>
+            <p>$$\begin{align} 
+                \lim_{x \to c} \left[f(x) \pm g(x)\right] = \lim_{x \to c} f(x) \pm \lim_{x \to c} g(x)  
+            \end{align}$$</p>
+            <p>Constant Coefficient Property: </p>
+            <p>$$\begin{align} 
+                \lim_{x \to c} \left[cf(x)\right] = c \lim_{x \to c} f(x) 
+            \end{align}$$</p>
+            <p>Product Property: </p>
+            <p>$$\begin{align} 
+                \lim_{x \to c} \left[f(x) \cdot g(x)\right] = \lim_{x \to c} f(x) \cdot \lim_{x \to c} g(x)  
+            \end{align}$$</p>
+            <p>Quotient Property: </p>
+            <p>$$\begin{align} 
+                \lim_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim_\limits{x \to c} f(x)}{\lim_\limits{x \to c} g(x)} 
+            \end{align}$$</p>
+            <p>Composition Property: </p>
+            <p>$$\begin{align} 
+                \lim_{x \to c} f(g(x)) = f(\lim_{x \to c}g(x)) &&\text{If $f(x)$ is continous at $x=L$ where $\lim_{x \to c}g(x)=L$} 
+            \end{align}$$</p>
+            <p>The composition property also means you switch the $f(x)$ and the limit</p>
+            <hr>
+            <details open>
+                <p>Note: For all the proofs we will be using the formal defintion for limits, which we haven't done yet</p>
+                <p>If you want to know the proofs I suggest you learn the formal defintion first, and then learn the proofs</p>
+                <summary>Proofs</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Proof of Sum/Difference Property</summary>
+                            <p>$$\begin{align} 
+
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Proof of Product Property</summary>
+                            <p>$$\begin{align} 
+
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Proof of Quotient Property</summary>
+                            <p>$$\begin{align} 
+
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Proof of Composition Property</summary>
+                            <p>$$\begin{align} 
+
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

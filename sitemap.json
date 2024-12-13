@@ -16,6 +16,8 @@
                     {"name":"limits", "title": "Limits"},
                     {"name":"solving limits algebraically", "title": "Solving Limits Algebraically"},
                     {"name":"indeterminate forms", "title": "Indeterminate Forms"},
+                    {"name":"continuity", "title": "Continuity (Continuous Functions)"},
+                    {"name":"limit properties", "title": "Limit Properties"},
                     {"name":"sided limits", "title": "Sided limits"},
                     {"name":"limit of sin(x) over x approaching 0", "title": "An Important Limit $\\left(\\lim\\limits_{x \\to 0}\\frac{sin(x)}{x}\\right)$"}
                 ]
@@ -34,13 +36,17 @@
                     {"name":"derivative of ln(x)", "title": "Derivative of Logarithms"},
                     {"name":"implicit differentiation", "title": "Implicit Differentiation"},
                     {"name":"trig and inverse derivatives", "title": "Trig (and Inverse) derivatives"},
-                    {"name":"logarithmic differentiation", "title": "Logarithmic Differentiation"}
+                    {"name":"logarithmic differentiation", "title": "Logarithmic Differentiation"},
+                    {"name":"mean value and rolles theorem", "title": "Mean Value and Rolle's Theorem"},
+
+                    {"name":"derivatives cheat sheet", "title": "Derivatives Cheat Sheet"}
                 ]
             },
             {
                 "section":"Integrals", 
                 "notes" : 
                 [
+                    {"name":"integration by substitution", "title": "Integration By Substitution (U-Sub)"},
                     {"name":"definition of the definite integral", "title": "Definition of the Definite Integral"}
                 ]
             }

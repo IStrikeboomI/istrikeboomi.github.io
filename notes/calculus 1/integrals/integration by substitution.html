@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Integration By Substituion (or U-sub) is a powerful technique to solve integrals</p>
+            <p>Think of it as the inverse of the chain rule (for derivatives)</p>
+            <p>U-sub is used to solve integrals in the form of</p>
+            <p>$$\begin{align} 
+                \int{g'(x)f'(g(x))dx}
+            \end{align}$$</p>
+            <p>If you notice, the inner part is the output of the chain rule</p>
+            <p>By transforming it into an integral in the form of</p>
+            <p>$$\begin{align} 
+                \int{f'(u)du}
+            \end{align}$$</p>
+            <p>What we did was to replace the $g(x)$ with a variable $u$ and replace the $g'(x)dx$ with $du$</p>
+            <p>Then we integrate in respect to $u$, and at the end replace $u$ with $g(x)$</p>
+            <p>It's important to note that when you convert from $dx$ to $du$, all the variables in the integrand need to be in the form of $u$</p>
+            <p>The variable $u$ is not important either, it can be any variable such as $v$, $p$, $\theta$, etc...</p>
+            <hr>
+            <h3>Examples</h3>
+            <p>$$\begin{align} 
+                \int{6x^2(2x^3 +1)^3dx}
+            \end{align}$$</p>
+            <p>Here, our inner function is inside the parenthes, so we should take $u = 2x^3 + 1$</p>
+            <p>$$\begin{align} 
+                &\int{6x^2(2x^3 +1)^3dx} \\
+                u &= 2x^3+1 \\
+                \frac{du}{dx} = 6x^2 &\rightarrow du = 6x^2dx
+            \end{align}$$</p>
+            <p>Then we replace our new terms in the integrand</p>
+            <p>$$\begin{align} 
+                &\int{u^3du} \\
+                &\frac{u^4}{4} + C \\
+                &\frac{(2x^3 +1)^4}{4} + C \\
+                \int{6x^2(2x^3 +1)^3dx} &= \frac{(2x^3 +1)^4}{4} + C
+            \end{align}$$</p>
+            <br>
+            <p>Lets do another example</p>
+            <p>$$\begin{align} 
+                &\int{xe^{x^2}dx} \\
+                u &= x^2 \\
+                du &= 2xdx
+            \end{align}$$</p>
+            <p>Now here, we don't have a $2x$ to replace, but we do have an $x$, so we can cleverly use integration properties to our advantage</p>
+            <p>We can introduce a $2x$ by putting a $2$ inside the integral and a $\frac{1}{2}$ outside the integral</p>
+            <p>Another thing we can do is divide $du$ by $2$ so the right-hand side is in the form of $xdx$</p>
+            <p>$$\begin{align} 
+                \frac{1}{2}&\int{2xe^{x^2}dx} \\
+                \frac{1}{2}&\int{e^{u}du} \\
+            \end{align}$$</p>
+            <p>OR</p>
+            <p>$$\begin{align} 
+                du &= 2xdx \\
+                \frac{du}{2} &= xdx \\
+                &\int{e^{u}\frac{du}{2}} \\
+                \frac{1}{2}&\int{e^udu} 
+            \end{align}$$</p>
+            <p>Both ways are fine because they ultimatley achieve the same goal, you can use this technique if there some constant coefficient</p>
+            <p>$$\begin{align} 
+                \frac{1}{2}&\int{e^udu} \\
+                \frac{1}{2}&\left(e^u\right) + C \\
+                &\frac{e^{x^2}}{2}+ C \\
+            \end{align}$$</p>
+            <hr>
+            <h3>U-Sub With Definite Integrals</h3>
+            <p>When you do U-Sub with definite integrals, you either need to solve the indefinite integral and use the FTC</p>
+            <p>Or you need to change the bounds of the integral</p>
+            <p>The way you change the bounds is by plugging the bound into the x in your subsitution</p>
+            <p>For example</p>
+            <p>$$\begin{align} 
+                &\int_{1}^{e}{\frac{ln(x)}{x}dx} \\
+                u &= ln(x) \\
+                du &= \frac{1}{x}dx
+            \end{align}$$</p>
+            <p>To change the bounds, plug them into $u$</p>
+            <p>$$\begin{align} 
+                &\int_{x=1}^{x=e}{\frac{ln(x)}{x}dx} \\
+                x = 1 &\rightarrow u = ln(1) = 0 \\
+                x = e &\rightarrow u = ln(e) = 1 \\
+                &\int_{u=0}^{u=1}{udu}  \\
+                &\int_{0}^{1}{udu}  \\
+                &\int_{0}^{1}{udu}  \\
+                &\left[\frac{u^2}{2}\right] \biggr\vert_{0}^{1} \\
+                \left[\frac{1^2}{2}\right] &- \left[\frac{0^2}{2}\right]\\
+                \int_{1}^{e}{\frac{ln(x)}{x}dx} &= \frac{1}{2}
+            \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details open>
+                            <summary>$\int{(3x+10)^{10}dx}$</summary>
+                            <p>$$\begin{align} 
+                                &\int{(3x+10)^{10}dx} \\
+                                u &= 3x + 10 \\
+                                du = 3dx &\rightarrow \frac{du}{3} = dx \\
+                                3&\int{u^{10}du} \\
+                                3&\left[\frac{u^{11}}{11}\right] + C \\
+                                &\frac{3(3x + 10)^{11}}{11} + C
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\int{\frac{sin(\pi/x)}{x^2}dx}$</summary>
+                            <p>$$\begin{align} 
+                                &\int{\frac{sin(\pi/x)}{x^2}dx} \\
+                                u &= \frac{\pi}{x} \\
+                                \frac{du}{dx} = -\frac{\pi}{x^2} &\rightarrow du = -\frac{\pi}{x^2}dx \rightarrow -\frac{du}{\pi} = \frac{1}{x^2}dx \\
+                                -\frac{1}{\pi}&\int{sin(u)dx} \\
+                                -\frac{1}{\pi}&\left[-cos(u)\right] + C \\
+                                -\frac{1}{\pi}&\left[-cos(\pi/x)\right] + C \\
+                                \int{\frac{sin(\pi/x)}{x^2}dx} &= \frac{cos(\pi/x)}{\pi} + C \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\int{\frac{sec^5(\sqrt{\theta})tan(\sqrt{\theta})}{\sqrt{\theta}} d\theta}$</summary>
+                            <p>$$\begin{align} 
+                                &\int{\frac{sec^5(\sqrt{\theta})tan(\sqrt{\theta})}{\sqrt{\theta}} d\theta} \\
+                                u &= \sqrt{\theta}\\
+                                du &= \frac{1}{2\sqrt{\theta}}dx \rightarrow 2du = \frac{1}{\sqrt{\theta}}dx \\
+                                2&\int{sec^5(u)tan(u)du} \\
+                                2&\int{sec^4(u)(sec(u)tan(u)du)} \\
+                                v &= sec(u) \\
+                                dv &= sec(u)tan(u)du \\
+                                2&\int{v^4dv} \\
+                                2&\left[\frac{v^5}{5}\right] + C\\
+                                2&\left[\frac{sec^5(u)}{5}\right] + C\\
+                                &\frac{2sec^5(\sqrt{\theta})}{5} + C\\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\int_{1}^{\sqrt{e}}{\frac{cos(\pi ln(x))}{x}dx}$</summary>
+                            <p>$$\begin{align} 
+                                &\int_{x = 1}^{x = \sqrt{e}}{\frac{cos(\pi ln(x))}{x}dx} \\
+                                u &= ln(x) \\
+                                du &= \frac{1}{x}dx \\
+                                x = 1 &\rightarrow u = 0 \\
+                                x = \sqrt{e} &\rightarrow u = \frac{1}{2} \\
+                                &\int_{0}^{1/2}{cos(\pi u)du} \\
+                                v &= \pi u \\
+                                dv = \pi du &\rightarrow \frac{dv}{\pi} = du\\
+                                u = 0 &\rightarrow v = 0 \\
+                                u = \frac{1}{2} &\rightarrow v = \frac{pi}{2} \\
+                                \frac{1}{\pi}&\int_{0}^{\pi/2}{cos(v)dv} \\
+                                \frac{1}{\pi}&\left[sin(v)\right] \biggr\vert_{0}^{\pi / 2} \\
+                                \frac{1}{\pi}\left[sin(\frac{\pi}{2})\right] &- \frac{1}{\pi}\left[sin(0)\right] \\
+                                \frac{1}{\pi}\left[1\right] &- \frac{1}{\pi}\left[0\right] \\
+                                &\frac{1}{\pi}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

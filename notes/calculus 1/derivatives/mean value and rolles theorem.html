@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <h3>Mean Value theorem</h3>
+            <p>If a function $f(x)$ is continous on $[a,b]$ and differentiable on $(a,b)$</p>
+            <p>Then, there is a point $c$ in $(a,b)$   ($c \in (a,b)$)</p>
+            <p>$$\begin{align} 
+                f'(c) = \frac{f(b) - f(a)}{b-a}
+            \end{align}$$</p>
+            <p>Or alternatively</p>
+            <p>$$\begin{align} 
+                f(b) - f(a) = f'(c)(b-a)
+            \end{align}$$</p>
+            <hr>
+            <h3>Rolle's Theorem</h3>
+            <p>If a function $f(x)$ is continous on $[a,b]$ and differentiable on $(a,b)$</p>
+            <p>And, $f(a) = f(b)$ $ a \neq b$</p>
+            <p>Then, there is a point $c$ in $(a,b)$   ($c \in (a,b)$)</p>
+            <p>$$\begin{align} 
+                f'(c) = 0
+            \end{align}$$</p>
+            <hr>
+            <h3>What Do Those Theorems Mean?</h3>
+            <p>If you notice in the mean value theorem output, you have the following fraction</p>
+            <p>$$\begin{align} 
+                \frac{f(b) - f(a)}{b-a}
+            \end{align}$$</p>
+            <p>This looks like the equation for a slope between two points</p>
+            <p>$$\begin{align} 
+                \frac{rise}{run} = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1} = \frac{f(b) - f(a)}{b-a}
+            \end{align}$$</p>
+            <p>What this tells us, is that there is a point within $(a,b)$</p>
+            <p>Where the tangent line of that point is parallel to the secant line of $(a, f(a))$ and $(b,f(b))$</p>
+            <p>Take a look at the graph</p>
+            <img src="assets/svg/mean value theorem.svg">
+            <p>The green point is in between the two blue points</p>
+            <p>The tangent line of the green point is parallel to the secant line of the two points</p>
+            <p>Since they are parallel, they share the same slope</p>
+            <br>
+            <p>Moving onto Rolle's Theorem</p>
+            <p>What Rolle's Theorem means is that if two points with different inputs have the same output</p>
+            <p>There must be an extrema or the function remains constant</p>
+            <p>This can be thought intutively as if they are the same output with differnet inputs</p>
+            <p>The function either stays the same, which means no rate of change so, $f'(c) = 0$</p>
+            <p>Or the function changes value and returns back</p>
+            <p>It could either increase or decrease, if so it has to do the opposite rate of change to move back to the original output</p>
+            <p>In that change from increase to decrease or decrease to increase, there has to be a point where it stops either, so either a maxima or minima</p>
+            <p>A min or max means an extrema, which means a critical point, which means $f'(c) = 0$</p>
+            <p>Take a look at the graph</p>
+            <img src="assets/svg/rolles theorem.svg">
+            <p>Both points are on a horizontal line with same output</p>
+            <p>The function starts increasing from the first point and then goes decreasing to get back to the second point</p>
+            <p>The point where the function stops increasing and goes to decreasing is an extrema, the rate of change there is 0</p>
+            <p>Therefore, $f'(c) = 0$</p>
+            <br>
+            <p>It's important to know that the Mean Value Theorem and Rolle's Theorem is about the existence of the point</p>
+            <p>They don't give ways to solve it, it just means you can solve it</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Find the point $c$ that works for Rolle's Theorem for $f(x) = sin(\pi x)$ on $[1,2]$</summary>
+                            <p>First, verify conditions</p>
+                            <p>$f(x)$ is differentiable everywhere, therefore continous everywhere</p>
+                            <p>$$\begin{align} 
+                                sin(\pi) &= 0 \\
+                                sin(2\pi) &= 0 \\
+                            \end{align}$$</p>
+                            <p>So we are allowed to use Rolle's Theorem</p>
+                            <p>$$\begin{align} 
+                                f(x) = sin(\pi x) \\
+                                f'(x) = \pi cos(\pi x)
+                            \end{align}$$</p>
+                            <p>Solving for 0, for Rolle's Theorem</p>
+                            <p>$$\begin{align} 
+                                \pi cos(\pi x) &= 0 \\
+                                cos(\pi x) &= 0 \\
+                                cos^{-1}(cos(\pi x)) &= cos^{-1}(0) \\
+                                \pi x &= \frac{\pi}{2} \\
+                                x &= \frac{1}{2}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the point $c$ that works for the Mean Value Theorem for $f(x) = x^3 - 2x^2 - 2$ on $[0,3]$</summary>
+                            <p>First, verify conditions</p>
+                            <p>$f(x)$ is a polynomial, so it's differentiable everywhere, therefore continous everywhere</p>
+                            <p>So we are allowed to use the mean value theorem</p>
+                            <p>$$\begin{align} 
+                                f'(c) = \frac{f(3) - f(0)}{7 - 2} = \frac{-2 - 7}{5} = -\frac{9}{5}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>If $f(x)$ is continous and differentiable everywhere and $f(1) = 3$ and $f'(x) \leq 2$, what's the largest possible value for $f(-3)$?</summary>
+                            <p>Since the function is continous and differentiable everywhere, we can use the Mean Value Theorem</p>
+                            <p>If we plug our known information into the the mean value theorem, </p>
+                            <p>$$\begin{align} 
+                                f'(x) &= \frac{f(1) - f(-1)}{1 - (-1)} \\
+                                f'(x) &= \frac{3 - f(-1)}{2} \\
+                                2f'(x) &= 3 - f(-1)\\
+                                2f'(x) -3 &= -f(-1) \\
+                                f(-1) &= -2f'(x) + 3 \\
+                            \end{align}$$</p>
+                            <p>Since the max value of $f'(x)$ is 2, and we are trying to find the max possible value for $f(0)$</p>
+                            <p>We plug the max value of $f'(x)$ in</p>
+                            <p>$$\begin{align} 
+                                f(-1) &= -2(2) + 3 \\
+                                f(-1) &= -1
+                            \end{align}$$</p>
+                            <p>So the largest possible value of $f(-1)$ is $-1$</p>
+                            <p>$$\begin{align} 
+                                f(-1) \leq -1
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Prove that $f(x) = x^3 - x^2 + 2x + 2$ has only 1 real root using Rolle's Theorem</summary>
+                            <p>$f(x)$ is a polynomial, so it's differentiable everywhere, therefore continous everywhere</p>
+                            <p>We can use this with the Rolle's, but we need a range</p>
+                            <p>We need to find a range where the only real root of $f(x)$ could be, we are going to use the Intermediate Value theorem</p>
+                            <p>$$\begin{align} 
+                                0 < &x < -1 \\
+                                f(0) < f(&x) < f(-1) \\
+                                2 < f(&x) < -2
+                            \end{align}$$</p>
+                            <p>By The Intermediate Value Theorem/Bolzano's Theorem there is a root between $[-1,0]$</p>
+                            <p>The interval itself isn't important, but it is important to know there is a root in there</p>
+                            <br>
+                            <p>From here, we are going to do a proof by contradiction</p>
+                            <p>Assume there are two roots $a$ and $b$, so $f(a) = f(b) = 0$</p>
+                            <p>So using Rolle's Theorem, there is a $c$ between $a$ and $b$, such that $f'(c) = 0$</p>
+                            <p>Since $c$ is between $a$ and $b$, $a$ and $b$ are real, therefore $c$ has to be real</p>
+                            <p>We have to solve for $c$ and show it is not real</p>
+                            <p>$$\begin{align} 
+                                f'(x) &= 3x^2 - 2x + 2 \\
+                                x = \frac{2 \pm \sqrt{4 - 24}}{6} &&\text{Using Quadratic Formula} \\
+                                x = \frac{2 \pm \sqrt{-20}}{6}
+                            \end{align}$$</p>
+                            <p>We can see there is no real answer because the square root has a negative inside it</p>
+                            <p>The first part we proved there is atleast 1 root, the second part we proved there can't be two or more roots</p>
+                            <p>Putting these both together we get there is only 1 root</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+            <hr>
+            <details open>
+                <summary>Proofs</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Proof of Mean Value Theorem</summary>
+                            <p>First create a function $g(x)$</p>
+                            <p>$$\begin{align} 
+                                g(x) &= f(x) - \frac{f(b) - f(a)}{b-a}x \\
+                                g'(x) &= f'(x) - \frac{f(b) - f(a)}{b-a}
+                            \end{align}$$</p>
+                            <p>With this function $g(x)$ There are two cases</p>
+                            <p>Case one: The min AND max are at $a$ and $b$</p>
+                            <p>This means that $g(x)$ is constant, so $g'(x) = 0$ at every point</p>
+                            <p>$$\begin{align}  
+                                0 &= f'(x) - \frac{f(b) - f(a)}{b-a} \\
+                                f'(x) &= \frac{f(b) - f(a)}{b-a}
+                            \end{align}$$</p>
+                            <br>
+                            <p>Case two: the extrema is inside $(a,b)$</p>
+                            <p>If there is an extrema, then there is a point $g'(c) = 0$</p>
+                            <p>$$\begin{align} 
+                                0 &= f'(c) - \frac{f(b) - f(a)}{b-a} \\
+                                f'(c) &= \frac{f(b) - f(a)}{b-a}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Proof of Rolle's Theorem</summary>
+                            <p>Rolle's Theorem is actually a special case of the Mean Value Theorem</p>
+                            <p>Since: </p>
+                            <p>$$\begin{align} 
+                                f(a) = f(b) \rightarrow f(b)-f(a) = 0
+                            \end{align}$$</p>
+                            <p>Plugging this into the Mean Value theorem</p>
+                            <p>$$\begin{align} 
+                                f'(c) = \frac{f(b) - f(a)}{b-a} = \frac{0}{b-a} = 0
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
