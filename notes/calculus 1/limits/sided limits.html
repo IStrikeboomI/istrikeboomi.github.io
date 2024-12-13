@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>When solving some limits, they might approach different values from either side</p>
+            <p>For example, take a look at the following graph: </p>
+            <img src="assets/svg/sided limit.svg">
+            <p>$$\begin{align} 
+                f(-1) &= 0 \\
+                \lim_{x \to -1} f(x) &= DNE
+            \end{align}$$</p>
+            <p>When approaching $-1$ from the left, you get 1</p>
+            <p>When approaching $-1$ from the right, you get -1</p>
+            <p>The way we solve this is to use sided limits</p>
+            <p>The way you write sided limits are the following</p>
+            <p style="font-size: 20px;">$$\begin{align} 
+                \lim_{x \to c^+} f(x) &&\text{Approaching $c$ from the Right} \\
+                \lim_{x \to c^-} f(x) &&\text{Approaching $c$ from the Left} \\
+            \end{align}$$</p>
+            <p>Notice the $+$ and the $-$ in the exponent position of the value the limit is approaching</p>
+            <p>The way I remember which is if there is a $+$, we start with a <b>bigger</b> number and approach $c$</p>
+            <p>The way I remember which is if there is a $-$, we start with a <b>smaller</b> number and approach $c$</p>
+            <p>Let's apply this to the function above</p>
+            <p style="font-size: 20px;">$$\begin{align} 
+                \lim_{x \to -1^+} f(x) &= -1 \\
+                \lim_{x \to -1^-} f(x) &= 1 \\
+            \end{align}$$</p>
+            <hr>
+            <p>In order for a regular limit (not sided) to exist, both sides of the limit must be the same value</p>
+            <p style="font-size: 20px;">$$\begin{align} 
+                \lim_{x \to c} f(x) \text{ exists if and only if }\\
+                \lim_{x \to c^+} f(x) = \lim_{x \to c^-} f(x)
+            \end{align}$$</p>
+            <p>It's also important to note a sided limit can't approach infinity</p>
+            <p>This is because there is nothing larger to the other side of infinity</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>$\lim_\limits{x \to 0^+} ln(x)$ (Hint: Use a graph)</summary>
+                            <p>Taking a look at the graph of $ln(x)$</p>
+                            <img src="assets/svg/ln graph.svg">
+                            <p>There is an asymptopte on the right side going to $-\infty$</p>
+                            <p>$$\begin{align} 
+                                \lim_\limits{x \to 0^+} ln(x) = -\infty
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find Limits And Values From The Graph (Expand To See Graph)</summary>
+                            <p>Below is the graph of $f(x)$, find the following</p>
+                            <p style="font-size: 20px;">$$\begin{align}
+                                \lim_\limits{x \to -2^+} f(x) \\
+                                \lim_\limits{x \to -2^-} f(x) \\
+                                f(3) \\
+                                \lim_\limits{x \to 3^+} f(x) \\
+                                \lim_\limits{x \to 3^-} f(x) \\
+                            \end{align}$$</p>
+                            <img src="assets/svg/3 piecewise graph.svg">
+                            <br><br><br><br><br><br><br><br><br><br><br><br>
+                            <p style="font-size: 20px;">$$\begin{align}
+                                \lim_\limits{x \to -2^+} f(x) = 4 \\
+                                \lim_\limits{x \to -2^-} f(x) = 0\\
+                                f(3) = 3\\
+                                \lim_\limits{x \to 3^+} f(x) = 1\\
+                                \lim_\limits{x \to 3^-} f(x) = -1\\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Show $\lim_\limits{x \to 3} \sqrt{x-3}$ is DNE</summary>
+                            <img src="assets/svg/sqrt graph shifted right 3.svg">
+                            <p>We show the limit is DNE by find both sides of the limit</p>
+                            <p style="font-size: 20px;">$$\begin{align} 
+                                \lim_\limits{x \to 3^-} \sqrt{x-3} = DNE \\
+                                \lim_\limits{x \to 3^+} \sqrt{x-3} = 0 \\
+                            \end{align}$$</p>
+                            <p>Since both sided limits are not the same, the limit does not exist</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find $\lim_\limits{x \to 4} f(x)$ of the piecewise function</summary>
+                            <p>$$\begin{align} 
+                                \lim_\limits{x \to 4} f(x)
+                            \end{align}$$</p>
+                            <p>Where $f(x)$ is</p>
+                            <p>$$\begin{align} 
+                                f(x) = \begin{cases}
+                                x^2 - 4x & \text{if } x < 4\\
+                                sin(\pi x) & \text{if } x > 4
+                                \end{cases}
+                            \end{align}$$</p>
+                            <p>The way we would find the limit at 4, is to take the sided limit on both sides</p>
+                            <p>When we approach $f(x)$ from the left, $x$ is smaller than $4$, so it's the first case</p>
+                            <p>When we approach $f(x)$ from the right, $x$ is larger than $4$, so it's the second case</p>
+                            <p style="font-size: 20px;">$$\begin{align} 
+                                \lim_\limits{x \to 4^+} f(x) = \lim_\limits{x \to 4^+} x^2 - 4x &= (4)^2 - 4(4) = 16 - 16 = 0 \\
+                                \lim_\limits{x \to 4^-} f(x) = \lim_\limits{x \to 4^-} sin(\pi x) &= sin(4\pi) = 0
+                            \end{align}$$</p>
+                            <p>Since both sided limits are the same, the limit does exist</p>
+                            <p>$$\begin{align} 
+                                \lim_\limits{x \to 4} f(x) = 0
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

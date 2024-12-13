@@ -13,29 +13,30 @@
   axis lines=middle,
   grid=major,
   xmin=-1,
-  xmax=4,
-  ymin=-1,
-  ymax=4,
+  xmax=6,
+  ymin=-2,
+  ymax=5,
   xlabel=$x$,
   ylabel=$y$,
-  xtick={-1,0,...,3},
-  ytick={-1,0,...,3},
+  xtick={-1,0,...,6},
+  ytick={-1,0,...,4},
   %xticklabel = \empty,
   %yticklabel = \empty,
   tick style={very thick},
   legend style={at={(rel axis cs:0,1)},anchor=north west,draw=none,inner sep=0pt, fill = white}
 ]
 
-\addplot[blue,thick,domain=-1:4,samples=1000] gnuplot {x**3-5*x**2+7*x-1};
+\addplot[blue,very thick,domain=-1:6,samples=1000] gnuplot {sqrt(x-3)};
 
-\draw[green,very thick] (1,0) -- (1,2);
-\draw[green,very thick] (3,0) -- (3,2);
+%\draw[green,very thick] (1,0) -- (1,2);
+%\draw[green,very thick] (3,0) -- (3,2);
 
-%\addplot[incl, draw=blue] coordinates {(0,0)};
-%\addplot[excl, draw=blue] coordinates {(3,1)};
+%\addplot[incl, draw=blue] coordinates {(3,3)};
+%\addplot[excl, draw=blue] coordinates {(-2,0)};
 
-\addlegendentry{$n = 100$}
-\end{axis}
+
+\addlegendentry{$y = \sqrt{x - 3}$};
+\end{axis};
 \end{tikzpicture}
 
 \end{document}

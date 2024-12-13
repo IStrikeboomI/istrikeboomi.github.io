@@ -16,7 +16,7 @@
                     {"name":"limits", "title": "Limits"},
                     {"name":"solving limits algebraically", "title": "Solving Limits Algebraically"},
                     {"name":"indeterminate forms", "title": "Indeterminate Forms"},
-                    {"name":"continuity", "title": "Continuity (Continuous Functions)"},
+                    {"name":"sided limits", "title": "Sided limits"},
                     {"name":"limit of sin(x) over x approaching 0", "title": "An Important Limit $\\left(\\lim\\limits_{x \\to 0}\\frac{sin(x)}{x}\\right)$"}
                 ]
             },
