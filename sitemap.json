@@ -20,6 +20,7 @@
                     {"name":"limit properties", "title": "Limit Properties"},
                     {"name":"limits with infinity", "title": "Limits With Infinity"},
                     {"name":"sided limits", "title": "Sided limits"},
+                    {"name":"squeeze theorem", "title": "Squeeze Theorem"},
                     {"name":"limit of sin(x) over x approaching 0", "title": "An Important Limit $\\left(\\lim\\limits_{x \\to 0}\\frac{sin(x)}{x}\\right)$"}
                 ]
             },

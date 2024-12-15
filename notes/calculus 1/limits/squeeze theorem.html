@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>The Squeeze Theorem States:</p>
+            <p>For all $x$ on $[a,b]$ (except possibly $c$)</p>
+            <p>$$\begin{align} 
+                h(x) \leq f(x) \leq g(x)
+            \end{align}$$</p>
+            <p>And</p>
+            <p>$$\begin{align} 
+                \lim_{x \to c} h(x) &= L \\
+                \lim_{x \to c} g(x) &= L \\
+            \end{align}$$</p>
+            <p>Then</p>
+            <p>$$\begin{align} 
+                \lim_{x \to c} f(x) &= L \\
+            \end{align}$$</p>
+            <hr>
+            <h3>What Does That Mean?</h3>
+            <p>What the squeeze theorem says is that if you have function $h(x), f(x), g(x)$ all defined on an interval</p>
+            <p>And $f(x)$ is between $h(x)$ and $g(x)$</p>
+            <p>The limit for $f(x)$ at $c$ is the same if the limits at $c$ for $h(x)$ and $g(x)$ are equal</p>
+            <p>Look at the following graph for an example</p>
+            <img src="assets/svg/squeeze theorem example.svg">
+            <p>In the above graph, $f(x)$ is between $h(x)$ and $g(x)$</p>
+            <p>As $x \to 0$, all three functions approach to $0$</p>
+            <p>Lets solve an example</p>
+            <p>$$\begin{align} 
+                \lim_{x \to 0} x^2sin\left(\frac{1}{x}\right)
+            \end{align}$$</p>
+            <p>If we use direct substitution, we get $sin(\infty)$, which doesn't exist</p>
+            <p>We can't really use any properties to simplyfy this, but we can apply the squeeze theorem</p>
+            <p>First, we need to find two functions that $x^2sin\left(\frac{1}{x}\right)$ lies between</p>
+            <p>We can first start by using the range of $sin(x)$, which lies between $[-1, 1]$</p>
+            <p>$$\begin{align} 
+                -1 \leq &sin\left(x\right) \leq 1 \\
+                -1 \leq &sin\left(\frac{1}{x}\right)\leq 1 &&\text{$sin\left(\frac{1}{x}\right)$ has the same range}\\
+                -x^2 \leq x^2&sin\left(\frac{1}{x}\right)\leq x^2 &&\text{Multiply all terms by $x^2$}\\
+                \lim_{x \to 0}-x^2 \leq \lim_{x \to 0}x^2&sin\left(\frac{1}{x}\right) \leq \lim_{x \to 0}x^2 &&\text{Apply Squeeze Theorem by taking limit}\\
+                 0 \leq \lim_{x \to 0}x^2&sin\left(\frac{1}{x}\right) \leq 0\\
+                \lim_{x \to 0}x^2&sin\left(\frac{1}{x}\right) = 0\\
+
+            \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>$\lim_\limits{x \to 0}xe^{cos(1/x)}$</summary>
+                            <p>$$\begin{align} 
+                                \lim_\limits{x \to 0}xe^{cos(1/x)}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                -1 \leq &cos\left(\frac{1}{x}\right) \leq 1 \\
+                                e^{-1} \leq &e^{cos\left(1/x\right)} \leq e^{1} \\
+                                xe^{-1} \leq &xe^{cos\left(1/x\right)} \leq xe^{1} \\
+                                \lim_{x \to 0}xe^{-1} \leq &\lim_{x \to 0}xe^{cos\left(1/x\right)} \leq \lim_{x \to 0}xe^{1} \\
+                                0 \leq &\lim_{x \to 0}xe^{cos\left(1/x\right)} \leq 0 \\
+                               & \lim_{x \to 0}xe^{cos\left(1/x\right)} = 0
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find $\lim_\limits{x \to 2}f(x)$, if $-x^2 + 4x - 3 \leq f(x) \leq x^2 - 4x + 5$</summary>
+                            <p>$$\begin{align} 
+                                \lim_\limits{x \to 2} -x^2 + 4x - 3 &= 1 \\
+                                \lim_\limits{x \to 2} x^2 - 4x + 5 &= 1 \\
+                            \end{align}$$</p>
+                            <p>Since $f(x)$ is between, we can use squeeze theorem</p>
+                            <p>$$\begin{align} 
+                                \lim_\limits{x \to 2} f(x) &= 1 \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+            <hr>
+            <details>
+                <summary>Proof</summary>
+                <p>Given: </p>
+                <p>$$\begin{align} 
+                    h(x) \leq f(x) \leq g(x)
+                \end{align}$$</p>
+                <p>$$\begin{align} 
+                    \lim_\limits{x \to c} h(x) &= L \\
+                    \lim_\limits{x \to c} g(x) &= L \\
+                \end{align}$$</p>
+                <p>By formal definition of limit: </p>
+                <p>We need to find a $\delta > 0$ given $\epsilon > 0$ such that</p>
+                <p>$$\begin{align} 
+                    |f(x) - L| < \epsilon \\
+                    0 < |x - c| < \delta
+                \end{align}$$</p>
+                <p>And since we are given the limits for $h(x)$ and $g(x)$ exist</p>
+                <p>Then there exists some $\delta_1 > 0$ such that</p>
+                <p>$$\begin{align} 
+                    |h(x) - L| < \epsilon \text{ for all } 0 < |x - c| < \delta_1
+                \end{align}$$</p>
+                <p>We can write rewrite the first part</p>
+                <p>$$\begin{align} 
+                    &|h(x) - L| < \epsilon \\
+                    -\epsilon < &h(x) - L < \epsilon\\
+                    L - \epsilon < &h(x) < \epsilon + L \\
+                \end{align}$$</p>
+                <p>To get</p>
+                <p>$$\begin{align} 
+                    L - \epsilon < &h(x) < \epsilon + L \text{ for all } 0 < |x - c| < \delta_1
+                \end{align}$$</p>
+                <p>We can also apply this to $g(x)$ for a $\delta_2 > 0$</p>
+                <p>$$\begin{align} 
+                    L - \epsilon < &g(x) < \epsilon + L \text{ for all } 0 < |x - c| < \delta_2
+                \end{align}$$</p>
+                <p>And since $h(x) \leq g(x)$</p>
+                <p>We can take $\delta = min\{\delta_1,\delta_2\}$ to get</p>
+                <p>$L - \epsilon < h(x) \leq g(x) < \epsilon + L \text{ for all } 0 < |x - c| < \delta$</p>
+                <p>But since, $h(x) \leq f(x) \leq g(x)$, we can replace with $f(x)$</p>
+                <p>$L - \epsilon < f(x) < \epsilon + L \text{ for all } 0 < |x - c| < \delta$</p>
+                <p>Which Leads to</p>
+                <p>$$\begin{align} 
+                    \lim_\limits{x \to c} f(x) &= L \\
+                \end{align}$$</p>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
