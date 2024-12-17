@@ -40,7 +40,7 @@
                     {"name":"trig and inverse derivatives", "title": "Trig (and Inverse) derivatives"},
                     {"name":"logarithmic differentiation", "title": "Logarithmic Differentiation"},
                     {"name":"mean value and rolles theorem", "title": "Mean Value and Rolle's Theorem"},
-
+                    {"name":"related rates", "title": "Related Rates"},
                     {"name":"derivatives cheat sheet", "title": "Derivatives Cheat Sheet"}
                 ]
             },

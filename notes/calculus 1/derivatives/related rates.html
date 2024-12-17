@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>This is a practical use of implicit differentiation</p>
+            <p>Related Rates is trying to find the rate of change of something at an instant, based on another rate of change</p>
+            <p>Remember, derivatives can be thought of as rate of change</p>
+            <p>The way we can relate them together is by using a formula that they share in common</p>
+            <p>Then we use <a href="/notes/calculus 1/derivatives/implicit differentiation.html">Implicit Differentiation</a> to get the rate of changes</p>
+            <p>We can then plug in known information to get the final rate of change</p>
+            <p>The best way to do Related Rates is to do many example, so there are no practice problems here</p>
+            <hr>
+            <h3>Example 1: Expanding Sphere</h3>
+            <p>What is the rate of change of volume of a sphere that is expanding it's radius by .5 cm/s, when the radius of the sphere is 2 cm</p>
+            <p>Here the we are trying to find the rate of change of volume (by time), we can write this as $\frac{dV}{dt}$</p>
+            <p>We are given the rate of change of radius (by time), we can write this as $\frac{dr}{dt} = .5$</p>
+            <p>Since we are given it's a sphere, we can use the sphere volume formula</p>
+            <p>$$\begin{align} 
+                V = \frac{4}{3} \pi r^3
+            \end{align}$$</p>
+            <p>To find $\frac{dV}{dt}$, we differentiate both sides (in respect to $t$)</p>
+            <p>$$\begin{align} 
+                V = \frac{4}{3} \pi r^3 \\
+                \frac{d}{dt} V = \frac{d}{dt}\left[\frac{4}{3} \pi r^3\right] \\
+                \frac{dV}{dt} = \frac{4}{3} \pi (3r^2)\frac{dr}{dt} &&\text{Using Implicit Differentiation}\\
+                \frac{dV}{dt} = 4 \pi r^2\frac{dr}{dt}\\
+            \end{align}$$</p>
+            <p>So now we can get a formula for rate of change of volume, we just need to plug in the information</p>
+            <p>$$\begin{align} 
+                \frac{dV}{dt} = 4 \pi r^2\frac{dr}{dt}\\
+                \frac{dV}{dt} = 4 \pi (2)^2 (.5)\\
+                \frac{dV}{dt} = 8 \pi \approx 25.132741 \text{ cm/s}\\
+            \end{align}$$</p>
+            <hr>
+            <h3>Example 2: Falling Ladder</h3>
+            <p>A 10 foot ladder is sliding down a wall at 4 in/s. How fast is the base of the ladder moving away from the wall when it is 6 feet from the wall?</p>
+            <p>A ladder leaning against a wall makes a right triangle, since the length of the ladder is 10 ft, it's the hypotenuse</p>
+            <p>To get the other side lengths, we will denote $y$ as the vertical side, and $x$ as the horizontal side, we can use the pythagorean theorem</p>
+            <p>Let's write down what we already know</p>
+            <p>$$\begin{align} 
+                x^2 + y^2 &= 10^2 \\
+                \frac{dy}{dt} &= -\frac{1}{3} &&\text{$-\frac{1}{3}$ because it's sliding down and conversion from in to ft} \\
+                x &= 6 \\
+                y &= \sqrt{10^2 - 6^2} = \sqrt{36} = 6
+            \end{align}$$</p>
+            <p>We are trying to find $\frac{dx}{dt}$, so let's differntiate both sides</p>
+            <p>$$\begin{align} 
+                \frac{d}{dt} x^2 + y^2 &= \frac{d}{dt}10^2 \\
+                2x\frac{dx}{dt} + 2y\frac{dy}{dt} &= 0 \\
+                2x\frac{dx}{dt} &= - 2y\frac{dy}{dt} \\
+                \frac{dx}{dt} &= \frac{-y\frac{dy}{dt}}{x} \\
+                \frac{dx}{dt} &= \frac{-(6)(-\frac{1}{3})}{(6)} \\
+                \frac{dx}{dt} &= \frac{1}{3} \text{ ft/s} \\
+                &= 4 \text{ in/s} \\
+            \end{align}$$</p>
+            <hr>
+            <h3>Example 3: Changing Resistance</h3>
+            <p>The formula for electrical resistance (in Ohms or $\Omega$) of two resistors in parallel is:</p>
+            <p>$$\begin{align} 
+                \frac{1}{R} = \frac{1}{R_1} + \frac{1}{R_2}
+            \end{align}$$</p>
+            <p>Imagine you have two resistors in parallel, resistor one is increasing at .5 $\Omega$/sec, and resistor two is decreasing at 1 $\Omega$/sec</p>
+            <p>What is the rate of change of the total resistance when resistor one is at 100 $\Omega$ and resistor two is at 90 $\Omega$?</p>
+            <p>We are trying to find $\frac{dR}{dt}$</p>
+            <p>Let's find the total resistance at the given values first</p>
+            <p>$$\begin{align} 
+                \frac{1}{R} &= \frac{1}{100} + \frac{1}{90} \\
+                \frac{1}{R} &= \frac{19}{900}\\
+                R &= \frac{900}{19} = .02 \overline{11} \Omega\\
+            \end{align}$$</p>
+            <p>Let's write the values that we know</p>
+            <p>$$\begin{align} 
+                R_1 &= 100 \\
+                R_2 &= 90 \\
+                R &= \frac{900}{19} = .02 \overline{11} \Omega\\
+                \frac{dR_1}{dt} &= .5 \\
+                \frac{dR_2}{dt} &= -1 \\
+            \end{align}$$</p>
+            <p>So we will be finding rate of change when total resistance is at $.02 \overline{11} \Omega$</p>
+            <p>Let's now find a formula for rate of change, and plug in our known values</p>
+            <p>$$\begin{align} 
+                \frac{d}{dt}\frac{1}{R} &= \frac{d}{dt}\ \left[\frac{1}{R_1} + \frac{1}{R_2}\right] \\
+                -\frac{1}{R^2} \frac{dR}{dt}&= -\frac{1}{(R_1)^2}\frac{dR_1}{dt} -\frac{1}{(R_2)^2}\frac{dR_2}{dt} \\
+                \frac{dR}{dt}&= -R^2\left[-\frac{1}{(R_1)^2}\frac{dR_1}{dt} -\frac{1}{(R_2)^2}\frac{dR_2}{dt}\right] \\
+                \frac{dR}{dt}&= -\left(\frac{900}{19}\right)^2\left[-\frac{1}{100^2}(.5) -\frac{1}{90^2}(-1)\right] \\
+                &= -\left(\frac{810000}{361}\right)\left[-\frac{1}{20000} + \frac{1}{8100}\right] \\
+                &= -\frac{119}{722} \approx -0.164819 \Omega
+            \end{align}$$</p>
+            <hr>
+            <h3>Example 4: Cone-Shaped Water Tank</h3>
+            <p>Water is filling an upside-down cone shaped water tank at 10 ft/s. The radius of the tank is 20 ft and a height of 100 ft</p>
+            <p>What is the rate of change of the depth of water when the depth is 8 ft?</p>
+            <p>Since we are filling an upside-down cone, that means the water that is inside the cone is making another smaller cone</p>
+            <p>We can use related triangles to find the radius of water already in the tank</p>
+            <p>$$\begin{align} 
+                \frac{r}{h} &= \frac{R}{H} \\
+                \frac{r}{8} &= \frac{20}{100} \\
+                \frac{r}{8} &= \frac{1}{5} \\
+                r &= \frac{8}{5} \\
+            \end{align}$$</p>
+            <p>Let's write the values that we know</p>
+            <p>$$\begin{align} 
+                R &= 20 \\
+                H &= 100 \\
+                r &= \frac{8}{5} \\
+                h &= 8 \\
+                \frac{dV}{dt} &= 10 \\
+            \end{align}$$</p>
+            <p>We are trying to find $\frac{dh}{dt}$</p>
+            <p>We can use the volume of a cone formula, but plug in our $r$</p>
+            <p>$$\begin{align} 
+                V &= \frac{1}{3} \pi r^2 h \\
+                V &= \frac{1}{3} \pi \left(\frac{8}{5}\right)^2 h \\
+                \frac{d}{dt} V &= \frac{d}{dt} \left[\frac{1}{3} \pi \left(\frac{8}{5}\right)^2 h\right] \\
+                \frac{dV}{dt}&= \frac{1}{3} \pi \left(\frac{8}{5}\right)^2 \frac{dh}{dt}\\
+                \frac{dV}{dt}&= \frac{64\pi}{75}\frac{dh}{dt}\\
+                \frac{dh}{dt}&= \frac{75}{64 \pi}\frac{dV}{dt} \\
+                \frac{dh}{dt} &= \frac{75}{64 \pi}(10) \\
+                \frac{dh}{dt} &= \frac{365}{32 \pi} = 11.71785 \text{ ft/s} \\
+
+            \end{align}$$</p>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
