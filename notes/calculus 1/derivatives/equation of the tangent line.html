@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>So we know how to get the slope of the tangent line, using derivatives</p>
+            <p>But how do we ge the full equation?</p>
+            <p>We use point-slope form!</p>
+            <p>Just a recap of point-slope form, if we have a point $(x_1,y_1)$ and a slope $m$</p>
+            <p>$$\begin{align} 
+                y - y_1 = m(x - x_1)
+            \end{align}$$</p>
+            <p>So if we want the slope at a point on $f(x)$ at $x = c$, we know our point is $(c,f(c))$ and the slope is $f'(c)$</p>
+            <p>$$\begin{align} 
+                y - f(c) = f'(c)(x - c)
+            \end{align}$$</p>
+            <p>Or, </p>
+            <p>$$\begin{align} 
+                y = f'(c)x - f'(c)c + f(c)
+            \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Find the equation of the tangent line at $x = 2$ for $f(x) = 4x + 3$</summary>
+                            <p>$$\begin{align} 
+                                f'(x) &= 4 \\
+                                f'(2) &= 4 \\
+                                f(2) &= 11 \\
+                            \end{align}$$</p>
+                            <p>We can plug these into point-slope</p>
+                            <p>$$\begin{align} 
+                                y &= 4(x - 2) + 11 \\
+                                y &= 4x - 8 + 11 \\
+                                y &= 4x + 3
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the equation of the tangent line at $x = \pi$ for $f(x) = sin(x) + 2cos(x)$</summary>
+                            <p>$$\begin{align} 
+                                f'(x) &= cos(x) - 2sin(x) \\
+                                f'(\pi) &= -1
+                                f(\pi) &= -2 \\
+                            \end{align}$$</p>
+                            <p>We can plug these into point-slope</p>
+                            <p>$$\begin{align} 
+                                y &= -1(x - \pi) - 2 \\
+                                y &= -x + \pi - 2 \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details open>
+                            <summary>Find the equation of the tangent line at $x = \sqrt{\pi}$ for $f(x) = sin^5(x^2)$</summary>
+                            <p>To find the derivative, we need to use the chain rule twice</p>
+                            <p>$$\begin{align} 
+                                &\begin{array} {c | c}
+                                    f(x) = x^5 & g(x) = sin(x^2) \\
+                                    \hline 
+                                    f'(x) = 5x^4 & g'(x) = ?
+                                \end{array}
+                            \end{align}$$</p>
+                            <p>We need to use chain rule again to find the derivative of $sin(x^2)$</p>
+                            <p>$$\begin{align} 
+                                &\begin{array} {c | c}
+                                    f(x) = sin(x) & g(x) = x^2 \\
+                                    \hline 
+                                    f'(x) = cos(x) & g'(x) = 2x
+                                \end{array}
+                            \end{align}$$</p>
+                            <p>This gives us $2xcos(x^2)$, which we can plug back into the top table</p>
+                            <p>$$\begin{align} 
+                                &\begin{array} {c | c}
+                                    f(x) = x^5 & g(x) = sin(x^2) \\
+                                    \hline 
+                                    f'(x) = 5x^4 & g'(x) = 2xcos(x^2)
+                                \end{array}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                f'(x) &= 5sin^4(x^2) \cdot 2xcos(x^2) = 10xsin^4(x^2)cos(x^2) \\
+                                f'(\sqrt{\pi}) &= 10(\sqrt{\pi})(0)(-1) = 0\\
+                                f(\sqrt{\pi}) &= 0 \\
+                            \end{align}$$</p>
+                            <p>We can plug these into point-slope</p>
+                            <p>$$\begin{align} 
+                                y &= 0
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
