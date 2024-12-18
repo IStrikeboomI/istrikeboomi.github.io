@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Integral Properties are necessary to solve integrals, both definite and indefinite</p>
+            <p>A lot of the basic integral properties are just the derivative properties, but opposite</p>
+            <hr>
+            <p>Sum/Difference Property: </p>
+            <p>$$\begin{align} 
+                \int{f(x) \pm g(x)dx} &= \int{f(x)dx} \pm \int{g(x)dx} \\ &\text{or for definite integrals,} \\
+                \int_a^b{f(x) \pm g(x)dx} &= \int_a^b{f(x)dx} \pm \int_a^b{g(x)dx}
+            \end{align}$$</p>
+            <hr>
+            <p>Constant Coefficient Property (assume $c$ is a constant): </p>
+            <p>$$\begin{align} 
+                \int{cf(x)dx} &= c\int{f(x)dx} \\ &\text{or for definite integrals,} \\
+                \int_a^b{cf(x)dx} &= c\int_a^b{f(x)dx}
+            \end{align}$$</p>
+            <hr>
+            <p>Power Rule ($c \neq -1$): </p>
+            <p>$$\begin{align} 
+                \int{x^cdx} &= \frac{x^{c + 1}}{c + 1} + C          
+            \end{align}$$</p>
+            <p>Here, if $c = -1$, then the integrand is $\frac{1}{x}$, which is the derivative of $ln(x)$, in other words $\frac{d}{dx} ln(x) = \frac{1}{x}$</p>
+            <hr>
+            <p>Negation Property: </p>
+            <p>$$\begin{align} 
+                \int_a^b{f(x)dx} = -\int_b^a{f(x)dx}       
+            \end{align}$$</p>
+            <p>This property comes about because of the way the definite integral is defined</p>
+            <hr>
+            <p>Adding Interval Property (assume $a < b < c$): </p>
+            <p>$$\begin{align} 
+                \int_a^c{f(x)dx} = \int_a^b{f(x)dx} + \int_b^c{f(x)dx}  
+            \end{align}$$</p>
+            <p>This property basically means you split a definite integral's bounds</p>
+            <hr>
+            <p>Zero Property: </p>
+            <p>$$\begin{align} 
+                \int_a^a{f(x)dx} = 0       
+            \end{align}$$</p>
+            <p>There is no range or distance between $a$ and $a$, because they are the same so there is no area either</p>
+            <hr>
+            <p>Odd Function Property (assume $f(x)$ is an odd function): </p>
+            <p>$$\begin{align} 
+                \int_{-a}^a{f(x)dx} = 0       
+            \end{align}$$</p>
+            <p>Odd Functions are symmetrical about the origin, which means the left half is flipped of the right half, which both cancel out to 0</p>
+            <hr>
+            <p>Even Function Property (assume $f(x)$ is an even function): </p>
+            <p>$$\begin{align} 
+                \int_{-a}^a{f(x)dx} =  2\int_{0}^a{f(x)dx}      
+            \end{align}$$</p>
+            <p>Even Functions are symmetrical about the y-axis, which means the left half is the mirror of the right half</p>
+            <p>This means we only have to do one half and just multiply by 2 to account for the other identical half</p>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

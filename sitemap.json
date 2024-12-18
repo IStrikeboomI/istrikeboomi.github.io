@@ -49,6 +49,9 @@
                 "section":"Integrals", 
                 "notes" : 
                 [
+                    {"name":"integration and antidifferentiation", "title": "Integration And Anti-Differentiation"},
+                    {"name":"constant of integration", "title": "Constant Of Integration ($+ C$)"},
+                    {"name":"basic integral properties", "title": "Basic Integral Properties"},
                     {"name":"integration by substitution", "title": "Integration By Substitution (U-Sub)"},
                     {"name":"definition of the definite integral", "title": "Definition of the Definite Integral"}
                 ]
