@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>The Fundamental Theorem Of Calculus Comes in 2 parts</p>
+            <p>For the following, assume $f(x)$ is continuous on $[a,b]$ and $F(x)$ is the anti-derivative of f(x)</p>
+            <p>Part 1:</p>
+            <p>$$\begin{align} 
+                \frac{d}{dx} \int_a^x{f(x) \ dx} = f(x)
+            \end{align}$$</p>
+            <p>Part 2:</p>
+            <p>$$\begin{align} 
+                F(x) &= \int{f(x) \ dx}\\
+                \int_a^b{f(x) \ dx} &= \left[F(x)\right] \Big|_a^b = F(b) - F(a)
+            \end{align}$$</p>
+            <p>Part 1 is about how derivatives and integrals are inverses</p>
+            <p>Part 2 is about using indefinite integrals to solve definite integrals</p>
+            <hr>
+            <details open>
+                <summary>Proofs</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Part 1</summary>
+                            <p>Let's define a function $g(x)$ which is the integral of $f(x)$</p>
+                            <p>Our goal is to show $g'(x) = f(x)$</p>
+                            <p>$$\begin{align} 
+                                g(x) &= \int_a^x{f(t) \ dt} \\
+                                g'(x) &= \lim_{h \to 0}\frac{g(x + h) - g(x)}{h} &&\text{Using Limit Definition Of Derivative}
+                            \end{align}$$</p>
+                            <p>We can replace the $g$ with integrals</p>
+                            <p>$$\begin{align} 
+                                g'(x) &= \lim_{h \to 0}\frac{\int_a^{x+h}{f(t) \ dt} - \int_a^x{f(t) \ dt}}{h} \\
+                                g'(x) &= \lim_{h \to 0}\frac{\int_a^{x}{f(t) \ dt} + \int_x^{x+h}{f(t) \ dt} - \int_a^x{f(t) \ dt} }{h} &&\text{Splitting definite integral bounds}\\
+                                g'(x) &= \lim_{h \to 0}\frac{\int_x^{x+h}{f(t) \ dt}}{h} \\
+                                g'(x) &= \lim_{h \to 0}\frac{1}{h}\int_x^{x+h}{f(t) \ dt} \\
+                            \end{align}$$</p>
+                            <p>To solve this limit, we need to use the squeeze theorem</p>
+                            <p>We first need to use the extreme value theorem ($f(x)$ is continuous so we can use it)</p>
+                            <p>We can denote the min and max x-values on $[x,x+h]$ as $u$ and $v$ respectively, the y-values can be $m$ and $M$ respectively</p>
+                            <p>$$\begin{align} 
+                                f(u) = m &&\text{Min} \\
+                                f(v) = M &&\text{Max} \\
+                            \end{align}$$</p>
+                            <p>Since $u$ and $v$ are the smallest and largest values in the bounds, that means $f(t)$ is between them</p>
+                            <p>$$\begin{align} 
+                                f(u) \leq f(t) \leq f(v)
+                            \end{align}$$</p>
+                            <p>Since the definite integral of f(t) is the area, we need to make the other 2 into areas to compare them</p>
+                            <p>$f(u)(x + h - x)$ will be the area of rectangle the length of h and height of the min, this will be smaller than the integral</p>
+                            <p>$f(v)(x + h - x)$ will be the area of rectangle the length of h and height of the max, this will be larger than the integral</p>
+                            <p>$$\begin{align} 
+                                f(u)h \leq \int_x^{x+h}{f(t) \ dt} \leq f(v)h \\
+                                f(u) \leq \frac{1}{h}\int_x^{x+h}{f(t) \ dt} \leq f(v) \\
+                            \end{align}$$</p>
+                            <p>Now we can apply squeeze theorem</p>
+                            <p>$$\begin{align} 
+                                \lim_{h \to 0}f(u) \leq \lim_{h \to 0}\frac{1}{h}\int_x^{x+h}{f(t) \ dt} \leq \lim_{h \to 0}f(v) \\
+                            \end{align}$$</p>
+                            <p>The limits for the min and max are simple enough because $u$ and $v$ are in the range $[x, x+h]$</p>
+                            <p>This means as $h \to 0$ the range becomes $[x,x]$, so both limits are equal to $f(x)$</p>
+                            <p>$$\begin{align} 
+                                \lim_{h \to 0}f(u) &= f(x) \\
+                                \lim_{h \to 0}f(v) &= f(x)\\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                f(x) \leq \lim_{h \to 0}\frac{1}{h}\int_x^{x+h}{f(t) \ dt} \leq f(x) \\
+                            \end{align}$$</p>
+                            <p>This means the limit is equal to f(x), which means the derivative is equal to f(x)</p>
+                            <p>$$\begin{align} 
+                                g'(x) &= \lim_{h \to 0}\frac{1}{h}\int_x^{x+h}{f(t) \ dt} = f(x)\\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Part 2</summary>
+                            <p>Let's say again that we have two different anti-derivatives for a function $f(x)$ named $g(x)$ and $F(x)$</p>
+                            <p>Define $g(x)$ as</p>
+                            <p>$$\begin{align} 
+                                g(x) = \int_a^x{f(x) \ dx}
+                            \end{align}$$</p>
+                            <p>Since they are both anti-derivatives of the same function, they are different by some constant $C$</p>
+                            <p>$$\begin{align} 
+                                F(x) = g(x) + C
+                            \end{align}$$</p>
+                            <p>Since $F(x)$ and $g(x)$ are differentiable (their derivatives equal $f(x)$), they are continous</p>
+                            <p>$$\begin{align} 
+                                g(a) &= \int_a^a{f(x) \ dx} = 0 \\
+                                g(b) &= \int_a^b{f(x) \ dx} \\
+                            \end{align}$$</p>
+                            <p>Therefore, </p>
+                            <p>$$\begin{align} 
+                                F(b) - F(a) = (g(b) + C) - (g(a) + C) = g(b) - g(a) = g(b) = \int_a^b{f(x) \ dx}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

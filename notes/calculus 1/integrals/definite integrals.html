@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Definite Integrals mainly deal with the <b>area under a curve</b></p>
+            <p>The way you write a definite integral is using the following: </p>
+            <ol>
+                <li><p>The Integral Symbol $\int$</p></li>
+                <li><p>The Lower Bound $a$</p></li>
+                <li><p>The Upper Bound $b$</p></li>
+                <li><p>The function inside (called the <b>Integrand</b>)</p></li>
+                <li><p>A $dx$ ($x$ is the variable we working with), the $dx$ also denotes where the integral ends, think of it as parentheses</p></li>
+            </ol>
+            <p>This results in a number that is the area under the curve of $f(x)$ between $[a,b]$ in respect to x (along the x-axis)</p>
+            <p>$$\begin{align} 
+                \int_a^b{f(x)\ dx} = A &&\text{$A$ is the area under the curve}
+            \end{align}$$</p>
+            <p>Area is also different wheter it's above or below the x-axis</p>
+            <p>If the curve is <b>above</b> the x-axis, it is <b>adding (positive)</b> area</p>
+            <p>If the curve is <b>below</b> the x-axis, it is <b>subtracting (negative)</b> area</p>
+            <img src="assets/svg/definite integral positive and negative area.svg">
+            <hr>
+            <h3>Example</h3>
+            <p>Take a look at the following graph of $f(x) = x^{3}-7x^{2}+10x$</p>
+            <img src="assets/svg/definite integral.svg">
+            <p>The light blue highlighted part between 0 and 2 is an area under the curve that we are trying to find</p>
+            <p>The way we use definite integrals is to represent the following notation: </p>
+            <p>$$\begin{align} 
+                \int_0^2{f(x)\ dx} = \frac{16}{3}
+            \end{align}$$</p>
+            <hr>
+            <h3>Relation To Indefinite Integrals</h3>
+            <p>You probably noticed that definite integrals look like indefinite integrals with the bounds, this is not a coincidence</p>
+            <p>This is by the <a href="/notes/calculus 1/integrals/fundamental theorem of calculus.html">Fundamental Theorem Of Calculus</a></p>
+            <p>$$\begin{align} 
+                \text{if } F(x) &= \int{f(x)\ dx} \\
+                \text{then } \int_a^b{f(x)} &= F(b) - F(a)
+            \end{align}$$</p>
+            <p>Also because of this, an anti-derivative can be written as a definite integral from 0 to $x$</p>
+            <p>$$\begin{align} 
+                F(x) = \int_0^x{f(x)\ dx}
+            \end{align}$$</p>
+            <p>A common notation usually called bar notation is to use a vertical bar with the bounds <b>after</b> the anti-differentiation</p>
+            <p>$$\begin{align} 
+                \int_a^b{f(x)} = \left[F(x)\right] \Big|_a^b = F(b) - F(a)
+            \end{align}$$</p>
+            <p><b>IMPORTANT: </b> What this means is that anti-differentiation is also the formula for getting the area from 0 to $x$</p>
+            <p>You might also be wondering why indefinite integrals have a plus C but not definite integrals</p>
+            <p>$$\begin{align} 
+                \int{f(x)\ dx} &= F(x) + C \\
+                \int_a^b{f(x)} &= (F(b) + C) - (F(a) + C) = F(b) = F(a)
+            \end{align}$$</p>
+            <p>You get $+C$ and then a $-C$ which cancel out</p>
+            <hr>
+            <h3>Other Ways To Solve Definite Integrals</h3>
+            <p>For solving (usually) polynomials, you can also use the formal definition of the definite integrals, <a href="/notes/calculus 1/integrals/definition of the definite integral.html">Riemann Sums</a></p>
+            <p>The other most common way is to use geometry</p>
+            <p>For Example, to solve the following integral: </p>
+            <p>$$\begin{align} 
+               \int_0^3{\sqrt{9 - x^2} \ dx}
+            \end{align}$$</p>
+            <p>It's pretty hard to find an indefinite integral, but you might notice it is the formula a semi-circle with radius 3</p>
+            <p>And since we are doing it from 0 to 3 it is only half of a semi-circle, which is a quarter of the area of a full circle</p>
+            <p>We can just use the circle area formula $\pi r^2$</p>
+            <p>$$\begin{align} 
+                \frac{\pi (3)^2}{4} &= \frac{9}{4} \pi \\
+                \int_0^3{\sqrt{9 - x^2} \ dx} &= \frac{9}{4} \pi
+             \end{align}$$</p>
+            <p>Another Example, find the following definite integral using the graph</p>
+            <img src="assets/svg/piecewise graph.svg">
+            <p>$$\begin{align} 
+                \int_{-2}^5{f(x)\ dx}
+             \end{align}$$</p>
+             <p>The first place we can start is by seeing how we can separate the graph into different shapes</p>
+             <p>We can then add the area of all the shapes to get the total area</p>
+            <p>I identified 4 shapes to split</p>
+            <img src="assets/svg/piecewise shapes labeled.svg">
+            <p>Let's find the areas for all of these</p>
+            <ol>
+                <li>Triangle with base of 1 and height 2 $\frac{1}{2} (1)(2) = 1$</li>
+                <li>Rectangle with base of 4 and height 2 $(4)(2) = 8$</li>
+                <li>Semicircle with radius 1 $\frac{1}{2} \pi (1)^2 = \pi$</li>
+                <li>Rectangle with base of 3 and height 3 $(3)(3) = 9$</li>
+            </ol>
+            <p>Adding up all the areas, $1 + 8 + 9 + \pi = 18 + \pi$, which is our answer</p>
+            <p>$$\begin{align} 
+                \int_{-2}^5{f(x)\ dx} = 18 + \pi \approx 21.14159
+             \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>$\int_0^{\pi}{sec^2(x)\ dx}$</summary>
+                            <p>$$\begin{align} 
+                                \int_0^{\pi}{sec^2(x)\ dx} &= \left[tan(x)\right] \biggr|_0^{\pi} \\
+                                &= tan(\pi) - tan(0) \\
+                                &= 0 - 0 = 0
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\int_2^{3}{e^x \ dx}$</summary>
+                            <p>$$\begin{align} 
+                                \int_2^{3}{e^x \ dx} &= \left[e^x\right] \Big|_2^3 \\
+                                &= e^3 - e^2 = e^2(e - 1) \approx 12.6964
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\int_2^{5}{2 \ dx}$</summary>
+                            <p>The graph of $f(x) = 2$ is just a straight line, this makes a rectangle between it and the x axis</p>
+                            <p>This means a rectangle with length 3 (from subtracting the bounds $5 - 2 = 3$) and a height of 2</p>
+                            
+                            <p>$$\begin{align} 
+                                3 \cdot 2 &= 6 \\
+                                \int_2^{5}{2 \ dx} &= 6
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
