@@ -17,14 +17,14 @@
             <p>Think of it as the inverse of the chain rule (for derivatives)</p>
             <p>U-sub is used to solve integrals in the form of</p>
             <p>$$\begin{align} 
-                \int{g'(x)f'(g(x))dx}
+                \int{g'(x)f'(g(x))\ dx}
             \end{align}$$</p>
             <p>If you notice, the inner part is the output of the chain rule</p>
             <p>By transforming it into an integral in the form of</p>
             <p>$$\begin{align} 
-                \int{f'(u)du}
+                \int{f'(u)\ du}
             \end{align}$$</p>
-            <p>What we did was to replace the $g(x)$ with a variable $u$ and replace the $g'(x)dx$ with $du$</p>
+            <p>What we did was to replace the $g(x)$ with a variable $u$ and replace the $g'(x)\ dx$ with $du$</p>
             <p>Then we integrate in respect to $u$, and at the end replace $u$ with $g(x)$</p>
             <p>It's important to note that when you convert from $dx$ to $du$, all the variables in the integrand need to be in the form of $u$</p>
             <p>The variable $u$ is not important either, it can be any variable such as $v$, $p$, $\theta$, etc...</p>
@@ -120,7 +120,7 @@
                                 &\int{\frac{sin(\pi/x)}{x^2}dx} \\
                                 u &= \frac{\pi}{x} \\
                                 \frac{du}{dx} = -\frac{\pi}{x^2} &\rightarrow du = -\frac{\pi}{x^2}dx \rightarrow -\frac{du}{\pi} = \frac{1}{x^2}dx \\
-                                -\frac{1}{\pi}&\int{sin(u)dx} \\
+                                -\frac{1}{\pi}&\int{sin(u)\ dx} \\
                                 -\frac{1}{\pi}&\left[-cos(u)\right] + C \\
                                 -\frac{1}{\pi}&\left[-cos(\pi/x)\right] + C \\
                                 \int{\frac{sin(\pi/x)}{x^2}dx} &= \frac{cos(\pi/x)}{\pi} + C \\
@@ -134,10 +134,10 @@
                                 &\int{\frac{sec^5(\sqrt{\theta})tan(\sqrt{\theta})}{\sqrt{\theta}} d\theta} \\
                                 u &= \sqrt{\theta}\\
                                 du &= \frac{1}{2\sqrt{\theta}}dx \rightarrow 2du = \frac{1}{\sqrt{\theta}}dx \\
-                                2&\int{sec^5(u)tan(u)du} \\
-                                2&\int{sec^4(u)(sec(u)tan(u)du)} \\
+                                2&\int{sec^5(u)tan(u)\ du} \\
+                                2&\int{sec^4(u)(sec(u)tan(u)\ du)} \\
                                 v &= sec(u) \\
-                                dv &= sec(u)tan(u)du \\
+                                dv &= sec(u)tan(u)\ du \\
                                 2&\int{v^4dv} \\
                                 2&\left[\frac{v^5}{5}\right] + C\\
                                 2&\left[\frac{sec^5(u)}{5}\right] + C\\
@@ -154,7 +154,7 @@
                                 du &= \frac{1}{x}dx \\
                                 x = 1 &\rightarrow u = 0 \\
                                 x = \sqrt{e} &\rightarrow u = \frac{1}{2} \\
-                                &\int_{0}^{1/2}{cos(\pi u)du} \\
+                                &\int_{0}^{1/2}{cos(\pi u)\ du} \\
                                 v &= \pi u \\
                                 dv = \pi du &\rightarrow \frac{dv}{\pi} = du\\
                                 u = 0 &\rightarrow v = 0 \\
