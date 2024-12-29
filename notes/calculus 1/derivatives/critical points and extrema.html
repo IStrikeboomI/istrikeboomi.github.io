@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>One of the biggest uses of calculus is using derivatives to find extremas (mins and maxes)</p>
+            <p>The way we achieve this is using <b>critical points</b></p>
+            <p>An $x = c$ is a critical point on $f(x)$ if</p>
+            <ol>
+                <li>$f(c)$ exists</li>
+                <li>$f'(c) = 0$ OR $f'(c)$ is undefined</li>
+            </ol>
+            <p>If $x = c$ is a critical point of $f(x)$, then $f(c)$ is called the <b>critical value</b></p>
+            <p>An important often forgotten point is that $f(c)$ HAS TO EXIST</p>
+            <p>The reason why critical points are related to extrema are to think about the cases of requirement 2</p>
+            <p>If $f'(c) = 0$ that means the slope/rate of change is 0, which means it stopped changing which could be an extrema</p>
+            <p>If $f'(c)$ is undefined that means sharp corners or vertical slope, in the case of sharp corners these could also be extrema</p>
+            <img src="assets/svg/critical points graph.svg">
+            <p>It's important to note that every extrema is a critical value <b>BUT</b> every critical value may not be an extrema</p>
+            <hr>
+            <h3>Finding Extremas</h3>
+            <p>In order to find extremas, we need to find the critical points, and then use the <b>first derivative test</b> and/or <b>second derivative test</b></p>
+            <br>
+            <p>First Derivative Test: </p>
+            <p>Find a value of $f'(x)$ on the left and right of the critical point $x = c$</p>
+            <p>Make sure the points on the left and right are not past another critical point</p>
+            <p>We will call $f'(x)$ on the left $f'(x_{\text{left}})$</p>
+            <p>We will call $f'(x)$ on the right $f'(x_{\text{right}})$</p>
+            <p>if $f'(x_{\text{left}}) < 0$ and $f'(x_{\text{right}}) > 0$, then there is a <b>minimum</b> at $c$</p>
+            <p>if $f'(x_{\text{left}}) > 0$ and $f'(x_{\text{right}}) < 0$, then there is a <b>maximum</b> at $c$</p>
+            <p>if $f'(x_{\text{left}})$ and $f'(x_{\text{right}})$ are the same sign, there is no extrema</p>
+            <br>
+            <p>The idea of the first derivative test is that since extrema are the points where the function goes from increasing to decreasing or from decreasing to increasing</p>
+            <p>Since the sign of $f'(x)$ says whether the function is increasing or decreasing</p>
+            <p>We find if the function is increasing/decreasing on either side to see whether we have a minimum or maximum</p>
+            <br>
+            <p>Second Derivative Test: </p>
+            <p>If $f''(c) < 0$, then there is a maximum</p>
+            <p>If $f''(c) > 0$, then there is a minimum</p>
+            <p>If $f''(c) = 0$ or $f''(c)$ is undefined, then the test is inconclusvie</p>
+            <br>
+            <p>The idea here is that $f''(c)$ is the concavity at the point</p>
+            <p>If concanve up, that means the rate of change is initallliy negative and then keeps increasing to positive</p>
+            <p>Between that change from negative to positive, there has to be a minimum there</p>
+            <p>Vice-versa for concave down</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Practice 1</summary>
+                            <p>$$\begin{align} 
+
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

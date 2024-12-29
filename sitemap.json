@@ -34,6 +34,7 @@
                     {"name":"derivatives of sin and cos", "title": "Derivative of $sin(x)$ and $cos(x)$"},
                     {"name":"advanced derivative properties", "title": "Advanced Derivative Properties"},
                     {"name":"equation of the tangent line", "title": "Equation Of The Tangent Line"},
+                    {"name":"critical points and extrema", "title": "Critical Points And Extrema"},
                     {"name":"derivatives of inverse functions", "title": "Derivative of Inverse Functions"},
                     {"name":"derivative of e^x", "title": "Derivative of $e^x$"},
                     {"name":"derivative of ln(x)", "title": "Derivative of Logarithms"},
@@ -42,6 +43,7 @@
                     {"name":"logarithmic differentiation", "title": "Logarithmic Differentiation"},
                     {"name":"mean value and rolles theorem", "title": "Mean Value and Rolle's Theorem"},
                     {"name":"related rates", "title": "Related Rates"},
+                    {"name":"differentials", "title": "Differentials"},
                     {"name":"derivatives cheat sheet", "title": "Derivatives Cheat Sheet"}
                 ]
             },
