@@ -58,7 +58,9 @@
 
                     {"name":"basic integral properties", "title": "Basic Integral Properties"},
                     {"name":"integration by substitution", "title": "Integration By Substitution (U-Sub)"},
-                    {"name":"definition of the definite integral", "title": "Definition of the Definite Integral"}
+                    {"name":"definition of the definite integral", "title": "Definition of the Definite Integral"},
+                    {"name":"average of a function", "title": "Average Of A Function"}
+
                 ]
             }
         ]

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>The average ($A$) of a function $f(x)$ on $[a,b]$ is,</p>
+            <p>$$\begin{align} 
+                A = \frac{1}{b - a} \int_a^b{f(x) \ dx}
+            \end{align}$$</p>
+            <hr>
+            <h3>Why Is There An Integral?</h3>
+            <p>First, how would we take an average, or mean, of a set of numbers length n, $a_n$</p>
+            <p>$$\begin{align} 
+                A = \frac{a_0 + a_1 + a_2 ... + a_n}{n}
+            \end{align}$$</p>
+            <p>For example the average of $1,10,4$ is $\frac{15}{3}$ which is 5</p>
+            <p>If we tried this for a function, we would have an infinite amount of values of $f(x)$</p>
+            <p>Summing all of them up would be infinity, and since we we have an infinite amount of values, we get $\frac{\infty}{\infty}$</p>
+            <p>Instead what we can do is divide $[a,b]$ into $n$ equal subintervals with length of $\Delta x$</p>
+            <p>$$\begin{align} 
+                \Delta x = \frac{b-a}{n} \rightarrow n = \frac{b-a}{\Delta x}
+            \end{align}$$</p>
+            <p>We can give each subinterval a value from the function as $x = c^*_0, c^*_1,c^*_2,...c^*_n$</p>
+            <p>We can take the average ($A_n$) of these</p>
+            <p>$$\begin{align} 
+                A_n &= \frac{f(c^*_0) + f(c^*_1) + f(c^*_2) + ... + f(c^*_n)}{n} \\
+                &= \frac{f(c^*_0) + f(c^*_1) + f(c^*_2) + ... + f(c^*_n)}{\frac{b-a}{\Delta x}} \\
+                &= \frac{f(c^*_0) + f(c^*_1) + f(c^*_2) + ... + f(c^*_n)}{1} \cdot \frac{\Delta x}{b - a} \\
+                &= \frac{1}{b-a} \cdot \Delta x\left(f(c^*_0) + f(c^*_1) + f(c^*_2) + ... + f(c^*_n)\right)\\
+                &= \frac{1}{b-a} \cdot \left(f(c^*_0)\Delta x + f(c^*_1)\Delta x + f(c^*_2)\Delta x + ... + f(c^*_n)\Delta x\right)\\
+                &= \frac{1}{b-a} \sum_{i = 1}^n{f(c^*_n)\Delta x}
+            \end{align}$$</p>
+            <p>Now the more subintervals we have, the closer it becomes to the true average</p>
+            <p>The way we achieve this is by using a limit to infinity</p>
+            <p>$$\begin{align} 
+                \lim_{n \to \infty}A_n &= \lim_{n \to \infty} \left[\frac{1}{b-a} \sum_{i = 1}^n{f(c^*_n)\Delta x}\right] \\
+                A &= \frac{1}{b-a}\lim_{n \to \infty} \left[ \sum_{i = 1}^n{f(c^*_n)\Delta x}\right] &&\text{Using Limit Constant Coefficient Property} \\
+                &= \frac{1}{b-a} \int_a^b{f(x) \ dx} &&\text{Using Definition of Indefinite Integral}
+            \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Find average of $f(x) = 3x^2 + 2x$ on $[2,5]$</summary>
+                            <p>$$\begin{align} 
+                                A &= \frac{1}{5 - 2} \int_2^5{3x^2 + 2x \ dx} \\
+                                &= \frac{1}{3} \left[x^3 + x^2\right] \vert_2^5 \\
+                                &= \frac{1}{3} \left[(5^3 + 5^2) - (2^3 + 2^2)\right] \\
+                                &= \frac{1}{3} \left[138\right] \\
+                                &= 46
+
+                            \end{align}$$</p>
+                        </details>
+                        <details>
+                            <summary>Find average of $f(x) = -2sin(x)cos(x)$ on $[0,\frac{\pi}{2}]$</summary>
+                            <p>$$\begin{align} 
+                                A &= \frac{1}{\frac{\pi}{2} - 0} \int_{0}^{\pi / 2}{-2sin(x)cos(x) \ dx} \\
+                                &= \frac{2}{\pi}\int_{0}^{\pi / 2}{-2sin(x)cos(x) \ dx} \\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                u = sin(x), du = cos(x) \ dx \\
+                                x = 0 \rightarrow u = 0, x = \pi/2 \rightarrow u = 1 \\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                &= \frac{2}{\pi}\int_{0}^{1}{-2u \ du} \\
+                                &= \frac{2}{\pi} \left[-u^2\right]\vert_0^1 \\
+                                &= \frac{2}{\pi} \left[(-(1^2)) - (-(0)^2)\right]\\
+                                &= \frac{2}{\pi} \left[-1\right]\\
+                                &= -\frac{2}{\pi}\\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
