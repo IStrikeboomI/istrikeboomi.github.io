@@ -11,38 +11,40 @@
 \begin{tikzpicture}
 \begin{axis}[
   axis lines=middle,
-  %grid=major,
-  xmin=-5,
-  xmax=5,
-  ymin=-2,
-  ymax=4,
+  grid=major,
+  xmin=-3,
+  xmax=1,
+  ymin=-4,
+  ymax=2,
   xlabel=$x$,
   ylabel=$y$,
   xtick={-4,-3,...,4},
   ytick={-4,-3,...,4},
-  xticklabel = \empty,
-  yticklabel = \empty,
+  %xticklabel = \empty,
+  %yticklabel = \empty,
   tick style={very thick},
   %restrict y to domain = -2:30,
   legend style={at={(rel axis cs:0,1)},anchor=north west,draw=none,inner sep=0pt, fill = white}
 ]
 
-\addplot[blue,very thick,domain=-5:-1,samples=100] gnuplot {-(2)*cbrt((x + 2)**2) + 3};
-\addplot[blue,very thick,domain=-1:2,samples=100] gnuplot {x**2 - x - 1};
-\addplot[blue,very thick,domain=2:5,samples=100] gnuplot {cbrt(x - 3) + 2};
-\addplot[red,very thick, dashed,domain=-1:2,samples=100] gnuplot {-1.25};
-\draw[red, very thick, dashed] (3,1) -- (3,3) node [midway,below] {};
+\addplot[blue,very thick,domain=-5:5,samples=100] gnuplot {x**3 + x**2 - x};
+\draw[red, very thick, dashed] (-.333,-5) -- (-.333,5) node [midway,below] {};
+\addplot[green,very thick,domain=-2.5:-1.5,samples=100] gnuplot {7*x + 12};
+\addplot[green,very thick,domain=-2.11:-1.11,samples=100] gnuplot {3.556*x + 5.754};
+\addplot[green,very thick,domain=-1.5:-.5,samples=100] gnuplot {1};
+\addplot[green,very thick,domain=-1:0,samples=100] gnuplot {-1.25*x};
+
 %\draw[green,very thick] (1,0) -- (1,2);
 %\draw[green,very thick] (3,0) -- (3,2);
 %\draw [dashed] (2,-10) -- (2,40);
-\addplot[incl, draw=blue] coordinates {(-2,3)} node[above] {$f'(x)$ is undefined};
-\addplot[incl, draw=blue] coordinates {(.5,-1.25)} node[below] {$f'(x) = 0$};
-\addplot[incl, draw=blue] coordinates {(3,2)} node[pin={[pin distance = .1cm]180:{$f'(x)$ is undefined}}] {};
+%\addplot[incl, draw=blue] coordinates {(-2,3)} node[above] {$f'(x)$ is undefined};
+%\addplot[incl, draw=blue] coordinates {(.5,-1.25)} node[below] {$f'(x) = 0$};
+%\addplot[incl, draw=blue] coordinates {(3,2)} node[pin={[pin distance = .1cm]180:{$f'(x)$ is undefined}}] {};
 
 %\addplot[excl, draw=blue] coordinates {(-2,0)};
 
 
-%\addlegendentry{$f(x)$};
+\addlegendentry{$f(x) = x^3 + x^2 - x$};
 
 \end{axis};
 \end{tikzpicture}
