@@ -16,7 +16,7 @@
             <img id="logo">
             <label id="playerSelectLabel" for="playerSelect">Choose Player:</label>
 
-            <input type="text" id="playerSelect" name="playerSelect" list="players" style="width: 100%;" oninput="onPlayerSelectInput()">
+            <input type="text" id="playerSelect" name="playerSelect" list="players" style="width: 100%;" oninput="onPlayerSelectInput()" onkeypress="onPlayerSelectKeyPress(event);">
             <datalist id="players">
 
             </datalist>

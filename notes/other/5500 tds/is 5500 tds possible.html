@@ -16,8 +16,8 @@
             <h3>TL;DR</h3>
             <p><b>Yes, </b>it is possible. </p>
             <p>I simulated 5500 TDs 100,000,000 times</p>
-            <p>The chance of success is $\frac{88717}{100,000,000} = .088717 \%$</p>
-            <p>At this rate there should be a succsessful attempt around attempt 1130</p>
+            <p>The chance of success is $\frac{163537}{100,000,000} = .1635 \%$</p>
+            <p>At this rate there should be a succsessful attempt around attempt 610</p>
             <hr>
             <h3>What is 5500 TDs?</h3>
             <p>5500 TDs is an NFL related TikTok challenge</p>
@@ -79,17 +79,17 @@
             <p>The next thing I did was to use multi-threadhing to split the work where each thread did its own attempt</p>
             <hr>
             <h3>Final Results</h3>
-            <p>Using 5 threads on an Intel I5-8400, it took 8946s, which is around 2.5 hours, to do 100,000,000 attempts</p>
-            <p>Out of the 100 million attempts, only 88,717 were succsessful</p>
-            <p>The averge TDs for an attempt was 4869.21 TDs</p>
-            <p>The best attempt was 5675 TDs</p>
+            <p>Using 5 threads on an Intel I5-8400, it took 10,000s, which is around 2.5 hours, to do 100,000,000 attempts</p>
+            <p>Out of the 100 million attempts, only 163,537 were succsessful</p>
+            <p>The averge TDs for an attempt was 4911.79 TDs</p>
+            <p>The best attempt was 5687 TDs</p>
             <hr>
             <h3>Analysis</h3>
             <p>Using the DataAnalysis.cpp file, I found the frequency each player and team were selected</p>
             <p>What it showed how many succsessful attempts had a player chosen</p>
             <p>Before I announce it, I want you to think which players are mandatory for a succsessful attempt</p>
             <p>Something that surprised me was that it was only 1 mandatory player, the GOAT, Tom Brady</p>
-            <p>If you had thought Drew Brees was mandatory, there was one succsessful attempt where he wasn't taken, it was <a href="assets/json/attempt 4465511.json">Attempt #4465511</a></p>
+            <p>If you had thought Drew Brees was mandatory, there was some succsessful attempts where he wasn't taken, like <a href="assets/json/attempt 4465511.json">Attempt #4465511</a></p>
             <p>Aside from that there were some players that showed up in most attempts, which naturally are the leaders of TDs at their postions</p>
             <img src="assets/images/playerFrequency.png">
             <p>The next thing the data analysis did was to get the team frequency</p>

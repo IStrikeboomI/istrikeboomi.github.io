@@ -1119,7 +1119,7 @@
       "DET",
       "NYB",
       "PIT",
-      "2TM"
+      "CHI"
     ],
     "td": 217
   },
@@ -8255,9 +8255,10 @@
     "name": "Dave Casper",
     "pos": "TE",
     "teams": [
-      "OAK",
-      "2TM",
-      "RAI"
+      "MIN",
+		"TEN",
+		"OAK",
+		"RAI"
     ],
     "td": 53
   },
@@ -10166,8 +10167,9 @@
     "name": "Pete Johnson",
     "pos": "RB",
     "teams": [
-      "CIN",
-      "2TM"
+      "LAC",
+			"MIA",
+            "CIN"
     ],
     "td": 82
   },
@@ -19032,12 +19034,13 @@
     "name": "Andre Rison",
     "pos": "WR",
     "teams": [
-      "OAK",
-      "ATL",
-      "KAN",
-      "2TM",
-      "CLE",
-      "IND"
+      "JAX",
+	  "GNB",
+	  "ATL",
+	  "CLE",
+	  "IND",
+	  "KAN",
+	  "OAK"
     ],
     "td": 84
   },
@@ -29431,7 +29434,8 @@
     "pos": "QB",
     "teams": [
       "LAC",
-      "IND"
+      "IND",
+      "LAC"
     ],
     "td": 424
   },

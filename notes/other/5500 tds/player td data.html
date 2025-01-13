@@ -70,6 +70,9 @@
                 <option>LAR</option> 
                 <option>SEA</option> 
             </select>
+            <label for="maxPlayers">Max Players:</label>
+            <input type="number" name="maxPlayers" id="maxPlayers" value="100" onkeypress="validateNumber(event);" oninput="maxPlayersFilter(event);">
+
         </div>
         <table id="table" class="formatted">
             <thead>

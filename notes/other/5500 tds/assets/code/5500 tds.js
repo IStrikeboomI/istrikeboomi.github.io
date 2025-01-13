@@ -85,6 +85,13 @@ function selectPlayer() {
         document.getElementById("players").innerHTML = "";
     }
 }
+function onPlayerSelectKeyPress(e) {
+    if (e.key == "Enter") {
+        if (!document.getElementById("selectPlayer").hidden) {
+            selectPlayer();
+        }
+    }
+}
 function onPlayerSelectInput() {
     let chosen = document.getElementById("playerSelect").value.toLowerCase();
     let player;

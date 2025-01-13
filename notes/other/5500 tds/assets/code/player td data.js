@@ -22,9 +22,17 @@ $(document).ready(function() {
     });
 });
 
+let maxPlayers = 100;
+let posAllowed = POSITIONS.map(s => document.getElementById(s).checked);
+let teamsAllowed = Array.from(document.getElementById("teams")).map(option => option.value);
+let nameAllowed = document.getElementById("name").innerHTML;
+let minTDs = document.getElementById("minTD").value;
+let sortElement;
+let sortType = 0;
 let currentData = DATA.slice();
 let table = document.getElementById("table");
 
+applyFilter();
 updateTable();
 function updateTable() {
     table.getElementsByTagName("tbody")[0].remove();
@@ -45,11 +53,11 @@ function updateTable() {
         tds.classList.add("formatted");
         tr.appendChild(tds);
         let teams = document.createElement("td");
-        teams.innerHTML = p["teams"];
+        teams.innerHTML = p["teams"].toString().replaceAll(",",", ");
         teams.classList.add("formatted");
         tr.appendChild(teams);
         table.getElementsByTagName("tbody")[0].appendChild(tr);
-        if (table.rows.length > 100) {
+        if (table.rows.length > maxPlayers) {
             break;
         }
     }
@@ -57,7 +65,6 @@ function updateTable() {
 
 function sort(column, type) {
     if (type == 0) {
-        currentData = DATA.slice();
         applyFilter();
         return;
     }
@@ -89,31 +96,69 @@ function sortCycle(element) {
     }
 }
 function tableSort(e) {
-    let element = e.target;
+    sortElement = e.target;
     for (let td of table.getElementsByTagName("thead")[0].getElementsByTagName("tr")[0].children) {
-        if (element !== td) {
+        if (sortElement !== td) {
             td.classList.remove("headerSortDown");
             td.classList.remove("headerSortUp");
         }
     }
-    let sortType = sortCycle(element);
-    sort(element.getAttribute("data-type"),sortType);
+    sortType = sortCycle(sortElement);
+    sort(sortElement.getAttribute("data-type"),sortType);
     updateTable();
 }
 
+
 function applyFilter() {
-    
+    currentData = DATA.slice();
+    currentData = currentData.filter(p => {
+        if (teamsAllowed.length > 0) {
+            let hasTeam = false;
+            for (let t of teamsAllowed) {
+                if (p["teams"].includes(t)) {
+                    hasTeam = true;
+                    break;
+                }
+            }
+            if (!hasTeam) {
+                return false;
+            }
+        }
+        if (POSITIONS.indexOf(p["pos"]) != -1) {
+            if (!posAllowed[POSITIONS.indexOf(p["pos"])]) {
+                return false;
+            }
+        } else {return false;}
+        if (!p["name"].toLowerCase().includes(nameAllowed.toLowerCase())) {
+            return false;
+        }
+        if (p["td"] < minTDs) {
+            return false;
+        }
+        return true;
+    });
+    if (sortType !== 0 && sortElement !== undefined) {
+        sort(sortElement.getAttribute("data-type"), sortType);
+    }
+    updateTable();
+}
+function maxPlayersFilter(e) {
+    maxPlayers = e.target.value;
+    updateTable();
 }
 function posFilter(e) {
-    console.log(e.target.value);
+    posAllowed[POSITIONS.indexOf(e.target.id)] = e.target.checked;
+    applyFilter();
 }
 function teamFilter(e) {
-    let teams = Array.from(e.target.selectedOptions).map(option => option.value);
-    console.log(teams);
+    teamsAllowed = Array.from(e.target.selectedOptions).map(option => option.value);
+    applyFilter();
 }
 function nameFilter(e) {
-    console.log(e.target.value);
+    nameAllowed = e.target.value
+    applyFilter();
 }
 function minTDFilter(e) {
-    console.log(e.target.value);
+    minTDs = e.target.value
+    applyFilter();
 }
