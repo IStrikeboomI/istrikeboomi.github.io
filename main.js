@@ -20,17 +20,6 @@ homeTh.appendChild(homeA);
 homeTr.appendChild(homeTh);
 sidebar.appendChild(homeTr);
 
-//other
-let otherTr = document.createElement("tr");
-let otherTh = document.createElement("th");
-otherTh.classList.add("align-left-cell");
-let otherA = document.createElement("a");
-otherA.innerHTML = "Other";
-otherA.href = "/other.html";
-otherTh.appendChild(otherA);
-otherTr.appendChild(otherTh);
-sidebar.appendChild(otherTr);
-
 //random page
 let randomTr = document.createElement("tr");
 let randomTh = document.createElement("th");
@@ -148,10 +137,32 @@ if (request.status === 200) {
         sidebar.appendChild(tr);
     }
 }
+
+function goToRandomPage() {
+    console.log("TODO: add random page redirect");
+}
+//util section
 //get random element in array
 Array.prototype.random = function () {
     return this[Math.floor((Math.random()*this.length))];
 }
-function goToRandomPage() {
-    console.log("TODO: add random page redirect");
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
+function validateNumber(evt) {
+    var theEvent = evt || window.event;
+  
+    // Handle paste
+    if (theEvent.type === 'paste') {
+        key = event.clipboardData.getData('text/plain');
+    } else {
+    // Handle key press
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+    }
+    var regex = /[0-9]|\./;
+    if( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+  }

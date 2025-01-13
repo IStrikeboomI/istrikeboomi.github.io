@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <h3>TL;DR</h3>
+            <p><b>Yes, </b>it is possible. </p>
+            <p>I simulated 5500 TDs 100,000,000 times</p>
+            <p>The chance of success is $\frac{88717}{100,000,000} = .088717 \%$</p>
+            <p>At this rate there should be a succsessful attempt around attempt 1130</p>
+            <hr>
+            <h3>What is 5500 TDs?</h3>
+            <p>5500 TDs is an NFL related TikTok challenge</p>
+            <p>Primarily, it is done by <a href="https://www.tiktok.com/@sportsfordorks">SportsForDorks</a>, where he has been trying to get for over 300 days</p>
+            <p>There is a TikTok filter which chooses a random team</p>
+            <p>The goal is to select 6 QBs, 6 RBs, 6 WRs, and 6 TEs that have played for that team</p>
+            <p>Adding up all the <b>career</b> touchdowns of the players selected has to be equal to or greater than 5500 TDs</p>
+            <p>By touchdown, it means all touchdowns so passing TDs, rushing TD, receiving TDs, return TDs, fumble return TDs, etc..</p>
+            <p>Note: it doesn't matter the amount of touchdowns the player got for the team selected, it only matters if they were on the team</p>
+            <p>If you would like to try, you can go to <a href="5500 tds challenge.html">5500 TDs Challenge</a></p>
+            <hr>
+            <h3>Getting Data</h3>
+            <p>For 5500 TDs we need to know 4 things, player, position, touchdowns, and all the teams they played on</p>
+            <p>To get the data I used <a href="https://www.pro-football-reference.com/">Pro Football Refernce</a></p>
+            <p>My first idea was to use their <a href="https://www.pro-football-reference.com/leaders/all_td_career.htm">Touchdowns Career Leaders</a>, but this came with a lot of issues</p>
+            <p>First was that they didn't include passing TDs, next is that position data isn't there, and finally it doesn't list all the teams they played for</p>
+            <p>My next idea was to use their Player <a href="https://www.pro-football-reference.com/years/2024/scoring.htm">Scoring</a> and <a href="https://www.pro-football-reference.com/years/2024/passing.htm">Passing</a></p>
+            <p>This was much better because it is easy to loop through the years because it's just part of the url</p>
+            <p>Next I used a custom Java built webscraper to go through these links and add all the touchdowns from both to make a final JSON file</p>
+            <p>The only columns that mattered were Player, Tm, Pos, AllTD, and TD (on passing)</p>
+            <p>This initially created a JSON file that was too big, so I filtered the scraper to only allow the positions of QB, RB, WR, and TE because that is all we need</p>
+            <p>The next thing to do was to fix the JSON file because some of entries were outdated</p>
+            <p>Some team got renamed so I had to fix those manually, ex. San Diego Chargers became the LA Chargers, Houston Oilers became the Tennesse Titans</p>
+            <p>Some indivual players were also wrong because they had the same name and position</p>
+            <p>There were also some indivual players like Johhnny Unitas who played for the Baltimore Colts (which later became the Indianapolis Colts), but was listed under the Baltimore Ravens</p>
+            <p>Fixing all these finally gave a valid <a href="assets/json/data.json">JSON Data File</a></p>
+            <img src="assets/images/data.png">
+            <hr>
+            <h3>Processing Data</h3>
+            <p>From the beginning, I knew I wanted to use C++ because of it's speed, especially with the amount of attempts I wanted to do</p>
+            <p>I initially only wanted to do 10,000 attempts, but that only took a few seconds, so I scaled it up to 100,000,000 attempts, which in total took around 2.5 hours</p>
+            <p>If you would like the source code, <a href="https://github.com/IStrikeboomI/istrikeboomi.github.io/tree/main/notes/other/5500%20tds/assets/code">https://github.com/IStrikeboomI/istrikeboomi.github.io/tree/main/notes/other/5500%20tds/assets/code</a></p>
+            <p>To run it, use the main in TEST.cpp and make sure the data.json is in the same directory</p>
+            <p>To process the JSON file, I used <a href="https://github.com/nlohmann/json">nlohmann's JSON library</a></p>
+            <img src="assets/images/code.png">
+            <p>The first thing the code does is to make 4 JSON files based on the 4 positions that have the player's sorted by TD from highest to lowest</p>
+            <img src="assets/images/QBdata.png">
+            <p>These JSON files aren't needed, but it is good to have</p>
+            <p>The next thing is to create 32 JSON files for the 32 teams by sorted player's value that have played for the team</p>
+            <p>The way value is calculated is the proportion that the TDs are in respect to the 6th best at their position</p>
+            <p>I chose 6th best because we have to choose 6 of all postions</p>
+            <img src="assets/images/value.png">
+            <p>For the algoritihm it uses the same value system and chooses the highest avaible</p>
+            <p>There probably is a better algorithim that takes into account the teams, but I found this to be good enough</p>
+            <hr>
+            <h3>Simulations</h3>
+            <p>I used the same data processing code to do the simulations</p>
+            <p>The simulation process was simple</p>
+            <p>Generate random team, and select the highest value player for that team that is avaible</p>
+            <p>Repeat that for 24 times and that's one attempt</p>
+            <p>After the attempt was done, we saved the result to the log, and if it was succsessful, it saved the attempt JSON</p>
+            <img src="assets/images/log.png">
+            <img src="assets/images/attempt.png">
+            <hr>
+            <h3>Making It Faster</h3>
+            <p>Using the method above, it took around a few milliseconds for an attempt</p>
+            <p>Now while this is fast, it wasn't fast enough for me</p>
+            <p>The biggest speed benefit is to change the compile type from Debug to Release, this made it nearly x50 faster</p>
+            <p>The next thing I did was to use multi-threadhing to split the work where each thread did its own attempt</p>
+            <hr>
+            <h3>Final Results</h3>
+            <p>Using 5 threads on an Intel I5-8400, it took 8946s, which is around 2.5 hours, to do 100,000,000 attempts</p>
+            <p>Out of the 100 million attempts, only 88,717 were succsessful</p>
+            <p>The averge TDs for an attempt was 4869.21 TDs</p>
+            <p>The best attempt was 5675 TDs</p>
+            <hr>
+            <h3>Analysis</h3>
+            <p>Using the DataAnalysis.cpp file, I found the frequency each player and team were selected</p>
+            <p>What it showed how many succsessful attempts had a player chosen</p>
+            <p>Before I announce it, I want you to think which players are mandatory for a succsessful attempt</p>
+            <p>Something that surprised me was that it was only 1 mandatory player, the GOAT, Tom Brady</p>
+            <p>If you had thought Drew Brees was mandatory, there was one succsessful attempt where he wasn't taken, it was <a href="assets/json/attempt 4465511.json">Attempt #4465511</a></p>
+            <p>Aside from that there were some players that showed up in most attempts, which naturally are the leaders of TDs at their postions</p>
+            <img src="assets/images/playerFrequency.png">
+            <p>The next thing the data analysis did was to get the team frequency</p>
+            <p>My initial thought was that the Chargers would be the best team to get because they have 4 players with a lot of TDs (Drew Brees, Antonio Gates, Phillip Rivers, and LaDainian Tomlinson)</p>
+            <p>My assumption was confirmed because it was the most common team chosen, the least common team is the Houston Texans, probably because of how new the team is</p>
+            <img src="assets/images/teamFrequency.png">
+            <hr>
+            <h3>Final Thoughts</h3>
+            <p>5500 TDs is possible, but it needs perserverance</p>
+            <p>It also needs some elite ball knowledge of the various teams that the best players played for</p>
+            <p>If you would like to do your own simulations and data processing, download the <a href="https://github.com/IStrikeboomI/istrikeboomi.github.io/tree/main/notes/other/5500%20tds/assets/code">Source Code</a> along with the <a href="https://github.com/nlohmann/json">JSON Library</a></p>
+            <p>Make sure to put <a href="assets/json/data.json">data.json</a> in the directory so the code can find it</p>
+            <p>Use the main in TEST.cpp to run simulations and DataAnalysis.cpp to do the data analysis</p>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

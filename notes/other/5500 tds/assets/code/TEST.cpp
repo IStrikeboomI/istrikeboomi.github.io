@@ -227,7 +227,7 @@ void createPlayerValueData() {
 	}
 }
 
-int main1() {
+int main() {
 	auto indexingStart = std::chrono::high_resolution_clock::now();
 	createPositionData();
 	createPlayerValueData();

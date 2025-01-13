@@ -21,7 +21,7 @@ std::map<std::string, int> teamFrequencyMap;
 constexpr std::array<std::string_view, 4> positions = {"QB","RB","WR","TE"};
 int goodAttempts = 0;
 int totalTeams = 0;
-int main() {
+int main1() {
 	
 	for (const auto& entry : std::filesystem::directory_iterator("attempts/good")) {
 		std::ifstream file(entry.path());

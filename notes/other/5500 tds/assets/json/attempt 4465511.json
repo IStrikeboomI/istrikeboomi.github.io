@@ -1,0 +1,131 @@
+{
+    "QB": [
+        {
+            "name": "Tom Brady",
+            "td": 677,
+            "team": "NWE"
+        },
+        {
+            "name": "Philip Rivers",
+            "td": 424,
+            "team": "IND"
+        },
+        {
+            "name": "Peyton Manning",
+            "td": 557,
+            "team": "IND"
+        },
+        {
+            "name": "Brett Favre",
+            "td": 522,
+            "team": "ATL"
+        },
+        {
+            "name": "Ben Roethlisberger",
+            "td": 438,
+            "team": "PIT"
+        },
+        {
+            "name": "Aaron Rodgers",
+            "td": 538,
+            "team": "NYJ"
+        }
+    ],
+    "RB": [
+        {
+            "name": "Marshall Faulk",
+            "td": 136,
+            "team": "IND"
+        },
+        {
+            "name": "Marcus Allen",
+            "td": 151,
+            "team": "RAI"
+        },
+        {
+            "name": "LaDainian Tomlinson",
+            "td": 169,
+            "team": "NYJ"
+        },
+        {
+            "name": "Emmitt Smith",
+            "td": 176,
+            "team": "ARI"
+        },
+        {
+            "name": "Derrick Henry",
+            "td": 115,
+            "team": "TEN"
+        },
+        {
+            "name": "Adrian Peterson",
+            "td": 135,
+            "team": "DET"
+        }
+    ],
+    "WR": [
+        {
+            "name": "Terrell Owens",
+            "td": 156,
+            "team": "BUF"
+        },
+        {
+            "name": "Randy Moss",
+            "td": 159,
+            "team": "MIN"
+        },
+        {
+            "name": "Marvin Harrison",
+            "td": 128,
+            "team": "IND"
+        },
+        {
+            "name": "Larry Fitzgerald",
+            "td": 122,
+            "team": "ARI"
+        },
+        {
+            "name": "Jerry Rice",
+            "td": 209,
+            "team": "SFO"
+        },
+        {
+            "name": "Cris Carter",
+            "td": 131,
+            "team": "PHI"
+        }
+    ],
+    "TE": [
+        {
+            "name": "Travis Kelce",
+            "td": 80,
+            "team": "KAN"
+        },
+        {
+            "name": "Tony Gonzalez",
+            "td": 111,
+            "team": "ATL"
+        },
+        {
+            "name": "Rob Gronkowski",
+            "td": 93,
+            "team": "TAM"
+        },
+        {
+            "name": "Jimmy Graham",
+            "td": 89,
+            "team": "SEA"
+        },
+        {
+            "name": "Jason Witten",
+            "td": 74,
+            "team": "DAL"
+        },
+        {
+            "name": "Antonio Gates",
+            "td": 116,
+            "team": "LAC"
+        }
+    ],
+    "td": 5506
+}
