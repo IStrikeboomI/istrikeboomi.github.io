@@ -5,7 +5,7 @@ window.MathJax = {
     }
 };
 
-let content = document.getElementById("content");
+const content = document.getElementById("content");
 
 //create sidebar
 let sidebar = document.createElement("table");
