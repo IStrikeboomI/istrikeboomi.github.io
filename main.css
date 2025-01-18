@@ -3,6 +3,7 @@ html {
 }
 body {
     background-color: #fcc93a;
+    white-space: nowrap;
 }
 h1, h2{
     text-align: center;
@@ -20,16 +21,7 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
-#content {
-    margin-left: 150px;
-    padding: 30px;
-    background-color: #f4f2dc;
-    border: 2px solid black;
-    border-radius: 10px;
-    justify-content: center;
-    position:absolute;
-    width: fit-content; 
-}
+
 #previous-note {
     float: left;
     padding-right: 50px;
@@ -38,11 +30,38 @@ img {
     float: right;
     padding-left: 50px;
 }
+
+
 #side-bar {
+    float:left;
     background-color: #eb9c36;
     border: 2px solid black;
     border-radius: 10px;
-    float: left;
+    transition: transform ease .5s;
+    transform: translateX(0);
+    z-index: 10;
+    width: fit-content;
+}
+
+#side-bar-hide-button {
+    position: absolute;
+    left: 100%;
+    z-index: 10;
+}
+
+#content {
+    float:left;
+    margin-left: 10px;
+    padding: 30px;
+    background-color: #f4f2dc;
+    border: 2px solid black;
+    border-radius: 10px;
+    justify-content: center;
+    width: fit-content; 
+    
+}
+.side-bar-hidden {
+    transform: translateX(-100%) !important;
 }
 .align-left-cell {
     padding: 10px;

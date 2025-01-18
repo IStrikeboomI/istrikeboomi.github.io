@@ -5,6 +5,8 @@ window.MathJax = {
     }
 };
 
+let content = document.getElementById("content");
+
 //create sidebar
 let sidebar = document.createElement("table");
 sidebar.id = "side-bar";
@@ -33,6 +35,22 @@ sidebar.appendChild(randomTr);
 
 //horizontal line separator in sidebar
 sidebar.appendChild(document.createElement("hr"));
+
+//hide button on sidebar
+let sidebarHideButton = document.createElement("button");
+sidebarHideButton.id="side-bar-hide-button";
+sidebarHideButton.innerHTML="<<";
+sidebarHideButton.onclick = (e) => {
+    if (sidebar.classList.contains("side-bar-hidden")) {
+        sidebar.classList.remove("side-bar-hidden");
+        sidebarHideButton.innerHTML = "<<";
+    } else {
+        sidebar.classList.add("side-bar-hidden");
+        sidebarHideButton.innerHTML = ">>"; 
+    }
+
+}
+sidebar.prepend(sidebarHideButton);
 
 document.getElementsByTagName("body")[0].prepend(sidebar);
 
@@ -66,7 +84,7 @@ if (request.status === 200) {
         notesName = notesName.replaceAll("%20"," ");
         notesName = notesName.replaceAll("%5E","^");
 
-        let content = document.getElementById("content");
+        
         for (let i = 0;i < json.length;i++) {
             if (json[i].subject.toLowerCase() === subject) {
                 let s = json[i].topics;
