@@ -13,11 +13,11 @@
     </head>
     <body>
         <div id="content">
-            <p>The Fundamental Theorem Of Calculus Comes in 2 parts</p>
+            <p>The Fundamental Theorem Of Calculus (FTC) Comes in 2 parts</p>
             <p>For the following, assume $f(x)$ is continuous on $[a,b]$ and $F(x)$ is the anti-derivative of f(x)</p>
             <p>Part 1:</p>
             <p>$$\begin{align} 
-                \frac{d}{dx} \int_a^x{f(x) \ dx} = f(x)
+                \frac{d}{dx} \int_a^x{f(t) \ dt} = f(x)
             \end{align}$$</p>
             <p>Part 2:</p>
             <p>$$\begin{align} 
@@ -26,6 +26,48 @@
             \end{align}$$</p>
             <p>Part 1 is about how derivatives and integrals are inverses</p>
             <p>Part 2 is about using indefinite integrals to solve definite integrals</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>$\frac{d}{dt}\int_6^t{x^{x^x} \ dx}$</summary>
+                            <p>We just simply use part 1 of FTC</p>
+                            <p>$$\begin{align}
+                                \frac{d}{dt}\int_6^t{x^{x^x} \ dx} = t^{t^t}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>The anti-derivative of $f(x)$ is $sin(x^3)$, find $\int_0^{\sqrt[3]{\pi / 4}}{f(x) \ dx}$</summary>
+                            <p>We just simply use part 2 of FTC</p>
+                            <p>$$\begin{align}
+                                \int_0^{\sqrt[3]{\pi / 4}}{f(x) \ dx} = sin(\pi / 4) - sin(0) = \frac{\sqrt{2}}{2}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\frac{d}{dx}\int_{4}^{\sqrt{x}}{e^{sin(t)} \cdot ln(t) \ dt}$</summary>
+                            <p>We just simply use part 1 of FTC</p>
+                            <p>The indefinite integral would be</p>
+                            <p>$$\begin{align}
+                                F(t) = \int{e^{sin(t)} \cdot ln(t) \ dt}
+                            \end{align}$$</p>
+                            <p>And the indefinite integral would be</p>
+                            <p>$$\begin{align}
+                                \int_{4}^{\sqrt{x}}{e^{sin(t)} \cdot ln(t) \ dt} = F(\sqrt{x}) - F(4)
+                            \end{align}$$</p>
+                            <p>Taking the derivative of this</p>
+                            <p>$$\begin{align}
+                                \frac{d}{dx} F(\sqrt{x}) - F(4) = (e^{sin(\sqrt{x})}\cdot ln(\sqrt{x})) \cdot \frac{1}{2\sqrt{x}} &&\text{Using Chain Rule}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
             <hr>
             <details open>
                 <summary>Proofs</summary>
