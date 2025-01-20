@@ -43,6 +43,7 @@
                     {"name":"trig and inverse derivatives", "title": "Trig (and Inverse) derivatives"},
                     {"name":"logarithmic differentiation", "title": "Logarithmic Differentiation"},
                     {"name":"mean value and rolles theorem", "title": "Mean Value and Rolle's Theorem"},
+                    {"name":"l'hopital's rule", "title": "L'Hôpital's Rule"},
                     {"name":"related rates", "title": "Related Rates"},
                     {"name":"differentials", "title": "Differentials"},
                     {"name":"derivatives cheat sheet", "title": "Derivatives Cheat Sheet"}

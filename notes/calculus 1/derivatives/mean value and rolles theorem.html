@@ -26,7 +26,7 @@
             <hr>
             <h3>Rolle's Theorem</h3>
             <p>If a function $f(x)$ is continous on $[a,b]$ and differentiable on $(a,b)$</p>
-            <p>And, $f(a) = f(b)$ $ a \neq b$</p>
+            <p>And, $f(a) = f(b)$, $ a \neq b$</p>
             <p>Then, there is a point $c$ in $(a,b)$   ($c \in (a,b)$)</p>
             <p>$$\begin{align} 
                 f'(c) = 0
@@ -67,6 +67,18 @@
             <br>
             <p>It's important to know that the Mean Value Theorem and Rolle's Theorem is about the existence of the point</p>
             <p>They don't give ways to solve it, it just means you can solve it</p>
+            <hr>
+            <h3>Cauchy's Mean Value Theorem</h3>
+            <p>Cauchy's mean value theorem is a more generalized version of the mean value theorem</p>
+            <p>If the functions $f(x)$ and $g(x)$ are continous on $[a,b]$ and differentiable on $(a,b)$</p>
+            <p>Then there exists a $c \in (a,b)$ such that</p>
+            <p>$$\begin{align} 
+                (f(b) - f(a))g'(c) = (g(b) - g(a))f'(c)
+            \end{align}$$</p>
+            <p>This can simplified if $g(a) \neq g(b)$ and $g'(c) \neq 0$</p>
+            <p>$$\begin{align} 
+                \frac{f(b) - f(a)}{g(b) - g(a)} = \frac{f'(c)}{g'(c)}
+            \end{align}$$</p>
             <hr>
             <details open>
                 <summary>Practice Problems</summary>
@@ -200,6 +212,45 @@
                             <p>Plugging this into the Mean Value theorem</p>
                             <p>$$\begin{align} 
                                 f'(c) = \frac{f(b) - f(a)}{b-a} = \frac{0}{b-a} = 0
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Proof of Cauchy's Mean Value Theorem</summary>
+                            <p>Case one: $g(a) = g(b)$</p>
+                            <p>$$\begin{align} 
+                                g(a) = g(b) \rightarrow g(b) - g(a) = 0
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                (f(b) - f(a))g'(c) &= 0 \cdot f'(c) \\
+                                (f(b) - f(a))g'(c) &= 0 \\
+                                g'(c) &= 0 \\
+                            \end{align}$$</p>
+                            <p>Since $g(a) = g(b)$ and $g'(x)$ exists we can use Rolle's theorem to show there is a $c$ where $g'(c) = 0$</p>
+                            <p>Case two: $g(a) \neq g(b)$</p>
+                            <p>Create a function $h(x)$</p>
+                            <p>$$\begin{align} 
+                                h(x) = f(x) - \frac{f(b) - f(a)}{g(b) - g(a)}g(x)
+                            \end{align}$$</p>
+                            <p>We see that $h(a) = h(b)$</p>
+                            <p>$$\begin{align} 
+                                h(a) - h(b) &= \left[f(a) - \frac{f(b) - f(a)}{g(b) - g(a)}g(a)\right] - \left[f(b) - \frac{f(b) - f(a)}{g(b) - g(a)}g(b)\right] \\
+                                &= f(a) - \frac{f(b) - f(a)}{g(b) - g(a)}g(a) - f(b) + \frac{f(b) - f(a)}{g(b) - g(a)}g(b) \\
+                                &= \frac{f(b) - f(a)}{g(b) - g(a)}(g(b) - g(a)) + f(a) - f(b) \\
+                                &= f(b) - f(a) + f(a) - f(b) \\
+                                &= 0
+                            \end{align}$$</p>
+                            <p>Since $h(x)$ is continuous on $[a,b]$ and differentiable $(a,b)$ (because $f(x)$ and $g(x)$ are continuous and differentiable)</p>
+                            <p>We can use Rolle's theorem to find where</p>
+                            <p>$$\begin{align} 
+                                h'(c) = 0
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                h'(c) = f'(x) - \frac{f(b) - f(a)}{g(b) - g(a)}g'(x) \\
+                                f'(x) - \frac{f(b) - f(a)}{g(b) - g(a)}g'(x) = 0 \\
+                                f'(x) = \frac{f(b) - f(a)}{g(b) - g(a)}g'(x) \\
+                                \frac{f'(x)}{g'(x)} = \frac{f(b) - f(a)}{g(b) - g(a)}
                             \end{align}$$</p>
                         </details>
                     </li>
