@@ -76,7 +76,7 @@
                 "notes" : 
                 [
                     {"name":"integration by parts", "title": "Integration By Parts"},
-
+                    {"name":"tabular method", "title": "Tabular Method"},
                     {"name":"gamma function derivation", "title": "Gamma Function Derivation"}
                 ]
             }

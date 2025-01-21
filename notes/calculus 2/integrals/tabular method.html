@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>The <b>Tabular Method</b> also called the <b>DI Method</b> is an easier way to do integration by parts</p>
+            <p>It simplifies by making you write less</p>
+            <p>The way it works is to make a table with 3 columns and a few rows</p>
+            <p>The first column is <b>S</b> for sign, second column is <b>D</b> for derivatives, and the third is <b>I</b> for integrals</p>
+            <p>The elements for the sign column are alternating plus and minuses <b>+</b> and <b>-</b></p>
+            <p>The first D row is the where your $u$ goes and the the first I is where your $v$ goes</p>
+            <p>Next you take repeated derivative for $u$ in the D column and repeated anti-derivatives in the I column</p>
+            <p>For example:</p>
+            <p>$$\begin{align} 
+                \int{(x^3 + 2x)sin(x) \ dx}
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                &\begin{array} {c | c | c}
+                S & D & I \\ \hline 
+                + & x^3 + 2x & sin(x)\\
+                - & 3x^2 + 2 & -cos(x)\\
+                + & 6x & -sin(x)\\
+                - & 6 & cos(x)\\
+                + & 0 & sin(x) \\
+                \end{array} \\ \\
+            \end{align}$$</p>
+            <p>The final step is to multiply the sign by the derivative, then multiply that by the the integral that is one down</p>
+            <p>Repeat that until all the way down, adding each term</p>
+            <p>For example:</p>
+            <img src="assets/svg/tabular method.svg">
+            <p>$$\begin{align} 
+                \int{(x^3 + 2x)sin(x) \ dx} = -(x^3 + 2x)cos(x) + (3x^2 + 2)sin(x) + 6xcos(x) + C
+            \end{align}$$</p>
+            <hr>
+            <h3>When Do You Stop?</h3>
+            <p>Stop when the derivative column reaches 0</p>
+            <p>Stop when the product of the derivative and integral can be integrated easily</p>
+            <p>Stop when the product of the derivative and integral can be turned into an integral that has been repeated</p>
+            <br>
+            <p>The reason why we do all 3 of these is because the product of the bottom row is the the integral in the output of integration by parts</p>
+            <hr>
+            <h3>Examples</h3>
+            <p>$$\begin{align} 
+                \int{x^3ln(x) \ dx}
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                &\begin{array} {c | c | c}
+                S & D & I \\ \hline 
+                + & ln(x) & x^3 \\
+                - & 1/x & x^4 / 4\\
+                \end{array} \\ \\
+            \end{align}$$</p>
+            <p>Here we can stop because we can easily the integrate the bottom row</p>
+            <p>$$\begin{align} 
+                \int{x^3ln(x) \ dx} &= \frac{x^4ln(x)}{4} - \int{- \frac{1}{x} \frac{x^4}{4} \ dx} \\
+                &= \frac{x^4ln(x)}{4} + \int{\frac{x^3}{4} \ dx} \\
+                &= \frac{x^4ln(x)}{4} + \frac{x^4}{16} + C\\
+            \end{align}$$</p>
+            <br>
+            <p>$$\begin{align} 
+                \int{e^xsin(3x)\ dx}
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                &\begin{array} {c | c | c}
+                S & D & I \\ \hline 
+                + & e^x & sin(3x)\\
+                - & e^x & -cos(3x)/3\\
+                + & e^x & -sin(3x)/9\\
+                \end{array} \\ \\
+            \end{align}$$</p>
+            <p>Here we an stop because we can transform the bottom row into our original integral</p>
+            <p>$$\begin{align} 
+                \int{e^xsin(3x)\ dx} &= -\frac{e^xcos(3x)}{3} + \frac{e^xsin(3x)}{9} + \int{-\frac{e^xsin(3x)}{9} \ dx} \\
+                \frac{9}{9}\int{e^xsin(3x)\ dx} &= -\frac{e^xcos(3x)}{3} + \frac{e^xsin(3x)}{9} - \frac{1}{9}\int{e^xsin(3x)\ dx} \\
+                \frac{10}{9}\int{e^xsin(3x)\ dx} &= -\frac{e^xcos(3x)}{3} + \frac{e^xsin(3x)}{9}\\
+                \int{e^xsin(3x)\ dx} &= \frac{9}{10}\left(-\frac{e^xcos(3x)}{3} + \frac{e^xsin(3x)}{9}\right) + C\\
+            \end{align}$$</p>
+            <br>
+            <p>$$\begin{align} 
+                \int{x^{12}e^x\ dx}
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                &\begin{array} {c | c | c}
+                S & D & I \\ \hline 
+                + & x^{12} & e^x \\
+                - & 12x^{11} & e^x\\
+                + & 132x^{10} & e^x \\
+                - & 1320x^9 & e^x\\
+                + & 11880x^8 & e^x \\
+                - & 95040x^7 & e^x\\
+                + & 665280x^6 & e^x \\
+                - & 3991680x^5 & e^x\\
+                + & 19958400x^4 & e^x \\
+                - & 79833600x^3 & e^x\\
+                + & 239500800x^2 & e^x \\
+                - & 479001600x & e^x\\
+                + & 479001600 & e^x \\
+                - & 0 & e^x \\
+                \end{array} \\ \\
+            \end{align}$$</p>
+            <p>Here we stop because the derivative became 0</p>
+            <p>$$\begin{align} 
+                \int{x^{12}e^x\ dx} = x^{12}e^x - 12x^{11}e^x + 132x^{10}e^x - 1320x^9e^x + 11880x^8e^x - 95040x^7e^x + 665280x^6e^x - 3991680x^5e^x \\ +19958400x^4e^x - 79833600x^3e^x + 239500800x^2e^x - 479001600xe^x + 479001600e^x + C
+            \end{align}$$</p>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
