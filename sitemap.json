@@ -3,6 +3,15 @@
         "subject" : "Pre-Calculus",
         "topics" : 
         [
+            {
+                "section":"Vectors", 
+                "notes" : 
+                [
+                    {"name":"vectors", "title": "Vectors"},
+                    {"name":"dot product", "title": "Dot Product"}
+
+                ]
+            }
         ]
     },
     {
@@ -80,6 +89,12 @@
                     {"name":"gamma function derivation", "title": "Gamma Function Derivation"}
                 ]
             }
+        ]
+    },
+    {
+        "subject" : "Calculus 3",
+        "topics" : 
+        [
         ]
     },
     {
