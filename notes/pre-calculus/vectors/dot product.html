@@ -13,7 +13,47 @@
     </head>
     <body>
         <div id="content">
-            <p>Content</p>
+            <p>Vector dot product is defined with two vectors of the same length/dimension $n$</p>
+            <p>$$\begin{align} 
+                \vec{u} \cdot \vec{v} = u_1v_1 + u_2v_2 + u_3v_3 + ... + u_nv_n
+            \end{align}$$</p>
+            <p>It can also be written in summation notation</p>
+            <p>$$\begin{align} 
+                \vec{u} \cdot \vec{v} = \sum_{i = 1}^n{u_iv_i}
+            \end{align}$$</p>
+            <p>There is also an alternate, trigonometric way of writing dot product ($\theta$ is the angle between the vectors)</p>
+            <p>$$\begin{align} 
+                \vec{u} \cdot \vec{v} = ||\vec{u}||\cdot ||\vec{v}|| \cdot \cos(\theta)
+            \end{align}$$</p>
+            <p>Using the above formula you can also find the angle between two vectors</p>
+            <p>$$\begin{align} 
+               \cos(\theta) = \frac{\vec{u} \cdot \vec{v}}{||\vec{u}||\cdot ||\vec{v}||} \rightarrow \theta = \cos^{-1}\left(\frac{\vec{u} \cdot \vec{v}}{||\vec{u}||\cdot ||\vec{v}||}\right)
+            \end{align}$$</p>
+            <hr>
+            <h3>Properties</h3>
+            <p>For the following $\vec{u}, \vec{v}, \vec{w}$ are vectors and $c$ is a constant</p>
+            <p>Commutative: $\vec{v} \cdot \vec{u} = \vec{u} \cdot \vec{v}$</p>
+            <p>Distributive: $(\vec{u} + \vec{v}) \cdot \vec{w} = \vec{u} \cdot \vec{w} + \vec{v}\vec{w}$</p>
+            <p>Constant Distributive: $c(\vec{u} \cdot \vec{v}) = c\vec{u} \cdot \vec{v} = \vec{u} \cdot c\vec{v}$</p>
+            <p>Magnitude: $\vec{u} \cdot \vec{u} = ||\vec{u}||^2$</p>
+            <p>It's important to note that dot product is <b>NOT</b> Associative, which means $(\vec{v} \cdot \vec{u}) \cdot \vec{w} \neq \vec{v} \cdot (\vec{u} \cdot \vec{w})$</p>
+            <hr>
+            <h3>What Does This Mean?</h3>
+            <p>Dot product can be thought of as how aligned the two vectors are</p>
+            <p>If we were to graph the two vectors then see how length to which they stay aligned, it would be the dot product</p>
+            <p>Look at the following graph for a visual</p>
+            <img src="assets/svg/dot product.svg">
+            <p>As you can see above the dot product is the length where $\vec{u}$ is aligned with $\vec{v}$</p>
+            <p>The cosine formula can also be derived from the graph above</p>
+            <p>We can use the law of cosines</p>
+            <p>The length $c$ (hypotenuse) is the magnitude of $\vec{u}$</p>
+            <p>The length $a$ (adjacent) is the dot product</p>
+            <p>The length $b$ (opposite) is the magnitude of the difference of the vectors </p>
+            <p>$$\begin{align} 
+                
+            \end{align}$$</p>
+            <p>Using the magnitude property above we can rewrite this</p>
+            
             <hr>
             <details open>
                 <summary>Practice Problems</summary>
