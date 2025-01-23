@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>One of the biggest uses of calculus is using derivatives to find extremas (mins and maxes)</p>
+            <p>The way we achieve this is using <b>critical points</b></p>
+            <p>An $x = c$ is a critical point on $f(x)$ if</p>
+            <ol>
+                <li>$f(c)$ exists</li>
+                <li>$f'(c) = 0$ OR $f'(c)$ is undefined</li>
+            </ol>
+            <p>If $x = c$ is a critical point of $f(x)$, then $f(c)$ is called the <b>critical value</b></p>
+            <p>An important often forgotten point is that $f(c)$ HAS TO EXIST</p>
+            <p>The reason why critical points are related to extrema are to think about the cases of requirement 2</p>
+            <p>If $f'(c) = 0$ that means the slope/rate of change is 0, which means it stopped changing which could be an extrema</p>
+            <p>If $f'(c)$ is undefined that means sharp corners or vertical slope, in the case of sharp corners these could also be extrema</p>
+            <img src="assets/svg/critical points graph.svg">
+            <p>It's important to note that every extrema is a critical value <b>BUT</b> every critical value may not be an extrema</p>
+            <hr>
+            <h3>Finding Extremas</h3>
+            <p>In order to find extremas, we need to find the critical points, and then use the <b>first derivative test</b> and/or <b>second derivative test</b></p>
+            <br>
+            <p>First Derivative Test: </p>
+            <p>Find a value of $f'(x)$ on the left and right of the critical point $x = c$</p>
+            <p>Make sure the points on the left and right are not past another critical point</p>
+            <p>We will call $f'(x)$ on the left $f'(x_{\text{left}})$</p>
+            <p>We will call $f'(x)$ on the right $f'(x_{\text{right}})$</p>
+            <p>if $f'(x_{\text{left}}) < 0$ and $f'(x_{\text{right}}) > 0$, then there is a <b>minimum</b> at $c$</p>
+            <p>if $f'(x_{\text{left}}) > 0$ and $f'(x_{\text{right}}) < 0$, then there is a <b>maximum</b> at $c$</p>
+            <p>if $f'(x_{\text{left}})$ and $f'(x_{\text{right}})$ are the same sign, there is no extrema</p>
+            <br>
+            <p>The idea of the first derivative test is that since extrema are the points where the function goes from increasing to decreasing or from decreasing to increasing</p>
+            <p>Since the sign of $f'(x)$ says whether the function is increasing or decreasing</p>
+            <p>We find if the function is increasing/decreasing on either side to see whether we have a minimum or maximum</p>
+            <br>
+            <p>Second Derivative Test: </p>
+            <p>If $f''(c) < 0$, then there is a maximum</p>
+            <p>If $f''(c) > 0$, then there is a minimum</p>
+            <p>If $f''(c) = 0$ or $f''(c)$ is undefined, then the test is inconclusvie</p>
+            <br>
+            <p>The idea here is that $f''(c)$ is the concavity at the point</p>
+            <p>If concanve up, that means the rate of change is initallliy negative and then keeps increasing to positive</p>
+            <p>Between that change from negative to positive, there has to be a minimum there</p>
+            <p>Vice-versa for concave down</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Find the relative extrema of $f(x) = x^5 + 5 x^4 - 5 x^3 - 25 x^2 + 40 x - 16$</summary>
+                            <p>First lets find critical points</p>
+                            <p>$$\begin{align} 
+                                f(x) &= x^5 + 5 x^4 - 5 x^3 - 25 x^2 + 40 x - 16 \\
+                                f'(x) &= 5x^4 + 20x^3 - 15x^2 - 50x + 40  \\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                5x^4 + 20x^3 - 15x^2 - 50x + 40 &= 0 \\
+                                x^4 + 4x^3 -3x^2 - 10x + 8 &= 0
+                            \end{align}$$</p>
+                            <p>Using rational root theorem we can factor it</p>
+                            <p>$$\begin{align} 
+                                x^4 + 4x^3 -3x^2 - 10x + 8 &= 0 \\
+                                (x-1)^2(x+2)(x+4) &= 0 \\
+                                x = 1, -2, -4
+                            \end{align}$$</p>
+                            <p>Out of these critical points, let's find which one of these is an extrema using both tests</p>
+                            <br>
+                            <p>First derivative test:</p>
+                            <p>For $x = 1$, the left point can be $0$ and right is $2$</p>
+                            <p>$$\begin{align} 
+                                f'(0) &= 8 \\
+                                f'(1) &= 0 \\
+                                f'(2) &= 24 \\
+                            \end{align}$$</p>
+                            <p>Since $f'(0)$ and $f'(2)$ are both positive (same sign), it is not an extrema</p>
+                            <p>For $x = -2$, the left point can be $-3$ and right is $0$</p>
+                            <p>$$\begin{align} 
+                                f'(-3) &= -16 \\
+                                f'(-2) &= 0 \\
+                                f'(0) &= 8 \\
+                            \end{align}$$</p>
+                            <p>Since $f'(-3)$ (left point) is negative and $f'(0)$ (right point) is positive, it is a minimum</p>
+                            <p>For $x = -4$, the left point can be $-5$ and right is $-3$</p>
+                            <p>$$\begin{align} 
+                                f'(-5) &= 108 \\
+                                f'(-4) &= 0 \\
+                                f'(-3) &= -16 \\
+                            \end{align}$$</p>
+                            <p>Since $f'(-5)$ (left point) is positive and $f'(-3)$ (right point) is negative, it is a maximum</p>
+                            <br>
+                            <p>Second deriviative test:</p>
+                            <p>$$\begin{align} 
+                                f'(x) &= 5x^4 + 20x^3 - 15x^2 - 50x + 40  \\
+                                f''(x) &= 20x^3 + 60x^2 - 30x - 50 \\
+                            \end{align}$$</p>
+                            <p>Now let's plug in the critical points</p>
+                            <p>$$\begin{align} 
+                                f''(-4) &= -250 \\
+                                f''(-2) &= 90 \\
+                                f''(1) &= 0 \\
+                            \end{align}$$</p>
+                            <p>Since $f''(4)$ is negative, it is a maximum</p>
+                            <p>Since $f''(-2)$ is positive, it is a minmum</p>
+                            <p>Since $f''(1)$ is 0, it is inconclusvie</p>
+                        </details>
+                        <details>
+                            <summary>Find the relative extrema of $f(x) = sin(x) + cos^2(x)$</summary>
+                            <p>First, let's find critical points</p>
+                            <p>$$\begin{align} 
+                                f(x) &= sin(x) + cos^2(x) \\
+                                f'(x) &= cos(x) - 2sin(x)cos(x) \\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                cos(x) - 2sin(x)cos(x) &= 0 \\
+                                cos(x)(1 - 2sin(x)) &= 0 \\
+                                cos(x) &= 0 \\
+                                1-2sin(x) = 0 \rightarrow sin(x) &= \frac{1}{2}\\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                cos(x) &= 0 \rightarrow x = \frac{\pi}{2} + \pi n, n \in \mathbb{Z}\\
+                                sin(x) &= \frac{1}{2} \rightarrow x = \frac{\pi}{6} + 2n\pi,\frac{5\pi}{6} + 2n\pi, n \in \mathbb{Z} \\
+                            \end{align}$$</p>
+                            <p>Combining these two solutions together,</p>
+                            <p>$$\begin{align} 
+                                cos(x) - 2sin(x)cos(x) = 0\\
+                                x = \frac{\pi}{2} + \pi n, \frac{\pi}{6} + 2n\pi, \frac{5\pi}{6} + 2n\pi,n \in \mathbb{Z} \\
+                            \end{align}$$</p>
+                            <p>Using the first derivative test would probably be complicated, so I'm going to use the second derivative test</p>
+                            <p>$$\begin{align} 
+                                f'(x) &= cos(x) - 2sin(x)cos(x) \\
+                                f''(x) &= -sin(x) + 2(sin^2(x) - cos^2(x)) \\
+                                &= -sin(x) - 2(cos^2(x) - sin^2(x)) \\
+                                &= -sin(x) - 2cos(2x) &&\text{Using Cosine Double Angle Property} \\
+                                &= -sin(x) - 2(1 - 2sin^2(x)) &&\text{Using Cosine Double Angle Property} \\
+                                &= -sin(x) - 2 + 4sin^2(x) \\
+                                &= 4sin^2(x) - sin(x) - 2
+                            \end{align}$$</p>
+                            <p>What you can notice is that $f''(x)$ is in the form of a quadratic (where $x$ is $sin(x)$)</p>
+                            <p>We can use the quadratic formula to find where the x-values of the roots are</p>
+                            <p>$$\begin{align} 
+                                sin(x) = \frac{1 \pm \sqrt{(-1)^2 - 4(4)(-2)}}{2(4)} = \frac{1 \pm \sqrt{33}}{8} + 2n\pi \approx 0.84307 + 2n\pi, -.59307 + 2n\pi
+                            \end{align}$$</p>
+                            <p>And using vertex formula $\frac{-b}{2a}$, we can find the vertex to see if it's positive or negative </p>
+                            <p>$$\begin{align} 
+                                x = \frac{1}{8} 
+                                f''(\frac{1}{8}) \approx -2.0624
+                            \end{align}$$</p>
+                            <p>The reason why we did all this is to show if our critical point is between is the roots, then it will be negative</p>
+                            <p>If it's outside the roots then it will be positive</p>
+                            <p>This is because the vertex lies in the middle of the roots and it is negative</p>
+                            <p>Time to apply the second derivative test</p>
+                            <p>Since $\frac{\pi}{2} \approx 1.57$, $\frac{\pi}{6} \approx .52$,$\frac{5\pi}{6} \approx 2.61$</p>
+                            <p>Adding $n \pi$ or $2n\pi$ won't matter because the roots are all being added by $2n\pi$</p>
+                            <p>$$\begin{align} 
+                                f''(\frac{\pi}{2} + \pi n) > 0 \\
+                                f''(\frac{\pi}{6} + 2n\pi) < 0 \\
+                                f''(\frac{5\pi}{6} + 2n\pi) < 0 \\
+                            \end{align}$$</p>
+                            <p>This means that,</p>
+                            <p>$$\begin{align} 
+                                \frac{\pi}{2} + \pi n \text{ Are Relative Minimums} \\
+                                \frac{\pi}{6} + 2n\pi \text{ Are Relative Maximums} \\
+                                \frac{5\pi}{6} + 2n\pi \text{ Are Relative Maximums} \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

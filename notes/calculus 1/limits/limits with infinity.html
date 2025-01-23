@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Sometimes when he have limits, they don't really approach a point, they just keep growing to infinity (or negative infinity)</p>
+            <p>Back in Pre-Calc, we called these asymptotes, but with calculus we can define these using limits to infinity ($\infty$)</p>
+            <p>Limits With Infinities (assume $c$ is a number): </p>
+            <p>$$\begin{align} 
+                \lim_{x \to \infty} f(x) = c \\
+                \lim_{x \to -\infty} f(x) = c \\
+                \lim_{x \to c} f(x) = \infty \\
+                \lim_{x \to c} f(x) = -\infty
+            \end{align}$$</p>
+            <p>The first two limits are approaching an infinity</p>
+            <p>The other two limits are resulting in an infinity</p>
+            <p>Let's look at some example graphs</p>
+            <img src="assets/svg/graph with asymptotes.svg">
+            <p>$$\begin{align} 
+                \lim_{x \to \infty} f(x) = 0 \\
+                \lim_{x \to -\infty} f(x) = 0 \\
+            \end{align}$$</p>
+            <img src="assets/svg/graph with vertical asymptote at 2.svg">
+            <p>$$\begin{align} 
+                \lim_{x \to 2} f(x) = \infty \\
+            \end{align}$$</p>
+            <img src="assets/svg/function for limit.svg">
+            <p>$$\begin{align} 
+                \lim_{x \to -\infty} f(x) = 1 \\
+                \lim_{x \to \infty} f(x) = \infty \\
+            \end{align}$$</p>
+            <hr>
+            <h3>How Do We Solve Limits At Infinity?</h3>
+            <p>For limits that result in infinity, they come about with asymptotes or unbounded growth</p>
+            <p>By Unbounded growth, think of a function like $f(x) = 3x$, as x gets infintly large, so does $f(x)$</p>
+            <p>There's nothing stopping the size of the function, so it just keeps growing forever</p>
+            <p>The main way to solve limits approaching infinity is to think about growth</p>
+            <p>Which function grows faster (when $x$ is very large), $x^2$ or $x^{90}$</p>
+            <p>It's the $x^{90}$ of course, because it multiplies it self more</p>
+            <p>The main idea with solving limits approaching infinties, is that the <b>biggest</b>, or fastest growing function dominates</p>
+            <p>For example: </p>
+            <p>$$\begin{align} 
+                \lim_{x \to \infty} 2^xx^2
+            \end{align}$$</p>
+            <p>When $x$ is large, the $2^x$ grows much faster, so it overtakes the result of $x^2$</p>
+            <p>Now suppose the two function $4x^3 + 3x$ and $5x^3$</p>
+            <p>Which of these two functions grows faster?</p>
+            <p>They both grow at the rate $x^3$ (the $3x$ doesn't matter because the $x^3$ grows much faster at large $x$ values)</p>
+            <p>Since they both grow at the same rate, you need to then compare the coefficients because those are differnet</p>
+            <p>The $5x^3$ grows faster because $5 > 4$</p>
+            <p>Basically, if the growth is <b>same</b>, then you need to focus on their coefficients</p>
+            <h3>Infinity Properties (In Limits)</h3>
+            <p>If you get to these in a limit approaching infinity, you can apply these</p>
+            <p>$$\begin{align} 
+                \frac{1}{\infty} &= 0 \\
+                \frac{1}{0^+} &= \infty \\
+                \frac{1}{0^-} &= -\infty \\
+            \end{align}$$</p>
+            <p>This is because when you divide by bigger numbers, that means you are splitting $1$ into portions</p>
+            <p>If you have more portions, the size of each portion gets smaller</p>
+            <p>At infinite portions, the size of each portion goes to 0</p>
+            <p>$$\begin{align} 
+                \infty + \infty &= \infty \\
+                \infty \cdot \infty &= \infty \\
+                c \cdot \infty &= \infty &&\text{$c$ is a number}\\
+                \infty - \infty &= \text{Indeterminate} \\
+            \end{align}$$</p>
+            <p>The first two are because something very large times/plus another thing very large is also very large</p>
+            <p>Negative and positive infinity still follow the same properties as positive and negative numbers</p>
+            <p>$$\begin{align} 
+                -\infty &= -1 \cdot \infty\\
+                \infty \cdot \infty &= \infty \\
+                \infty \cdot -\infty &= -\infty \\
+                -\infty \cdot \infty &= -\infty \\
+                -\infty \cdot -\infty &= \infty \\
+            \end{align}$$</p>
+            <h3>Rational Functions</h3>
+            <p>For limits approaching infinity with rational functions</p>
+            <p>The growth of the numerator and denominator needs to be considered</p>
+            <p>If the numerator grows faster, then it results in an infinity</p>
+            <p>If the denominator grows faster, then it results at 0</p>
+            <p>If they both grow at the same rate, then you need to divide the coefficients for the fastest growing terms</p>
+            <p>For polynomials, it is easy to find the fastest growing function, whichever has the higher degree (largest exponent)</p>
+            <p>For example: </p>
+            <p>$$\begin{align} 
+                \lim_{x \to \infty} \frac{x^3 - 4x + 2}{x^2 - 9} &= \infty \\
+                \lim_{x \to \infty} \frac{x^2 - \sqrt{x}}{x^3 - 9x + 4} &= 0 \\
+                \lim_{x \to \infty} \frac{3x^2 + sin(x)}{4x^2 + cos(x)} &= \frac{5}{4} \\
+            \end{align}$$</p>
+            <p>For the last limit, the $sin(x)$ and $cos(x)$ don't matter because they are bounded, which means they can't grow infintly</p>
+            <p>If a function is bounded it also means it has a fixed range</p>
+            <h3>AVOID INDETERMINATE FORMS!</h3>
+            <p>Read up on <a href="/notes/calculus 1/limits/indeterminate forms.html">Indeterminate Forms</a> and make sure to avoid them</p>
+            <p>The forms concering infinity are: </p>
+            <p>$$\begin{align} 
+                \frac{\infty}{\infty},\infty - \infty, 0 \cdot \infty, 1^{\infty}, \infty^0
+            \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>$\lim\limits_{x \to \infty} ln(x)$</summary>
+                            <p>$ln(x)$ grows without bounds</p>
+                            <p>$$\begin{align} 
+                                \lim\limits_{x \to \infty} ln(x) = \infty
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\lim\limits_{x \to 0} ln(|x|)$</summary>
+                            <p>$ln(|x|)$ has an asymptote at $0$</p>
+                            <p>$$\begin{align} 
+                                \lim\limits_{x \to 0} ln(|x|) = -\infty
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\lim\limits_{x \to \infty} \frac{sin(x)}{x}$</summary>
+                            <p>$sin(x)$ is bounded, but $x$ isn't so it overtakes</p>
+                            <p>We get $\frac{1}{\infty}$ case so 0</p>
+                            <p>$$\begin{align} 
+                                \lim\limits_{x \to \infty} \frac{sin(x)}{x} = 0
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\lim\limits_{x \to \infty} sin(x)$</summary>
+                            <p>$sin(x)$ is bounded, but it oscillates between $[-1,1]$ periodically</p>
+                            <p>This means at infinity, it doesn't really approach anything because it's some unknown value within the range</p>
+                            <p>So, the limit does not exist</p>
+                            <p>$$\begin{align} 
+                                \lim\limits_{x \to \infty} sin(x) = DNE
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\lim\limits_{x \to \infty} \frac{4x^2 - 4x + 4}{8x^2 + 2}$</summary>
+                            <p>Comparing the degrees, both the numerator and denominator have the same degree</p>
+                            <p>So divide the coefficients</p>
+                            <p>$$\begin{align} 
+                                \lim\limits_{x \to \infty} \frac{4x^2 - 4x + 4}{8x^2 + 2} = \frac{1}{2}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\lim\limits_{x \to \infty} x^2ln(x)$</summary>
+                            <p>$$\begin{align} 
+                                \lim\limits_{x \to \infty} x^2ln(x) &= \lim\limits_{x \to \infty} x^2 \cdot \lim\limits_{x \to \infty} ln(x) \\
+                                &= \infty \cdot \infty \\
+                                &= \infty
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\lim\limits_{x \to -2} \frac{x^3}{|x^2 - 4|}$</summary>
+                            <p>We can factor the denominator</p>
+                            <p>By doing that, we find a vertical asymptopte at $x=-2$</p>
+                            <p>$$\begin{align} 
+                                \lim\limits_{x \to -2} \frac{x^3}{|x^2 - 4|} &= \lim\limits_{x \to -2} \frac{x^3}{|(x-2)(x+2)|} \\
+                                &= \frac{(-2)^3}{|(-2-2)(-2+2)|} \\
+                                &= \frac{-8}{|(-4)(0)|} \\
+                                &= -\frac{8}{0} \\
+                                &= -\infty
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\lim\limits_{x \to -\infty} 4x + \sqrt{16x^2 - x}$</summary>
+                            <p>If we try using limit properties, we get an indeterminate form</p>
+                            <p>$$\begin{align} 
+                                \lim\limits_{x \to -\infty} 4x + \sqrt{16x^2 - x} &= \lim\limits_{x \to -\infty} 4x + \lim\limits_{x \to -\infty} \sqrt{16x^2 - x} \\
+                                &= (-\infty) + (\infty) \\
+                                &= \infty - \infty
+                            \end{align}$$</p>
+                            <p>So that won't work, we need to sovle the limit algebraically</p>
+                            <p>$$\begin{align} 
+                                \lim\limits_{x \to -\infty} 4x + \sqrt{16x^2 - x} &= \lim\limits_{x \to -\infty} \left(4x + \sqrt{16x^2 - x}\right) \cdot \frac{4x - \sqrt{16x^2 - x}}{4x - \sqrt{16x^2 - x}} \\
+                                &= \lim\limits_{x \to -\infty} \frac{(4x)^2 - (\sqrt{16x^2 - x}^2)}{4x - \sqrt{16x^2 - x}} &&\text{Using Difference of Two Squares} \\
+                                &= \lim\limits_{x \to -\infty} \frac{16x^2 - 16x^2 - x}{4x - \sqrt{16x^2 - x}} \\
+                                &= \lim\limits_{x \to -\infty} \frac{-x}{4x - \sqrt{16x^2 - x}} \\
+                                &= \lim\limits_{x \to -\infty} \frac{-x}{4x - \sqrt{16x^2(1-\frac{1}{16x^2})}} &&\text{Factor out $16x^2$}\\
+                                &= \lim\limits_{x \to -\infty} \frac{-x}{4x - \sqrt{16x^2}\sqrt{1-\frac{1}{16x^2}}} &&\text{Using Square Root product property}\\
+                                &= \lim\limits_{x \to -\infty} \frac{-x}{4x + 4x\sqrt{1-\frac{1}{16x^2}}} &&\text{$\sqrt{16x^2} = |4x|$ and $|4x| = -(4x)$ when x is negative }\\
+                                &= \lim\limits_{x \to -\infty} \frac{-x}{4x(1 + \sqrt{1-\frac{1}{16x^2}})} \\
+                                &= -\lim\limits_{x \to -\infty} \frac{1}{4(1 + \sqrt{1-\frac{1}{16x^2}})} \\
+                                &= - \frac{1}{4(1 + \sqrt{1-\frac{1}{\infty}})} \\
+                                &= - \frac{1}{4(1 + \sqrt{1-0})} \\
+                                &= - \frac{1}{4(1 + 1)} \\
+                                &= - \frac{1}{8} \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

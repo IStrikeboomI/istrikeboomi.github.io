@@ -3,6 +3,15 @@
         "subject" : "Pre-Calculus",
         "topics" : 
         [
+            {
+                "section":"Vectors", 
+                "notes" : 
+                [
+                    {"name":"vectors", "title": "Vectors"},
+                    {"name":"dot product", "title": "Dot Product"}
+
+                ]
+            }
         ]
     },
     {
@@ -18,6 +27,9 @@
                     {"name":"indeterminate forms", "title": "Indeterminate Forms"},
                     {"name":"continuity", "title": "Continuity (Continuous Functions)"},
                     {"name":"limit properties", "title": "Limit Properties"},
+                    {"name":"limits with infinity", "title": "Limits With Infinity"},
+                    {"name":"sided limits", "title": "Sided limits"},
+                    {"name":"squeeze theorem", "title": "Squeeze Theorem"},
                     {"name":"limit of sin(x) over x approaching 0", "title": "An Important Limit $\\left(\\lim\\limits_{x \\to 0}\\frac{sin(x)}{x}\\right)$"}
                 ]
             },
@@ -30,6 +42,9 @@
                     {"name":"simple derivative properties", "title": "Simple Derivative Properties"},
                     {"name":"derivatives of sin and cos", "title": "Derivative of $sin(x)$ and $cos(x)$"},
                     {"name":"advanced derivative properties", "title": "Advanced Derivative Properties"},
+                    {"name":"equation of the tangent line", "title": "Equation Of The Tangent Line"},
+                    {"name":"increasing decreasing and concavity", "title": "Increasing/Decreasing And Concavity"},
+                    {"name":"critical points and extrema", "title": "Critical Points And Extrema"},
                     {"name":"derivatives of inverse functions", "title": "Derivative of Inverse Functions"},
                     {"name":"derivative of e^x", "title": "Derivative of $e^x$"},
                     {"name":"derivative of ln(x)", "title": "Derivative of Logarithms"},
@@ -37,7 +52,9 @@
                     {"name":"trig and inverse derivatives", "title": "Trig (and Inverse) derivatives"},
                     {"name":"logarithmic differentiation", "title": "Logarithmic Differentiation"},
                     {"name":"mean value and rolles theorem", "title": "Mean Value and Rolle's Theorem"},
-
+                    {"name":"l'hopital's rule", "title": "L'Hôpital's Rule"},
+                    {"name":"related rates", "title": "Related Rates"},
+                    {"name":"differentials", "title": "Differentials"},
                     {"name":"derivatives cheat sheet", "title": "Derivatives Cheat Sheet"}
                 ]
             },
@@ -45,8 +62,16 @@
                 "section":"Integrals", 
                 "notes" : 
                 [
+                    {"name":"integration and antidifferentiation", "title": "Integration And Anti-Differentiation"},
+                    {"name":"constant of integration", "title": "Constant Of Integration ($+ C$)"},
+                    {"name":"definite integrals", "title": "Definite Integrals"},
+                    {"name":"fundamental theorem of calculus", "title": "Fundamental Theorem Of Calculus"},
+
+                    {"name":"basic integral properties", "title": "Basic Integral Properties"},
                     {"name":"integration by substitution", "title": "Integration By Substitution (U-Sub)"},
-                    {"name":"definition of the definite integral", "title": "Definition of the Definite Integral"}
+                    {"name":"definition of the definite integral", "title": "Definition of the Definite Integral"},
+                    {"name":"average of a function", "title": "Average Of A Function"}
+
                 ]
             }
         ]
@@ -55,12 +80,42 @@
         "subject" : "Calculus 2",
         "topics" : 
         [
+            {
+                "section":"Integrals", 
+                "notes" : 
+                [
+                    {"name":"integration by parts", "title": "Integration By Parts"},
+                    {"name":"tabular method", "title": "Tabular Method"},
+                    {"name":"gamma function derivation", "title": "Gamma Function Derivation"}
+                ]
+            }
+        ]
+    },
+    {
+        "subject" : "Calculus 3",
+        "topics" : 
+        [
         ]
     },
     {
         "subject" : "Linear Algebra",
         "topics" : 
         [
+        ]
+    },
+    {
+        "subject" : "Other",
+        "topics" : 
+        [
+            {
+                "section":"5500 TDS", 
+                "notes" : 
+                [
+                    {"name":"5500 tds challenge", "title": "5500 TDs Challenge"},
+                    {"name":"is 5500 tds possible", "title": "Is 5500 TDs possible?"},
+                    {"name":"player td data", "title": "Player TD Data"}
+                ]
+            }
         ]
     }
 ]

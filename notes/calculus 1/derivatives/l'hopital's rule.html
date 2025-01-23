@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>L'Hôpital's rule (pronounced loh-pee-tawl) is a theorem that makes solving some limits easier</p>
+            <p>L'Hôpital's rule states</p>
+            <p>$$\begin{align} 
+                \lim_{x \to c}\frac{f(x)}{g(x)} &= \lim_{x \to c}\frac{f'(x)}{g'(x)}\\
+                &\text{where} \\
+                f(c) = &g(c) = 0\\
+                &\text{or} \\
+                f(c) = &g(c) = \pm \infty\\
+            \end{align}$$</p>
+            <p>L'Hopital's rule (I'm going to not write the arrow over the o anymore) is commonly used to solve the following limits</p>
+            <p>$$\begin{align} 
+                \lim_{x \to c}\frac{f(x)}{g(x)} &= \frac{0}{0} \\
+                \lim_{x \to c}\frac{f(x)}{g(x)} &= \pm \frac{\infty}{\infty}
+            \end{align}$$</p>
+            <p>There are also times when you need to apply L'Hopital's rule multiple times</p>
+            <hr>
+            <h3>Examples</h3>
+            <p>$$\begin{align} 
+                \lim_{x \to 0}\frac{e^x - 1}{x} = \frac{0}{0}
+            \end{align}$$</p>
+            <p>We have to apply L'Hopital's rule</p>
+            <p>$$\begin{align} 
+                \lim_{x \to 0}\frac{e^x - 1}{x} &= \lim_{x \to 0}\frac{\frac{d}{dx} e^x - 1}{\frac{d}{dx} x} \\
+                &= \lim_{x \to 0}\frac{e^x}{1} \\
+                &= 1
+            \end{align}$$</p>
+            <br>
+            <p>$$\begin{align} 
+                \lim_{x \to 0}\frac{x - xcos(x)}{x - sin(x)} = \frac{0}{0}
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                \lim_{x \to 0}\frac{x - xcos(x)}{x - sin(x)} &= \lim_{x \to 0}\frac{\frac{d}{dx}x - xcos(x)}{ \frac{d}{dx} x - sin(x)} \\
+                &= \lim_{x \to 0}\frac{1 - cos(x) + xsin(x)}{1 - cos(x)} \\
+                &= \lim_{x \to 0}xsin(x) \\
+                &= 0 \\
+            \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>$\lim_{x \to 0}\frac{2e^{5x} - 25x^2 - 10x - 2}{5x^3}$</summary>
+                            <p>$$\begin{align} 
+                                \lim_{x \to 0}\frac{2e^{5x} - 25x^2 - 10x - 2}{5x^3} &= \frac{0}{0} \\
+                                \lim_{x \to 0}\frac{\frac{d}{dx} 2e^{5x} - 25x^2 - 10x - 2}{\frac{d}{dx} 5x^3} &= \lim_{x \to 0}\frac{10e^{5x} - 50x - 10}{15x^2} \\
+                                \lim_{x \to 0}\frac{10e^{5x} - 50x - 10}{15x^2} &= \frac{0}{0} \\
+                                \lim_{x \to 0}\frac{\frac{d}{dx} 10e^{5x} - 50x - 10}{\frac{d}{dx} 15x^2} &= \lim_{x \to 0}\frac{50e^{5x} - 50}{30x} \\
+                                \lim_{x \to 0}\frac{50e^{5x} - 50}{30x} &= \frac{0}{0} \\
+                                \lim_{x \to 0}\frac{\frac{d}{dx} 50e^{5x} - 50}{\frac{d}{dx} 30x} &= \lim_{x \to 0}\frac{250e^{5x}}{30} \\
+                                \lim_{x \to 0}\frac{250e^{5x}}{30}& = \frac{250}{30} = \frac{25}{3}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\lim_{x \to 0}\left(\frac{1}{sin(x)} - \frac{1}{x}\right)$</summary>
+                            <p>$$\begin{align} 
+                                \lim_{x \to 0}\left(\frac{1}{sin(x)} - \frac{1}{x}\right) &= \infty - \infty \\
+                                \lim_{x \to 0}\left(\frac{1}{sin(x)} - \frac{1}{x}\right) &= \lim_{x \to 0}\frac{x- sin(x)}{xsin(x)} \\
+                                \lim_{x \to 0}\frac{\frac{d}{dx} x- sin(x)}{\frac{d}{dx} xsin(x)} &=  \lim_{x \to 0}\frac{1 - cos(x)}{sin(x) + xcos(x)} \\
+                                \lim_{x \to 0}\frac{1 - cos(x)}{sin(x) + xcos(x)} &= \frac{0}{0} \\
+                                \lim_{x \to 0}\frac{\frac{d}{dx} 1 - cos(x)}{\frac{d}{dx} sin(x) + xcos(x)} &= \lim_{x \to 0}\frac{sin(x)}{cos(x) + cos(x) - xsin(x)} \\
+                                \lim_{x \to 0}\frac{sin(x)}{cos(x) + cos(x) - xsin(x)} &= \frac{0}{1 + 1 + 0} = 0\\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\lim_{x \to 0}xln(x)$</summary>
+                            <p>$$\begin{align} 
+                                \lim_{x \to 0}xln(x) &= \lim_{x \to 0}\frac{ln(x)}{1/x} = \frac{0}{0} \\
+                                \lim_{x \to 0}\frac{\frac{d}{dx} ln(x)}{\frac{d}{dx} 1/x} &= \lim_{x \to 0}\frac{1/x}{-1/x^2} \\
+                                \lim_{x \to 0}\frac{1/x}{-1/x^2} &= -\lim_{x \to 0}\frac{x^2}{x} = -\lim_{x \to 0}x \\
+                                -\lim_{x \to 0}x &= 0
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+            <hr>
+            <details>
+                <summary>Proof</summary>
+                <p>Case One: $f(c) = g(c) = 0$ and $g'(c) \neq 0$</p>
+                <p>$$\begin{align} 
+                    \lim_{x \to c}\frac{f(x)}{g(x)} &= \lim_{x \to c}\frac{f(x) - 0}{g(x) - 0} \\
+                    &= \lim_{x \to c}\frac{f(x) - f(c)}{g(x) - g(c)} \\
+                    &= \lim_{x \to c}\frac{\frac{f(x) - f(c)}{x-c}}{\frac{g(x) - g(c)}{x-c}} \\
+                    &= \frac{\lim_{x \to c}\frac{f(x) - f(c)}{x-c}}{\lim_{x \to c}\frac{g(x) - g(c)}{x-c}} \\
+                    &= \frac{f'(c)}{g'(c)}
+                \end{align}$$</p>
+                <p>Case Two:$f(c) = g(c) = \infty$</p>
+                <p>if only the denominator is infinity, then the limit is easy to solve and we don't need to use L'hopital rule</p>
+
+                <p>First define $L$</p>
+                <p>$$\begin{align} 
+                    L = \lim_{x \to c}\frac{f(x)}{g(x)}
+                \end{align}$$</p>
+                <p>Now we can rewrite the limit</p>
+                <p>$$\begin{align} 
+                    L &= \lim_{x \to c}\frac{f(x)}{g(x)} \\
+                    &= \lim_{x \to c}\frac{1/g(x)}{1/f(x)} \\
+                \end{align}$$</p>
+                <p>Here both the numerator and denominator are $0$ so we can apply case one</p>
+                <p>$$\begin{align} 
+                    \lim_{x \to c}\frac{1/g(x)}{1/f(x)} &= \lim_{x \to c}\frac{(1/g(x))'}{(1/f(x))'}\\
+                    &= \lim_{x \to c}\frac{-g'(x)/g(x)^2}{-f'(x)/f(x)^2}\\
+                    &= \lim_{x \to c}\frac{f(x)^2g'(x)}{g(x)^2f'(x)}\\
+                    &= \lim_{x \to c}\frac{f(x)^2}{g(x)^2} \cdot \lim_{x \to c}\frac{g'(x)}{f'(x)}\\
+                    L &= L^2 \cdot \lim_{x \to c}\frac{g'(x)}{f'(x)}\\
+                    L^{-1} &= \lim_{x \to c}\frac{g'(x)}{f'(x)}\\
+                    L &= \frac{1}{\lim_{x \to c}\frac{g'(x)}{f'(x)}}\\
+                    L &= \frac{\lim_{x \to c} 1}{\lim_{x \to c}\frac{g'(x)}{f'(x)}}\\
+                    L &= \lim_{x \to c}\frac{ 1}{\frac{g'(x)}{f'(x)}}\\
+                    L &= \lim_{x \to c}\frac{f'(x)}{g'(x)}\\
+                \end{align}$$</p>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>The gamma function is defined as: </p>
+            <p>$$\begin{align} 
+                \Gamma(z) = \int_0^{\infty}{e^{-t}t^{z - 1} \ dt}
+            \end{align}$$</p>
+            <p>This is commonly used to represent factorials of real numbers</p>
+            <p>$$\begin{align} 
+                \Gamma(z) = (z - 1)!
+            \end{align}$$</p>
+            <p>There is also a related function called the Pi Function or the Gauss Pi Function</p>
+            <p>The Capital Pi Function is just the gamma function shifted by one</p>
+            <p>$$\begin{align} 
+                \Pi(z) = \Gamma(z + 1) = \int_0^{\infty}{e^{-t}t^{z} \ dt} = z!
+            \end{align}$$</p>
+            <p>This function looks really weird especially since it relates to factorials, this is how to derive it</p>
+            <p>This is also how we will expand factorials from integers to the real and complex numbers</p>
+            <hr>
+            <h3>Factorial Rules</h3>
+            <p>First we need to set up some base rules for factorials so we can use it to derive a better function</p>
+            <ol>
+                <li>$0! = 1$</li>
+                <li>$1! = 1$</li>
+                <li>$n! = n \cdot (n-1)!$</li>
+                <li>Factorials of negative integers are undefined</li>
+            </ol>
+            <hr>
+            <h3>Integral of Powers of $ln(x)$</h3>
+            <p>Let's first try to find the answer to the following integral using integration by parts</p>
+            <p>$$\begin{align} 
+                &\int{ln(x) \ dx} \\
+                &\begin{array} {c | c}
+                u = ln(x) & v = x \\
+                \hline 
+                du = \frac{1}{x} & dv = 1 \ dx
+                \end{array} \\ \\
+                \int{ln(x) \ dx} &= x \cdot ln(x) - \int{\frac{1}{x} \cdot x \ dx} \\
+                &= xln(x) - x + C
+            \end{align}$$</p>
+            <p>Now lets find the answer to a similar integral</p>
+            <p>$$\begin{align} 
+                &\int{(ln(x))^2 \ dx} \\
+                &\begin{array} {c | c}
+                u = (ln(x))^2 & v = x \\
+                \hline 
+                du = \frac{2ln(x)}{x} & dv = 1 \ dx
+                \end{array} \\ \\
+                \int{(ln(x))^2 \ dx} &= x \cdot (ln(x))^2 - \int{\frac{2ln(x)}{x} \cdot x \ dx} \\
+                &= x(ln(x))^2 - 2\int{ln(x) \ dx} \\
+                &= x(ln(x))^2 - 2(xln(x) - x) \\
+                &= x(ln(x))^2 - 2xln(x) + 2x + C \\
+            \end{align}$$</p>
+            <p>Let's repeat this again with 3 instead of 2</p>
+            <p>$$\begin{align} 
+                &\int{(ln(x))^3 \ dx} \\
+                &\begin{array} {c | c}
+                u = (ln(x))^3 & v = x \\
+                \hline 
+                du = \frac{3ln(x)^2}{x} & dv = 1 \ dx
+                \end{array} \\ \\
+                \int{(ln(x))^3 \ dx} &= x \cdot (ln(x))^3 - \int{\frac{3ln(x)^2}{x} \cdot x \ dx} \\
+                &= x(ln(x))^3 - 3\int{ln(x)^2\ dx} \\
+                &= x(ln(x))^3 - 3(x(ln(x))^2 - 2xln(x) + 2x) \\
+                &= x(ln(x))^3 - 3x(ln(x))^2 + 6xln(x) - 6x + C\\
+            \end{align}$$</p>
+            <p>Let's generalize this to a power $n$</p>
+            <p>$$\begin{align} 
+                &\int{(ln(x))^n \ dx} \\
+                &\begin{array} {c | c}
+                u = (ln(x))^n & v = x \\
+                \hline 
+                du = \frac{nln(x)^{n-1}}{x} & dv = 1 \ dx
+                \end{array} \\ \\
+                \int{(ln(x))^n \ dx} &= x \cdot (ln(x))^n - \int{\frac{nln(x)^{n-1}}{x} \cdot x \ dx} \\
+                &= x(ln(x))^n - n\int{ln(x)^{n-1} \ dx}
+            \end{align}$$</p>
+            <p>Let's use this to extend to more integers</p>
+            <p>$$\begin{align} 
+                \int{(ln(x))^4 \ dx} &= x(ln(x))^4 - 4(x(ln(x))^3 - 3x(ln(x))^2 + 6xln(x) - 6x) \\
+                &= x(ln(x))^4 - 4x(ln(x))^3 + 12x(ln(x))^2 - 24xln(x) + 24x + C\\
+                \int{(ln(x))^5 \ dx} &= x(ln(x))^5 - 5(x(ln(x))^4 - 4x(ln(x))^3 + 12x(ln(x))^2 - 24xln(x) + 24x) \\
+                &= x(ln(x))^5 - 5x(ln(x))^4 + 20x(ln(x))^3 - 60x(ln(x))^2 + 120xln(x) - 120x + C\\
+
+            \end{align}$$</p>
+            <hr>
+            <h3>Solving A Limit</h3>
+            <p>Later on we need to try to solve the general limit of the first part of the integral</p>
+            <p>$$\begin{align} 
+                \lim_{x \to 0^+} {x(ln(x)^n)} = 0 &&\tag{1}
+            \end{align}$$</p>
+            <p>We need to use induction so solve base case ($n = 1$)</p>
+            <p>To solve this we can use L'Hopital's Rule</p>
+            <p>$$\begin{align} 
+                \lim_{x \to 0^+} {xln(x)} &= \lim_{x \to 0^+} {\frac{ln(x)}{1/x}} \\
+                &= \lim_{x \to 0^+} {\frac{\frac{d}{dx} ln(x)}{\frac{d}{dx} 1/x}} \\
+                &= \lim_{x \to 0^+} {\frac{\frac{1}{x}}{-\frac{1}{x^2}}} \\
+                &= \lim_{x \to 0^+} -x \\
+                &= 0
+            \end{align}$$</p>
+            <p>Assume limit (1) as true</p>
+            <p>Now to solve the general limit we can try to solve for $n + 1$</p>
+            <p>$$\begin{align} 
+                \lim_{x \to 0^+} {x(ln(x)^{n + 1})} &= \lim_{x \to 0^+} {\frac{ln(x)^{n + 1}}{1/x}} \\
+                \lim_{x \to 0^+} {\frac{x}{1/(ln(x)^{n + 1})}} &= \lim_{x \to 0^+} {\frac{\frac{d}{dx} ln(x)^{n + 1}}{ \frac{d}{dx} 1/x}} \\
+                &= \lim_{x \to 0^+} {\frac{(n + 1) \cdot ln(x)^{n} \cdot 1/x}{-1/x^2}} \\
+                &= \lim_{x \to 0^+} {-x^2 \cdot (n + 1) \cdot ln(x)^{n} \cdot \frac{1}{x}} \\
+                &= \lim_{x \to 0^+} {-x^2 \cdot (n + 1) \cdot ln(x)^{n} \cdot \frac{1}{x}} \\
+                &= \lim_{x \to 0^+} {-x \cdot (n + 1) \cdot ln(x)^{n}} \\
+                &= -(n + 1)\lim_{x \to 0^+} {xln(x)^{n}} \\
+                &= -(n + 1)\cdot 0 &&\text{Assume (1) as true} \\
+                &= 0
+            \end{align}$$</p>
+            <p>This goes back to our original limit answer proving it true</p>
+            <hr>
+            <h3>Moving Over To a Definite Integral</h3>
+            <p>If you notice the the last term in the integral sequence where it's just a coefficient with x</p>
+            <p>The coefficient can be extracted into a factorial term by $n$</p>
+            <p>$$\begin{align} 
+                -1, 2, -6, 24, -120
+            \end{align}$$</p>
+            <p>The negative is easy to deal we can use multiply by $(-1)^n$ to cancel out the negative</p>
+            <p>$$\begin{align} 
+                (-1)^n n!
+            \end{align}$$</p>
+            <p>We need to try to extract just the coefficient of the last term, the way we can do this is to plug in 1</p>
+            <p>For example for $n = 5$</p>
+            <p>$$\begin{align} 
+                f(x) &= \int{(ln(x))^5 \ dx} = x(ln(x))^5 - 5x(ln(x))^4 + 20x(ln(x))^3 - 60x(ln(x))^2 + 120xln(x) - 120x \\
+                f(1) &= 1(ln(1))^5 - 5(1)(ln(1))^4 + 20(1)(ln((1)))^3 - 60(1)(ln((1)))^2 + 120(1)ln(1) - 120(1) \\
+                &= -120
+            \end{align}$$</p>
+            <p>We can get an answer involving factorials by using a definite integral where the upperbound is 1</p>
+            <p>Now we need to find a lower bound</p>
+            <p>We need this lower bound to be 0 when we plug it in</p>
+            <p>So what we can we plug in for 0, well we just found a limit for it earlier, we can use 0</p>
+            <p>We have to use a limit because $ln(x)$ is not defined at $x = 0$</p>
+            <p>$$\begin{align} 
+                \int_0^1{ln(x)^n \ dx} &= \left[ x(ln(x))^n + nx(ln(x))^{n-1} + ... + (-1)^n n!x \right] \biggr\vert_0^1 \\
+                &= (-1)^n n! - \lim_{x \to 0}{ \left[x(ln(x))^n + nx(ln(x))^{n-1} +... + (-1)^n n!x\right]} \\
+                &= (-1)^n n! - 0 &&\text{Using Limit (1)} \\
+            \end{align}$$</p>
+            <p>This relates our factorials to our integrals</p>
+            <p>$$\begin{align} 
+            (-1)^n n! = \int_0^1{ln(x)^n \ dx}\\
+            \end{align}$$</p>
+            <hr>
+            <h3>Simplifying Our Integral</h3>
+            <p>$$\begin{align} 
+                (-1)^n n! &= \int_0^1{ln(x)^n \ dx}\\
+                n! &= \frac{1}{(-1)^n}\int_0^1{ln(x)^n \ dx}\\
+                &= \int_0^1{\frac{(ln(x))^n}{(-1)^n} \ dx}\\
+                &= \int_0^1{(-ln(x))^n \ dx} &&\text{Using Exponent Quotient Property}\\
+                &= \int_0^1{ln(x^{-1})^n \ dx} &&\text{Using Logarithim Power Property}\\
+                &= \int_0^1{ln\left(\frac{1}{x}\right)^n \ dx}\\
+            \end{align}$$</p>
+            <p>Now we can use u-sub, but we will use the variable $t$</p>
+            <p>$$\begin{align} 
+                n! &= \int_0^1{ln\left(\frac{1}{x}\right)^n \ dx}\\
+                t = ln\left(\frac{1}{x}\right) &\rightarrow dt = \frac{-1/x^2}{1/x}dx = -\frac{1}{x}dx \rightarrow -xdt = dx\\
+                e^t = \frac{1}{x} &\rightarrow e^{-t} = x \\
+                x = 0 &\rightarrow t = \infty \\
+                x = 1 &\rightarrow t = 0 \\
+                n! &= \int_{\infty}^0{-xt^n \ dt} \\
+                &= \int_{\infty}^0{-e^{-t} t^n \ dt} &&\text{Because $x = e^{-t}$}\\
+                &= -\int_{\infty}^0{e^{-t} t^n \ dt} \\
+                &= \int_0^{\infty}{e^{-t} t^n \ dt} \\
+            \end{align}$$</p>
+            <p>Now we got our Pi function!</p>
+            <p>$$\begin{align} 
+                n! = \Pi(n) &= \int_0^{\infty}{e^{-t} t^n \ dt} \\
+            \end{align}$$</p>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

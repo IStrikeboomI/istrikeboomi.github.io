@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <img id="logo">
+            <label id="playerSelectLabel" for="playerSelect">Choose Player:</label>
+
+            <input type="text" id="playerSelect" name="playerSelect" list="players" style="width: 100%;" oninput="onPlayerSelectInput()" onkeypress="onPlayerSelectKeyPress(event);">
+            <datalist id="players">
+
+            </datalist>
+            <button id="selectPlayer" onclick="selectPlayer()" hidden>Select Player</button>
+            <br>
+            <div id="selections">
+                <div style="float: left;">
+                    <div id="QBs">
+                        <p>QBs</p>
+                        <ol id="QBList">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ol>
+                    </div>
+                    <div id="RBs">
+                        <p>RBs</p>
+                        <ol id="RBList">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ol>
+                    </div>
+                </div>
+                <div style="float:right;">
+                    <div id="WRs">
+                        <p>WRs</p>
+                        <ol id="WRList">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ol>
+                    </div>
+                    <div id="TEs">
+                        <p>TEs</p>
+                        <ol id="TEList">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div id="currentTDsDiv" style="display:block;clear:both;">
+                <span>Current TDs: </span>
+                <span id="currentTDs">0</span>
+                <br><br>
+            </div>
+            <div style="display:block;clear:both;">
+                <input type="checkbox" id="showPlayerPosition" name="showPlayerPosition" checked onclick="addPlayersToSelect()">
+                <label for="showPlayerPosition">Show Player Position</label>
+                <br>
+                <input type="checkbox" id="showPlayerTDs" name="showPlayerTDs" onclick="addPlayersToSelect()">
+                <label for="showPlayerTDs">Show Player TDs</label>
+                <br>
+                <input type="checkbox" id="showPlayerTeams" name="showPlayerTeams" onclick="addPlayersToSelect()">
+                <label for="showPlayerTeams">Show Player's Teams</label>
+                <br>
+                <input type="checkbox" id="showCurrentTDs" name="showCurrentTDs" checked onclick="onShowCurrentTDClick()">
+                <label for="showCurrentTDs">Show Current TDs</label>
+                <br>
+                <button onclick="copyJSON()">Copy Attempt JSON</button>
+            </div>
+        </div>  
+        <script src="/main.js"></script>
+        <script src="assets/code/5500 tds.js"></script>
+    </body>
+</html>

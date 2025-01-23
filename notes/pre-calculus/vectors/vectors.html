@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Vectors are mathematical objects that have a direction and magnitude (length)</p>
+            <p>Vectors can be thought of as a directed line segment that can be in 2,3,4, any number of dimensions</p>
+            <p>One way a vector is written is a bold character with an arrow on top</p>
+            <p>$$\begin{align} 
+                \vec{v} = \left< v_1,v_2,v_3,...,v_n \right>
+            \end{align}$$</p>
+            <p>Here is a graph of the vector $\vec{v} = \left< 2,3 \right></v_1>$</p>
+            <img src="assets/svg/basic vector.svg">
+            <p>When you graph vectors you start off at the origin and create and arrow</p>
+            <p>A position vector is a vector made from 2 points</p>
+            <p>If there is a point $P$ and another point $Q$, the position vector is written as</p>
+            <p>$$\begin{align} 
+                \vec{PQ} = \left< Q_1 - P_1,Q_2 - P_2,Q_3 - P_3,...,Q_n - P_n \right>
+            \end{align}$$</p>
+            <br>
+            <p>The magniute of the vector is the length or distance of the vector, it can be found by using the distance formula</p>            <p>$$\begin{align} 
+                ||\vec{v}|| &= \sqrt{v_1^2 + v_2^2 + v_3^2 + ... + v_n^2} \\
+                &= \sqrt{(Q_1 - P_1)^2 + (Q_2 - P_2)^2 + (Q_3 - P_3)^2 + ... + (Q_n - P_n)^2} \\
+            \end{align}$$</p>
+            <p>For example the magnitude of the previous vector in the graph is: </p>
+            <p>$$\begin{align} 
+                ||\vec{v}|| &= \sqrt{2^2 + 3^2} = \sqrt{12} \\
+            \end{align}$$</p>
+            <hr>
+            <h3>Basic Operations And Properties</h3>
+            <p>$\vec{u}, \vec{v}, \vec{w}$ are vectors and $c$ and $d$ is a constant</p>
+            <p>Sum: $\vec{u} + \vec{v} = \left< u_1 + v_1, u_2 + v_2, u_3 + v_3, ..., u_n + v_n \right>$</p>
+            <p>Scalar: $c\vec{u} = \left< cu_1, cu_2, cu_3, ..., cu_n \right>$</p>
+            <p>Negation: $-\vec{u} = \left< -u_1, -u_2, -u_3, ..., -u_n \right>$</p>
+            <p>Difference: $\vec{u} - \vec{v}= \left< u_1 - v_1, u_2 - v_2, u_3 - v_3, ..., u_n - v_n \right>$</p>
+            <p>The reason vector addition works like this is because the first vector offsets and the second vectors offsets from that offset</p>
+            <img src="assets/svg/vector addition.svg">
+            <p>Commutative Property: $\vec{u} + \vec{v} = \vec{v} + \vec{u}$</p>
+            <p>Associative Property: $\vec{u} + (\vec{w} + \vec{v}) = (\vec{u} + \vec{w}) + \vec{v}$</p>
+            <p>Scalar Associative Property: $c(d\vec{u}) = d(c\vec{u})$</p>
+            <p>Scalar Distributive Property: $(c + d)\vec{u} = c\vec{u} + d\vec{u}$</p>
+            <hr>
+            <h3>Unit Vectors</h3>
+            <p>A vector with a magnitude of $1$ is called a <b>unit vector</b> and represented with a "hat" (carat) on top</p>
+            <p>A vector with a magnitude of $0$ is called a <b>null vector</b></p>
+            <p>Unit vectors are denoted by a $\vec{u}$</p>
+            <p>A unit vector can be found with the following formula</p>
+            <p>$$\begin{align} 
+                \hat{v} = \frac{\vec{v}}{||\vec{v}||}
+            \end{align}$$</p>
+            <p>What the unit vector represents is just the direction of the vector without any distancec</p>
+            <p>If we graph the unit vector on top of the original vector it will be pointing the same way, just scaled differntly</p>
+            <p>That's what dividing by the magnitude does, it scales it</p>
+            <img src="assets/svg/unit vector.svg">
+            <p>Let's try to find the unit vector and magnitude for $\vec{v} = \left< 2,12,8 \right>$</p>
+            <p>$$\begin{align} 
+                ||\vec{v}|| = \sqrt{2^2 + 12^2 + 8^2} = \sqrt{212} = 2\sqrt{53} \\
+                \hat{v} = \frac{\vec{v}}{||\vec{v}||} = \frac{1}{2\sqrt{53}} \left< 2,12,8 \right> = \left< \frac{1}{\sqrt{53}},\frac{6}{\sqrt{53}},\frac{4}{\sqrt{53}} \right>
+            \end{align}$$</p>
+            <p>You could further rationalize the denominator, but this is good enough</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Solve $2\left< 1,0,4 \right> + \left< 4,7,22 \right> - \left< 5,2,2 \right>$</summary>
+                            <p>$$\begin{align} 
+                                2\left< 1,0,4 \right> + \left< 4,7,22 \right> - \left< 5,2,2 \right> &= \left< 2,0,8 \right> + \left< 4,7,22 \right> - \left< 5,2,2 \right> \\
+                                &= \left< 2 + 4 - 5,0 + 7 - 2,8 + 22 - 2 \right> \\
+                                &= \left< 1,5,28 \right> \\
+
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the unit vector of $\left< 5,12,22,3 \right>$</summary>
+                            <p>$$\begin{align} 
+                                \vec{v} &= \left< 5,12,22,3 \right> \\
+                                ||\vec{v}|| &= \sqrt{5^2 + 12^2 + 22^2 + 3^2} = \sqrt{662} \\
+                                \hat{v} &= \frac{\vec{v}}{\sqrt{662}} = \left< \frac{5}{\sqrt{662}},\frac{12}{\sqrt{662}},\frac{22}{\sqrt{662}},3\sqrt{662} \right>
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Solve $0\left< 2,7,36,124,26,361,23,61,3 \right>$</summary>
+                            <p>$$\begin{align} 
+                                0\left< 2,7,36,124,26,361,23,61,3 \right> = \left< 0,0,0,0,0,0,0,0,0 \right>
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the Unit Vector of the Position Vector of the Points: $P = (2,3), Q=(-4,2)$</summary>
+                            <p>$$\begin{align} 
+                                \vec{PQ} &= \left<-4 - 2, 2 - 3 \right> = \left<-6, -1 \right> \\
+                                ||\vec{PQ}|| &= \sqrt{(-6)^2 + (-1)^2} = \sqrt{37} \\   
+                                \hat{PQ} &= \frac{\vec{PQ}}{\sqrt{37}} =  \left<\frac{-6}{\sqrt{37}}, \frac{-1}{\sqrt{37}} \right>
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
