@@ -21,7 +21,7 @@
             <p>$$\begin{align} 
                 \vec{u} \cdot \vec{v} = \sum_{i = 1}^n{u_iv_i}
             \end{align}$$</p>
-            <p>There is also an alternate, trigonometric way of writing dot product ($\theta$ is the angle between the vectors)</p>
+            <p>There is also an alternate, trigonometric way of writing dot product ($\theta$ is the angle between the vectors, $ 0 \leq \theta \leq \pi$)</p>
             <p>$$\begin{align} 
                 \vec{u} \cdot \vec{v} = ||\vec{u}||\cdot ||\vec{v}|| \cdot \cos(\theta)
             \end{align}$$</p>
@@ -35,25 +35,47 @@
             <p>Commutative: $\vec{v} \cdot \vec{u} = \vec{u} \cdot \vec{v}$</p>
             <p>Distributive: $(\vec{u} + \vec{v}) \cdot \vec{w} = \vec{u} \cdot \vec{w} + \vec{v}\vec{w}$</p>
             <p>Constant Distributive: $c(\vec{u} \cdot \vec{v}) = c\vec{u} \cdot \vec{v} = \vec{u} \cdot c\vec{v}$</p>
-            <p>Magnitude: $\vec{u} \cdot \vec{u} = ||\vec{u}||^2$</p>
+            <p>Magnitude: $\vec{u} \cdot \vec{u} = u_1^2 + u_2^2 + u_3^2 + ... u_n^2 = ||\vec{u}||^2$</p>
+
             <p>It's important to note that dot product is <b>NOT</b> Associative, which means $(\vec{v} \cdot \vec{u}) \cdot \vec{w} \neq \vec{v} \cdot (\vec{u} \cdot \vec{w})$</p>
             <hr>
             <h3>What Does This Mean?</h3>
             <p>Dot product can be thought of as how aligned the two vectors are</p>
             <p>If we were to graph the two vectors then see how length to which they stay aligned, it would be the dot product</p>
-            <p>Look at the following graph for a visual</p>
-            <img src="assets/svg/dot product.svg">
-            <p>As you can see above the dot product is the length where $\vec{u}$ is aligned with $\vec{v}$</p>
-            <p>The cosine formula can also be derived from the graph above</p>
+            <p>Another intrepretation is what amount of one vector goes in the direction of the other vector, scaled by the length of the other vector</p>
+            <p>Dot product can also result in a negative number, this just means the vector are pointing on opposite sides</p>
+            <hr>
+            <h3>Why Cosine?</h3>
+            <p>The cosine formula can also be derived from the graph below</p>
+            <img src="assets/svg/vector law of cosines.svg">
             <p>We can use the law of cosines</p>
             <p>The length $c$ (hypotenuse) is the magnitude of $\vec{u}$</p>
-            <p>The length $a$ (adjacent) is the dot product</p>
-            <p>The length $b$ (opposite) is the magnitude of the difference of the vectors </p>
+            <p>The length $a$ (adjacent) is the magnitude $\vec{v}$</p>
+            <p>The length $b$ (opposite) is another vector $\vec{u} - \vec{v}$ that is the differnce of the other two</p>
             <p>$$\begin{align} 
-                
+                ||\vec{u} - \vec{v}||^2 = ||\vec{u}||^2 + ||\vec{v}||^2 - 2||\vec{u}||||\vec{v}||cos(\theta)
             \end{align}$$</p>
-            <p>Using the magnitude property above we can rewrite this</p>
-            
+            <p>Using the magnitude property we can simplyfy the right side</p>
+            <p>$$\begin{align} 
+                ||\vec{u} - \vec{v}||^2 &= (\vec{u} - \vec{v}) \cdot (\vec{u} - \vec{v}) \\
+                &= \vec{u}(\vec{u} - \vec{v}) - \vec{v}(\vec{u} - \vec{v}) \\
+                &= \vec{u}\cdot\vec{u} - \vec{u}\cdot\vec{v} + \vec{v} \cdot \vec{u} - \vec{v}\cdot\vec{v} \\
+                &= ||\vec{u}||^2 - 2\vec{u}\cdot\vec{v} + ||\vec{v}||^2\\
+            \end{align}$$</p>
+            <p>We can plug this back in</p>
+            <p>$$\begin{align} 
+                ||\vec{u}||^2 - 2\vec{u}\cdot\vec{v} + ||\vec{v}||^2 &= ||\vec{u}||^2 + ||\vec{v}||^2 - 2||\vec{u}||||\vec{v}||cos(\theta) \\
+                - 2\vec{u}\cdot\vec{v} &= -2||\vec{u}||||\vec{v}||cos(\theta) \\
+                cos(\theta) &= \frac{\vec{u}\cdot\vec{v}}{||\vec{u}||||\vec{v}||}
+
+            \end{align}$$</p>
+            <p>We can use the $||\vec{u}||\cdot ||\vec{v}|| \cdot \cos(\theta)$ formula to understand dot product</p>
+            <p>Since $||\vec{u}||$ and $||\vec{v}||$ are always positive (because length is positive), the sign of $cos(\theta)$ affects the dot product</p>
+            <p>If dot product is positive, it means cosine is positive, which means the angle is in $[0,\pi/2)$, so they are pointing the same direction</p>
+            <p>If dot product is 0, it means cosine (or a length) is 0, which means the angle is in $\pi/2$, so they are perpendicular</p>
+            <p>If dot product is negative, it means cosine is negative, which means the angle is in $(\pi/2,\pi]$, so they are pointing the same opposite direction</p>
+            <p>If dot product is 0, the vectors are called <b>orthogonal</b> (perpendicular)</p>
+
             <hr>
             <details open>
                 <summary>Practice Problems</summary>
