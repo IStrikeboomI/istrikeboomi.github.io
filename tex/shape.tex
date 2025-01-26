@@ -5,28 +5,43 @@
 \begin{document}
 
 \begin{tikzpicture}
-  %inner triangle
   \coordinate [] (A) at (0,0);
-  \coordinate [] (B) at (0.866025403784,0);
-  \coordinate [] (C) at (0.866025403784,0.5);
+  \coordinate [] (B) at (.54030230586,.8414709848);
+  \coordinate [] (C) at (1,0);
 
-  \draw (1,0) arc[start angle=0, end angle=90, radius=1];
-  \draw[red] (1,0) arc[start angle=0, end angle=30, radius=1];
-  \draw[fill=black](0,0) circle (1 pt) node [above] {};
-  \draw[](0,0) -- (1,0) node [midway,below,label={[label distance=-.30cm, font=\tiny]:{$1$}}] {};
-  \draw[](0,0) -- (0,1) node [midway,below] {};
+  \draw (1,0) arc[start angle = 0, end angle = 360, radius = 1];
+  \draw pic[draw,fill=blue!30,angle radius=10,"$\theta$",font=\tiny] {angle=C--A--B};    
+  \draw (-1,0) -- (1,0);
+  \draw (0,-1) -- (0,1);
+  \draw (0,0) -- (.54030230586,.8414709848);
+  \fill (.54030230586,.8414709848) circle[radius=.5pt];
+  \draw[red] (0,0) -- (.54030230586,.8414709848) node[sloped, midway, above] {$r$};
+  \draw[red] (0,0) -- (1,0)node[sloped, midway, below] {$r$};
+  \draw[red] (1,0) arc[start angle = 0, end angle = 57.296, radius = 1] node[sloped, midway, above] {$r$};
+  \draw[red] (1,0) arc[start angle = 0, end angle = 57.296, radius = 1] node[sloped, midway, below,scale = .35] {$\approx 57.296^\circ$};
 
-  \draw node[above] {} (A) -- node[below] {} (C);
-  \draw [green] node[above] {} (B) -- node[below] {} (C);
-  \draw [blue] node[below] {} (C) -- (1,0.57735026919);
-  \draw [blue] (1,0) -- (1,0.57735026919);
-  \draw [green,fill=green!30](0.766025403784,0) rectangle (0.866025403784,0.1);
-  \draw [blue,fill=blue!30](.9,0) rectangle (1,0.1);
-  \draw pic[draw,fill=blue!30,angle radius=10,"$\theta$",font=\tiny] {angle=B--A--C};    
-  \draw [-latex, green] (.25,.5) -- (0.866025403784,0.25) node[above, sloped,midway,scale = .5] {sin($\theta$)};
-  \draw [-latex, red] (.5,-.25) -- (0.96592582629,.2588190451) node[above, sloped,midway,scale = .5] {$\theta$};
-  \draw [-latex, blue] (1.5,0) -- (1,.4) node[above, sloped,midway,scale = .5] {tan($\theta$)};
-
+  
+  %\draw (1,0) arc[start angle=0, end angle=360, radius=1];
+  %\draw pic[draw,fill=blue!30,angle radius=10,"$\theta$",font=\tiny] {};    
+  %\draw (-1,0) -- (1,0);
+  %\draw (0,-1) -- (0,1);
+  %\draw (0,0) -- (.866025403784,.5) node[sloped, above right,scale = .5] {$\frac{\pi}{6}$};
+  %\draw (0,0) -- (.707106781187,.707106781187) node[sloped, above right,scale = .5] {$\frac{\pi}{4}$};
+  %\draw (0,0) -- (.5,.866025403784) node[sloped, above right,scale = .5] {$\frac{\pi}{3}$};
+  %\draw (0,0) -- (0,1) node[sloped, above,scale = .5] {$\frac{\pi}{2}$};
+  %\draw (0,0) -- (-.5,.866025403784) node[sloped, above left,scale = .5] {$\frac{2\pi}{3}$};
+  %\draw (0,0) -- (-.707106781187,.707106781187) node[sloped, above left,scale = .5] {$\frac{3\pi}{4}$};
+  %\draw (0,0) -- (-.866025403784,.5) node[sloped, above left,scale = .5] {$\frac{5\pi}{6}$};
+  %\draw (0,0) -- (-1,0) node[sloped, left,scale = .5] {$\pi$};
+  %
+  %\draw (0,0) -- (-.866025403784,-.5) node[sloped, below left,scale = .5] {$\frac{7\pi}{6}$};
+  %\draw (0,0) -- (-.707106781187,-.707106781187) node[sloped, below left,scale = .5] {$\frac{5\pi}{4}$};
+  %\draw (0,0) -- (-.5,-.866025403784) node[sloped, below left,scale = .5] {$\frac{4\pi}{3}$};
+  %\draw (0,0) -- (0,-1) node[sloped, below,scale = .5] {$\frac{3\pi}{2}$};
+  %\draw (0,0) -- (.5,-.866025403784) node[sloped, below right,scale = .5] {$\frac{5\pi}{3}$};
+  %\draw (0,0) -- (.707106781187,-.707106781187) node[sloped, below right,scale = .5] {$\frac{7\pi}{4}$};
+  %\draw (0,0) -- (.866025403784,-.5) node[sloped, below right,scale = .5] {$\frac{11\pi}{6}$};
+  %\draw (0,0) -- (1,0) node[sloped, right,scale = .5] {$0$ or $2\pi$};
 
 \end{tikzpicture}
 \end{document}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>So far when measuring angles (in $\theta$, pronounced thay-tuh) we only know <b>degrees</b> (marked with an $^\circ$), like $0^\circ, 45^\circ, 23^\circ$, etc.</p>
+            <p>When we deal with trigonometry, we typically use degrees and another way to do angles, <b>radians</b> (marked with rad)</p>
+            <p>Similar to how degrees goes from $0^\circ$ to $360^\circ$, radians go from $0$ to $2\pi$</p>
+            <img src="assets/svg/degrees.svg">
+            <img src="assets/svg/radians.svg">
+            <p>As you can see in the circles above, degrees and radians correlate and represent the same fundamental idea, angles</p>
+            <p>Another way to intrepret radian is 1 radian (approx $57.2958^\circ$) is the angle where the arc length of the circle is equal to the radius</p>
+            <img src="assets/svg/radian explanation.svg">
+            <p>In the circle above, $\theta = 1 \text{ rad}$</p>
+            <p>This is also why radians are in multiples of $\pi$</p>
+            <p>If you had a circle of radius $r$, then the circumference would be $2r\pi$</p>
+            <p>For a circle of radius $1$, the full arc length would be the whole circle so it's full arc length is $2\pi$, so the radians of a full circle is $2\pi$</p>
+            <hr>
+            <h3>Conversions</h3>
+            <p>To convert from degrees to radians: </p>
+            <p>$$\begin{align} 
+                \text{degrees} \cdot \frac{\pi}{180^\circ} = \text{radians}
+            \end{align}$$</p>
+            <p>To convert from radians to degrees: </p>
+            <p>$$\begin{align} 
+                \text{radians} \cdot \frac{180^\circ}{\pi} = \text{degrees}
+            \end{align}$$</p>
+            <p>The way these formulas are derived are just from the equation of 2 ratios</p>
+            <p>$$\begin{align} 
+                \frac{\text{radians}}{\pi} = \frac{\text{degrees}}{180^\circ}
+            \end{align}$$</p>
+            <hr>
+            <h3>Why Are Radians Important?</h3>
+            <p>A lot of trigonometric functions take in both degrees and radians, but radians is usaully default</p>
+            <p>The reason why we use radians is because it makes the math easier</p>
+            <p>Splitting the circle into 360 parts for degrees is just an arbitrary amount people set it to</p>
+            <p>Radians are naturally a part of the circle (from the radius of the circle) so it can be expressed in terms of a circle</p>
+            <p>Also as you will see later on in calculus, it makes representing the trigonometric functions and it's properties easier</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Convert $32^\circ$ to radians (Use a calculator)</summary>
+                            <p>$$\begin{align} 
+                                32 \cdot \frac{\pi}{180} \approx 0.558505 \text{ rad}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Convert $13 \text{ rad}$ to degrees (Use a calculator)</summary>
+                            <p>$$\begin{align} 
+                                13 \cdot \frac{180}{\pi} \approx 744.845^\circ
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>How many radians and degrees are in one full turn of a circle</summary>
+                            <p>$2\pi$ radians or $360^\circ$ degrees</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Convert $180^\circ$ to radians (without a calculator or the circle above)</summary>
+                            <p>$180^\circ$ means we are going half way around the circle</p>
+                            <p>Since a full circle is $2\pi$ radians, half would only be $\pi$ radians</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>If we had an angle of $\frac{4\pi}{5} \text{ rad}$, approximately how far around the circle would that be (what quadrant)</summary>
+                            <p>Since a half circle is $\pi \text{ rad}$ and a quarter circle is $\pi \text{rad}$</p>
+                            <p>And since $\frac{4\pi}{5}$ is in between $\frac{\pi}{2}$ and $\pi$, we went a bit before the half-way point of the circle</p>
+                            <p>This places us in the 2nd quadrant</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

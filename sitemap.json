@@ -4,6 +4,15 @@
         "topics" : 
         [
             {
+                "section":"Trigonometry", 
+                "notes" : 
+                [
+                    {"name":"degrees and radians", "title": "Degrees And Radians"},
+                    {"name":"trigonometric functions", "title": "Trigonometric Functions"}
+
+                ]
+            },
+            {
                 "section":"Vectors", 
                 "notes" : 
                 [
