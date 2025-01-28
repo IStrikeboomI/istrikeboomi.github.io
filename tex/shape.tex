@@ -6,21 +6,12 @@
 
 \begin{tikzpicture}
   \coordinate [] (A) at (0,0);
-  \coordinate [] (B) at (.54030230586,.8414709848);
+  \coordinate [] (B) at (1,1);
   \coordinate [] (C) at (1,0);
-
-  \draw (1,0) arc[start angle = 0, end angle = 360, radius = 1];
-  \draw pic[draw,fill=blue!30,angle radius=10,"$\theta$",font=\tiny] {angle=C--A--B};    
-  \draw (-1,0) -- (1,0);
-  \draw (0,-1) -- (0,1);
-  \draw (0,0) -- (.54030230586,.8414709848);
-  \fill (.54030230586,.8414709848) circle[radius=.5pt];
-  \draw[red] (0,0) -- (.54030230586,.8414709848) node[sloped, midway, above] {$r$};
-  \draw[red] (0,0) -- (1,0)node[sloped, midway, below] {$r$};
-  \draw[red] (1,0) arc[start angle = 0, end angle = 57.296, radius = 1] node[sloped, midway, above] {$r$};
-  \draw[red] (1,0) arc[start angle = 0, end angle = 57.296, radius = 1] node[sloped, midway, below,scale = .35] {$\approx 57.296^\circ$};
-
   
+  \draw pic[draw,fill=blue!30,angle radius=10,"$\theta$",font=\tiny] {angle=C--A--B};    
+  \draw (C) node[scale = .25,label={[scale=.5,xshift=.75cm,yshift=.3cm,label distance=.25cm]90:opposite}] {} -- (A) node[scale = .5,midway,sloped,anchor=north] {adjacent} -- (B)node[scale = .5,midway,sloped,above] {hypotenuse} -- cycle;
+  \draw[red] (.9,0) rectangle ++(.1,.1);
   %\draw (1,0) arc[start angle=0, end angle=360, radius=1];
   %\draw pic[draw,fill=blue!30,angle radius=10,"$\theta$",font=\tiny] {};    
   %\draw (-1,0) -- (1,0);

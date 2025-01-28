@@ -13,17 +13,177 @@
     </head>
     <body>
         <div id="content">
-            <p>Content</p>
+            <p>Trigonometry is the subject of math that deals with angles and triangles</p>
+            <p>The trigonometric functions are sine, cosine, tangent, secant, cosecant, and cotangent</p>
+            <p>The following functions use $\theta$ (theta, pronounced thay-tuh) as the angle (in radians by default or degrees)</p>
+            <img src="assets/svg/trigonometry triangle.svg">
+            <p>$$\begin{align} 
+                \sin(\theta) = \frac{\text{opposite}}{\text{hypotenuse}} &\ \cos(\theta) = \frac{\text{adjacent}}{\text{hypotenuse}} \\
+                \csc(\theta) = \frac{\text{hypotenuse}}{\text{opposite}} &\ \sec(\theta) = \frac{\text{hypotenuse}}{\text{adjacent}} \\
+                \tan(\theta) = \frac{\text{opposite}}{\text{adjacent}} &\ \cot(\theta) = \frac{\text{adjacent}}{\text{opposite}} \\
+            \end{align}$$</p>
+            <hr>
+            <h3>What Do These Functions Mean?</h3>
+            <p>The core idea behind trigonometric functions is that if you have a right triangle, there is an angle $\theta$</p>
+            <p>At a specific angle $\theta$ the ratios between the 3 sides of the triangles are fixed (and dependent on $\theta$)</p>
+            <p>The values of each side might be different for the same angle on differnet triangles, but the ratio between the sides is fixed</p>
+            <p>For example: look the following triangles</p>
+            <img src="assets/svg/3 4 5 triangle.svg">
+            <img src="assets/svg/.6 .8 1 triangle.svg">
+            <p>The angle $\theta \approx 36.86989^\circ$ is the same, but the side lengths are different</p>
+            <p>However, if we take the ratios of the side lengths it's the same throughout</p>
+            <p>$$\begin{align} 
+                \frac{5}{3} = 1.66 &\ \frac{1}{.6} = 1.66 \\
+                \frac{5}{4} = 1.25 &\ \frac{1}{.8} = 1.25 \\
+                \frac{4}{3} = 1.33 &\ \frac{.8}{.6} = 1.33 \\
+            \end{align}$$</p>
+            <p>This shows the ratios remain fixed for the angles</p>
+            <br>
+            <p>The trigonometric functions relate the ratios between the hypotenuse, opposite, and adjacent sides</p>
+            <p>The hypotenuse is the longest side</p>
+            <p>The adjacent side is the side touching the $\theta$ that's not the hypotenuse</p>
+            <p>The opposite side is the side on the on the other side of the triangle, or where the $\theta$ is pointing to</p>
+            <p>The input to the functions is an angle $\theta$, which if not specified, is in radians, in order for it to be in degrees it needs the degrees sign $^\circ$</p>
+            <hr>
+            <h3>How Do We Use These Functions?</h3>
+            <p>One of the biggest uses for the trig functions is to find an unknown side</p>
+            <p>Using just trig functions alone it's possible to get all the side lengths of a right triangle with only the angle and one other side</p>
+            <p>Since they take an angle input and give a ratio, they output a constant value, but it's tricky to get exact values, so we will use a calculator</p>
+            <p><b>IMPORTANT:</b> Make sure you are on either degrees or radians mode depending on your problem</p>
+            <p>If you are on the wrong setting, your answer will be completely wrong, for example:</p>
+            <p>$$\begin{align} 
+                \cos(20^\circ) \approx 0.9396 &&\text{Degrees Mode}\\
+                \cos(20) \approx 0.40808 &&\text{Radians Mode}\\
+            \end{align}$$</p>
+            <p>Most calculators today have sine, cosine, and tangent, but not the other functions which is fine because it's covered later how to compute those</p>
+            <p>Let's try to solve an example</p>
+            <img src="assets/svg/unknown triangle.svg">
+            <p>We are given the angle as $40^\circ$ and the opposite side 12</p>
+            <p>We are trying to find the sides $h$ and $a$</p>
+            <p>First lets focus on $a$</p>
+            <p>The functions that have the ratio involving adjacent and opposite are $\tan$ and $\cot$, both of these can be used but I will use $\tan$ because it makes the algebra easier</p>
+            <p>$$\begin{align} 
+                \tan(40^\circ) = \frac{a}{12} \rightarrow 12 \cdot tan(40^\circ) = a
+            \end{align}$$</p>
+            <p>We will have to use a calculator for this </p>
+            <p>$$\begin{align} 
+                tan(40^\circ) \approx 0.83909 \\
+                12 \cdot 0.83909 = a \\
+                a \approx 10.069\\
+            \end{align}$$</p>
+            <p>This means our adjacent side length is around $10.069$</p>
+            <p>Now to find the hypotenuse, we could use the pythagorean theorem, or trig functions</p>
+            <p>$$\begin{align} 
+                \csc(40^\circ) = \frac{h}{12} \rightarrow 12 \cdot csc(40^\circ) = h
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                csc(40^\circ) \approx 1.55572 \\
+                12 \cdot 1.55572 = h \\
+                h \approx 18.6686
+            \end{align}$$</p>
+            <p>So this finally gives us a right triangle with side lengths of $12,10.069,18.6686$</p>
+            <hr>
+            <h3>Memorization</h3>
+            <p>These 6 functions may be daunting to remember, but there are some tricks involved</p>
+            <p>The first trick is <b>SOH-CAH-TOA</b></p>
+            <p><b>S</b>ine</p>
+            <p><b>O</b>pposite</p>
+            <p><b>H</b>ypotenuse</p>
+            <br>
+            <p><b>C</b>osine</p>
+            <p><b>A</b>djacent</p>
+            <p><b>H</b>ypotenuse</p>
+            <br>
+            <p><b>T</b>angent</p>
+            <p><b>O</b>pposite</p>
+            <p><b>A</b>djacent</p>
+            <br>
+            <p>SOH-CAH-TOA is used by splitting into the 3 parts, where the first character is the function, and the 2 characters after are the ratio</p>
+            <p>Another thing you can do is just memorize sine and cosine, because all the other functions are built off of them</p>
+            <p>$$\begin{align} 
+                \sin(\theta) = \frac{\text{opposite}}{\text{hypotenuse}} &\ \cos(\theta) = \frac{\text{adjacent}}{\text{hypotenuse}} \\
+                \csc(\theta) = \frac{1}{\sin(\theta)} &\ \sec(\theta) = \frac{1}{\cos(\theta)} \\
+                \tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)} &\ \cot(\theta) = \frac{\cos(\theta)}{\sin(\theta)} \\
+            \end{align}$$</p>
+            <p>All 4 of these can be found using some algebra and subsitution</p>
+            <p>Granted you will need to know the name of the functions, but that's easier then the whole thing</p>
             <hr>
             <details open>
                 <summary>Practice Problems</summary>
                 <ul class="no-bullets">
                     <li>
                         <details>
-                            <summary>Practice 1</summary>
+                            <summary>Use a calculator to solve $\sin(\pi)$ (Make sure it's on radians mode)</summary>
                             <p>$$\begin{align} 
-
+                                \sin(\pi) = 0
                             \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Use a calculator to solve $\cos(12^\circ)$ (Make sure it's on degree mode)</summary>
+                            <p>$$\begin{align} 
+                                \cos(12^\circ) \approx 0.9781
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Use a calculator to solve $\sec(1)$ (Make sure it's on radians mode)</summary>
+                            <p>$$\begin{align} 
+                                \sec(1) \approx 1.8508
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Use a calculator to solve $\tan(\pi/2)$ (Make sure it's on radians mode)</summary>
+                            <p>$$\begin{align} 
+                                \tan(\pi/2) \text{ is undefined}
+                            \end{align}$$</p>
+                            <p>If you want to know why it's undefined, it's because $\pi/2$ is a 90 degree angle</p>
+                            <p>Since this is a right triangle that means there is no hypotenuse if $\theta = 90^\circ$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>What triangle does $\sin(\theta) = 12 / 20$ represent?</summary>
+                            <p>$$\begin{align} 
+                                \sin(\theta) = \frac{12}{20}
+                            \end{align}$$</p>
+                            <p>This is a right triangle with an opposite length of 12 and hypotenuse of 20</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>What triangle does $\tan(\theta) = 6 / 7$ represent?</summary>
+                            <p>$$\begin{align} 
+                                \tan(\theta) = \frac{6}{7}
+                            \end{align}$$</p>
+                            <p>This is a right triangle with an opposite length of 7 and adjacent of 7</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the the hypotenuse of a right triangle where an angle is $\pi/6$ and the opposite side is $12$</summary>
+                            <p>$$\begin{align} 
+                                \csc(\pi/6) = \frac{h}{12} \\
+                                12\csc(\pi/6) = h \\
+                                h = 24
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>If a 15-ft ladder is hanging at $63^\circ$ angle, how high can it reach? (The ladder leaning makes a right angle against the object it's leaning on)</summary>
+                            <p>Since the ladder is 15-ft, that's the length of the ladder, so it's the hypotenuse</p>
+                            <p>We are trying to find how high it can reach against the object it's leaning it, so we are trying to find the opposite side</p>
+                            <p>$$\begin{align} 
+                                \sin(63^\circ) = \frac{o}{15} \\
+                                15\sin(63^\circ) = o \\
+                                o \approx 13.3650 
+                            \end{align}$$</p>
+                            <p>The ladder can reach around 13.365-ft</p>
                         </details>
                     </li>
                 </ul>
