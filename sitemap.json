@@ -8,7 +8,8 @@
                 "notes" : 
                 [
                     {"name":"degrees and radians", "title": "Degrees And Radians"},
-                    {"name":"trigonometric functions", "title": "Trigonometric Functions"}
+                    {"name":"trigonometric functions", "title": "Trigonometric Functions"},
+                    {"name":"unit circle", "title": "Unit Circle"}
 
                 ]
             },

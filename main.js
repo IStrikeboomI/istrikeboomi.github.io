@@ -124,7 +124,6 @@ if (request.status === 200) {
                                     if (j != s.length - 1) {
                                         let nextSection = s[j + 1];
                                         let nextSectionFirstNote = nextSection.notes[0];
-                                        console.log(nextSectionFirstNote);
                                         nextNote.innerHTML = "(" + s[j + 1].section + ") " + nextSectionFirstNote.title + "-->";
                                         nextNote.href = "/notes/" + json[i].subject.toLowerCase() + "/" + s[j + 1].section.toLowerCase() + "/" + nextSectionFirstNote.name + ".html";
                                     }
