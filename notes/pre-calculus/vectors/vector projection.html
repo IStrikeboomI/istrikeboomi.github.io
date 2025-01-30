@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>A Vector $\vec{u}$ projected onto $\vec{v}$ is:</p>
+            <p>$$\begin{align} 
+                proj_{\vec{v}}{\vec{u}} = \left(\frac{\vec{u} \cdot \vec{v}}{||\vec{v}||^2}\right)\vec{v} = \left(\frac{\vec{u} \cdot \vec{v}}{||\vec{v}||}\right)\frac{\vec{v}}{||\vec{v}||}
+            \end{align}$$</p>
+            <p>The Scalar Component of $\vec{u}$ projected onto $\vec{v}$ is: </p>
+            <p>$$\begin{align} 
+                comp_{\vec{v}}{\vec{u}} = ||proj_{\vec{v}}{\vec{u}}|| = \frac{\vec{u} \cdot \vec{v}}{||\vec{v}||}
+            \end{align}$$</p>
+            <p>The Vector Component of $\vec{u}$ that is orthogonal $\vec{v}$ is </p>
+            <p>$$\begin{align} 
+                proj_{\perp\vec{v}}{\vec{u}} = \vec{u} - proj_{\vec{v}}{\vec{u}}
+            \end{align}$$</p>
+            <hr>
+            <h3>What Does This Even Mean?</h3>
+            <p>A vector projection can be though of as the shadow a vector makes on another vector</p>
+            <p>The scalar projection or $comp_{\vec{v}}{\vec{u}}$ can be thought of as the length of the projection</p>
+            <p>Another way to represent vector projections is </p>
+            <p>$$\begin{align} 
+                \vec{u} = proj_{\vec{v}}{\vec{u}} + proj_{\perp\vec{v}}{\vec{u}}
+            \end{align}$$</p>
+            <p>This is because the projection is parallel to $v$ and the orthogonal projection is perpendicular</p>
+            <img src="assets/svg/projection.svg">
+            <p>Let's derive the projection formula using the graph above</p>
+            <p>The projection vector and $\vec{u}$ create a right triangle with a hypotenuse of $||\vec{u}||$</p>
+            <p>We can use cosine here</p>
+            <p>$$\begin{align} 
+                \cos(\theta) = \frac{||proj_{\vec{v}}{\vec{u}}||}{||\vec{u}||}
+            \end{align}$$</p>
+            <p>If we rewrite cosine using the dot product formula, we can solve this further</p>
+            <p>$$\begin{align} 
+                \frac{\vec{u} \cdot \vec{v}}{||\vec{u}||\cdot ||\vec{v}||} &= \frac{||proj_{\vec{v}}{\vec{u}}||}{||\vec{u}||} \\
+                \frac{\vec{u} \cdot \vec{v}}{||\vec{v}||} &= ||proj_{\vec{v}}{\vec{u}}|| \\
+            \end{align}$$</p>
+            <p>We have the length of our vector, now we want it to be parallel to $\vec{v}$, we can do this by multiplying by the unit vector</p>
+            <p>$$\begin{align} 
+                ||proj_{\vec{v}}{\vec{u}}|| \frac{\vec{v}}{||\vec{v}||} &= \frac{\vec{u} \cdot \vec{v}}{||\vec{v}||} \frac{\vec{v}}{||\vec{v}||} \\
+                proj_{\vec{v}}{\vec{u}} &= \frac{\vec{u} \cdot \vec{v}}{||\vec{v}||} \frac{\vec{v}}{||\vec{v}||} \\
+                proj_{\vec{v}}{\vec{u}} &= \left(\frac{\vec{u} \cdot \vec{v}}{||\vec{v}||^2}\right)\vec{v}\\
+
+            \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Practice 1</summary>
+                            <p>$$\begin{align} 
+
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

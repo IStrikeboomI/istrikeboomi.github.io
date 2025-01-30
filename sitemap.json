@@ -18,7 +18,9 @@
                 "notes" : 
                 [
                     {"name":"vectors", "title": "Vectors"},
-                    {"name":"dot product", "title": "Dot Product"}
+                    {"name":"dot product", "title": "Dot Product"},
+                    {"name":"vector projection", "title": "Vector Projection"}
+
 
                 ]
             }
