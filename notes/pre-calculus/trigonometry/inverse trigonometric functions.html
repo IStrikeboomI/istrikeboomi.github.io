@@ -29,17 +29,124 @@
                 \arctan\left(\frac{\text{opposite}}{\text{adjacent}}  \right) = \theta &\ arccot\left(\frac{\text{adjacent}}{\text{opposite}}  \right) = \theta \\
               \end{align}$$</p>
             <p>Both of these notations are widely accepeted and represent the same thing</p>
+            <p>When trying to find the answers, you might need a calculator, make sure that it is either degrees or radians mode</p>
             <p>A lot of calculators might not have $arccsc,arcsec,arccot$</p>
-            <p>If you want to use these functions, you can use plug $1/x$ into $arcsin,arccos,arctan$ where $x$ is your input</p>
+            <p>If you want to use these functions, you can use plug $1/x$ into $\arcsin,\arccos,\arctan$ where $x$ is your input</p>
+            <hr>
+            <h3>Simplifying Inverse Trigonometric Expressions</h3>
+            <p>Before I start, assume we are talking about triangles that actually can exist</p>
+            <p>There are some domain and range issues which we will cover in the unit circle section</p>
+            <p>Anyways, simplifying inverse trig expressions is the process of simplifying a nested inverse trig inside a regular trig</p>
+            <p>For example:</p>
+            <p>$$\begin{align} 
+                \sec(\tan^{-1}(x))
+            \end{align}$$</p>
+            <p>This can be simplified further using right triangles</p>
+            <p>The $\sec$ takes in a $\theta$, and the $\tan^{-1}$ outputs a $\theta$</p>
+            <p>This means they can be used to make a triangle</p>
+            <p>
+            $$\begin{align}
+            \tan^{-1}(x) = \theta \rightarrow \tan(\theta) = \frac{x}{1}
+            \end{align}$$
+            </p>
+            <p>Since $\tan(\theta) = \frac{opposite}{adjacent}$, that means we have a right triangle with opposite of $x$ and adjacent of $1$</p>
+            <img src="../../calculus 1/derivatives/assets/svg/arctan triangle incomplete.svg">
+            <p>We can use the pythagorean theorem ($a^2 + b^2 = c^2$) to find the hypotenuse</p>
+            <p>$$\begin{align}
+                a^2 + b^2 &= c^2 \\
+                x^2 + 1^2 &= c^2 \\
+                c &= \sqrt{x^2 + 1}
+            \end{align}$$</p>
+            <img src="../../calculus 1/derivatives/assets/svg/arctan triangle.svg">
+            <p>Since $\sec(\theta) = \frac{hypotenuse}{adjacent}$,</p>
+            <p>$$\begin{align}
+                \sec(\theta) = \frac{\sqrt{x^2 + 1}}{1}
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                \sec(tan^{-1}(x))= \sqrt{x^2 + 1}
+            \end{align}$$</p>
+            <p>Another example:</p>
+            <p>$$\begin{align} 
+                \sin(\tan^{-1}(x))
+            \end{align}$$</p>
+            <p>What we first do is try to recognize what $\tan^{-1}(x)$ means</p>
+            <p>If we rewrite $\tan^{-1}(x)$ into $\tan^{-1}(\frac{x}{1})$ we have a ratio inside the inverse tangent</p>
+            <p>That ratio gives us a right triangle with opposite of x and an adjacent of 1</p>
+            <p>Using the pythagorean theorem we can complete this triangle with a hypotenuse of $\sqrt{x^2 + 1}$</p>
+            <p>Since we have the hypotenuse and the opposite, thats all we need for sine (which is opposite over hypotenuse)</p>
+            <p>$$\begin{align} 
+                \sin(\tan^{-1}(x)) = \frac{x}{\sqrt{x^2 + 1}}
+            \end{align}$$</p>
+            <p>Lets do another example</p>
+            <p>$$\begin{align} 
+                \tan(\arccos(2x))
+            \end{align}$$</p>
+            <p>The ratio inside the inverse cosine gives us an adjacent of 2x and hypotenuse of 1</p>
+            <p>Using pythagorean theorem we get an opposite of $\sqrt{1-4x^2}$</p>
+            <p>Using tangent is opposite over adjacent</p>
+            <p>$$\begin{align} 
+                \tan(\arccos(2x)) = \frac{\sqrt{1-4x^2}}{2x}
+            \end{align}$$</p>
             <hr>
             <details open>
                 <summary>Practice Problems</summary>
                 <ul class="no-bullets">
                     <li>
                         <details>
-                            <summary></summary>
+                            <summary>Find $\sin^{-1}(1/2)$ in degrees (use a calculator)</summary>
                             <p>$$\begin{align} 
-
+                                sin^{-1}(1/2) = 30^\circ
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find $\cos^{-1}(4/5)$ in radians (use a calculator)</summary>
+                            <p>$$\begin{align} 
+                                cos^{-1}(4/5) \approx 0.64350 \text{ rad}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find $\tan^{-1}(2)$ in radians (use a calculator)</summary>
+                            <p>$$\begin{align} 
+                                tan^{-1}(2) \approx 1.107148 \text{ rad}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>What kind of triangle would $arcsec(12 / 3)$ represent (give all side lengths)</summary>
+                            <p>$arcsec\left(\frac{12}{3}\right)$ give a triangle with hypotenuse of 12 and adjacent of 3</p>
+                            <p>To find opposite we use pythagorean theorem $\sqrt{12^2 - 3^2} = \sqrt{135} = 3\sqrt{15}$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Simplify $\cos(\cos^{-1}{x})$</summary>
+                            <p>Since $\cos$ and $\cos^{-1}$ are inverses they just equal</p>
+                            <p>$$\begin{align} 
+                                \cos(\cos^{-1}{x}) = x
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Solve $\sin(\cos^{-1}{(4/5)})$</summary>
+                            <p>Since cosine is adjacent over hypotenuse, we have a triangle with adjacent of 4 and hypotenuse of 5</p>
+                            <p>The opposite of that would be $\sqrt{5^2 - 4^2} = \sqrt{9}  = 3$</p>
+                            <p>$$\begin{align} 
+                                \sin(\cos^{-1}{\frac{4}{5}}) = \frac{3}{5}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Solve $\cos(\sin^{-1}(x/3))$</summary>
+                            <p>Since opposite is x and hypotenuse is 3, adjacent is $\sqrt{9 - x^2}$</p>
+                            <p>$$\begin{align} 
+                                \cos\left(\sin^{-1}\left(\frac{x}{3}\right)\right) = \frac{\sqrt{9 - x^2}}{3}
                             \end{align}$$</p>
                         </details>
                     </li>
