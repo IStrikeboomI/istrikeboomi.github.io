@@ -35,6 +35,7 @@
             \end{align}$$</p>
             <p>This is because the projection is parallel to $v$ and the orthogonal projection is perpendicular</p>
             <img src="assets/svg/projection.svg">
+            <p>The red dashed line is $proj_{\perp\vec{v}}{\vec{u}}$</p>
             <p>Let's derive the projection formula using the graph above</p>
             <p>The projection vector and $\vec{u}$ create a right triangle with a hypotenuse of $||\vec{u}||$</p>
             <p>We can use cosine here</p>
@@ -51,7 +52,6 @@
                 ||proj_{\vec{v}}{\vec{u}}|| \frac{\vec{v}}{||\vec{v}||} &= \frac{\vec{u} \cdot \vec{v}}{||\vec{v}||} \frac{\vec{v}}{||\vec{v}||} \\
                 proj_{\vec{v}}{\vec{u}} &= \frac{\vec{u} \cdot \vec{v}}{||\vec{v}||} \frac{\vec{v}}{||\vec{v}||} \\
                 proj_{\vec{v}}{\vec{u}} &= \left(\frac{\vec{u} \cdot \vec{v}}{||\vec{v}||^2}\right)\vec{v}\\
-
             \end{align}$$</p>
             <hr>
             <details open>
@@ -59,9 +59,22 @@
                 <ul class="no-bullets">
                     <li>
                         <details>
-                            <summary>Practice 1</summary>
+                            <summary>Find $proj_{\vec{v}}{\vec{u}}$ and $proj_{\perp \vec{v}}{\vec{u}}$ for $\vec{v} = \left< 1,4 \right>$ and $\vec{u} = \left< 3,1 \right>$</summary>
                             <p>$$\begin{align} 
-
+                                \vec{v} &= \left< 1,4 \right> \\
+                                \vec{u} &= \left< 3,1 \right> \\
+                                proj_{\vec{v}}{\vec{u}} &= \frac{3 + 4}{\sqrt{17}^2} \cdot \vec{v} = \frac{7}{17}\vec{v} = \left< \frac{7}{17},\frac{28}{17} \right> \\
+                                proj_{\perp \vec{v}}{\vec{u}} &= \vec{u} - proj_{\vec{v}}{\vec{u}} = \left< \frac{44}{17},-\frac{11}{17} \right>
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find $proj_{\vec{v}}{\vec{u}}$for $\vec{v} = \left< 3,2,4 \right>$ and $\vec{u} = \left< 2,2,1 \right>$</summary>
+                            <p>$$\begin{align} 
+                                \vec{v} &= \left< 3,2,4 \right> \\
+                                \vec{u} &= \left< 2,2,1 \right> \\
+                                proj_{\vec{v}}{\vec{u}} &= \frac{6 + 4 + 4}{\sqrt{9 + 4 + 16}^2} \cdot \vec{v} = \frac{14}{29}\vec{v} = \left< \frac{42}{29},\frac{28}{29},\frac{56}{29} \right> \\
                             \end{align}$$</p>
                         </details>
                     </li>
