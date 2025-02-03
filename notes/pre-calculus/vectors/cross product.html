@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>The cross product the 3 dimensional vectors $\vec{u}$ and $\vec{v}$ is :</p>
+            <p>$$\begin{align} 
+                \vec{u} \times \vec{v} = \left< u_2v_3 - u_3v_2, u_3v_1 - u_1v_3,u_1v_2 - u_2v_1 \right>
+            \end{align}$$</p>
+            <p>Cross product is only defined for 3 dimensional vectors</p>
+            <hr>
+            <h3>Determinants</h3>
+            <p>Before we talk about what the cross product can be interpreted as, we should talk about determinants</p>
+            <p>If you recall from the matrix section, this is the same determinant</p>
+            <p>The determinat of a $2 \times 2$ matrix is </p>
+            <p>$$\begin{align} 
+                \det\left(
+                \begin{bmatrix}
+                    a & b\\
+                    c & d
+                \end{bmatrix}\right) 
+                = 
+                \begin{vmatrix}
+                    a & b\\
+                    c & d
+                \end{vmatrix}
+                = ad - bc
+             \end{align}$$</p>
+            <p>The determinant of $3 \times 3$ matrix is: </p>
+            <p>$$\begin{align} 
+                \begin{vmatrix}
+                    a & b & c\\
+                    e & f & g \\
+                    h & i & j
+                \end{vmatrix}
+                &= 
+                a
+                \begin{vmatrix}
+                    f & g \\
+                    i & j
+                \end{vmatrix}
+                - b
+                \begin{vmatrix}
+                    e & g \\
+                    h & j
+                \end{vmatrix}
+                + c
+                \begin{vmatrix}
+                    e & f \\
+                    h & i
+                \end{vmatrix}
+                \\
+                &= a(fj - gi) - b(ej - gh) + c(ei - fh)
+             \end{align}$$</p>
+             <p>These coefficients can be remembered by the following matrixes</p>
+             <p>$$\begin{align} 
+                \begin{vmatrix}
+                    a &  & \\
+                     & f & g \\
+                     & i & j
+                \end{vmatrix}
+                \begin{vmatrix}
+                     & b & \\
+                     e&  & g \\
+                     h&  & j
+                \end{vmatrix}
+                \begin{vmatrix}
+                     &  & c\\
+                     e& f &  \\
+                     h& i & 
+                \end{vmatrix}
+             \end{align}$$</p>
+             <p>This is all relevant because the cross product can be thought of as a determinant</p>
+             <p>$$\begin{align} 
+                \vec{u} \times \vec{v} &= 
+                \begin{vmatrix}
+                    \textbf{i} & \textbf{j} & \textbf{k}\\
+                    u_1 & u_2 & u_3 \\
+                    v_1 & v_2 & v_3
+                \end{vmatrix} \\
+                &=  
+                \begin{vmatrix}
+                    u_2 & u_3 \\
+                    v_2 & v_3
+                \end{vmatrix} \textbf{i} -
+                \begin{vmatrix}
+                    u_1 & u_3 \\
+                    v_1 & v_3
+                \end{vmatrix} \textbf{j} +
+                \begin{vmatrix}
+                    u_1 & u_2 \\
+                    v_1 & v_2
+                \end{vmatrix} \textbf{k}
+             \end{align}$$</p>
+            <hr>
+            <h3>Properties</h3>
+            <p>$$\begin{align} 
+                \vec{u} \times \vec{v} = -(\vec{v} \times \vec{u})
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                \vec{u} \times (\vec{v} + \vec{w}) = (\vec{u} \times \vec{v}) +  (\vec{u} \times \vec{w})
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                c(\vec{u} \times \vec{v}) = c\vec{u} \times \vec{v} = \vec{u} \times c\vec{v}
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                \vec{u} \times \vec{0} =  \vec{0} \times \vec{v} = \vec{0}
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                \vec{u} \times \vec{u} =  \vec{0}
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                \vec{u} \cdot (\vec{v} \times \vec{w}) = \vec{v} \cdot (\vec{w} \times \vec{u}) = \vec{w} \cdot (\vec{u} \times \vec{v})
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                ||\vec{u} \times \vec{v}|| = ||\vec{u}|| \cdot ||\vec{v}|| \cdot \sin(\theta)  
+            \end{align}$$</p>
+            <hr>
+            <h3>What Does This Even Mean?</h3>
+            <p>The core idea behind the cross product is that it results in a vector that is orthogonal (perpendicular) to <b>both</b> vectors</p>
+            <img src="assets/svg/cross product graph.svg">
+            <p>Here's the same graph at other angles</p>
+            <img src="assets/svg/cross product graph xy.svg">
+            <img src="assets/svg/cross product graph xz.svg">
+            <img src="assets/svg/cross product graph yz.svg">
+            <p>So why does doing cross product create an orthogonal vector? Let's do a proof</p>
+            <p>Recalling from dot product, if the dot product is 0 it means the vectors are orthogonal</p>
+            <p>The dot products of $\vec{u} \times \vec{v}$ to both vectors should be $0$</p>
+            <p>$$\begin{align} 
+                \vec{u} \cdot (\vec{u} \times \vec{v}) &= \vec{u} \cdot \left< u_2v_3 - u_3v_2, u_3v_1 - u_1v_3,u_1v_2 - u_2v_1 \right> \\
+                &= u_1(u_2v_3 - u_3v_2) + u_2(u_3v_1 - u_1v_3) + u_3(u_1v_2 - u_2v_1)\\
+                &= \textcolor{red}{u_1u_2v_3} - \textcolor{blue}{u_1u_3v_2} + \textcolor{green}{u_2u_3v_1} -\textcolor{red}{u_2u_1v_3} + \textcolor{blue}{u_3u_1v_2} - \textcolor{green}{u_3u_2v_1}\\
+                &= 0
+            \end{align}$$</p>
+            <p>And similarly for $\vec{v}$</p>
+            <p>$$\begin{align} 
+                \vec{v} \cdot (\vec{u} \times \vec{v}) &= \vec{v} \cdot \left< u_2v_3 - u_3v_2, u_3v_1 - u_1v_3,u_1v_2 - u_2v_1 \right> \\
+                &= v_1(u_2v_3 - u_3v_2) + v_2(u_3v_1 - u_1v_3) + v_3(u_1v_2 - u_2v_1)\\
+                &= \textcolor{red}{v_1u_2v_3} - \textcolor{blue}{v_1u_3v_2} + \textcolor{green}{v_2u_3v_1} -\textcolor{blue}{v_2u_1v_3} + \textcolor{green}{v_3u_1v_2} - \textcolor{red}{v_3u_2v_1}\\
+                &= 0
+            \end{align}$$</p>
+            <hr>
+            <h3>Why Sine?</h3>
+            <p>In order to prove $                ||\vec{u} \times \vec{v}|| = ||\vec{u}|| \cdot ||\vec{v}|| \cdot \sin(\theta)$, we can use algebra</p>
+            <p>First, establish definition of cosine between two vectors</p>
+            <p>$$\begin{align} 
+                cos(\theta) &= \frac{\vec{u}\cdot\vec{v}}{||\vec{u}||\cdot ||\vec{v}||}
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                ||\vec{u}|| \cdot ||\vec{v}|| \cdot \sin(\theta)  &= ||\vec{u}|| \cdot ||\vec{v}|| \cdot \sqrt{1-\cos^2(\theta)} &&\text{Using Rearranged $\sin^2(\theta) + \cos^2(\theta) = 1$} \\
+                &= ||\vec{u}|| \cdot ||\vec{v}|| \cdot \sqrt{1-\left(\frac{\vec{u}\cdot\vec{v}}{||\vec{u}||\cdot ||\vec{v}||}\right)^2} \\
+                &= ||\vec{u}|| \cdot ||\vec{v}|| \cdot \sqrt{1-\frac{(\vec{u}\cdot\vec{v})^2}{||\vec{u}||^2\cdot ||\vec{v}||^2}} \\
+                &= ||\vec{u}|| \cdot ||\vec{v}|| \cdot \sqrt{\frac{||\vec{u}||^2\cdot ||\vec{v}||^2}{||\vec{u}||^2\cdot ||\vec{v}||^2}-\frac{(\vec{u}\cdot\vec{v})^2}{||\vec{u}||^2\cdot ||\vec{v}||^2}} \\
+                &= ||\vec{u}|| \cdot ||\vec{v}|| \cdot \sqrt{\frac{||\vec{u}||^2\cdot ||\vec{v}||^2 - (\vec{u}\cdot\vec{v})^2}{||\vec{u}||^2\cdot ||\vec{v}||^2}} \\
+                &= ||\vec{u}|| \cdot ||\vec{v}|| \cdot \frac{1}{||\vec{u}||^2\cdot ||\vec{v}||^2} \cdot \sqrt{||\vec{u}||^2\cdot ||\vec{v}||^2 - (\vec{u}\cdot\vec{v})^2} &&\text{Factor Out Denominator Out Of Square Root}\\
+                &= \sqrt{||\vec{u}||^2\cdot ||\vec{v}||^2 - (\vec{u}\cdot\vec{v})^2} &&\text{Cancel Out Terms}\\
+                &= \sqrt{(u_1^2 + u_2^2 + u_3^2)(v_1^2 + v_2^2 + v_3^2) - (u_1v_1 + u_2v_2 + u_3v_3)^2}\\
+                &= \sqrt{(u_2v_3 - u_3v_2)^2 + (u_3v_1 - u_1v_3)^2 + (u_1v_2 - u_2v_1)^2} &&\text{A Lot Of Algebra Later...}\\
+                &= ||\vec{u} \times \vec{v}||\\
+            \end{align}$$</p>
+            <hr>
+            <h3>Area Of A Parallelogram</h3>
+            <p>The Area of a Parallelogram with the sides of $\vec{u}$ and $\vec{v}$ is $||\vec{u} \times \vec{v}||$</p>
+            <p>First recall the area of a parallelogram formula</p>
+            <p>$$\begin{align} 
+                A = h \times l
+            \end{align}$$</p>
+            <img src="assets/svg/vector parallelogram.svg">
+            <p>The area of the above parallelogram would be</p>
+            <p>$$\begin{align} 
+                A &= ||\vec{u}|| \cdot ||\vec{v}|| \cdot sin(\theta) \\
+                &= ||\vec{u} \times \vec{v}||
+            \end{align}$$</p>
+            <p>Now you might notice that if you have a 2-D parallelogram, you can't do cross product because it's only in 3-D</p>
+            <p>What you would do is to make your vector into a 3-D vector with the $Z$ or $\textbf{k}$ component to 0</p>
+            <p>For Example:</p>
+            <p>$$\begin{align} 
+                \left<2,5 \right> \rightarrow \left< 2,5,0 \right>
+            \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details >
+                            <summary>Find $\vec{a} \times \vec{b}$ where $\vec{a} = \left< 3, 3, -1 \right>$ and $\vec{b} =\left< 4, 9, 2 \right>$</summary>
+                            <p>$$\begin{align} 
+                                \vec{a} &= \left< 3, 3, -1 \right> \\
+                                \vec{b} &= \left< 4, 9, 2 \right>
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \vec{a} \times \vec{b} &= 
+                                \begin{vmatrix}
+                                    \textbf{i} & \textbf{j} & \textbf{k}\\
+                                    3 & 3 & -1 \\
+                                    4 & 9 & 2
+                                \end{vmatrix} \\
+                                &= \left< -15, -2, 39 \right>
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the area of a parallelogram with vertices $A(1,6)$,$B(3,9)$, and $C(6,6)$ using cross products</summary>
+                            <p>We can create two vectors both with the starting point of $A$ and one goes to $b$, and the other goes to $C$</p>
+                            <p>$$\begin{align} 
+                                \vec{AB} &= \left< 3-1,9-6,0 \right> = \left< 2,3,0 \right> \\
+                                \vec{AC} &= \left< 6-1,6-6,0 \right> = \left< 5,0,0 \right> \\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \vec{AB} \times \vec{AC} &=
+                                \begin{vmatrix}
+                                \textbf{i} & \textbf{j} & \textbf{k}\\
+                                2 & 3 & 0 \\
+                                5 & 0 & 0
+                            \end{vmatrix} \\
+                            &= \left< 0,0,15 \right>
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                ||\vec{AB} \times \vec{AC}|| = \sqrt{0 + 0 + 15^2} = 15
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the area of a parallelogram with side vectors of $\vec{a} = \left< 2,4,2 \right>$ and $\vec{b} = \left< 4,9,5 \right></3>$</summary>
+                            <p>$$\begin{align} 
+                                \vec{a} \times \vec{b} &=
+                                \begin{vmatrix}
+                                \textbf{i} & \textbf{j} & \textbf{k}\\
+                                2 & 4 & 2 \\
+                                4 & 9 & 5
+                            \end{vmatrix} \\
+                            &= \left< 2,-2,2 \right>
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                ||\vec{a} \times \vec{b}|| = \sqrt{2^2 + (-2)^2 + 2^2} = \sqrt{12} = 2\sqrt{3}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
