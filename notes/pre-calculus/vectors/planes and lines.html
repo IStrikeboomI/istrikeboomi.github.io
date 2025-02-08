@@ -94,9 +94,115 @@
                 <ul class="no-bullets">
                     <li>
                         <details>
-                            <summary>Practice 1</summary>
+                            <summary>Find the plane containing the points $A(3,1,-4), B(2,0,-3), C(5,1,0)$</summary>
+                            <p>The way we achieve this is to create the vectors $\vec{AB}$ and $\vec{AC}$</p>
+                            <p>We then find the normal vector by finding the vector that is orthogonal, by using the cross product</p>
                             <p>$$\begin{align} 
-
+                                \vec{AB} = \left< -1,-1,1 \right> \\
+                                \vec{AC} = \left< 2,0,4 \right> \\
+                                \vec{n} = \vec{AB} \times \vec{AC} &= 
+                                \begin{vmatrix}
+                                \textbf{i} & \textbf{j} & \textbf{k}\\
+                                -1 & -1 & 1 \\
+                                2 & 0 & 4
+                            \end{vmatrix} \\
+                            &= \left< -4,6,2 \right>
+                            \end{align}$$</p>
+                            <p>Now that we have the normal vector, we choose any of the three points as a refernce and plug it in to the plane formula</p>
+                            <p>I'm going to use point $A$</p>
+                            <p>$$\begin{align} 
+                                a(x-x_1) + b(y-y_1) + z(z-z_1) = 0 \\
+                                -4(x-3) + 6(y-1) + 2(z+4) = 0 \\
+                                -4x + 12 + 6y -6 + 2z + 8 = 0 \\
+                                -4x+ 6y + 2z + 14 = 0 \\
+                                2x - 3y - z - 7 = 0 
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the point of intersection of the line $\frac{x + 3}{5} = \frac{y-2}{3} = \frac{z + 1}{2}$ and the plane $3x - 2y + z = 8$</summary>
+                            <p>$$\begin{align} 
+                                \frac{x + 3}{5} = \frac{y-2}{3} = \frac{z + 1}{2} \\
+                                3x - 2y + z = 8
+                            \end{align}$$</p>
+                            <p>What we are going to do is convert the line into parametric form so we can isolate $x,y,z$</p>
+                            <p>We can then plug these into the plane to get the value of $t$, then plug that back into the line to get the point</p>
+                            <p>$$\begin{align} 
+                                x &= -3 + 5t \\
+                                y &= 2 + 3t \\
+                                z &= -1 + 2t \\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                3(-3 + 5t) - 2(2 + 3t) + (-1 + 2t) = 8 \\
+                                11t = 22 \\
+                                t = 2
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                x &= -3 + 5(2) = 7 \\
+                                y &= 2 + 3(2) = 8 \\
+                                z &= -1 + 2(2) = 3\\
+                            \end{align}$$</p>
+                            <p>This gives the point of $(7,8,3)$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the cosine of the angle between the planes $3x - 2y + z = 7$ and $5x − y − 2z = 2$</summary>
+                            <p>We need to use the plane cosine formula</p>
+                            <p>First we need to find the normal vectors (which are the coefficients)</p>
+                            <p>$$\begin{align} 
+                                \vec{n_1} = \left< 3,-2,1 \right> \\
+                                \vec{n_2} = \left< 5,-1,-2 \right> \\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \cos(\theta) &= \frac{|\vec{n_1} \cdot \vec{n_2}|}{||\vec{n_1}||\cdot||\vec{n_2}||} \\
+                                &= \frac{|15 + 2 - 2|}{\sqrt{3^2 + (-2)^2 + 1^2} \sqrt{5^2 + (-1)^2 + (-2)^2}} \\
+                                &= \frac{15}{\sqrt{14} \sqrt{30}} \\
+                                &= \frac{15}{\sqrt{7 \cdot 2 \cdot 2 \cdot 15}} \\
+                                &= \frac{15}{2\sqrt{105}} \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the distance between $(6,1,0)$ from the plane that is perpendicular to $\textbf{i} -2\textbf{j} + \textbf{k}$ </summary>
+                            <p>The vector that is perpendicular to the plane is the normal vector, we can the plane from that</p>
+                            <p>$$\begin{align} 
+                                \vec{n} = \left< 1,-2,1 \right> \\
+                                x - 2y + z = 0
+                            \end{align}$$</p>
+                            <p>Now we can use the distance formula</p>
+                            <p>$$\begin{align} 
+                                D &= \frac{|1\cdot6 + -2\cdot1 + 1\cdot0 + 0|}{\sqrt{1^2 + (-2)^2 + 1^2}} \\
+                                &= \frac{|4|}{\sqrt{6}} \\
+                                &= \frac{4}{\sqrt{6}} \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the distance between the point $A(3,-2,-3)$ and the line through the points $B(2,-1,3)$ and $C(3,0,-2)$</summary>
+                            <p>We don't need to the find the line because for the distance formula, we just need a point on the line and a direction vector</p>
+                            <p>The direction vector is $\vec{BC}$, because they are both on the line</p>
+                            <p>$$\begin{align} 
+                                \vec{u} = \vec{BC} = \left< 1,1,-5 \right> \\
+                                \vec{BA} = \left< 1,-1,-6 \right>
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \vec{BA} \times \vec{u} &=
+                                \begin{vmatrix}
+                                \textbf{i} & \textbf{j} & \textbf{k}\\
+                                1 & -1 & -6 \\
+                                1 &  & -5
+                            \end{vmatrix} \\
+                            &= \left< 11, -1, 2 \right>
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                D &= \frac{\sqrt{11^2 + 1^2 + 2^2}}{\sqrt{1^2 + 1^2 + 5^2}} \\
+                                &= \frac{\sqrt{126}}{\sqrt{27}} \\
+                                &= \sqrt{\frac{126}{27}} \\
+                                &= \sqrt{\frac{14}{3}} \\
                             \end{align}$$</p>
                         </details>
                     </li>
