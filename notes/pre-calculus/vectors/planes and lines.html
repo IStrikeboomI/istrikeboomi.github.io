@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Vectors make 3D graphing easier, first we need to establish some vocabulary</p>
+            <p>If you want to make 3D graphs, I like to use <a href="https://www.desmos.com/3d">Desmos</a></p>
+            <hr>
+            <h3>Planes</h3>
+            <p>A <b>plane</b> can be thought of as the 3D extension of a 2D line</p>
+            <p>It is a flat 2D surface that extends indefinitely</p>
+            <p>Below is the plane $2x + y - 2z - 3 = 0$, with the normal vector shown at different angles</p>
+            <img src="assets/svg/plane -45 45.svg">
+            <img src="assets/svg/plane -60 45.svg">
+            <img src="assets/svg/plane 135 -10.svg">
+            <img src="assets/svg/plane 45 15.svg">
+            <p>A plane containing the point $P(x_1,y_1,z_1)$, with a normal vector of $\vec{n} = \left< a,b,c \right>$ is:</p>
+            <p>$$\begin{align} 
+                a(x-x_1) + b(y-y_1) + z(z-z_1) = 0
+            \end{align}$$</p>
+            <p>This can be written more generally (where $d = -ax_1 -by_1 -cz_1$), </p>
+            <p>$$\begin{align} 
+                ax + by + cz + d = 0
+            \end{align}$$</p>
+            <p>The <b>normal vector</b> $\vec{n}$ of a plane is a vector that is <b>orthogonal</b> to the plane</p>
+            <p>The reason why planes are defined using the normal vector can be proven by the following</p>
+            <p>First define $Q(x,y,z)$ as a point on the plane, and make the vector $\vec{PQ}$</p>
+            <p>$$\begin{align} 
+                \vec{PQ} = \left< x-x_1,y-y_1,z-z_1 \right>
+            \end{align}$$</p>
+            <p>Since $\vec{PQ}$ lies on the plane (because both points are on the plane), and $\vec{n}$ is orthogonal, that means the <a href="dot product.html">Dot Product</a> is zero</p>
+            <p>$$\begin{align} 
+                \vec{n} \cdot \vec{PQ} = 0 \rightarrow a(x-x_1) + b(y-y_1) + c(z-z_1) = 0
+                
+            \end{align}$$</p>
+            <p>To find the angle between two planes, the angle between the planes would reflect throughout the whole plane</p>
+            <p>This includes the normal vectors</p>
+            <p>$$\begin{align} 
+                \cos(\theta) = \frac{|\vec{n_1} \cdot \vec{n_2} |}{||\vec{n_1}||\cdot||\vec{n_2}||}
+            \end{align}$$</p>
+            <img src="assets/svg/angle between 2 planes.svg">
+            <p>The distance between a point $Q(x_1,y_1,z_1)$ and a plane $ax + by + cz + d = 0$ is: </p>
+            <p>$$\begin{align} 
+                D = \frac{|ax_1 + by_1 + cz_1 + d|}{\sqrt{a^2 + b^2 + c^2}}
+            \end{align}$$</p>
+            <p>The way we prove is this is to first define a point on the plane $P(x_2,y_2,z_2)$</p>
+            <p>We need to find the distance from $Q$ to the plane, we can map the distance onto the normal vector using a <a href="vector projection.html">projection</a> onto n</p>
+            <img src="assets/svg/distance between plane and point.svg">
+            <p>$$\begin{align} 
+                \vec{PQ} &= \left< x_2 - x_1, y_2 - y_1, z_2 - z_1 \right> \\
+                D = |proj_{\vec{n}}{\vec{PQ}}| &= \frac{|\vec{PQ} \cdot \vec{n}|}{||\vec{n}||} = \frac{|ax_1 + by_1 + cz_1 + d|}{\sqrt{a^2 + b^2 + c^2}}
+            \end{align}$$</p>
+            <hr>
+            <h3>Lines</h3>
+            <p>Traditional lines also exist in the 3d plane, but they have to be written <b>parametrically</b></p>
+            <p>The equation of a line parallel to $\vec{v} = \left< a,b,c\right>$ and passing through the point $P(x_1,y_1,z_1)$ is:</p>
+            <p>$$\begin{align} 
+                x &= x_1 + at \\
+                y &= y_1 + bt \\
+                z &= z_1 + ct \\
+            \end{align}$$</p>
+            <p>The line can also be written in symmetric form, </p>
+            <p>$$\begin{align} 
+                \frac{x - x_1}{a} = \frac{y - y_1}{b} = \frac{z -z_1}{c}
+            \end{align}$$</p>
+            <p>Below is the line $x = 1 + t, y = 2 - \frac{1}{2}t, 1 + t$ at different angles</p>
+            <img src="assets/svg/line -45 45.svg">
+            <img src="assets/svg/line 135 -10.svg">
+            <img src="assets/svg/line 45 45.svg">
+            <img src="assets/svg/line 60 80.svg">
+            <p>The distance between a point $Q$ and a point on the line $P$ and a direction vector  $\vec{u}$ is </p>
+            <p>$$\begin{align} 
+                D = \frac{||\vec{PQ} \times \vec{u}||}{||\vec{u}||}
+            \end{align}$$</p>
+            <p>The direction vector can be a vector with just the compoennts as the parametric parts of the line</p>
+            <p>This can be proved by the fact that a right triangle is formed between $P$ and $Q$</p>
+            <img src="assets/svg/distance between point and line.svg">
+            <p>$$\begin{align} 
+                D = ||\vec{PQ}||\sin(\theta) = \frac{||\vec{PQ}||\cdot ||\vec{u}|| \cdot \sin(\theta)}{||\vec{u}|| } = \frac{||\vec{PQ} \times \vec{u}||}{||\vec{u}||}
+            \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Find the plane containing the points $A(3,1,-4), B(2,0,-3), C(5,1,0)$</summary>
+                            <p>The way we achieve this is to create the vectors $\vec{AB}$ and $\vec{AC}$</p>
+                            <p>We then find the normal vector by finding the vector that is orthogonal, by using the cross product</p>
+                            <p>$$\begin{align} 
+                                \vec{AB} = \left< -1,-1,1 \right> \\
+                                \vec{AC} = \left< 2,0,4 \right> \\
+                                \vec{n} = \vec{AB} \times \vec{AC} &= 
+                                \begin{vmatrix}
+                                \textbf{i} & \textbf{j} & \textbf{k}\\
+                                -1 & -1 & 1 \\
+                                2 & 0 & 4
+                            \end{vmatrix} \\
+                            &= \left< -4,6,2 \right>
+                            \end{align}$$</p>
+                            <p>Now that we have the normal vector, we choose any of the three points as a refernce and plug it in to the plane formula</p>
+                            <p>I'm going to use point $A$</p>
+                            <p>$$\begin{align} 
+                                a(x-x_1) + b(y-y_1) + z(z-z_1) = 0 \\
+                                -4(x-3) + 6(y-1) + 2(z+4) = 0 \\
+                                -4x + 12 + 6y -6 + 2z + 8 = 0 \\
+                                -4x+ 6y + 2z + 14 = 0 \\
+                                2x - 3y - z - 7 = 0 
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the point of intersection of the line $\frac{x + 3}{5} = \frac{y-2}{3} = \frac{z + 1}{2}$ and the plane $3x - 2y + z = 8$</summary>
+                            <p>$$\begin{align} 
+                                \frac{x + 3}{5} = \frac{y-2}{3} = \frac{z + 1}{2} \\
+                                3x - 2y + z = 8
+                            \end{align}$$</p>
+                            <p>What we are going to do is convert the line into parametric form so we can isolate $x,y,z$</p>
+                            <p>We can then plug these into the plane to get the value of $t$, then plug that back into the line to get the point</p>
+                            <p>$$\begin{align} 
+                                x &= -3 + 5t \\
+                                y &= 2 + 3t \\
+                                z &= -1 + 2t \\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                3(-3 + 5t) - 2(2 + 3t) + (-1 + 2t) = 8 \\
+                                11t = 22 \\
+                                t = 2
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                x &= -3 + 5(2) = 7 \\
+                                y &= 2 + 3(2) = 8 \\
+                                z &= -1 + 2(2) = 3\\
+                            \end{align}$$</p>
+                            <p>This gives the point of $(7,8,3)$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the cosine of the angle between the planes $3x - 2y + z = 7$ and $5x − y − 2z = 2$</summary>
+                            <p>We need to use the plane cosine formula</p>
+                            <p>First we need to find the normal vectors (which are the coefficients)</p>
+                            <p>$$\begin{align} 
+                                \vec{n_1} = \left< 3,-2,1 \right> \\
+                                \vec{n_2} = \left< 5,-1,-2 \right> \\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \cos(\theta) &= \frac{|\vec{n_1} \cdot \vec{n_2}|}{||\vec{n_1}||\cdot||\vec{n_2}||} \\
+                                &= \frac{|15 + 2 - 2|}{\sqrt{3^2 + (-2)^2 + 1^2} \sqrt{5^2 + (-1)^2 + (-2)^2}} \\
+                                &= \frac{15}{\sqrt{14} \sqrt{30}} \\
+                                &= \frac{15}{\sqrt{7 \cdot 2 \cdot 2 \cdot 15}} \\
+                                &= \frac{15}{2\sqrt{105}} \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the distance between $(6,1,0)$ from the plane that is perpendicular to $\textbf{i} -2\textbf{j} + \textbf{k}$ </summary>
+                            <p>The vector that is perpendicular to the plane is the normal vector, we can the plane from that</p>
+                            <p>$$\begin{align} 
+                                \vec{n} = \left< 1,-2,1 \right> \\
+                                x - 2y + z = 0
+                            \end{align}$$</p>
+                            <p>Now we can use the distance formula</p>
+                            <p>$$\begin{align} 
+                                D &= \frac{|1\cdot6 + -2\cdot1 + 1\cdot0 + 0|}{\sqrt{1^2 + (-2)^2 + 1^2}} \\
+                                &= \frac{|4|}{\sqrt{6}} \\
+                                &= \frac{4}{\sqrt{6}} \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details >
+                            <summary>Find the distance between the point $A(3,-2,-3)$ and the line through the points $B(2,-1,3)$ and $C(3,0,-2)$</summary>
+                            <p>We don't need to the find the line because for the distance formula, we just need a point on the line and a direction vector</p>
+                            <p>The direction vector is $\vec{BC}$, because they are both on the line</p>
+                            <p>$$\begin{align} 
+                                \vec{u} = \vec{BC} = \left< 1,1,-5 \right> \\
+                                \vec{BA} = \left< 1,-1,-6 \right>
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \vec{BA} \times \vec{u} &=
+                                \begin{vmatrix}
+                                \textbf{i} & \textbf{j} & \textbf{k}\\
+                                1 & -1 & -6 \\
+                                1 &  & -5
+                            \end{vmatrix} \\
+                            &= \left< 11, -1, 2 \right>
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                D &= \frac{\sqrt{11^2 + 1^2 + 2^2}}{\sqrt{1^2 + 1^2 + 5^2}} \\
+                                &= \frac{\sqrt{126}}{\sqrt{27}} \\
+                                &= \sqrt{\frac{126}{27}} \\
+                                &= \sqrt{\frac{14}{3}} \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

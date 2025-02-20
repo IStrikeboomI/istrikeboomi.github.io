@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>The Arc Length of a function $y = f(x)$ on $[a,b]$ is: </p>
+            <p>$$\begin{align} 
+                \int_a^b{\sqrt{1 + \left(\frac{dy}{dx}\right)^2} \ dx}
+            \end{align}$$</p>
+            <p>For a function $x = g(x)$ on $[c,d]$</p>
+            <p>$$\begin{align} 
+                \int_c^d{\sqrt{1 + \left(\frac{dx}{dy}\right)^2} \ dx}
+            \end{align}$$</p>
+            <hr>
+            <h3>Where Does This Come From?</h3>
+            <p>We will be using a similar technique to the getting the definition of the definite integral</p>
+            <P>What our process will be is to split the arc length into line segments, then add up all the line lengths</P>
+            <p>We have the following graph of $f(x)$</p>
+            <img src="assets/svg/arc length graph.svg">
+            <p>What we will do is make $n$ line segments, each with a width of $\Delta x$</p>
+            <img src="assets/svg/arc length 5 lines.svg">
+            <img src="assets/svg/arc length 10 lines.svg">
+            <img src="assets/svg/arc length 25 lines.svg">
+            <img src="assets/svg/arc length 100 lines.svg">
+            <p>As you see as $n$ increases, the lines become more accurate to the true graph</p>
+            <p>For the rest I will use the $n = 5$ graph, but the principle still applies to </p>
+            <p>We will denote the start point of the line as $(x_i,y_i)$, and the end point as $(x_{i + 1},y_{i + 1})$</p>
+            <img src="assets/svg/arc length line segment marked.svg">
+            <p>Let's denote the length of the $i$'th line as $D_i$</p>
+            <p>We can use the distance formula (which is just the pythagorean theorem)</p>
+            <p>$$\begin{align} 
+                D_i = \sqrt{(x_{i+1} - x_i)^2 + (y_{i+1} - y_i)^2}
+            \end{align}$$</p>
+            <p>Since $\Delta x$ is the x distance between the lines, we can replace it</p>
+            <p>We also can denote the $i$'th y-distance as $\Delta y_i$</p>
+            <p>$$\begin{align} 
+                \Delta x &= x_{i+1} - x_i \\
+                \Delta y_i &= y_{i+1} - y_i \\
+                D_i &= \sqrt{\Delta x^2 + \Delta y_i^2}
+            \end{align}$$</p>
+            <p>We can replace $\Delta y_i$ using the <a href="../../calculus 1/derivatives/mean value and rolles theorem.html">Mean Value Theorem</a></p>
+            <p>We know there is a point $c \in [x_i,x_{i+1}]$</p>
+            <p>$$\begin{align} 
+                (y_{i+1} - y_i) &= f'(c)(x_{i+1} - x_i) \\
+                \Delta y_i &= f'(c)\Delta x \\
+                D_i &= \sqrt{\Delta x^2 + (f'(c)\Delta x)^2} \\
+                D_i &= \sqrt{\Delta x^2 + f'(c)^2\Delta x^2} \\
+                D_i &= \sqrt{(\Delta x^2)(1 + f'(c)^2)} \\
+                D_i &= \Delta x\sqrt{1 + f'(c)^2} \\
+            \end{align}$$</p>
+            <p>Now we can sum the distances together</p>
+            <p>$$\begin{align} 
+                \sum_{i = 1}^n{\sqrt{1 + f'(c)^2}\Delta x}
+            \end{align}$$</p>
+            <p>Since the lines come closer to the curve, the more lines we have, we take a limit to infinity</p>
+            <p>$$\begin{align} 
+                \lim_{n \to \infty}\sum_{i = 1}^n{\sqrt{1 + f'(c)^2}\Delta x}
+            \end{align}$$</p>
+            <p>This looks a lot like the definition of the <a href="../../calculus 1/integrals/definition of the definite integral.html">Definite Integral</a></p>
+            <p>$$\begin{align} 
+                \int_a^b{\sqrt{1 + \left(f'(x)\right)^2} \ dx}
+            \end{align}$$</p>
+            <p>Replacing $f'(x)$ with $dy/dx$</p>
+            <p>$$\begin{align} 
+                \int_a^b{\sqrt{1 + \left(\frac{dy}{dx}\right)^2} \ dx}
+            \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Find the arc length of $y=\sqrt{x^2 - x} + \sin^{-1}(\sqrt{x})$ on $[1/2,1]$</summary>
+                            <p>$$\begin{align} 
+                                \frac{dy}{dx} &= \sqrt{\frac{1 - x}{x}} \\
+                                1 + \frac{dy}{dx}^2 &= 1 + \frac{1 - x}{x} \\
+                                &= \frac{x}{x} + \frac{1 - x}{x} \\
+                                &= \frac{1}{x}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \int_{1/2}^{1}{\sqrt{\frac{1}{x}} \ dx} \\
+                                \int_{1/2}^{1}{\frac{1}{\sqrt{x}} \ dx} \\
+                                \int_{1/2}^{1}{x^{-1/2} \ dx} \\
+                                \left[2\sqrt{x}\right]\Big|_{1/2}^{1} \\
+                                2 - 2 \frac{1}{\sqrt{2}} \\
+                                2 - \sqrt{2}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the arc length of $y=\ln(\sec(x))$ on $[0,\pi/6]$</summary>
+                            <p>$$\begin{align} 
+                                \frac{dy}{dx} &= \tan(x) \\
+                                1 + \frac{dy}{dx}^2 &= 1 + \tan^2(x) \\
+                                &= \sec^2(x) \\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \int_{0}^{\pi/6}{\sqrt{\sec^2{x}} \ dx} \\
+                                \int_{0}^{\pi/6}{|\sec{x}|\ dx} \\
+                                \int_{0}^{\pi/6}{\sec{x} \ dx} &&\text{Since $\sec(x)$ is always positive in the range}\\
+                                \left[\ln|\sec(x) + \tan(x)|\right]\Big|_{0}^{\pi/6}\\
+                                \ln|\sec(\pi/6) + \tan(\pi/6)| - \ln|\sec(0) + \tan(0)| \\
+                                \ln|\frac{2}{\sqrt{3}} + \frac{1}{\sqrt{3}}| - \ln|1 + 0| \\
+                                \ln|\frac{3}{\sqrt{3}}|\\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
