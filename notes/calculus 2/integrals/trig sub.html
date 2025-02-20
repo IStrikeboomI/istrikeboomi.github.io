@@ -31,20 +31,20 @@
                 \tan^2(\theta) + 1 = \sec^2(\theta)
             \end{align}$$</p>
             <hr>
-            <h3>Examples</h3>
+            <h3>Example</h3>
             <p>$$\begin{align} 
-                \int{\frac{\sqrt{4 - x^2}}{x^2} \ dx} \\
-                x = 2\sin(\theta), dx = 2\cos(\theta) \ d\theta \\
-                \int{\frac{\sqrt{4 - (2\sin(\theta))^2}}{(2\sin(\theta))^2} 2\cos(\theta) \ d\theta} \\
-                \int{\frac{\sqrt{4 - 4\sin^2(\theta)}}{4\sin^2(\theta)} 2\cos(\theta) \ d\theta} \\
-                \int{\frac{\sqrt{4(1 - \sin^2(\theta))}}{4\sin^2(\theta)} 2\cos(\theta) \ d\theta} \\
-                \int{\frac{2\sqrt{1 - \sin^2(\theta)}}{4\sin^2(\theta)} 2\cos(\theta) \ d\theta} \\
-                \int{\frac{2\sqrt{\cos^2(\theta)}}{4\sin^2(\theta)} 2\cos(\theta) \ d\theta} \\
-                \int{\frac{2\cos(\theta)}{4\sin^2(\theta)} 2\cos(\theta) \ d\theta} \\
-                \int{\frac{4\cos^2(\theta)}{4\sin^2(\theta)} \ d\theta} \\
-                \int{\cot^2(\theta)\ d\theta} \\
-                \int{(\csc^2(\theta) - 1)\ d\theta} \\
-                -\cot(\theta) - \theta\\
+                &\int{\frac{\sqrt{4 - x^2}}{x^2} \ dx} \\
+                &x = 2\sin(\theta), dx = 2\cos(\theta) \ d\theta \\
+                &\int{\frac{\sqrt{4 - (2\sin(\theta))^2}}{(2\sin(\theta))^2} 2\cos(\theta) \ d\theta} \\
+                &\int{\frac{\sqrt{4 - 4\sin^2(\theta)}}{4\sin^2(\theta)} 2\cos(\theta) \ d\theta} \\
+                &\int{\frac{\sqrt{4(1 - \sin^2(\theta))}}{4\sin^2(\theta)} 2\cos(\theta) \ d\theta} \\
+                &\int{\frac{2\sqrt{1 - \sin^2(\theta)}}{4\sin^2(\theta)} 2\cos(\theta) \ d\theta} \\
+                &\int{\frac{2\sqrt{\cos^2(\theta)}}{4\sin^2(\theta)} 2\cos(\theta) \ d\theta} \\
+                &\int{\frac{2\cos(\theta)}{4\sin^2(\theta)} 2\cos(\theta) \ d\theta} \\
+                &\int{\frac{4\cos^2(\theta)}{4\sin^2(\theta)} \ d\theta} \\
+                &\int{\cot^2(\theta)\ d\theta} \\
+                &\int{(\csc^2(\theta) - 1)\ d\theta} \\
+                &-\cot(\theta) - \theta\\
             \end{align}$$</p>
             <p>We are not done yet, because we are using $\theta$, not $x$</p>
             <p>Since $\sin(\theta) = x/2$, this means a triangle with an opposite of $x$, hypotenuse of $2$, and adjacent of $\sqrt{4 - x^2}$</p>
@@ -60,9 +60,77 @@
                 <ul class="no-bullets">
                     <li>
                         <details>
-                            <summary>Practice 1</summary>
+                            <summary>Solve $\int{\sqrt{25x^2 - 4}/x \ dx}$</summary>
                             <p>$$\begin{align} 
-
+                                I &= \int{\frac{\sqrt{25x^2 - 4}}{x} \ dx} \\
+                                &= \int{\frac{\sqrt{25}\sqrt{x^2 - \frac{4}{25}}}{x} \ dx} \\
+                                &= 5\int{\frac{\sqrt{x^2 - \frac{2^2}{5^2}}}{x} \ dx} \\
+                                &x = \frac{2}{5} \sec(\theta), dx = \frac{2}{5} \sec(\theta)\tan(\theta) \ d\theta \\
+                                &= 5\int{\frac{\sqrt{(\frac{2}{5} \sec(\theta))^2 - \frac{2^2}{5^2}}}{\frac{2}{5} \sec(\theta)} \sec(\theta)\tan(\theta) \ d\theta} \\
+                                &= 5\int{\frac{\sqrt{\frac{2^2}{5^2} \sec^2(\theta) - \frac{2^2}{5^2}}}{\frac{2}{5} \sec(\theta)} \sec(\theta)\tan(\theta) \ d\theta} \\
+                                &= 5\int{\frac{\frac{2}{5}\sqrt{\sec^2(\theta) - 1}}{\frac{2}{5} \sec(\theta)} \sec(\theta)\tan(\theta) \ d\theta} \\
+                                &= 5\int{\frac{\sqrt{\tan^2(\theta)}}{\sec(\theta)} \sec(\theta)\tan(\theta) \ d\theta} \\
+                                &= 5\int{\frac{\tan(\theta)}{\sec(\theta)} \sec(\theta)\tan(\theta) \ d\theta} \\
+                                &= 5\int{\tan(\theta)\tan(\theta) \ d\theta} \\
+                                &= 5\int{\tan^2(\theta) \ d\theta} \\
+                                &= 5\int{(\sec^2(\theta) - 1)\ d\theta} \\
+                                &= 5(\tan(\theta) - \theta) \\
+                            \end{align}$$</p>
+                            <p>Since $\sec(\theta) = \frac{5x}{2}$, this means we have a triangle with hypotenuse of $5x$, adjacent of $2$, and opposite of $\sqrt{25x^2 - 4}$</p>
+                            <p>This means that tangent is $\tan(\theta) = \frac{2}{\sqrt{25x^2 - 4}}$ and $\theta = \tan^{-1}\left(\frac{2}{\sqrt{25x^2 - 4}}\right)$</p>
+                            <p>$$\begin{align} 
+                                \int{\frac{\sqrt{25x^2 - 4}}{x} \ dx} = 5\left(\frac{2}{\sqrt{25x^2 - 4}} - \tan^{-1}\left(\frac{2}{\sqrt{25x^2 - 4}}\right)\right) + C\\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Solve $\int{(9 + x^2)^{-1/2}\ dx}$</summary>
+                            <p>$$\begin{align} 
+                                &\int{(9 + x^2)^{-1/2}\ dx} \\
+                                &\int{\frac{1}{\sqrt{9 + x^2}}\ dx} \\
+                                &x=3\tan(\theta), dx = 3\sec^2(\theta) \ d\theta \\
+                                &\int{\frac{1}{\sqrt{9 + (3\tan(\theta))^2}} 3\sec^2(\theta) \ d\theta} \\
+                                &\int{\frac{1}{\sqrt{9 + 9\tan^2(\theta)}} 3\sec^2(\theta) \ d\theta} \\
+                                &\int{\frac{1}{3\sqrt{1 + \tan^2(\theta)}} 3\sec^2(\theta) \ d\theta} \\
+                                &\int{\frac{1}{\sqrt{\sec^2(\theta)}}\sec^2(\theta) \ d\theta} \\
+                                &\int{\frac{1}{\sec(\theta)}\sec^2(\theta) \ d\theta} \\
+                                &\int{\sec(\theta) \ d\theta} \\
+                                &\ln|\sec(\theta) + \tan(\theta)| \\
+                            \end{align}$$</p>
+                            <p>Since $tan(\theta) = \frac{x}{3}$, this gives us a triangle of opposite $x$, adjacent $3$, and hypotenuse $\sqrt{x^2 + 9}$</p>
+                            <p>This gives $\sec(\theta) = \frac{\sqrt{x^2 + 9}}{3}$</p>
+                            <p>$$\begin{align} 
+                               &\int{\frac{1}{\sqrt{9 + x^2}}\ dx} = \ln \left|\frac{\sqrt{x^2 + 9}}{3} + \frac{x}{3}\right| + C\\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Using $y = \sqrt{r^2 - x^2}$ is the equation for a semi-circle (half circle), use trig sub to derive the circle area formula ($A = \pi r^2$)</summary>
+                            <p>$$\begin{align} 
+                                f(x) = \sqrt{r^2 - x^2}
+                            \end{align}$$</p>
+                            <p>I am going to integrate from $0$ to $r$ to get the area of half the semi-circle (so a fourth of a full circle)</p>
+                            <p>$$\begin{align} 
+                                A = 4\int_0^r{\sqrt{r^2 - x^2} \ dx} \\
+                                x = r\sin(\theta) \rightarrow \theta = \sin^{-1}{\frac{x}{r}}, dx = r\cos(\theta) \ d\theta \\
+                                x=0 \rightarrow \theta = 0, x=r \rightarrow \theta = \pi/2
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                A 
+                                &= 4\int_0^{\pi/2}{\sqrt{r^2 - (r\sin(\theta))^2} r\cos(\theta) \ d\theta} \\
+                                &= 4\int_0^{\pi/2}{\sqrt{r^2 - r^2\sin^2(\theta)} r\cos(\theta) \ d\theta} \\
+                                &= 4\int_0^{\pi/2}{\sqrt{r^2(1 - \sin^2(\theta))} r\cos(\theta) \ d\theta} \\
+                                &= 4\int_0^{\pi/2}{r\sqrt{1 - \sin^2(\theta)} r\cos(\theta) \ d\theta} \\
+                                &= 4\int_0^{\pi/2}{r\sqrt{\cos^2(\theta)} r\cos(\theta) \ d\theta} \\
+                                &= 4\int_0^{\pi/2}{r\cos(\theta) r\cos(\theta) \ d\theta} \\
+                                &= 4r^2\int_0^{\pi/2}{\frac{1}{2} + \frac{\cos(2\theta)}{2}\ d\theta} &&\text{Rearranged $\cos(2\theta) = 2\cos^2(\theta) - 1$}\\
+                                &= 4r^2 \left[\frac{\theta}{2} + \frac{\sin(2\theta)}{4}\right] \Biggr|_0^{\pi/2} \\
+                                &= 4r^2 \left[\frac{\pi/2}{2} + \frac{\sin(2\pi/2)}{4} - \frac{0}{2} -  \frac{\sin(0)}{4}\right] \\
+                                &= 4r^2 \left[\frac{\pi}{4} + 0 - 0 - 0\right] \\
+                                &= 4r^2\frac{\pi}{4} \\
+                                &= \pi r^2\\
                             \end{align}$$</p>
                         </details>
                     </li>
