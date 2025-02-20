@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Trig sub is a method to solve certain integrals using a u-sub into trig functions, then using trig properties to simplyfy</p>
+            <P>When you see the follwing, do the corresponding substitution</P>
+            <p>$$\begin{align} 
+                \sqrt{x^2 - a^2} &\rightarrow x = a\sec(\theta), dx = a\sec(\theta)\tan(\theta) \ d\theta \\
+                \sqrt{a^2 - x^2} &\rightarrow x = a\sin(\theta), dx = a\cos(\theta) \ d\theta \\
+                \sqrt{x^2 + a^2} &\rightarrow x = a\tan(\theta), dx = a\sec^2(\theta) \ d\theta \\
+            \end{align}$$</p>
+            <p>At the end, convert $\theta$ to $x$ by using similar techniques to <a href="/notes/pre-calculus/trigonometry/inverse trigonometric functions.html">simplyfying trig expressions</a></p>
+            <hr>
+            <h3>Why Use Trig Sub?</h3>
+            <p>It makes integrals involving the square root easier</p>
+            <p>When you do the substitution, the part inside the square root can be factored out</p>
+            <p>You can factor the $a$ out of the square root and convert whats left into the following trig indentities</p>
+            <p>$$\begin{align} 
+                \sin^2(\theta) + \cos^2(\theta) = 1 \\
+                \tan^2(\theta) + 1 = \sec^2(\theta)
+            \end{align}$$</p>
+            <hr>
+            <h3>Examples</h3>
+            <p>$$\begin{align} 
+                \int{\frac{\sqrt{4 - x^2}}{x^2} \ dx} \\
+                x = 2\sin(\theta), dx = 2\cos(\theta) \ d\theta \\
+                \int{\frac{\sqrt{4 - (2\sin(\theta))^2}}{(2\sin(\theta))^2} 2\cos(\theta) \ d\theta} \\
+                \int{\frac{\sqrt{4 - 4\sin^2(\theta)}}{4\sin^2(\theta)} 2\cos(\theta) \ d\theta} \\
+                \int{\frac{\sqrt{4(1 - \sin^2(\theta))}}{4\sin^2(\theta)} 2\cos(\theta) \ d\theta} \\
+                \int{\frac{2\sqrt{1 - \sin^2(\theta)}}{4\sin^2(\theta)} 2\cos(\theta) \ d\theta} \\
+                \int{\frac{2\sqrt{\cos^2(\theta)}}{4\sin^2(\theta)} 2\cos(\theta) \ d\theta} \\
+                \int{\frac{2\cos(\theta)}{4\sin^2(\theta)} 2\cos(\theta) \ d\theta} \\
+                \int{\frac{4\cos^2(\theta)}{4\sin^2(\theta)} \ d\theta} \\
+                \int{\cot^2(\theta)\ d\theta} \\
+                \int{(\csc^2(\theta) - 1)\ d\theta} \\
+                -\cot(\theta) - \theta\\
+            \end{align}$$</p>
+            <p>We are not done yet, because we are using $\theta$, not $x$</p>
+            <p>Since $\sin(\theta) = x/2$, this means a triangle with an opposite of $x$, hypotenuse of $2$, and adjacent of $\sqrt{4 - x^2}$</p>
+            <p>This means $\cot(\theta) = \sqrt{4 - x^2}/x$ (because cotangent is adjacent over opposite)</p>
+            <p>And $\theta = \sin^{-1}(x/2)$</p>
+            <p>Subbing these back into the integral</p>
+            <p>$$\begin{align} 
+                \int{\frac{\sqrt{4 - x^2}}{x^2} \ dx} = -\frac{\sqrt{4 - x^2}}{x} - \sin^{-1}\left(\frac{x}{2}\right) + C
+                \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Practice 1</summary>
+                            <p>$$\begin{align} 
+
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

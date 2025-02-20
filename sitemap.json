@@ -101,6 +101,8 @@
                 [
                     {"name":"integration by parts", "title": "Integration By Parts"},
                     {"name":"tabular method", "title": "Tabular Method"},
+                    {"name":"trig sub", "title": "Trig Sub"},
+
                     {"name":"arc length", "title": "Arc Length"},
 
                     {"name":"gamma function derivation", "title": "Gamma Function Derivation"}
