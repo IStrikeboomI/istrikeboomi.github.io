@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>This note is about techniques using trig properties and u-sub to solve integrals in the form</p>
+            <p>$$\begin{align} 
+                \int{\sin^m(x)\cos^n(x) \ dx} \\
+                \int{\sec^m(x)\tan^n(x) \ dx} \\
+                \int{\csc^m(x)\cot^n(x) \ dx} \\
+            \end{align}$$</p>
+            <p>Where $m$ and $n$ integers</p>
+            <hr>
+            <h3>$\sin^m(x)\cos^n(x)$</h3>
+            <p>Here there are 4 cases for $m$ and $n$</p>
+            <ol>
+                <li>$m$ (Power of $\sin$) is odd
+                    <ol>
+                        <li>Factor out 1 $\sin$ to make the power even</li>
+                        <li>Factor out larger power of sine into the form of $(\sin^2)^k$</li>
+                        <li>Use $\sin^2 + \cos^2 = 1 \rightarrow \sin^2 = 1 - \cos^2$ to make the sine into cosine</li>
+                        <li>Use a u-sub of $u = \cos(x)$ and $du = -\sin(x) \ dx$</li>
+                    </ol>
+                </li><br>
+                <li>$n$ (Power of $\cos$) is odd
+                    <ol>
+                        <li>Factor out 1 $\cos$ to make the power even</li>
+                        <li>Factor out larger power of cosine into the form of $(\cos^2)^k$</li>
+                        <li>Use $\sin^2 + \cos^2 = 1 \rightarrow \cos^2 = 1 - \sin^2$ to make the cosine into sine</li>
+                        <li>Use a u-sub of $u = \sin(x)$ and $du = \cos(x) \ dx$</li>
+                    </ol>
+                </li><br>
+                <li>Both $m$ and $n$ are odd (use either 1 or 2)</li><br>
+                <li>Both $m$ and $n$ are even
+                    <ol>
+                        <li>Use either $\sin^2(x) = \frac{1}{2}(1 - \cos(2x))$ and/or $\cos^2(x) = \frac{1}{2}(1 + \cos(2x))$</li>
+                    </ol>
+                </li>
+            </ol>
+            <hr>
+            <h3>$\sec^m(x)\tan^n(x)$</h3>
+            <p>Here there are once again 4 cases for $m$ and $n$</p>
+            <ol>
+                <li>$m$ (Power of $\sec$) is even
+                    <ol>
+                        <li>Factor out 2 $\sec$ to make a seperate $\sec^2$ term</li>
+                        <li>Factor out larger power of secant into the form of $(\sec^2)^k$</li>
+                        <li>Use $\tan^2 + 1 = sec^2(x)$ to make the secant into tangent</li>
+                        <li>Use a u-sub of $u = \tan(x)$ and $du = \sec^2(x) \ dx$</li>
+                    </ol>
+                </li><br>
+                <li>$n$ (Power of $\tan$) is odd
+                    <ol>
+                        <li>Factor out 1 $\tan$ and 1 $\sec$ to make the power of tangent even</li>
+                        <li>Factor out power of tangent into the form of $(\tan^2)^k$</li>
+                        <li>Use $\tan^2 + 1 = sec^2(x) \rightarrow \tan^2 = \sec^2 - 1$ to make the cosine into sine</li>
+                        <li>Use a u-sub of $u = \sec(x)$ and $du = \sec(x)\tan(x) \ dx$</li>
+                    </ol>
+                </li><br>
+                <li>If $m$ is even or $n$ is odd (use either 1 or 2)</li><br>
+                <li>$m$ is odd and $n$ is even
+                    <ol>
+                        <li>Utilize the integral $\int{\sec(x) \ dx} = \ln|\sec(x) + \tan(x)| + C$</li>
+                    </ol>
+                </li>
+            </ol>
+            <p>Similar methods can be used for $\csc^m(x)\cot^n(x)$</p>
+            <hr>
+            <h3>Examples</h3>
+            <p>$$\begin{align} 
+                &\int{\sin^6(x)\cos^3(x) \ dx} \\
+                &\int{\sin^6(x)\cos^2(x)\cos(x) \ dx} \\
+                &\int{\sin^6(x)(1 - sin^2(x))\cos(x) \ dx} \\
+                &u = \sin(x), du = \cos(x) \ dx \\
+                &\int{u^6(1 - u^2) \ du} \\
+                &\int{u^6 - u^{8} \ du} \\
+                &\frac{u^7}{7} - \frac{u^{9}}{9} \\
+                &\frac{\sin^7(x)}{7} - \frac{\sin^{9}(x)}{9} + C \\
+            \end{align}$$</p>
+            <br>
+            <p>$$\begin{align} 
+                &\int{\sec^5(x)\tan^3(x) \ dx} \\
+                &\int{\sec^4(x)\tan^2(x) \sec(x)\tan(x) \ dx} \\
+                &\int{(\sec^2(x))^2\tan^2(x) \sec(x)\tan(x) \ dx} \\
+                &\int{(\tan^2(x) + 1)^2\tan^2(x) \sec(x)\tan(x) \ dx} \\
+                &u = \tan(x), du = \sec(x)\tan(x) \ dx \\
+                &\int{(u^2 + 1)^2 u^2 \ du} \\
+                &\int{(u^4 + 2u^2 + 1)u^2 \ du} \\
+                &\int{u^6 + 2u^4 + u^2 \ du} \\
+                &\frac{u^7}{7} + \frac{2u^5}{5} + \frac{u^3}{3} \\
+                &\frac{\tan(x)^7}{7} + \frac{2\tan(x)^5}{5} + \frac{\tan(x)^3}{3} + C\\
+            \end{align}$$</p>
+            <br>
+            <p>$$\begin{align} 
+                &\int{\cos^5(x) \ dx} \\
+                &\int{\cos^4(x)\cos(x) \ dx} \\
+                &\int{(\cos^2(x))^2\cos(x) \ dx} \\
+                &\int{(1-\sin^2(x))^2\cos(x) \ dx} \\
+                &u = \sin(x), du = \cos(x) \ dx \\
+                &\int{(1-u^2)^2 \ du} \\
+                &\int{1-2u^2+u^4 \ du} \\
+                &u-\frac{2u^3}{3}+\frac{u^5}{5} \\
+                &\sin(x)-\frac{2\sin(x)^3}{3}+\frac{\sin(x)^5}{5} + C \\
+
+            \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>$\int{\sin^5(x) \ dx}$</summary>
+                            <p>$$\begin{align} 
+                                &\int{\sin^5(x) \ dx} \\
+                                &\int{\sin^4(x)\sin(x) \ dx} \\
+                                &\int{(\sin^2(x))^2\sin(x) \ dx} \\
+                                &\int{(1 - \cos^2(x))^2\sin(x) \ dx} \\
+                                &u = \cos(x), du = -\sin(x) \ dx \\
+                                &-\int{(1 - u^2)^2 \ du} \\
+                                &-\int{1 -2u^2 + u^4 \ du} \\
+                                &-\left(u -\frac{2u^3}{3} + \frac{u^5}{5} \right) \\
+                                &-\cos(x) + \frac{2\cos(x)^3}{3} - \frac{\cos(x)^5}{5} + C\\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\int{\sin^4(x) \ dx}$</summary>
+                            <p>$$\begin{align} 
+                                &\int{\sin^4(x) \ dx} \\
+                                &\int{(\sin^2(x))^2 \ dx} \\
+                                &\int{\left(\frac{1}{2}\left(1 - \cos(2x)\right)\right)^2 \ dx} \\
+                                &\int{\frac{\left(1 - \cos(2x)\right)^2}{4} \ dx} \\
+                                &\frac{1}{4}\int{\left(1 - \cos(2x)\right)^2 \ dx} \\
+                                &\frac{1}{4}\int{1 - 2\cos(2x) + cos^2(2x)\ dx} \\
+                                &\frac{1}{4}\int{1 - 2\cos(2x) + \frac{1}{2} + \frac{\cos(2x)}{2} \ dx} \\
+                                &\frac{1}{4}\int{\frac{3}{2} - \frac{3\cos(2x)}{2} \ dx} \\
+                                &\frac{1}{4}\int{\frac{3}{2}\left(1 - \cos(2x)\right) \ dx} \\
+                                &\frac{3}{8}\int{1 - \cos(2x) \ dx} \\
+                                &\frac{3}{8}\left(x - \frac{\sin(2x)}{2}\right) \\
+                                & \frac{3x}{8}- \frac{3\sin(2x)}{16} + C \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\int{\sec^9(x)\tan^5(x) \ dx}$</summary>
+                            <p>$$\begin{align} 
+                                &\int{\sec^9(x)\tan^5(x) \ dx} \\
+                                &\int{\sec^8(x)\tan^4(x)\sec(x)\tan(x) \ dx} \\
+                                &\int{\sec^8(x)(\tan^2(x))^2\sec(x)\tan(x) \ dx} \\
+                                &\int{\sec^8(x)(\sec^2(x) - 1)^2\sec(x)\tan(x) \ dx} \\
+                                &u = \sec(x), du = \sec(x)\tan(x) \ dx \\
+                                &\int{u^8(u^2 - 1)^2 \ du} \\
+                                &\int{u^8(u^4 - 2u^2 + 1) \ du} \\
+                                &\int{u^{12} - 2u^{10} + u^8 \ du} \\
+                                &\frac{u^{13}}{13} - \frac{2u^{11}}{11} + \frac{u^9}{9} \\
+                                &\frac{\sec(x)^{13}}{13} - \frac{2\sec(x)^{11}}{11} + \frac{\sec(x)^9}{9} + C \\
+
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
