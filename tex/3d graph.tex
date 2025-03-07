@@ -16,43 +16,34 @@
 \begin{document}
 \begin{tikzpicture}
 \begin{axis}[
+  %comment below line to get "box" style 3d graph
   axis lines=center, 
   grid=major,
   axis on top,
-  xmin=-3,
-  xmax=3,
-  ymin=-3,
-  ymax=3,
-  zmin=-3,
-  zmax=5,
+  xmin=-2,
+  xmax=2,
+  ymin=-2,
+  ymax=2,
+  zmin=-2,
+  zmax=10,
   xlabel=$x$,
   ylabel=$y$,
   zlabel=$z$,
-  view={80}{-10},
+  view={-45}{15},
   %%xtick={-3,0,...,5},
   %%ytick={-5,0,...,5},
   %%ztick={0,3,...,15},
-  xticklabel = \empty,
-  yticklabel = \empty,
-  zticklabel = \empty,
+  %xticklabel = \empty,
+  %yticklabel = \empty,
+  %zticklabel = \empty,
 ]
 
 %xy grid lines
-\addplot3[mesh, gray!40, samples=11, samples y=11, forget plot] {0};
-\addplot3[fill=red] coordinates {
-  (-2,-2,1)
-  (-2,2,1)
-  (2,2,1)
-  (2,-2,1)
-  (-2,-2,1)
-};
-\draw[red,-latex,very thick] (0,0,1) -- (0,0,4) node[above] {$\vec{n}$};
-\draw[blue,dashed,very thick] (0,1,1) -- (0,1,2) node[above] {};
-\draw[blue,-latex,very thick] (0,0,1) -- (0,1,2) node[midway,above,sloped,scale=.5] {$\vec{PQ}$};
-\draw[blue,-latex,very thick] (0,0,1) -- (0,0,2.25) node[left,scale=.5] {$proj_{\vec{n}}\vec{PQ}$};
+\addplot3[mesh, gray!40, samples=10, samples y=10, domain=-2:2, forget plot] {0};
+\addplot3[no markers,red, samples=100, samples y=0, ultra thick] ({cos(x*57.2958)},{sin(x*57.2958)},{x});
+\draw[green,-latex,very thick] (0,0,0) -- ({cos(57.2958)},{sin(57.2958)},1) node[above] {$\vec{r}(t)$};
+\draw[green,-latex,very thick] (0,0,0) -- ({cos(-57.2958)},{sin(-57.2958)},-1) node[above] {$\vec{r}(t)$};
 
-\draw plot [mark=*, mark size=1,white] coordinates{(0,0,1)} node[below,scale=1] {$P$};
-\draw plot [mark=*, mark size=1,blue] coordinates{(0,1,2)} node[above,scale=.5] {$Q$};
 \end{axis}
 \end{tikzpicture}
 \end{document}
