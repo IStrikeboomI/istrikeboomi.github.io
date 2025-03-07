@@ -23,7 +23,8 @@
                     {"name":"dot product", "title": "Dot Product"},
                     {"name":"vector projection", "title": "Vector Projection"},
                     {"name":"cross product", "title": "Cross Product"},
-                    {"name":"planes and lines", "title": "Planes And Lines"}
+                    {"name":"planes and lines", "title": "Planes And Lines"},
+                    {"name":"vector valued functions", "title": "Vector Valued Functions"}
 
                 ]
             }

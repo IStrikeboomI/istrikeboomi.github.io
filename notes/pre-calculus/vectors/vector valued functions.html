@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>A vector valued function $\vec{r}(t)$ is</p>
+            <p>$$\begin{align} 
+                \vec{r}(t) = \left< f(t),g(t),h(t) \right>
+            \end{align}$$</p>
+            <p>Where $f(t),g(t),h(t)$ are real functions, and $\vec{r}(t)$ outputs a vector</p>
+            <hr>
+            <h3>Why Do We Need Vector Valued Functions?</h3>
+            <p>What you might notice are the indivual components $f, g, h$, which all share a varaible</p>
+            <p>This appears a lot like a parametric function, which it can be represented as</p>
+            <p>Vector valued functions let us represent parametric equations in one function</p>
+            <p>Just like parametric functions, you can graph them the same way</p>
+            <p>When graphing vector valued functions, you mark the line that the end makes as $t$ increases</p>
+            <p>The following vector valued function and parametric equation look the same on the graph</p>
+            <p>$$\begin{align} 
+                \vec{r}(t) &= \left< f(t),g(t),h(t) \right>\\\\
+                x &= f(t) \\
+                y &= g(t) \\
+                z &= h(t)
+            \end{align}$$</p>
+            <p>The <b>properties</b> of vector valued functions are the <b>same</b> as regular vectors</p>
+            <br>
+            <p>Below is the graph of $ \vec{r}(t) = \left< \cos(t),\sin(t),t \right>$, this particular shape is called a <b>helix</b></p>
+            <p>The green vector is the vector the function output, the red line is the curve it forms</p>
+            <img src="assets/svg/vector valued function -45 15.svg">
+            <img src="assets/svg/vector valued function 100 50.svg">
+            <img src="assets/svg/vector valued function 45 45.svg">
+            <img src="assets/svg/vector valued function 45 70.svg">
+
+            <hr>
+            <h3>Domain</h3>
+            <p>The domain of a vector valued function is the <b>intersection</b> of the domain of each component</p>
+            <p>This is because in order for a value to be in the domain, it has to exist for all the components</p>
+            <p>For example the following vector valued function:</p>
+            <p>$$\begin{align} 
+                \vec{r}(t) = \left< \ln(t),t^3,\frac{1}{t - 2} \right>
+            \end{align}$$</p>
+            <p>The domain would be $(0,2) \ \bigcup \ (2,\infty)$</p>
+            <p>This is because $ln(x)$ has a domain of $(0,\infty)$, $t^3$ has $\mathbb{R}$, and $1/t-2$ has $(-\infty,2) \ \bigcup \ (2, \infty)$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Find the domain of $\vec{r}(t) = \left< \sqrt{4 - t^2},\tan(t),4t \right>$</summary>
+                            <p>$$\begin{align} 
+                                \vec{r}(t) = \left< \sqrt{4 - t^2},\tan(t),4t \right>
+                            \end{align}$$</p>
+                            <p>The domain of $\sqrt{4 - t^2}$ is $[-2,2]$</p>
+                            <p>The domain of $tan(t)$ is $t \neq \frac{\pi}{2} + n\pi$ where $n \in \mathbb{Z}$</p>
+                            <p>The domain of $4t$ is $\mathbb{R}$</p>
+                            <p>The intersection of these domains is $[-2,-\pi/2) \ \bigcup \ (-\pi/2,\pi/2) \ \bigcup \ (\pi/2,2]$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find a vector valued function that represents of the curve of the intersection of $z = \sqrt{x^3 - y^2}$ and $x+y=1$</summary>
+                            <p>$$\begin{align} 
+                                z = \sqrt{x^3 - y^2} \\
+                                x+y=1
+                            \end{align}$$</p>
+                            <p>The way we approach this problem is to make a parametric equation that we will turn into a vector at the end</p>
+                            <p>We can turn this into a parametric by setting a variable to $t$ and solving the other 2</p>
+                            <P>Here I am going to take $x = t$</P>
+                            <p>$$\begin{align} 
+                                x &= t \\
+                                t+y=1 &\rightarrow y = 1-t
+                            \end{align}$$</p>
+                            <p>We can plug this into $z$</p>
+                            <p>$$\begin{align} 
+                                z &= \sqrt{t^3 - (1 - t)^2} \\
+                                &= \sqrt{t^3 - (1 - 2t + t^2)} \\
+                                &= \sqrt{t^3 - 1 + 2t - t^2)} \\
+                                &= \sqrt{t^3 - t^2 + 2t - 1} \\
+                            \end{align}$$</p>
+                            <P>So we have our parametrics, we can turn this into a vector</P>
+                            <p>$$\begin{align} 
+                                \vec{r}(t) = \left< t,1-t,\sqrt{t^3 - t^2 + 2t - 1} \right>
+                            \end{align}$$</p>
+                            <p>If we graph the two 3d functions above and then the vector, we can change values of $t$ and see it trace the curve</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details open>
+                            <summary>Represent the line segment that contains the points $P(1,-2,3) Q(-2,3,1)$ as a vector valued function</summary>
+                            <p>$$\begin{align} 
+                                P(1,-2,3) &\ Q(-2,3,1) \\
+                                \vec{PQ} &= \left< -3, 5,-2 \right> \\
+                            \end{align}$$</p>
+                            <p>Using $P$ as the refernce point (Q works too)</p>
+                            <p>$$\begin{align} 
+                                x &= 1 - 3t \\
+                                y &= -2 + 5t \\
+                                z &= 3 - 2t \\
+                                \vec{r} &= \left< 1-3t,-2+5t,3-2t \right>
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
