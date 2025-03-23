@@ -43,12 +43,12 @@
             \end{align}$$</p>
             <br>
             <p>$$\begin{align} 
-                \lim_{x \to 0}\frac{x - xcos(x)}{x - sin(x)} = \frac{0}{0}
+                \lim_{x \to 0}\frac{x - xcos(x)}{x - \sin(x)} = \frac{0}{0}
             \end{align}$$</p>
             <p>$$\begin{align} 
-                \lim_{x \to 0}\frac{x - xcos(x)}{x - sin(x)} &= \lim_{x \to 0}\frac{\frac{d}{dx}x - xcos(x)}{ \frac{d}{dx} x - sin(x)} \\
-                &= \lim_{x \to 0}\frac{1 - cos(x) + xsin(x)}{1 - cos(x)} \\
-                &= \lim_{x \to 0}xsin(x) \\
+                \lim_{x \to 0}\frac{x - xcos(x)}{x - \sin(x)} &= \lim_{x \to 0}\frac{\frac{d}{dx}x - xcos(x)}{ \frac{d}{dx} x - \sin(x)} \\
+                &= \lim_{x \to 0}\frac{1 - \cos(x) + x\sin(x)}{1 - \cos(x)} \\
+                &= \lim_{x \to 0}x\sin(x) \\
                 &= 0 \\
             \end{align}$$</p>
             <hr>
@@ -71,14 +71,14 @@
                     </li>
                     <li>
                         <details>
-                            <summary>$\lim_{x \to 0}\left(\frac{1}{sin(x)} - \frac{1}{x}\right)$</summary>
+                            <summary>$\lim_{x \to 0}\left(\frac{1}{\sin(x)} - \frac{1}{x}\right)$</summary>
                             <p>$$\begin{align} 
-                                \lim_{x \to 0}\left(\frac{1}{sin(x)} - \frac{1}{x}\right) &= \infty - \infty \\
-                                \lim_{x \to 0}\left(\frac{1}{sin(x)} - \frac{1}{x}\right) &= \lim_{x \to 0}\frac{x- sin(x)}{xsin(x)} \\
-                                \lim_{x \to 0}\frac{\frac{d}{dx} x- sin(x)}{\frac{d}{dx} xsin(x)} &=  \lim_{x \to 0}\frac{1 - cos(x)}{sin(x) + xcos(x)} \\
-                                \lim_{x \to 0}\frac{1 - cos(x)}{sin(x) + xcos(x)} &= \frac{0}{0} \\
-                                \lim_{x \to 0}\frac{\frac{d}{dx} 1 - cos(x)}{\frac{d}{dx} sin(x) + xcos(x)} &= \lim_{x \to 0}\frac{sin(x)}{cos(x) + cos(x) - xsin(x)} \\
-                                \lim_{x \to 0}\frac{sin(x)}{cos(x) + cos(x) - xsin(x)} &= \frac{0}{1 + 1 + 0} = 0\\
+                                \lim_{x \to 0}\left(\frac{1}{\sin(x)} - \frac{1}{x}\right) &= \infty - \infty \\
+                                \lim_{x \to 0}\left(\frac{1}{\sin(x)} - \frac{1}{x}\right) &= \lim_{x \to 0}\frac{x- \sin(x)}{x\sin(x)} \\
+                                \lim_{x \to 0}\frac{\frac{d}{dx} x- \sin(x)}{\frac{d}{dx} x\sin(x)} &=  \lim_{x \to 0}\frac{1 - \cos(x)}{\sin(x) + x\cos(x)} \\
+                                \lim_{x \to 0}\frac{1 - \cos(x)}{\sin(x) + xcos(x)} &= \frac{0}{0} \\
+                                \lim_{x \to 0}\frac{\frac{d}{dx} 1 - \cos(x)}{\frac{d}{dx} \sin(x) + xcos(x)} &= \lim_{x \to 0}\frac{\sin(x)}{\cos(x) + \cos(x) - xsin(x)} \\
+                                \lim_{x \to 0}\frac{\sin(x)}{\cos(x) + \cos(x) - x\sin(x)} &= \frac{0}{1 + 1 + 0} = 0\\
                             \end{align}$$</p>
                         </details>
                     </li>

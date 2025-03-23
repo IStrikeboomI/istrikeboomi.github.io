@@ -17,31 +17,31 @@
         <div id="content">
             <p>Here are the derivatives for all the trig functions</p>
             <p>$$\begin{align} 
-                \frac{d}{dx} sin(x) &= cos(x) \\
-                \frac{d}{dx} cos(x) &= -sin(x) \\
-                \frac{d}{dx} tan(x) &= sec^2(x) \\
-                \frac{d}{dx} cot(x) &= -csc^2(x) \\
-                \frac{d}{dx} sec(x) &= sec(x)tan(x) \\
-                \frac{d}{dx} csc(x) &= -csc(x)cot(x) \\
+                \frac{d}{dx} \sin(x) &= \cos(x) \\
+                \frac{d}{dx} \cos(x) &= -\sin(x) \\
+                \frac{d}{dx} \tan(x) &= \sec^2(x) \\
+                \frac{d}{dx} \cot(x) &= -\csc^2(x) \\
+                \frac{d}{dx} \sec(x) &= \sec(x)\tan(x) \\
+                \frac{d}{dx} \csc(x) &= -\csc(x)\cot(x) \\
             \end{align}$$</p>
             <p>And for the trig inverse functions</p>
             <p>$$\begin{align} 
-                \frac{d}{dx} sin^{-1}(x) &= \frac{1}{\sqrt{1-x^2}} \\
-                \frac{d}{dx} cos^{-1}(x) &= -\frac{1}{\sqrt{1-x^2}} \\
-                \frac{d}{dx} tan^{-1}(x) &= \frac{1}{x^2 + 1} \\
-                \frac{d}{dx} cot^{-1}(x) &= -\frac{1}{x^2 + 1} \\
-                \frac{d}{dx} sec^{-1}(x) &= \frac{1}{|x|\sqrt{x^2 - 1}} \\
-                \frac{d}{dx} csc^{-1}(x) &= -\frac{1}{|x|\sqrt{x^2 - 1}} \\
+                \frac{d}{dx} \sin^{-1}(x) &= \frac{1}{\sqrt{1-x^2}} \\
+                \frac{d}{dx} \cos^{-1}(x) &= -\frac{1}{\sqrt{1-x^2}} \\
+                \frac{d}{dx} \tan^{-1}(x) &= \frac{1}{x^2 + 1} \\
+                \frac{d}{dx} \cot^{-1}(x) &= -\frac{1}{x^2 + 1} \\
+                \frac{d}{dx} \sec^{-1}(x) &= \frac{1}{|x|\sqrt{x^2 - 1}} \\
+                \frac{d}{dx} \csc^{-1}(x) &= -\frac{1}{|x|\sqrt{x^2 - 1}} \\
             \end{align}$$</p>
             <hr>
-            <p>We can get the derivatives of the trig function by only using $sin(x)$ and $cos(x)$</p>
+            <p>We can get the derivatives of the trig function by only using $\sin(x)$ and $\cos(x)$</p>
             <p>$$\begin{align} 
-                tan(x) &= \frac{sin(x)}{cos(x)} \\
-                cot(x) &= \frac{cos(x)}{sin(x)} \\
-                sec(x) &= \frac{1}{cos(x)} \\
-                csc(x) &= \frac{1}{sin(x)} \\
+                \tan(x) &= \frac{\sin(x)}{\cos(x)} \\
+                \cot(x) &= \frac{\cos(x)}{\sin(x)} \\
+                \sec(x) &= \frac{1}{\cos(x)} \\
+                \csc(x) &= \frac{1}{\sin(x)} \\
             \end{align}$$</p>
-            <p>We can use quotient rule and the trig property $cos^2(x) + sin^2(x) = 1$ to solve them</p>
+            <p>We can use quotient rule and the trig property $\cos^2(x) + \sin^2(x) = 1$ to solve them</p>
             <p>For the inverse trig functions, we can either take inverse of both sides and use implicit differentation or the inverse function rule</p>
             <p>Then we need to use variations of the sum of squared trig functions to solve them further</p>
             <hr>
@@ -50,135 +50,135 @@
                 <ul class="no-bullets">
                     <li>
                         <details>
-                            <summary>Proof of $\frac{d}{dx}sin(x)$</summary>
+                            <summary>Proof of $\frac{d}{dx}\sin(x)$</summary>
                             <p>First establish two important limits</p>
                             <p>$$\begin{align}
-                                \lim_{x \to 0}\frac{sin(x)}{x} &= 1 \tag{1}\\
-                                \lim_{x \to 0}\frac{cos(x) - 1}{x} &= 0 \tag{2}
+                                \lim_{x \to 0}\frac{\sin(x)}{x} &= 1 \tag{1}\\
+                                \lim_{x \to 0}\frac{\cos(x) - 1}{x} &= 0 \tag{2}
                             \end{align}$$</p>
                             <p>Derivative:</p>
                             <p>$$\begin{align}
-                                \frac{d}{dx} sin(x) &= \lim_{h \to 0}\frac{sin(x+h) - sin(x)}{h} \\
-                                &= \lim_{h \to 0}\frac{(sin(x)cos(h) + cos(x)sin(h)) - sin(x)}{h} &&\text{Using $sin(\alpha + \beta) = sin(\alpha)cos(\beta) + cos(\alpha)sin(\beta)$} \\
-                                &= \lim_{h \to 0}\frac{sin(x)cos(h) - sin(x) + cos(x)sin(h)}{h} &&\text{Rearrange terms} \\
-                                &= \lim_{h \to 0}\frac{sin(x)cos(h) - sin(x)}{h} + \frac{ cos(x)sin(h)}{h} \\
-                                &= \lim_{h \to 0}\left(\frac{sin(x)(cos(h) - 1)}{h} + \frac{ cos(x)sin(h)}{h}\right) \\
-                                &= \lim_{h \to 0}\left(\frac{sin(x)(cos(h) - 1)}{h}\right) + \lim_{h \to 0}\left(\frac{ cos(x)sin(h)}{h}\right) &&\text{Using limit sum property}\\
-                                &= sin(x)\lim_{h \to 0}\left(\frac{cos(h) - 1}{h}\right) + cos(x)\lim_{h \to 0}\left(\frac{sin(h)}{h}\right) &&\text{Terms with an x can be factored out since they don't involve the limit variable of h}\\
-                                &= sin(x)\left(0\right) + cos(x)\left(1\right) &&\text{By (1) and (2)}\\
-                                &= cos(x)
+                                \frac{d}{dx} \sin(x) &= \lim_{h \to 0}\frac{\sin(x+h) - \sin(x)}{h} \\
+                                &= \lim_{h \to 0}\frac{(\sin(x)\cos(h) + \cos(x)\sin(h)) - \sin(x)}{h} &&\text{Using $\sin(\alpha + \beta) = \sin(\alpha)\cos(\beta) + \cos(\alpha)\sin(\beta)$} \\
+                                &= \lim_{h \to 0}\frac{\sin(x)\cos(h) - \sin(x) + \cos(x)\sin(h)}{h} &&\text{Rearrange terms} \\
+                                &= \lim_{h \to 0}\frac{\sin(x)\cos(h) - \sin(x)}{h} + \frac{ \cos(x)\sin(h)}{h} \\
+                                &= \lim_{h \to 0}\left(\frac{\sin(x)(\cos(h) - 1)}{h} + \frac{ \cos(x)\sin(h)}{h}\right) \\
+                                &= \lim_{h \to 0}\left(\frac{\sin(x)(\cos(h) - 1)}{h}\right) + \lim_{h \to 0}\left(\frac{ \cos(x)\sin(h)}{h}\right) &&\text{Using limit sum property}\\
+                                &= \sin(x)\lim_{h \to 0}\left(\frac{\cos(h) - 1}{h}\right) + \cos(x)\lim_{h \to 0}\left(\frac{\sin(h)}{h}\right) &&\text{Terms with an x can be factored out since they don't involve the limit variable of h}\\
+                                &= \sin(x)\left(0\right) + \cos(x)\left(1\right) &&\text{By (1) and (2)}\\
+                                &= \cos(x)
                             \end{align}$$</p>
                         </details>
                     </li>
                     <li>
                         <details>
-                            <summary>Proof of $\frac{d}{dx}cos(x)$</summary>
+                            <summary>Proof of $\frac{d}{dx}\cos(x)$</summary>
                             <p>First establish two important limits</p>
                             <p>$$\begin{align}
-                                \lim_{x \to 0}\frac{sin(x)}{x} &= 1 \tag{1}\\
-                                \lim_{x \to 0}\frac{cos(x) - 1}{x} &= 0 \tag{2}
+                                \lim_{x \to 0}\frac{\sin(x)}{x} &= 1 \tag{1}\\
+                                \lim_{x \to 0}\frac{\cos(x) - 1}{x} &= 0 \tag{2}
                             \end{align}$$</p>
                             <p>Derivative:</p>
                             <p>$$\begin{align}
-                                \frac{d}{dx} cos(x) &= \lim_{h \to 0}\frac{cos(x+h) - cos(x)}{h} \\
-                                &= \lim_{h \to 0}\frac{(cos(x)cos(h) - sin(x)sin(h)) - cos(x)}{h} &&\text{Using $cos(\alpha + \beta) = cos(\alpha)cos(\beta) - sin(\alpha)sin(\beta)$} \\
-                                &= \lim_{h \to 0}\frac{cos(x)cos(h) - cos(x) - sin(x)sin(h)}{h} &&\text{Rearrange terms} \\
-                                &= \lim_{h \to 0}\frac{cos(x)cos(h) - cos(x)}{h} - \frac{ sin(x)sin(h)}{h} \\
-                                &= \lim_{h \to 0}\left(\frac{cos(x)(cos(h) - 1)}{h} - \frac{ sin(x)sin(h)}{h}\right) \\
-                                &= \lim_{h \to 0}\left(\frac{cos(x)(cos(h) - 1)}{h}\right) - \lim_{h \to 0}\left(\frac{sin(x)sin(h)}{h}\right) &&\text{Using limit sum property}\\
-                                &= cos(x)\lim_{h \to 0}\left(\frac{cos(h) - 1}{h}\right) - sin(x)\lim_{h \to 0}\left(\frac{sin(h)}{h}\right) &&\text{Terms with an x can be factored out since they don't involve the limit variable of h}\\
-                                &= cos(x)\left(0\right) - sin(x)\left(1\right) &&\text{By (1) and (2)}\\
-                                &= -sin(x)
+                                \frac{d}{dx} \cos(x) &= \lim_{h \to 0}\frac{\cos(x+h) - \cos(x)}{h} \\
+                                &= \lim_{h \to 0}\frac{(\cos(x)\cos(h) - \sin(x)\sin(h)) - \cos(x)}{h} &&\text{Using $\cos(\alpha + \beta) = \cos(\alpha)\cos(\beta) - \sin(\alpha)\sin(\beta)$} \\
+                                &= \lim_{h \to 0}\frac{\cos(x)\cos(h) - \cos(x) - \sin(x)\sin(h)}{h} &&\text{Rearrange terms} \\
+                                &= \lim_{h \to 0}\frac{\cos(x)\cos(h) - \cos(x)}{h} - \frac{ \sin(x)\sin(h)}{h} \\
+                                &= \lim_{h \to 0}\left(\frac{\cos(x)(\cos(h) - 1)}{h} - \frac{ \sin(x)\sin(h)}{h}\right) \\
+                                &= \lim_{h \to 0}\left(\frac{\cos(x)(\cos(h) - 1)}{h}\right) - \lim_{h \to 0}\left(\frac{\sin(x)\sin(h)}{h}\right) &&\text{Using limit sum property}\\
+                                &= \cos(x)\lim_{h \to 0}\left(\frac{\cos(h) - 1}{h}\right) - \sin(x)\lim_{h \to 0}\left(\frac{\sin(h)}{h}\right) &&\text{Terms with an x can be factored out since they don't involve the limit variable of h}\\
+                                &= \cos(x)\left(0\right) - \sin(x)\left(1\right) &&\text{By (1) and (2)}\\
+                                &= -\sin(x)
                             \end{align}$$</p>
                         </details>
                     </li>
                     <li>
                         <details>
-                            <summary>Proof of $\frac{d}{dx}tan(x)$</summary>
+                            <summary>Proof of $\frac{d}{dx}\tan(x)$</summary>
                             <p>$$\begin{align}
-                                \frac{d}{dx}tan(x) &= \frac{d}{dx}\frac{sin(x)}{cos(x)}\\
-                                &= \frac{(cos(x))(cos(x)) - (-sin(x))(sin(x))}{cos^2(x)}\\
-                                &= \frac{cos^2(x) + sin^2(x)}{cos^2(x)}\\
-                                &= \frac{1}{cos^2(x)} &&\text{Using $cos^2(x) + sin^2(x) = 1$}\\
-                                &= sec^2(x)\\
+                                \frac{d}{dx}tan(x) &= \frac{d}{dx}\frac{\sin(x)}{\cos(x)}\\
+                                &= \frac{(\cos(x))(\cos(x)) - (-\sin(x))(\sin(x))}{\cos^2(x)}\\
+                                &= \frac{\cos^2(x) + \sin^2(x)}{\cos^2(x)}\\
+                                &= \frac{1}{\cos^2(x)} &&\text{Using $\cos^2(x) + \sin^2(x) = 1$}\\
+                                &= \sec^2(x)\\
                             \end{align}$$</p>
                         </details>
                     </li>
                     <li>
                         <details>
-                            <summary>Proof of $\frac{d}{dx}cot(x)$</summary>
+                            <summary>Proof of $\frac{d}{dx} \cot(x)$</summary>
                             <p>$$\begin{align}
-                                \frac{d}{dx}cot(x) &= \frac{d}{dx}\frac{cos(x)}{sin(x)}\\
-                                &= \frac{(-sin(x))(sin(x))-(cos(x))(cos(x))}{sin^2(x)}\\
-                                &= \frac{-sin^2(x) - cos^2(x)}{sin^2(x)}\\
-                                &= \frac{-(sin^2(x) + cos^2(x))}{sin^2(x)}\\
-                                &= \frac{-1}{sin^2(x)} &&\text{Using $cos^2(x) + sin^2(x) = 1$}\\
-                                &= -csc^2(x)\\
+                                \frac{d}{dx}cot(x) &= \frac{d}{dx}\frac{\cos(x)}{\sin(x)}\\
+                                &= \frac{(-\sin(x))(\sin(x))-(\cos(x))(\cos(x))}{\sin^2(x)}\\
+                                &= \frac{-\sin^2(x) - \cos^2(x)}{\sin^2(x)}\\
+                                &= \frac{-(\sin^2(x) + \cos^2(x))}{\sin^2(x)}\\
+                                &= \frac{-1}{\sin^2(x)} &&\text{Using $\cos^2(x) + \sin^2(x) = 1$}\\
+                                &= -\csc^2(x)\\
                             \end{align}$$</p>
                         </details>
                     </li>
                     <li>
                         <details>
-                            <summary>Proof of $\frac{d}{dx}sec(x)$</summary>
+                            <summary>Proof of $\frac{d}{dx} \sec(x)$</summary>
                             <p>$$\begin{align}
-                                \frac{d}{dx}sec(x) &= \frac{d}{dx}\frac{1}{cos(x)}\\
-                                &= \frac{(0)(cos(x))-(-sin(x))(1)}{cos^2(x)}\\
-                                &= \frac{sin(x)}{cos^2(x)}\\
-                                &= \frac{1}{cos(x)} \cdot \frac{sin(x)}{cos(x)}\\
-                                &= sec(x)tan(x)\\
+                                \frac{d}{dx}sec(x) &= \frac{d}{dx}\frac{1}{\cos(x)}\\
+                                &= \frac{(0)(\cos(x))-(-\sin(x))(1)}{\cos^2(x)}\\
+                                &= \frac{\sin(x)}{\cos^2(x)}\\
+                                &= \frac{1}{\cos(x)} \cdot \frac{\sin(x)}{\cos(x)}\\
+                                &= \sec(x)\tan(x)\\
                             \end{align}$$</p>
                         </details>
                     </li>
                     <li>
                         <details>
-                            <summary>Proof of $\frac{d}{dx}csc(x)$</summary>
+                            <summary>Proof of $\frac{d}{dx} \csc(x)$</summary>
                             <p>$$\begin{align}
-                                \frac{d}{dx}csc(x) &= \frac{d}{dx}\frac{1}{sin(x)}\\
-                                &= \frac{(0)(sin(x))-(cos(x))(1)}{sin^2(x)}\\
-                                &= \frac{-cos(x)}{sin^2(x)}\\
-                                &= -\frac{1}{sin(x)} \cdot \frac{cos(x)}{sin(x)}\\
-                                &= -csc(x)cot(x)\\
+                                \frac{d}{dx}csc(x) &= \frac{d}{dx}\frac{1}{\sin(x)}\\
+                                &= \frac{(0)(\sin(x))-(\cos(x))(1)}{\sin^2(x)}\\
+                                &= \frac{-\cos(x)}{\sin^2(x)}\\
+                                &= -\frac{1}{\sin(x)} \cdot \frac{\cos(x)}{\sin(x)}\\
+                                &= -\csc(x)\cot(x)\\
                             \end{align}$$</p>
                         </details>
                     </li>
                     <li>
                         <details>
-                            <summary>Proof of $\frac{d}{dx}sin^{-1}(x)$</summary>
+                            <summary>Proof of $\frac{d}{dx}\sin^{-1}(x)$</summary>
                             <p>$$\begin{align}
-                                y &= sin^{-1}(x) \\
-                                sin(y) &= x \\
-                                \frac{d}{dx} sin(y) &= \frac{d}{dx} x \\
-                                cos(y)\frac{dy}{dx} &= 1 \\
-                                \frac{dy}{dx} &= \frac{1}{cos(y)} \\
-                                \frac{dy}{dx} &= \frac{1}{\sqrt{1-sin^2(y)}} &&\text{Using Rearranged version of $cos^2(x) + sin^2(x) = 1$}\\
+                                y &= \sin^{-1}(x) \\
+                                \sin(y) &= x \\
+                                \frac{d}{dx} \sin(y) &= \frac{d}{dx} x \\
+                                \cos(y)\frac{dy}{dx} &= 1 \\
+                                \frac{dy}{dx} &= \frac{1}{\cos(y)} \\
+                                \frac{dy}{dx} &= \frac{1}{\sqrt{1-\sin^2(y)}} &&\text{Using Rearranged version of $\cos^2(x) + \sin^2(x) = 1$}\\
                                 \frac{dy}{dx} &= \frac{1}{\sqrt{1-x^2}} \\
                             \end{align}$$</p>
                         </details>
                     </li>
                     <li>
                         <details>
-                            <summary>Proof of $\frac{d}{dx}cos^{-1}(x)$</summary>
+                            <summary>Proof of $\frac{d}{dx}\cos^{-1}(x)$</summary>
                             <p>$$\begin{align}
-                                y &= cos^{-1}(x) \\
-                                cos(y) &= x \\
-                                \frac{d}{dx} cos(y) &= \frac{d}{dx} x \\
-                                -sin(y)\frac{dy}{dx} &= 1 \\
-                                \frac{dy}{dx} &= \frac{1}{-sin(y)} \\
-                                \frac{dy}{dx} &= \frac{1}{-\sqrt{1-cos^2(y)}} &&\text{Using Rearranged version of $cos^2(x) + sin^2(x) = 1$}\\
+                                y &= \cos^{-1}(x) \\
+                                \cos(y) &= x \\
+                                \frac{d}{dx} \cos(y) &= \frac{d}{dx} x \\
+                                -\sin(y)\frac{dy}{dx} &= 1 \\
+                                \frac{dy}{dx} &= \frac{1}{-\sin(y)} \\
+                                \frac{dy}{dx} &= \frac{1}{-\sqrt{1-\cos^2(y)}} &&\text{Using Rearranged version of $\cos^2(x) + \sin^2(x) = 1$}\\
                                 \frac{dy}{dx} &= -\frac{1}{\sqrt{1-x^2}} \\
                             \end{align}$$</p>
                         </details>
                     </li>
                     <li>
                         <details>
-                            <summary>Proof of $\frac{d}{dx}tan^{-1}(x)$</summary>
+                            <summary>Proof of $\frac{d}{dx}\tan^{-1}(x)$</summary>
                             <p>$$\begin{align}
-                                y &= tan^{-1}(x) \\
-                                tan(y) &= x \\
-                                \frac{d}{dx}tan(y) &= \frac{d}{dx}x \\
-                                sec^2(y)\frac{dy}{dx} &= 1 \\
-                                \frac{dy}{dx} &= \frac{1}{sec^2(y)} \\
-                                \frac{dy}{dx} &= \frac{1}{1 + tan^2(x)} &&\text{Using $tan^2(x) + 1 = sec^2(x)$}\\
+                                y &= \tan^{-1}(x) \\
+                                \tan(y) &= x \\
+                                \frac{d}{dx}\tan(y) &= \frac{d}{dx}x \\
+                                \sec^2(y)\frac{dy}{dx} &= 1 \\
+                                \frac{dy}{dx} &= \frac{1}{\sec^2(y)} \\
+                                \frac{dy}{dx} &= \frac{1}{1 + \tan^2(x)} &&\text{Using $\tan^2(x) + 1 = \sec^2(x)$}\\
                                 \frac{dy}{dx} &= \frac{1}{1 + x^2} \\
                             \end{align}$$</p>
                         </details>
@@ -211,8 +211,8 @@
                             \end{align}$$</p>
                             <p>The reason there is an absolute value sign is because if $y=sec^{-1}(x)$, the range, or the angle is $[0,\pi/2) \cup (\pi/2,\pi]$</p>
                             <p>This places the angle in the first and second quadrant</p>
-                            <p>The $sec(y)tan(y)$ can be rewritten as $\frac{sin(y)}{cos^2(y)}$ </p>
-                            <p>In the first and second quadrant, $sin(\theta)$ is always positive, and the $cos^2(y)$ in the denominator is being squared, so it always postive</p>
+                            <p>The $sec(y)tan(y)$ can be rewritten as $\frac{\sin(y)}{\cos^2(y)}$ </p>
+                            <p>In the first and second quadrant, $\sin(\theta)$ is always positive, and the $\cos^2(y)$ in the denominator is being squared, so it always postive</p>
                             <p>This means the $sec(y)tan(y)$ has to be positive</p>
                             <p>The $\sqrt{x^2 - 1}$ is always positive, which means we need to make sure the $x$ is always positive, so we absolute value it</p>
                         </details>
@@ -231,8 +231,8 @@
                             \end{align}$$</p>
                             <p>The reason there is an absolute value sign is because if $y=csc^{-1}(x)$, the range, or the angle is $[-\pi/2,0) \cup (0,\pi/2]$</p>
                             <p>This places the angle in the first and fourth quadrant</p>
-                            <p>The $csc(y)cot(y)$ can be rewritten as $\frac{cos(y)}{sin^2(y)}$ </p>
-                            <p>In the first and fourth quadrant, $cos(\theta)$ is always positive, and the $sin^2(y)$ in the denominator is being squared, so it always postive</p>
+                            <p>The $csc(y)cot(y)$ can be rewritten as $\frac{\cos(y)}{\sin^2(y)}$ </p>
+                            <p>In the first and fourth quadrant, $\cos(\theta)$ is always positive, and the $\sin^2(y)$ in the denominator is being squared, so it always postive</p>
                             <p>This means the $csc(y)cot(y)$ has to be positive</p>
                             <p>The $\sqrt{x^2 - 1}$ is always positive, which means we need to make sure the $x$ is always positive, so we absolute value it</p>
                         </details>

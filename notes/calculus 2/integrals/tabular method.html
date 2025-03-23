@@ -24,16 +24,16 @@
             <p>Next you take repeated derivative for $u$ in the D column and repeated anti-derivatives in the I column</p>
             <p>For example:</p>
             <p>$$\begin{align} 
-                \int{(x^3 + 2x)sin(x) \ dx}
+                \int{(x^3 + 2x)\sin(x) \ dx}
             \end{align}$$</p>
             <p>$$\begin{align} 
                 &\begin{array} {c | c | c}
                 S & D & I \\ \hline 
-                + & x^3 + 2x & sin(x)\\
-                - & 3x^2 + 2 & -cos(x)\\
-                + & 6x & -sin(x)\\
-                - & 6 & cos(x)\\
-                + & 0 & sin(x) \\
+                + & x^3 + 2x & \sin(x)\\
+                - & 3x^2 + 2 & -\cos(x)\\
+                + & 6x & -\sin(x)\\
+                - & 6 & \cos(x)\\
+                + & 0 & \sin(x) \\
                 \end{array} \\ \\
             \end{align}$$</p>
             <p>The final step is to multiply the sign by the derivative, then multiply that by the the integral that is one down</p>
@@ -41,7 +41,7 @@
             <p>For example:</p>
             <img src="assets/svg/tabular method.svg">
             <p>$$\begin{align} 
-                \int{(x^3 + 2x)sin(x) \ dx} = -(x^3 + 2x)cos(x) + (3x^2 + 2)sin(x) + 6xcos(x) + C
+                \int{(x^3 + 2x)\sin(x) \ dx} = -(x^3 + 2x)\cos(x) + (3x^2 + 2)sin(x) + 6xcos(x) + C
             \end{align}$$</p>
             <hr>
             <h3>When Do You Stop?</h3>
@@ -75,9 +75,9 @@
             <p>$$\begin{align} 
                 &\begin{array} {c | c | c}
                 S & D & I \\ \hline 
-                + & e^x & sin(3x)\\
-                - & e^x & -cos(3x)/3\\
-                + & e^x & -sin(3x)/9\\
+                + & e^x & \sin(3x)\\
+                - & e^x & -\cos(3x)/3\\
+                + & e^x & -\sin(3x)/9\\
                 \end{array} \\ \\
             \end{align}$$</p>
             <p>Here we an stop because we can transform the bottom row into our original integral</p>

@@ -17,14 +17,14 @@
         <div id="content">
             <p>The following limit is very important: </p>
             <p>$$\begin{align} 
-                \lim_{x \to 0}\frac{sin(x)}{x} = 1 &\tag{1}
+                \lim_{x \to 0}\frac{\sin(x)}{x} = 1 &\tag{1}
             \end{align}$$</p>
-            <p>This limit shows up in the derivative of sin (which we will talk about in a later note)</p>
+            <p>This limit shows up in the derivative of \sin (which we will talk about in a later note)</p>
             <p>If we try direct substitution, we get $\frac{0}{0}$, so we need to do something else</p>
             <p>We need to use geometry and the squeeze theorem</p>
             <p>There is also a corollary</p>
             <p>$$\begin{align} 
-                \lim_{x \to 0}\frac{cos(x) - 1}{x} = 0
+                \lim_{x \to 0}\frac{\cos(x) - 1}{x} = 0
             \end{align}$$</p>
             <hr>
             <h3>Proof</h3>
@@ -37,47 +37,47 @@
             <p>The other triangle has it's adjacent length of 1, this places part of the triangle outside the circle, we mark this triangle <span style="color: #0000FF;">blue</span></p>
             <p>We can find the opposite length for both of these triangles</p>
             <p style="color: #00FF00;">$$\begin{align} 
-                sin(\theta) = \frac{opposite}{hypotenuse} \rightarrow sin(\theta) = \frac{opposite}{1} \rightarrow sin(\theta) = opposite
+                \sin(\theta) = \frac{opposite}{hypotenuse} \rightarrow \sin(\theta) = \frac{opposite}{1} \rightarrow \sin(\theta) = opposite
             \end{align}$$</p>
             <p style="color: #0000FF;">$$\begin{align} 
                 tan(\theta) = \frac{opposite}{adjacent} \rightarrow tan(\theta) = \frac{opposite}{1} \rightarrow tan(\theta) = opposite
             \end{align}$$</p>
             <img src="assets/svg/circle with arc and triangles.svg">
-            <p>Looking at the picture, we can see that the order of the length sizes are $sin(\theta)$, then $\theta$, then $tan(\theta)$</p>
+            <p>Looking at the picture, we can see that the order of the length sizes are $\sin(\theta)$, then $\theta$, then $tan(\theta)$</p>
             <p>Since our limit variable x is approaching 0, it means if we plug 0 into all 3 $\theta$, we get 0 for all (making them equal)</p>
             <p>This can be expressed as the inequality: </p>
             <p>$$\begin{align} 
-                sin(\theta) \leq \theta \leq tan(\theta) \\
-                sin(\theta) \leq \theta \leq \frac{sin(\theta)}{cos(\theta)} &&\text{Rewrite tan as $\frac{sin}{cos}$}\\
-                \frac{1}{sin(\theta)} \geq \frac{1}{\theta} \geq \frac{cos(\theta)}{sin(\theta)} &&\text{Take Reciprocal (Don't forget to switch inequality signs)}\\
-                1 \geq \frac{sin(\theta)}{\theta} \geq cos(\theta)&&\text{Multiply term each by $sin(\theta)$}\\
+                \sin(\theta) \leq \theta \leq tan(\theta) \\
+                \sin(\theta) \leq \theta \leq \frac{\sin(\theta)}{\cos(\theta)} &&\text{Rewrite tan as $\frac{\sin}{\cos}$}\\
+                \frac{1}{\sin(\theta)} \geq \frac{1}{\theta} \geq \frac{\cos(\theta)}{\sin(\theta)} &&\text{Take Reciprocal (Don't forget to switch inequality signs)}\\
+                1 \geq \frac{\sin(\theta)}{\theta} \geq \cos(\theta)&&\text{Multiply term each by $\sin(\theta)$}\\
             \end{align}$$</p>
             <p>We can apply squeeze theorem here</p>
             <p>$$\begin{align} 
-                \lim_{\theta \to 0}1 \geq &\lim_{\theta \to 0}\frac{sin(\theta)}{\theta} \geq \lim_{\theta \to 0}cos(\theta) \\
-                1 \geq &\lim_{\theta \to 0}\frac{sin(\theta)}{\theta} \geq 1 \\
+                \lim_{\theta \to 0}1 \geq &\lim_{\theta \to 0}\frac{\sin(\theta)}{\theta} \geq \lim_{\theta \to 0}\cos(\theta) \\
+                1 \geq &\lim_{\theta \to 0}\frac{\sin(\theta)}{\theta} \geq 1 \\
             \end{align}$$</p>
             <p>This means that: </p>
             <p>$$\begin{align} 
-                \lim_{\theta \to 0}\frac{sin(\theta)}{\theta} = 1
+                \lim_{\theta \to 0}\frac{\sin(\theta)}{\theta} = 1
             \end{align}$$</p>
             <hr>
             <h3>Corrollary</h3>
             <p>This is to prove the following (also important) limit: </p>
             <p>$$\begin{align} 
-                \lim_{x \to 0}\frac{cos(x) - 1}{x} = 0
+                \lim_{x \to 0}\frac{\cos(x) - 1}{x} = 0
             \end{align}$$</p>
             <p>We can use some algebra to manipulate the above limit so we can use (1), and then direct substituion</p>
             <p>$$\begin{align} 
-                \lim_{x \to 0}\frac{cos(x) - 1}{x} &= \lim_{x \to 0}\frac{cos(x) - 1}{x} \cdot \frac{cos(x) + 1}{cos(x) + 1} &&\text{Multiply By Conjugate} \\
-                &=  \lim_{x \to 0}\frac{cos(x)^2 - 1^2}{x(cos(x) + 1)} &&\text{Using Difference of Two Squares on Numerator} \\
-                &=  \lim_{x \to 0}\frac{-(-cos(x)^2 + 1)}{x(cos(x) + 1)} &&\text{Factor Out Negative Sign} \\
-                &=  \lim_{x \to 0} - \frac{1 - cos(x)^2}{x(cos(x) + 1)} \\ 
-                &=  \lim_{x \to 0} - \frac{sin^2(x)}{x(cos(x) + 1)} &&\text{Using Rearranged version of $sin^2(x) + cos^2(x) = 1$} \\
-                &=  \lim_{x \to 0} - \frac{sin(x)}{x} \cdot \frac{sin(x)}{cos(x) + 1} &&\text{Split fraction}\\
-                &=  \lim_{x \to 0} - \frac{sin(x)}{x} \cdot \lim_{x \to 0}\frac{sin(x)}{cos(x) + 1} &&\text{Using limit product property} \\
-                &=  -1 \cdot \lim_{x \to 0}\frac{sin(x)}{cos(x) + 1} &&\text{Using (1)} \\
-                &=  -1 \cdot \frac{sin(0)}{cos(0) + 1} \\
+                \lim_{x \to 0}\frac{\cos(x) - 1}{x} &= \lim_{x \to 0}\frac{\cos(x) - 1}{x} \cdot \frac{\cos(x) + 1}{\cos(x) + 1} &&\text{Multiply By Conjugate} \\
+                &=  \lim_{x \to 0}\frac{\cos(x)^2 - 1^2}{x(\cos(x) + 1)} &&\text{Using Difference of Two Squares on Numerator} \\
+                &=  \lim_{x \to 0}\frac{-(-\cos(x)^2 + 1)}{x(\cos(x) + 1)} &&\text{Factor Out Negative Sign} \\
+                &=  \lim_{x \to 0} - \frac{1 - \cos(x)^2}{x(\cos(x) + 1)} \\ 
+                &=  \lim_{x \to 0} - \frac{\sin^2(x)}{x(\cos(x) + 1)} &&\text{Using Rearranged version of $\sin^2(x) + \cos^2(x) = 1$} \\
+                &=  \lim_{x \to 0} - \frac{\sin(x)}{x} \cdot \frac{\sin(x)}{\cos(x) + 1} &&\text{Split fraction}\\
+                &=  \lim_{x \to 0} - \frac{\sin(x)}{x} \cdot \lim_{x \to 0}\frac{\sin(x)}{\cos(x) + 1} &&\text{Using limit product property} \\
+                &=  -1 \cdot \lim_{x \to 0}\frac{\sin(x)}{\cos(x) + 1} &&\text{Using (1)} \\
+                &=  -1 \cdot \frac{\sin(0)}{\cos(0) + 1} \\
                 &=  -1 \cdot \frac{0}{1 + 1} \\
                 &=  -1 \cdot 0 \\
                 &= 0

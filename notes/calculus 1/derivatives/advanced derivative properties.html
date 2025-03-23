@@ -51,17 +51,17 @@
             <p>It's important that $g(x)$ is <b> NOT </b> 0, because you can't divide by 0</p>
             <p>For Example: </p>
             <p>$$\begin{align} 
-                \frac{d}{dx} \left(\frac{x^2 + 1}{sin(x)}\right)
+                \frac{d}{dx} \left(\frac{x^2 + 1}{\sin(x)}\right)
             \end{align}$$</p>
             <p>$$\begin{align} 
                 
                 &\begin{array} {c | c}
-                f(x) = x^2 + 1 & g(x) = sin(x) \\
+                f(x) = x^2 + 1 & g(x) = \sin(x) \\
                 \hline 
-                f'(x) = 2x & g'(x) = cos(x)
+                f'(x) = 2x & g'(x) = \cos(x)
                 \end{array} \\ \\
-                \frac{d}{dx} \left(\frac{x^2 + 1}{sin(x)}\right) &= \frac{(2x)(sin(x)) - (cos(x))(x^2 + 1)}{sin^2(x)}\\
-                &= \frac{2xsin(x) - x^2cos(x) - cos(x)}{sin^2(x)}
+                \frac{d}{dx} \left(\frac{x^2 + 1}{\sin(x)}\right) &= \frac{(2x)(\sin(x)) - (\cos(x))(x^2 + 1)}{\sin^2(x)}\\
+                &= \frac{2x\sin(x) - x^2\cos(x) - \cos(x)}{\sin^2(x)}
             \end{align}$$</p>
             <hr>
             <p>Chain rule: </p>
@@ -75,18 +75,18 @@
             <p>Chain rule is used in composition of 2 functions</p>
             <p>For example: </p>
             <p>$$\begin{align} 
-                \frac{d}{dx} cos(x^4 - x^2 + 4x - 1)
+                \frac{d}{dx} \cos(x^4 - x^2 + 4x - 1)
             \end{align}$$</p>
             <p>$$\begin{align} 
                 &\begin{array} {c | c}
-                f(x) = cos(x) & g(x) = x^4 - x^2 + 4x - 1 \\
+                f(x) = \cos(x) & g(x) = x^4 - x^2 + 4x - 1 \\
                 \hline 
-                f'(x) = -sin(x) & g'(x) = 4x^3 - 2x + 4
+                f'(x) = -\sin(x) & g'(x) = 4x^3 - 2x + 4
                 \end{array} \\ \\
-                \frac{d}{dx} cos(x^4 - x^2 + 4x - 1) &= (4x^3 - 2x + 4) (-sin(x^4 - x^2 + 4x - 1))\\
+                \frac{d}{dx} \cos(x^4 - x^2 + 4x - 1) &= (4x^3 - 2x + 4) (-\sin(x^4 - x^2 + 4x - 1))\\
             \end{align}$$</p>
             <hr>
-            <p>Using all the rules so far and the derivates of function, you can solve pretty much any derivatives</p>
+            <p>U\sing all the rules so far and the derivates of function, you can solve pretty much any derivatives</p>
             <p>Whenever solving derivatives that need multiple properties, start from the outside functions and go inner</p>
             <hr>
             <details open>
@@ -116,14 +116,14 @@
                     <li>
                         <details>
                             
-                            <summary>$\frac{d}{dx} xcos(2x^2)$</summary>
+                            <summary>$\frac{d}{dx} x\cos(2x^2)$</summary>
                             <p>$$\begin{align} 
-                                \frac{d}{dx} xcos(2x^2)
+                                \frac{d}{dx} x\cos(2x^2)
                             \end{align}$$</p>
                             <p>We need to apply product rule</p>
                             <p>$$\begin{align} 
                                 &\begin{array} {c | c}
-                                    f(x) = x & g(x) = cos(2x^2) \\
+                                    f(x) = x & g(x) = \cos(2x^2) \\
                                     \hline 
                                     f'(x) = 1 & g'(x) = ?
                                 \end{array}
@@ -131,36 +131,36 @@
                             <p>To find the derivative of $g(x)$ we need to use chain rule</p>
                             <p>$$\begin{align} 
                                 &\begin{array} {c | c}
-                                    f(x) = cos(x) & g(x) = 2x^2 \\
+                                    f(x) = \cos(x) & g(x) = 2x^2 \\
                                     \hline 
-                                    f'(x) = -sin(x) & g'(x) = 4x
+                                    f'(x) = -\sin(x) & g'(x) = 4x
                                 \end{array}
                             \end{align}$$</p>
                             <p>Putting this back into original table</p>
                             <p>$$\begin{align} 
                                 &\begin{array} {c | c}
-                                    f(x) = x & g(x) = cos(2x^2) \\
+                                    f(x) = x & g(x) = \cos(2x^2) \\
                                     \hline 
-                                    f'(x) = 1 & g'(x) = -4xsin(2x^2)
+                                    f'(x) = 1 & g'(x) = -4x\sin(2x^2)
                                 \end{array}
                             \end{align}$$</p>
                             <p>Now we can apply product rule</p>
                             <p>$$\begin{align} 
-                                \frac{d}{dx} xcos(2x^2) &= (1)(cos(2x^2)) + (-4xsin(2x^2))(x) \\
-                                &= cos(2x^2) - 4x^2sin(2x^2)
+                                \frac{d}{dx} x\cos(2x^2) &= (1)(\cos(2x^2)) + (-4x\sin(2x^2))(x) \\
+                                &= \cos(2x^2) - 4x^2\sin(2x^2)
                             \end{align}$$</p>
                         </details>
                     </li>
                     <li>
                         <details>
-                            <summary>$\frac{d}{dx} \frac{\sqrt{x^2 + x}}{sin(\frac{1}{x})}$</summary>                           
+                            <summary>$\frac{d}{dx} \frac{\sqrt{x^2 + x}}{\sin(\frac{1}{x})}$</summary>                           
                             <p>$$\begin{align} 
-                                \frac{d}{dx} \frac{\sqrt{x^2 + x}}{sin\left(\frac{1}{x}\right)}
+                                \frac{d}{dx} \frac{\sqrt{x^2 + x}}{\sin\left(\frac{1}{x}\right)}
                             \end{align}$$</p>
                             <p>To solve first do quotient rule on outside</p>
                             <p>$$\begin{align} 
                                 &\begin{array} {c | c}
-                                    f(x) = \sqrt{x^2 + x} & g(x) = sin(x^{-1}) \\
+                                    f(x) = \sqrt{x^2 + x} & g(x) = \sin(x^{-1}) \\
                                     \hline 
                                     f'(x) = ? & g'(x) = ?
                                 \end{array}
@@ -177,42 +177,42 @@
                                 \end{array}
                             \end{align}$$</p>
                             <p>$$\begin{align} 
-                                \frac{d}{dx} sin(x^{-1}) = -x^{-2}cos(x^{-1})
+                                \frac{d}{dx} \sin(x^{-1}) = -x^{-2}\cos(x^{-1})
                             \end{align}$$</p>
                             <p>$$\begin{align} 
                                 &\begin{array} {c | c}
-                                    f(x) = sin(x) & g(x) = x^{-1} \\
+                                    f(x) = \sin(x) & g(x) = x^{-1} \\
                                     \hline 
-                                    f'(x) = cos(x) & g'(x) = -x^{-2}
+                                    f'(x) = \cos(x) & g'(x) = -x^{-2}
                                 \end{array}
                             \end{align}$$</p>
                             <p>Putting this back into the table</p>
                             <p>$$\begin{align} 
                                 &\begin{array} {c | c}
-                                    f(x) = \sqrt{x^2 + x} & g(x) = sin(x^{-1}) \\
+                                    f(x) = \sqrt{x^2 + x} & g(x) = \sin(x^{-1}) \\
                                     \hline 
-                                    f'(x) = \frac{2x + 1}{2\sqrt{x^2 + x}} & g'(x) = -x^{-2}cos(x^{-1})
+                                    f'(x) = \frac{2x + 1}{2\sqrt{x^2 + x}} & g'(x) = -x^{-2}\cos(x^{-1})
                                 \end{array}
                             \end{align}$$</p>
                             <p>Putting this all together with the quotient rule</p>
                             <p>$$\begin{align} 
-                                \frac{d}{dx} \frac{\sqrt{x^2 + x}}{sin\left(\frac{1}{x}\right)} &= \frac{(\frac{2x + 1}{2\sqrt{x^2 + x}})(sin(x^{-1})) - (-x^{-2}cos(x^{-1}))(\sqrt{x^2 + x}))}{sin^2\left(\frac{1}{x}\right)} \\
-                                &=\frac{\frac{2x + 1(sin(x^{-1}))}{2\sqrt{x^2 + x}} + x^{-2}cos(x^{-1})\sqrt{x^2 + x}}{sin^2\left(\frac{1}{x}\right)}
+                                \frac{d}{dx} \frac{\sqrt{x^2 + x}}{\sin\left(\frac{1}{x}\right)} &= \frac{(\frac{2x + 1}{2\sqrt{x^2 + x}})(\sin(x^{-1})) - (-x^{-2}\cos(x^{-1}))(\sqrt{x^2 + x}))}{\sin^2\left(\frac{1}{x}\right)} \\
+                                &=\frac{\frac{2x + 1(\sin(x^{-1}))}{2\sqrt{x^2 + x}} + x^{-2}\cos(x^{-1})\sqrt{x^2 + x}}{\sin^2\left(\frac{1}{x}\right)}
                             \end{align}$$</p>
                         </details>
                     </li>
                     <li>
                         <details>
-                            <summary>$\frac{d}{dx} sin\left(\frac{x^2 + 4x - 1}{x^3 + 3x^2 - 5x - 2}\right)$</summary>                           
+                            <summary>$\frac{d}{dx} \sin\left(\frac{x^2 + 4x - 1}{x^3 + 3x^2 - 5x - 2}\right)$</summary>                           
                             <p>$$\begin{align} 
-                                \frac{d}{dx} sin\left(\frac{x^2 + 4x - 1}{x^3 + 3x^2 - 5x - 2}\right)
+                                \frac{d}{dx} \sin\left(\frac{x^2 + 4x - 1}{x^3 + 3x^2 - 5x - 2}\right)
                             \end{align}$$</p>
                             <p>We need to use chain rule and then quotient rule</p>
                             <p>$$\begin{align} 
                                 &\begin{array} {c | c}
-                                    f(x) = sin(x) & g(x) = \frac{x^2 + 4x - 1}{x^3 + 3x^2 - 5x - 2} \\
+                                    f(x) = \sin(x) & g(x) = \frac{x^2 + 4x - 1}{x^3 + 3x^2 - 5x - 2} \\
                                     \hline 
-                                    f'(x) = cos(x) & g'(x) = ?
+                                    f'(x) = \cos(x) & g'(x) = ?
                                 \end{array}
                             \end{align}$$</p>
                             <p>We need to use quotient rule to find the derivative</p>
@@ -229,14 +229,14 @@
                             <p>We can plug this back into the original table</p>
                             <p>$$\begin{align} 
                                 &\begin{array} {c | c}
-                                    f(x) = sin(x) & g(x) = \frac{x^2 + 4x - 1}{x^3 + 3x^2 - 5x - 2} \\
+                                    f(x) = \sin(x) & g(x) = \frac{x^2 + 4x - 1}{x^3 + 3x^2 - 5x - 2} \\
                                     \hline 
-                                    f'(x) = cos(x) & g'(x) = \frac{(2x + 4)( x^3 + 3x^2 - 5x - 2) - (3x^2 + 6x - 5)(x^2 + 4x - 1)}{(x^3 + 3x^2 - 5x - 2)^2}
+                                    f'(x) = \cos(x) & g'(x) = \frac{(2x + 4)( x^3 + 3x^2 - 5x - 2) - (3x^2 + 6x - 5)(x^2 + 4x - 1)}{(x^3 + 3x^2 - 5x - 2)^2}
                                 \end{array}
                             \end{align}$$</p>
                             <p>We can apply the chain rule now</p>
                             <p>$$\begin{align} 
-                                \frac{d}{dx} sin\left(\frac{x^2 + 4x - 1}{x^3 + 3x^2 - 5x - 2}\right) = \left[\frac{(2x + 4)( x^3 + 3x^2 - 5x - 2) - (3x^2 + 6x - 5)(x^2 + 4x - 1)}{(x^3 + 3x^2 - 5x - 2)^2}\right]cos\left(\frac{x^2 + 4x - 1}{x^3 + 3x^2 - 5x - 2}\right)
+                                \frac{d}{dx} \sin\left(\frac{x^2 + 4x - 1}{x^3 + 3x^2 - 5x - 2}\right) = \left[\frac{(2x + 4)( x^3 + 3x^2 - 5x - 2) - (3x^2 + 6x - 5)(x^2 + 4x - 1)}{(x^3 + 3x^2 - 5x - 2)^2}\right]\cos\left(\frac{x^2 + 4x - 1}{x^3 + 3x^2 - 5x - 2}\right)
 
                             \end{align}$$</p>
                         </details>
@@ -255,11 +255,11 @@
                                 &= \lim_{h \to 0}\frac{f(x+h)g(x+h) + 0 - f(x)g(x)}{h} &&\text{Add 0}\\
                                 &= \lim_{h \to 0}\frac{f(x+h)g(x+h) + (f(x+h)g(x) - f(x+h)g(x)) - f(x)g(x)}{h} &&\text{0 can be rewritten}\\
                                 &= \lim_{h \to 0}\frac{f(x+h)g(x+h) - f(x+h)g(x) + f(x+h)g(x) - f(x)g(x)}{h} &&\text{Rearrange terms}\\
-                                &= \lim_{h \to 0}\frac{f(x+h)g(x+h) - f(x+h)g(x)}{h} + \lim_{h \to 0} \frac{f(x+h)g(x) - f(x)g(x)}{h} &&\text{Using limit sum property}\\
+                                &= \lim_{h \to 0}\frac{f(x+h)g(x+h) - f(x+h)g(x)}{h} + \lim_{h \to 0} \frac{f(x+h)g(x) - f(x)g(x)}{h} &&\text{U\sing limit sum property}\\
                                 &= \lim_{h \to 0}\frac{f(x+h)(g(x+h) - g(x))}{h} + \lim_{h \to 0} \frac{g(x)(f(x+h) - f(x))}{h} &&\text{Factor out terms}\\
-                                &= \lim_{h \to 0}f(x+h)\lim_{h \to 0}\frac{g(x+h) - g(x)}{h} + \lim_{h \to 0}g(x)\lim_{h \to 0} \frac{f(x+h) - f(x)}{h} &&\text{Using limit product property}\\
+                                &= \lim_{h \to 0}f(x+h)\lim_{h \to 0}\frac{g(x+h) - g(x)}{h} + \lim_{h \to 0}g(x)\lim_{h \to 0} \frac{f(x+h) - f(x)}{h} &&\text{U\sing limit product property}\\
                                 &= f(x)\lim_{h \to 0}\frac{g(x+h) - g(x)}{h} + g(x)\lim_{h \to 0} \frac{f(x+h) - f(x)}{h} &&\text{Solve outer limits}\\
-                                &= f(x)g'(x) + g(x)f'(x) &&\text{Replace limits using defintion of derivative}\\
+                                &= f(x)g'(x) + g(x)f'(x) &&\text{Replace limits u\sing defintion of derivative}\\
                                 &= f'(x)g(x) + g'(x)f(x) &&\text{Rearrange Terms}\\
 
                             \end{align}$$</p>
@@ -275,12 +275,12 @@
                                 &= \lim_{h \to 0} \left(\frac{1}{h} \cdot \frac{f(x + h)g(x) - f(x)g(x + h)}{g(x + h)g(x)}\right) &&\text{Rewrite the divided by $h$}\\
                                 &= \lim_{h \to 0} \left(\frac{f(x + h)g(x) - f(x)g(x + h)}{h \cdot g(x + h)g(x)}\right) &&\text{Multiply fractions}\\
                                 &= \lim_{h \to 0} \left(\frac{1}{g(x + h)g(x)} \cdot \frac{f(x + h)g(x) - f(x)g(x + h)}{h}\right) &&\text{Split fractions}\\
-                                &= \lim_{h \to 0} \left(\frac{1}{g(x + h)g(x)}\right) \cdot \lim_{h \to 0}\left(\frac{f(x + h)g(x) - f(x)g(x + h)}{h}\right) &&\text{Using limit product property}\\
+                                &= \lim_{h \to 0} \left(\frac{1}{g(x + h)g(x)}\right) \cdot \lim_{h \to 0}\left(\frac{f(x + h)g(x) - f(x)g(x + h)}{h}\right) &&\text{U\sing limit product property}\\
                                 &= \lim_{h \to 0} \left(\frac{1}{g(x + h)g(x)}\right) \cdot \lim_{h \to 0}\left(\frac{f(x + h)g(x) + 0 - f(x)g(x + h)}{h}\right) &&\text{Add 0}\\
                                 &= \lim_{h \to 0} \left(\frac{1}{g(x + h)g(x)}\right) \cdot \lim_{h \to 0}\left(\frac{f(x + h)g(x) - f(x)g(x) + f(x)g(x) - f(x)g(x + h)}{h}\right) &&\text{0 can be rewritten}\\
-                                &= \lim_{h \to 0} \left(\frac{1}{g(x + h)g(x)}\right) \cdot \left[\lim_{h \to 0}\frac{f(x + h)g(x) - f(x)g(x)}{h} + \lim_{h \to 0}\frac{f(x)g(x) - f(x)g(x + h)}{h}\right] &&\text{Using limit sum property}\\
+                                &= \lim_{h \to 0} \left(\frac{1}{g(x + h)g(x)}\right) \cdot \left[\lim_{h \to 0}\frac{f(x + h)g(x) - f(x)g(x)}{h} + \lim_{h \to 0}\frac{f(x)g(x) - f(x)g(x + h)}{h}\right] &&\text{U\sing limit sum property}\\
                                 &= \lim_{h \to 0} \left(\frac{1}{g(x + h)g(x)}\right) \cdot \left[\lim_{h \to 0}\frac{g(x)(f(x + h)- f(x))}{h} + \lim_{h \to 0}\frac{f(x)(g(x) - g(x + h))}{h}\right] &&\text{Factor out terms}\\
-                                &= \lim_{h \to 0} \left(\frac{1}{g(x + h)g(x)}\right) \cdot \left[\lim_{h \to 0}g(x) \cdot \lim_{h \to 0}\frac{f(x + h)- f(x)}{h} + \lim_{h \to 0}-f(x) \cdot \lim_{h \to 0}\frac{g(x + h) - g(x)}{h}\right] &&\text{Using limit product property}\\
+                                &= \lim_{h \to 0} \left(\frac{1}{g(x + h)g(x)}\right) \cdot \left[\lim_{h \to 0}g(x) \cdot \lim_{h \to 0}\frac{f(x + h)- f(x)}{h} + \lim_{h \to 0}-f(x) \cdot \lim_{h \to 0}\frac{g(x + h) - g(x)}{h}\right] &&\text{U\sing limit product property}\\
                                 &= \left(\frac{1}{g(x + 0)g(x)}\right) \cdot \left[g(x) \cdot \lim_{h \to 0}\frac{f(x + h)- f(x)}{h} - f(x) \cdot \lim_{h \to 0}\frac{g(x) - g(x + h)}{h}\right] &&\text{Solve some limits}\\
                                 &= \left(\frac{1}{g(x)^2}\right) \cdot \left[g(x)f'(x) - f(x)g'(x)\right] &&\text{Replace some limits with derivative defintion}\\
                                 &= \frac{g(x)f'(x) - f(x)g'(x)}{g(x)^2}&&\text{Multiply limits}\\
@@ -298,7 +298,7 @@
                                 \frac{d}{dx} \frac{f(x)}{g(x)} &= \frac{d}{dx} f(x) \cdot \frac{1}{g(x)} \\
                                 &= \frac{d}{dx} f(x) \cdot g(x)^{-1}
                             \end{align}$$</p>
-                            <p>Using product rule</p>
+                            <p>U\sing product rule</p>
                             <p>$$\begin{align} 
                                 &\begin{array} {c | c}
                                     f(x) = f(x) & g(x) = g(x)^{-1} \\
@@ -340,7 +340,7 @@
                             <p>$$\begin{align} 
                                 (f \circ g)'(a) &= \lim_{x \to a}\frac{f(g(x) - f(g(a)))}{x-a} \\
                                 &= \lim_{x \to a}\frac{f(g(x) - f(g(a)))}{x-a} \cdot  \frac{g(x) - g(a)}{g(x)-g(a)} \\
-                                &= \lim_{x \to a}\frac{f(g(x) - f(g(a)))}{g(x)-g(a)} \cdot  \frac{g(x) - g(a)}{x - a} &&\text{Since we are multiplying fractions, we can switch terms}
+                                &= \lim_{x \to a}\frac{f(g(x) - f(g(a)))}{g(x)-g(a)} \cdot  \frac{g(x) - g(a)}{x - a} &&\text{\since we are multiplying fractions, we can switch terms}
                             \end{align}$$</p>
                             <p>The function on the right looks the limit defintion of derivative at a point a</p>
                             <p>The left function looks like the limit defintion of derivatve at point g(a)</p>
