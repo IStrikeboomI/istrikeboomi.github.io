@@ -41,6 +41,34 @@
                 \int{0 \ dx} = C
             \end{align}$$</p>
             <hr>
+            <h3>Another Example</h3>
+            <p>If you try to find the following indefinite integral</p>
+            <p>$$\begin{align} 
+                \int{2 \sin(x) \cos(x) \ dx}
+            \end{align}$$</p>
+            <p>There are 2 ways you can solve this, by using trig properties or <a href="integration by substitution.html">U-sub</a></p>
+            <p>$$\begin{align} 
+                \int{\sin(2x) \ dx} = \frac{1}{2}\cos(2x) + C 
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+
+                \int{2u \ du} = \frac{u^2}{2} + C = \frac{\sin^2(x)}{2} + C &&\text{$u = \sin(x)$}
+            \end{align}$$</p>
+            <p>These 2 anti-derivatives are different, but they have the same derivative, this is because of the $+ C$</p>
+            <p>If you solve for $C$ you get a value of $\frac{1}{2}$</p>
+            <hr>
+            <h3>Combining Multiple $+C$</h3>
+            <P>A lot of the time, you solve multiple integrals that are being added or subtracted</P>
+            <p>Each of these integrals results in it's own $+C$ term</p>
+            <p>But since each of the $C$ are constant, and they are only being added or subtracted, this means you can combine them together</p>
+            <P>This is because a constant plus another constant is also a constant</P>
+            <p>For example:</p>
+            <p>$$\begin{align} 
+                \int{f(x) \ dx} + \int{g(x) \ dx} + \int{h(x) \ dx} &= F(x) + C_1 + G(x) + C_2 + H(x) + C_3 \\
+                &= F(x) + G(x) + H(x) + C
+            \end{align}$$</p>
+            <P>Because of this, I like to wait until the end to account for the $+C$</P>
+            <hr>
             <h3>Finding The Value of $C$</h3>
             <p>Even though $C$ is an arbitrary constant, we can find the value of it given a point on the original function</p>
             <p>For example</p>
