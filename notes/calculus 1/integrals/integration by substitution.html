@@ -5,9 +5,11 @@
         <script type="text/javascript" id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
         </script>
-        <meta charset="utf-8">
+        <meta charset="utf-8"><title>Template</title>
+        <meta name="description" content="{{description}}">
+        <meta name="keywords" content="{{keywords}}">
+        <link rel="author" content="Strikeboom" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="/icon.png">
     </head>
@@ -25,8 +27,14 @@
                 \int{f'(u)\ du}
             \end{align}$$</p>
             <p>What we did was to replace the $g(x)$ with a variable $u$ and replace the $g'(x)\ dx$ with $du$</p>
-            <p>The way we convert to $du$ is by using <a href="/notes/calculus 1/derivatives/differentials.html">Differentials</a>, $\frac{dy}{dx} = f'(x) \rightarrow dy = f'(x)dx$</p>
-            <p>Then we integrate in respect to $u$, and at the end replace $u$ with $g(x)$</p>
+            <p>Then we solve the integral like normal with $u$ as the variable</p>
+            <p>At the end we replace the $u$ in our answer with our $g(x)$ that we had substituted earlier to make our answer in terms of $x$ (and not $u$)</p>
+            <p>We can also represent U-sub using <a href="../derivatives/derivative notations.html">Leibniz notation</a></p>
+            <p>$$\begin{align} 
+                \int{f(x) \ dx} = \int{f(x) \frac{dx}{du} \ du}
+            \end{align}$$</p>
+            <p>The way we convert to $du$ is by using <a href="/notes/calculus 1/derivatives/differentials.html">Differentials</a>, $\frac{dy}{dx} = f'(x) \rightarrow dy = f'(x) \ dx$</p>
+            <p>Also important to note, using differentials is just arbitrary notation, it just makes it easier to deal with converting $dx \rightarrow du$</p>
             <p>It's important to note that when you convert from $dx$ to $du$, all the variables in the integrand need to be in the form of $u$</p>
             <p>The variable $u$ is not important either, it can be any variable such as $v$, $p$, $\theta$, etc...</p>
             <hr>
