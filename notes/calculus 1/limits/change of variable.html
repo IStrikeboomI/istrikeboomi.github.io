@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Change Of Variable</title>
+        <meta name="description" content="Change Of Variable with limits">
+        <meta name="keywords" content="limits change of variable">
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Change of variable is a technique to solve limits with strange variables</p>
+            <P>We change the variable and the value approaching to simplify the limit</P>
+            <p>$$\begin{align} 
+                \text{If } \lim_{x \to a}g(x) = b \text{, then} \lim_{x \to a}f(g(x)) = \lim_{y \to b}f(y)
+            \end{align}$$</p>
+            <p>Normally, the new variable that we replace with is $u$ (but it can be anything) and it is in terms of $x$</p>
+            <p>When we change the variable, all the $x$ have to be changed in terms of $u$</p>
+            <p>To find the new approach value, plug the value $x$ approaches into $u$</p>
+            <hr>
+            <h3>Examples</h3>
+            <p>$$\begin{align} 
+                \lim_{x \to 0}\frac{(x + 8)^{1/3} - 2}{x}
+            \end{align}$$</p>
+            <p>If we tried to use direct substituion, we would get $\frac{0}{0}$</p>
+            <p>Instead I'll substitute $u = (x + 8)^{1/3}$</p>
+            <P>We need to take care of the $x$ in the denominaotor, but we can write $x$ in terms of $u$ as $x = u^3 - 8$</P>
+            <p>For the new approach value, plug $x \to 0$ into $u$, $u = (0 + 8)^{1/3} = 2$, which mean $u \to 2$</p>
+            <p>$$\begin{align} 
+                \lim_{u \to 2}\frac{u - 2}{u^3 - 8} &=  \lim_{u \to 2}\frac{u - 2}{(u-2)(u^2 + 2u + 4)} &&\text{Difference Of Cubes} \\
+                &=  \lim_{u \to 2}\frac{1}{u^2 + 2u + 4} \\
+                &=  \frac{1}{(2)^2 + 2(2) + 4} \\
+                &=  \frac{1}{12} \\
+            \end{align}$$</p>
+            <br>
+            <p>$$\begin{align} 
+                \lim_{x \to \infty}&\frac{\sin\left(\frac{1}{x}\right)}{\frac{1}{x}} \\
+                &\theta = \frac{1}{x} \\
+                \text{as } x \to \infty&, \theta \to 0 \\
+                \lim_{\theta \to 0}&\frac{\sin\left(\theta\right)}{\theta}  = 1\\
+
+            \end{align}$$</p>
+            <p>The limit above is 1 because it was covered <a href="limit of sin(x) over x approaching 0.html">in the previous note</a></p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>$\lim_\limits{x \to 3}\frac{\cos(x-3) - 1}{x - 3}$</summary>
+                            <p>$$\begin{align} 
+                                \lim_\limits{x \to 3}\frac{\cos(x-3) - 1}{x - 3} \\
+                                u = x - 3 \\
+                                x \to 3, u \to 0 \\
+                                \lim_\limits{u \to 0}\frac{\cos(u) - 1}{u} = 0
+                            \end{align}$$</p>
+                            <p>The above limit is the corollary from <a href="limit of sin(x) over x approaching 0.html">the previous note</a></p>
+                        </details>
+                        <details>
+                            <summary>$\lim_\limits{x \to 1}\frac{\sqrt[3]{x} - 1}{x - 1}$</summary>
+                            <p>$$\begin{align} 
+                                \lim_\limits{x \to 1}\frac{\sqrt[3]{x} - 1}{x - 1} \\
+                                u = \sqrt[3]{x} \to u^3 = x \\
+                                x \to 1, u \to 1 \\
+                                \lim_\limits{u \to 1}\frac{u - 1}{u^3 - 1} \\
+                                \lim_\limits{u \to 1}\frac{u - 1}{(u - 1)(u^2 + 2u + 1)} &&\text{Difference Of Cubes} \\
+                                \lim_\limits{u \to 1}\frac{1}{u^2 + 2u + 1} = \frac{1}{4}\\
+
+                            \end{align}$$</p>
+                        </details>
+                        <details>
+                            <summary>$\lim_\limits{h \to 0^+}(1 + h)^{1/h}$</summary>
+                            <p>$$\begin{align} 
+                                \lim_\limits{h \to 0^+}(1 + h)^{1/h} \\
+                                h = \frac{1}{n} \to \frac{1}{h} = n \\
+                                h \to 0^+,n \to \infty \\
+                                \lim_\limits{n \to \infty}\left(1 + \frac{1}{n}\right)^{n} = e &&\text{By Definition Of $e$}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
