@@ -13,10 +13,10 @@
 \begin{axis}[
   axis lines=middle,
   grid=major,
-  xmin=-3,
-  xmax=3,
-  ymin=-3,
-  ymax=4,
+  xmin=.5,
+  xmax=2.5,
+  ymin=-1,
+  ymax=2,
   %xlabel=$x$,
   %ylabel=$y$,
   %xtick={0,1,...,6},
@@ -28,15 +28,13 @@
   legend style={at={(rel axis cs:0,1)},anchor=north west,draw=none,inner sep=0pt, fill = white}
 ]
 
-\addplot[blue,very thick,domain=-3:3,samples=100] gnuplot {x**3-x**2-3*x+2};
+\addplot[blue,very thick,domain=-3:3,samples=100] gnuplot {sin((x-1)**2)};
 
-\draw[green,very thick] (-3.000000,-25.000000) -- (-1.800000,-1.672000);
-\draw[green,very thick] (-1.800000,-1.672000) -- (-0.600000,3.224000);
-\draw[green,very thick] (-0.600000,3.224000) -- (0.600000,0.056000);
-\draw[green,very thick] (0.600000,0.056000) -- (1.800000,-0.808000);
+%\draw[green,very thick] (1.32465891866,0) -- (1.723601,.5);
+\addplot[green,very thick,domain=-3:3,samples=100] gnuplot {x * .645714412137 -0.750143002964} node[] {Slope $ = f'(x_n)$};
 
-\addplot[incl, draw=blue] coordinates {(0.600000,0.056000)} node[below] {$(x_i,y_i)$};
-\addplot[incl, draw=blue] coordinates {(1.800000,-0.808000)} node[below] {$(x_{i+1},y_{i+1})$};
+\addplot[incl, draw=blue] coordinates {(1.161726,0)} node[below] {$(x_{n+1},0)$};
+\addplot[incl, draw=blue] coordinates {(1.324659, 0.105208)} node[right] {$(x_{n},f(x_n))$};
 
 %\addplot[blue,very thick,domain=-5:5,samples=100] gnuplot {x**3 + x**2 - x};
 %\draw[green,very thick] (1,0) -- (1,2);
@@ -49,7 +47,7 @@
 %\addplot[excl, draw=blue] coordinates {(-2,0)};
 
 
-\addlegendentry{$n = 5$};
+\addlegendentry{$f(x)$};
 
 \end{axis};
 \end{tikzpicture}

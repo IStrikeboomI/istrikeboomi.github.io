@@ -73,6 +73,7 @@
                     {"name":"l'hopital's rule", "title": "L'Hôpital's Rule"},
                     {"name":"related rates", "title": "Related Rates"},
                     {"name":"differentials", "title": "Differentials"},
+                    {"name":"newtons method", "title": "Newton's Method"},
                     {"name":"derivatives cheat sheet", "title": "Derivatives Cheat Sheet"}
                 ]
             },
