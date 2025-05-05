@@ -18,9 +18,11 @@
             <p>The derivative of $e^x$ is</p>
             <p>$$\frac{d}{dx} e^x = e^x$$</p>
             <p>This means that $e^x$ is it's own derivative!</p>
+            <p>The derivative of $a^x$ (where $a$ is a number) is:</p>
+            <p>$$\frac{d}{dx} a^x = \ln(a)a^x$$</p>
             <hr>
             <details>
-                <summary>Proof</summary>
+                <summary>Proof of $e^x$</summary>
                 <p>Definition of $e \approx 2.71828$: </p>
                 <p>$$\begin{align}
                     e &= \lim_{n \to \infty}{{(1+\frac{1}{n})}^n}  \\
@@ -40,6 +42,21 @@
                     &= e^x(1) \\
                     &= e^x
                 \end{align}$$</p>
+            </details>
+            <details>
+                <summary>Proof of $a^x$</summary>
+                <p>We can rewrite $a^x$ as</p>
+                <p>$$\begin{align}
+                    a^x &= e^{\ln(a^x)} \\
+                    &= e^{x\ln(a)} &&\text{Logarithim exponent property}
+                    \end{align}$$</p>
+                <p>We can simply use the chain rule since $\ln(a)$ is a constant</p>
+                <p>$$\begin{align}
+                    \frac{d}{dx} e^{x\ln(a)} &= e^{xln(a)} \cdot \ln(a) \\
+                    &= e^{ln(a^x)} \cdot \ln(a) &&\text{Logarithim exponent property backwards}\\
+                    &= a^x \cdot \ln(a) &&\text{$e^x$ and $\ln(x)$ cancel each other out}\\
+
+                    \end{align}$$</p>
             </details>
             <hr>
             <details open>
@@ -64,19 +81,37 @@
                     </li>
                     <li>
                         <details>
-                            <summary>$\frac{d}{dx}\frac{cos(e^x)}{2e^x}$</summary>
+                            <summary>$\frac{d}{dx}\frac{\cos(e^x)}{2e^x}$</summary>
                             
                             <p>$$\begin{align}
                                 &\text{We need to use Quotient Rule} \\ \\
                                 &\begin{array} {c | c}
-                                f(x) = cos(e^x) & g(x) = 2e^x \\
+                                f(x) = \cos(e^x) & g(x) = 2e^x \\
                                 \hline 
-                                f'(x) = -e^xsin(e^x) & g'(x) = 2e^x 
+                                f'(x) = -e^x\sin(e^x) & g'(x) = 2e^x 
                                 \end{array} \\ \\
-                                \frac{d}{dx}\frac{cos(e^x)}{2e^x} &= \frac{(2e^x)(-e^xsin(e^x)) - (cos(e^x))(2e^x)) }{(2e^x)^2} &&\text{Using Quotient Rule} \\
-                                &= \frac{-2(e^x)^2sin(e^x) - 2e^xcos(e^x)}{4(e^x)^2} \\
-                                &= \frac{(-2e^x)(e^xsin(e^x)+cos(e^x)}{4(e^x)^2} \\
-                                &= \frac{-(e^xsin(e^x) + cos(e^x))}{2e^x} 
+                                \frac{d}{dx}\frac{\cos(e^x)}{2e^x} &= \frac{(2e^x)(-e^x\sin(e^x)) - (\cos(e^x))(2e^x)) }{(2e^x)^2} &&\text{Using Quotient Rule} \\
+                                &= \frac{-2(e^x)^2\sin(e^x) - 2e^x\cos(e^x)}{4(e^x)^2} \\
+                                &= \frac{(-2e^x)(e^x\sin(e^x)+\cos(e^x)}{4(e^x)^2} \\
+                                &= \frac{-(e^x\sin(e^x) + \cos(e^x))}{2e^x} 
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\frac{d}{dx}2^{x}$</summary>
+                            <p>$$\begin{align}
+                                \frac{d}{dx}2^{x} = \ln(2)2^x
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$\frac{d}{dx}\pi^{e x}$</summary>
+                            <p>$$\begin{align}
+                                \frac{d}{dx}\pi^{e x} &= \frac{d}{dx}\left({\pi^e}\right)^x \\
+                                &= \ln(\pi^e) \pi^{e x} \\
+                                &= e\ln(\pi) \pi^{e x} \\
                                 \end{align}$$</p>
                         </details>
                     </li>
