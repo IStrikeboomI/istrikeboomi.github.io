@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Newton's Method</title>
+        <meta name="description" content="Newtons Method">
+        <meta name="keywords" content="newton method newton-raphson derivative practical">
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Newton's method (or the Newton–Raphson method) is a practical use of derivatives to find roots/zeros of a function</p>
+            <p>First you have an initial guess $x_0$ that you believe is close to the root</p>
+            <p>For successive iterations</p>
+            <p>$$\begin{align} 
+                x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+            \end{align}$$</p>
+            <p>The more you iterate, or in other words the more you do this process, the closer you get to the root</p>
+            <p>One of the uses for newton's method is for finding square roots, cube roots, or general n'th roots</p>
+            <hr>
+            <h3>How Does It Work?</h3>
+            <p>If we create a tangent line at $(x_n,f(x_n))$, and find it's root (which is easier to do because it's a line)</p>
+            <p>This root will be closer to the actual root which is why we need to iterate it</p>
+            <p>The way we find the tangent line's root is by using the slope formula (which is equal to $f'(x_n)$) between $(x_{n+1},0)$ and $(x_n,f(x_n))$</p>
+            <p>$$\begin{align} 
+                f'(x_n) = \frac{f(x_n) - 0}{x_n - x_{n+1}} = \frac{f(x_n)}{x_n - x_{n+1}}
+            \end{align}$$</p>
+            <p>If we solve this to get $x_{n+1}$</p>
+            <p>$$\begin{align} 
+                x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+            \end{align}$$</p>
+            <img src="assets/svg/newtons method 1.svg">
+            <p>Let's repeat this again</p>
+            <img src="assets/svg/newtons method 2.svg">
+            <p>Observe how in the above photos the new values are closer to the root on the x-axis</p>
+            <p>The more we repeat this the closer we get to the actual root</p>
+            <p>the slope of the green line is $f'(x_n)$</p>
+            <p>It also goes without saying <b>closer</b> initial values will take less iterations</p>
+            <hr>
+            <h3>Examples</h3>
+            <p>Approximate the positive root of $f(x) = 4x^{3}+2x^{2}-3x-1$</p>
+            <p>$f'(x) = 12x^{2}+4x-3$</p>
+            <p>Since we are trying to find the positive root, let's have an initial guess of $x_0 = .5$</p>
+            <p>$$\begin{align} 
+                x_0 &= .5 \\
+                x_1 &= .5 - \frac{f(.5)}{f'(.5)} = 1.25 \\
+                x_2 &= 1.25- \frac{f(.5)}{f'(.5)} \approx .9519 \\
+                x_3 &= .9519- \frac{f(.9519)}{f'(.9519)} \approx .8314 \\
+                x_4 &= .8314- \frac{f(.8314)}{f'(.8314)} \approx .8097 \\
+                x_5 &= .8097- \frac{f(.8097)}{f'(.8097)} \approx .8090 \\
+                x_6 &= .8090- \frac{f(.8090)}{f'(.8090)} \approx .8090 \\
+            \end{align}$$</p>
+            <p>We appear to be approaching a final value so we can say our root is approximately $.809$</p>
+            <br>
+            <p>Let's approximate the value of $\sqrt{2}$</p>
+            <p>What function has a root that is $\sqrt{2}$?</p>
+            <p>The positive root of $x^2 - 2$ works</p>
+            <p>$f(x) = x^2 - 2$</p>
+            <p>$f'(x) = 2x$</p>
+            <p>For the initial guess, I know that $1 < 2 < 4$, which leads to $\sqrt{1} < \sqrt{2} < \sqrt{4} \rightarrow 1 < \sqrt{2} < 2$</p>
+            <p>Since it's in between $[1,2]$, let's just choose 1.5</p>
+            <p>$$\begin{align} 
+                x_0 &= 1.5 \\
+                x_1 &= 1.5 - \frac{f(1.5)}{f'(1.5)} = 1.416 \\
+                x_2 &=  1.416- \frac{f( 1.416)}{f'( 1.416)} \approx 1.4142 \\
+                x_3 &= 1.4142- \frac{f(1.4142)}{f'(1.4142)} \approx 1.4142 \\
+                x_4 &= 1.4142- \frac{f(1.4142)}{f'(1.4142)} \approx 1.4142 \\
+            \end{align}$$</p>
+            <p>This starts approaching $\sqrt{2} \approx 1.4142$</p>
+            <hr>
+            <h3>Possible Failure</h3>
+            <p>Sometimes, newton's method won't work or give you another root that you weren't intending for</p>
+            <p>One possible cause is $f'(x_n) = 0$, which you can't divide by</p>
+            <p>Another possible issue is that the location of the zero is so steep, poor initial guesses causes the guesses to blow up (ex. $f(x) = \tan^{-1}(x), x_0 = 1.5)$</p>
+            <p>The guesses can also oscillate between two roots and not settle between one</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Find the root of $f(x)=x^3-2x^2-5$</summary>
+                            <p>$$\begin{align} 
+                                f(x)=x^3-2x^2-5 \\
+                                f'(x)=3x^2-4x
+                            \end{align}$$</p>
+                            <p>Let's do initial guess of $x_0 = 2$</p>
+                            <p>$$\begin{align} 
+                                x_0 &= 2 \\
+                                x_1 &= 2 - \frac{f(2)}{f'(2)} = 3.25 \\
+                                x_2 &= 3.25 - \frac{f(3.25)}{f'(3.25)} \approx 2.811 \\
+                                x_3 &= 2.811- \frac{f(2.811)}{f'(2.811)} \approx 2.69798 \\
+                                x_4 &= 2.69798 - \frac{f(2.69798)}{f'(2.69798)} \approx 2.690 \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Approximate $\sqrt[3]{6}$</summary>
+                            <p>$$\begin{align} 
+                                f(x)=x^3-6 \\
+                                f'(x)=3x^2
+                            \end{align}$$</p>
+                            <p>Let's do initial guess of $x_0 = 2$</p>
+                            <p>$$\begin{align} 
+                                x_0 &= 2 \\
+                                x_1 &= 2 - \frac{f(2)}{f'(2)} = 1.833 \\
+                                x_2 &= 1.833 - \frac{f(1.833)}{f'(1.833)} \approx 1.81726 \\
+                                x_3 &=  1.81726- \frac{f( 1.81726)}{f'( 1.81726)} \approx 1.81712 \\
+                                x_4 &= 1.81712 - \frac{f(1.81712)}{f'(1.81712)} \approx 1.81712 \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find where $\cos(x) = x$</summary>
+                            <p>$$\begin{align} 
+                                f(x)=cos(x) - x \\
+                                f'(x)=-sin(x) - 1
+                            \end{align}$$</p>
+                            <p>Let's do initial guess of $x_0 = 1$</p>
+                            <p>$$\begin{align} 
+                                x_0 &= 1 \\
+                                x_1 &= 1 - \frac{f(1)}{f'(1)} = 0.75036 \\
+                                x_2 &= 0.75036 - \frac{f(0.75036)}{f'(0.75036)} \approx 0.73908 \\
+                                x_3 &= 0.73908- \frac{f(0.73908)}{f'(0.73908)} \approx 0.73908 \\
+                                x_4 &= 0.73908 - \frac{f(0.73908)}{f'(0.73908)} \approx 0.73908 \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find where $\ln(x) = -x$</summary>
+                            <p>$$\begin{align} 
+                                f(x)= ln(x) + x\\
+                                f'(x)= \frac{1}{x} + 1
+                            \end{align}$$</p>
+                            <p>Let's do initial guess of $x_0 = .5$</p>
+                            <p>$$\begin{align} 
+                                x_0 &= .5 \\
+                                x_1 &= .5 - \frac{f(.5)}{f'(.5)} = 0.5643 \\
+                                x_2 &= 0.5643 - \frac{f(0.5643)}{f'(0.5643)} \approx 0.56713 \\
+                                x_3 &= 0.56713- \frac{f(0.56713)}{f'(0.56713)} \approx 0.56714 \\
+                                x_4 &= 0.56714 - \frac{f(0.56714)}{f'(0.56714)} \approx 0.56714 \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

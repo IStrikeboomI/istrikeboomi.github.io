@@ -91,6 +91,7 @@ if (request.status === 200) {
                     if (s[j].section.toLowerCase() === topic) {
                         let n = s[j].notes;
                         for (let k = 0;k < n.length;k++) {
+                            //check if on current note to add stuff for the note like the title or scrolling
                             if (n[k].name === notesName) {
                                 let header = document.createElement("h2");
                                 header.innerHTML = n[k].title;
@@ -154,7 +155,16 @@ if (request.status === 200) {
 }
 
 function goToRandomPage() {
-    console.log("TODO: add random page redirect");
+    //all notes obtained in their link form
+    let allNotesLinks = [];
+    for (let i of json) {
+        for (let j of i.topics) {
+            for (let k of j.notes) {
+                allNotesLinks.push("/notes/" + i.subject.toLowerCase() + "/" + j.section.toLowerCase() + "/" + k.name + ".html");
+            }
+        }
+    }
+    location.href = allNotesLinks.random();
 }
 //util section
 //get random element in array

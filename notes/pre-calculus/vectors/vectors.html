@@ -17,7 +17,7 @@
         <div id="content">
             <p>Vectors are mathematical objects that have a direction and magnitude (length)</p>
             <p>Vectors can be thought of as a directed line segment that can be in 2,3,4, any number of dimensions</p>
-            <p>One way a vector is written is a bold character with an arrow on top</p>
+            <p>One way a vector is written is a character with an arrow on top</p>
             <p>$$\begin{align} 
                 \vec{v} = \left< v_1,v_2,v_3,...,v_n \right>
             \end{align}$$</p>
@@ -111,9 +111,12 @@
             <p>$$\begin{align} 
                 \hat{v} = \frac{\vec{v}}{||\vec{v}||}
             \end{align}$$</p>
-            <p>What the unit vector represents is just the direction of the vector without any distancec</p>
+            <p>What the unit vector represents is just the direction of the vector without any distance</p>
             <p>If we graph the unit vector on top of the original vector it will be pointing the same way, just scaled differntly</p>
             <p>That's what dividing by the magnitude does, it scales it</p>
+            <p>$$\begin{align} 
+                ||\hat{v}|| = 1
+            \end{align}$$</p>
             <img src="assets/svg/unit vector.svg">
             <p>Let's try to find the unit vector and magnitude for $\vec{v} = \left< 2,12,8 \right>$</p>
             <p>$$\begin{align} 
@@ -121,6 +124,14 @@
                 \hat{v} = \frac{\vec{v}}{||\vec{v}||} = \frac{1}{2\sqrt{53}} \left< 2,12,8 \right> = \left< \frac{1}{\sqrt{53}},\frac{6}{\sqrt{53}},\frac{4}{\sqrt{53}} \right>
             \end{align}$$</p>
             <p>You could further rationalize the denominator, but this is good enough</p>
+            <p>Let's show the magnitude (distance) of this unit vector is $1$</p>
+            <p>$$\begin{align} 
+                ||\hat{v}|| &= \sqrt{\left( \frac{1}{\sqrt{53}}\right)^2 + \left(\frac{6}{\sqrt{53}}\right)^2 + \left(\frac{4}{\sqrt{53}}\right)^2}\\
+                &= \sqrt{\frac{1}{53} + \frac{36}{53}+ \frac{16}{53}}\\
+                &= \sqrt{\frac{53}{53}}\\
+                &= \sqrt{1}\\
+                &= 1\\
+            \end{align}$$</p>
             <hr>
             <details open>
                 <summary>Practice Problems</summary>
