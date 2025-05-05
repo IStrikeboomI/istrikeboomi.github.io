@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Template</title>
+        <meta name="description" content="Improper Integrals">
+        <meta name="keywords" content="Improper Integrals integrals at infinity and discontinuity">
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Improper integrals deal with definite integrals where one or both of the bounds approach infinity or a discontinuity</p>
+            <p>Improper integrals are solved by replacing the infinity/discontinuity by a limit</p>
+            <p>A type I improper integral goes to infinity</p>
+            <p>$$\begin{align} 
+                \int_{a}^{\infty} f(x) \ dx &= \lim_{t \to \infty}\int_{a}^{t} f(x) \ dx \\
+                \int_{-\infty}^{a} f(x) \ dx &= \lim_{t \to -\infty}\int_{t}^{a} f(x) \ dx \\
+                \int_{-\infty}^{\infty} f(x) \ dx &= \lim_{t \to -\infty}\int_{t}^{a} f(x) \ dx + \lim_{t \to \infty}\int_{a}^{t} f(x) \ dx \\
+
+            \end{align}$$</p>
+            <p>A type II improper integral goes to a discontinuity (or horizontal asymptote)</p>
+            <p>Discontinuity at $d$</p>
+            <p>$$\begin{align} 
+                \int_{a}^{d} f(x) \ dx &= \lim_{t \to d^-}\int_{a}^{d} f(x) \ dx \\
+                \int_{d}^{a} f(x) \ dx &= \lim_{t \to d^+}\int_{d}^{a} f(x) \ dx \\
+
+            \end{align}$$</p>
+            <p>An improper integral <b>converges</b> if it results in a finite value</p>
+            <p>An improper integral <b>diverges</b> if it results in $\pm \infty$</p>
+            <hr>
+            <h3>Graphically</h3>
+            <p>A type I improper integral is just the area under the curve all the way to infinity</p>
+            <p>This can (sometimes) work because the function decreases to 0 fast enough to where the area goes to a single value</p>
+            <img src="assets/svg/type I improper integral 1.svg">
+            <p>However sometimes, an integral doesn't go to 0, or doesn't decrease slow enough, so the area under is infinite</p>
+            <p>All of the following areas below diverge</p>
+            <img src="assets/svg/type I improper integral diverges 1.svg">
+            <img src="assets/svg/type I improper integral diverges 2.svg">
+            <img src="assets/svg/type I improper integral diverges 3.svg">
+            <p>The way we would represent these as integrals are</p>
+            <p>$$\begin{align} 
+                \int_0^\infty{\frac{x + \cos(x)}{x} \ dx} &= \infty \\
+                \int_0^\infty{\frac{1}{x} \ dx} &= \infty \\
+                \int_0^\infty{\frac{x^3}{4} \ dx} &= \infty \\
+
+            \end{align}$$</p>
+            <br>
+            <p>For type II improper integral, its the same as type I but it approaches a horizontal asymptote instead of a vertical asymptote</p>
+            <p>The same convergence and divergence issues can occur</p>
+            <p>The following integral converges: </p>
+            <p>$$\begin{align} 
+                \int_1^2{\ln(x-1) \ dx} = -1
+            \end{align}$$</p>
+            <img src="assets/svg/type II improper integral 1.svg">
+            <p>The following integrals diverge:</p>
+            <p>$$\begin{align} 
+                \int_0^1{\frac{1}{\sqrt{x}} \ dx} &= \infty \\
+                \int_0^1{\frac{3}{(x - 2)^2} \ dx} &= \infty
+
+            \end{align}$$</p>
+            <img src="assets/svg/type II improper integral diverges 1.svg">
+            <img src="assets/svg/type II improper integral diverges 2.svg">
+            <hr>
+            <h3>Solving Improper Integrals</h3>
+            <p>The core idea behind solving Improper Integrals is to replace the infinity/discontinuity with a new placeholder variable</p>
+            <p>Then you wrap the integral in a limit where the placeholder varaible goes to your infinity/discontinuity</p>
+            <p>For example: </p>
+            <p>$$\begin{align} 
+                \int_1^\infty{\frac{1}{x^2} \ dx} &= \lim_{t \to \infty} \int_1^t{\frac{1}{x^2} \ dx} \\
+                &= \lim_{t \to \infty} \left[-\frac{1}{x} \right]_1^t  &&\text{Using Power Rule}\\
+                &= \lim_{t \to \infty} \left[-\frac{1}{t} - -\frac{1}{1} \right]  &&\text{Using FTC}\\
+                &= 0 + 1\\
+                &= 1\\
+            \end{align}$$</p>
+            <br>
+            <p>$$\begin{align} 
+                \int_2^\infty{\frac{1}{x\ln(x)} \ dx} &= \lim_{t \to \infty} \int_2^t{\frac{1}{x\ln(x)} \ dx} \\
+                u = \ln(x) &, du = \frac{1}{x} \ dx \\
+                \text{as } x \to 2 &, u \to \ln(2) \\
+                \text{as } x \to t &, u \to \ln(t) \\
+                &= \lim_{t \to \infty} \int_{\ln(2)}^{\ln(t)}{\frac{1}{u} \ dx} &&\text{U-sub}\\
+                &= \lim_{t \to \infty} \left[\ln|u|\right]_{\ln(2)}^{\ln(t)} \\
+                &= \lim_{t \to \infty} \ln|\ln(t)| - \ln|\ln(2)| \\
+                &= \infty \\
+            \end{align}$$</p>
+
+            <p>For an integral approaching a discontinuity, don't forget to make it a sided limit</p>
+            <p>If the discontinuity is the lower bound, it approaches from the right ($d^+$)</p>             
+            <p>If the discontinuity is the upper bound, it approaches from the left (d^-)</p>
+            <p>Let's solve the example from above</p>
+            <p>$$\begin{align} 
+                \int_1^2{\ln(x-1) \ dx} = \lim_{t \to 1^+}\int_t^2{\ln(x-1) \ dx}
+            \end{align}$$</p>
+
+            <p>If there is a discontinuity in the middle of the bounds, or the integral goes from $-\infty$ to $\infty$, you need to split the integral into two</p>
+            <p>You need to split at a common point $a$ where it exists in both functions, typically this value is 0, but it can be anything</p>
+            <p>$$\begin{align} 
+                \int_{a}^{b} f(x) \ dx &= \lim_{t \to c^-}\int_{a}^{c} f(x) \ dx + \lim_{t \to c^+}\int_{c}^{b} f(x) \ dx \\
+                \int_{-\infty}^{\infty} f(x) \ dx &= \lim_{t \to -\infty}\int_{t}^{a} f(x) \ dx + \lim_{t \to \infty}\int_{a}^{t} f(x) \ dx \\
+            \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Practice 1</summary>
+                            <p>$$\begin{align} 
+
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

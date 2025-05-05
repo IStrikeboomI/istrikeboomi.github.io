@@ -109,6 +109,7 @@
                     {"name":"trig sub", "title": "Trig Sub"},
 
                     {"name":"arc length", "title": "Arc Length"},
+                    {"name":"improper integrals", "title": "Improper Integrals"},
 
                     {"name":"gamma function derivation", "title": "Gamma Function Derivation"}
                 ]
