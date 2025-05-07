@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>P-Series Test</title>
+        <meta name="description" content="P-Series test">
+        <meta name="keywords" content="p series test">
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>A P-Series is a series in the form: </p>
+            <p>$$\begin{align} 
+                \sum_{n=1}^\infty{\frac{1}{n^p}}
+                \end{align}$$</p>
+            <p>Where $p$ is a number</p>
+            <p>A P-Series <b>converges</b> if $p > 1$</p>
+            <p>A P-Series <b>diverges</b> if $p \leq 1$</p>
+            <br>
+            <p>P-series (along with geometric series) are the easiest tests to do</p>
+            <p>Because of this, they serve as a starting basis for choosing a series to compare to</p>
+            <hr>
+            <details>
+                <summary>Proof</summary>
+                <p>The P-Series test is a special case of the <a href="integral test.html">Integral test</a></p>
+                <p>$$\begin{align} 
+                    \int_1^\infty{\frac{1}{n^p} \ dn} = \lim_{t \to \infty}\int_1^t{\frac{1}{n^p} \ dn}
+                \end{align}$$</p>
+                <p>If $p = 1$</p>
+                <p>$$\begin{align} 
+                    \int_1^\infty{\frac{1}{n} \ dn} &= \lim_{t \to \infty}\int_1^t{\frac{1}{n} \ dn} \\
+                    &= \lim_{t \to \infty}\left[\ln(|n|)\right]_1^t\\
+                    &= \infty\\
+                \end{align}$$</p>
+                <p>So it diverges if $p = 1$</p>
+                <p>If $p \neq 1$</p>
+                <p>We can solve this using the power rule if $p \neq 1$</p>
+                <p>$$\begin{align} 
+                    \lim_{t \to \infty}\int_1^t{\frac{1}{n^p} \ dn} &= \lim_{t \to \infty}\left[\frac{n^{-p + 1}}{-p + 1}\right]_1^t \\
+                    &= \lim_{t \to \infty}\left[\frac{n^{-(p - 1)}}{-p + 1}\right]_1^t \\
+                    &= \lim_{t \to \infty}\left[\frac{1}{n^{p - 1}(-p + 1)}\right]_1^t \\
+                    &= \lim_{t \to \infty}\frac{1}{t^{p - 1}(-p + 1)} - \frac{1}{-p + 1} \\
+                    &= \lim_{t \to \infty}\frac{t^0}{t^{p - 1}(-p + 1)} - \frac{1}{-p + 1} \\
+
+                \end{align}$$</p>
+                <p>If you remember <a href="../../calculus 1/limits/limits with infinity.html">Limits at infinity</a>, we get 0 if degrees on the bottom is larger than top</p>
+                <p>So we get the inequality, if $p-1 > 0 \rightarrow p > 1$, then the integral converges</p>
+                <p>Otherwise, if $p < 1$, the integral diverges</p>
+            </details>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Determine Convergence Or Divergence of $\displaystyle\sum_{n = 1}^\infty {\frac{1}{n}}$</summary>
+                            <p>$$\begin{align} 
+                                \displaystyle\sum_{n = 1}^\infty {\frac{1}{n}}
+                            \end{align}$$</p>
+                            <p>$p = 1$, so it <b>diverges</b></p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Determine Convergence Or Divergence of $\displaystyle\sum_{n = 1}^\infty {\frac{1}{n\sqrt{n}}}$</summary>
+                            <p>$$\begin{align} 
+                                \displaystyle\sum_{n = 1}^\infty {\frac{1}{n\sqrt{n}}} = \displaystyle\sum_{n = 1}^\infty {\frac{1}{n^{3/2}}}
+                            \end{align}$$</p>
+                            <p>$p = \frac{3}{2}$, so it <b>converges</b></p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Determine Convergence Or Divergence of $\displaystyle\sum_{n = 1}^\infty {\frac{1}{n^2}}$</summary>
+                            <p>$$\begin{align} 
+                                \displaystyle\sum_{n = 1}^\infty {\frac{1}{n^2}}
+                            \end{align}$$</p>
+                            <p>$p = 2$, so it <b>converges</b></p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
