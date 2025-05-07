@@ -110,8 +110,16 @@
 
                     {"name":"arc length", "title": "Arc Length"},
                     {"name":"improper integrals", "title": "Improper Integrals"},
+                    {"name":"improper integral comparison tests", "title": "Improper Integral Comparison Tests"},
 
                     {"name":"gamma function derivation", "title": "Gamma Function Derivation"}
+                ]
+            },
+            {
+                "section":"Series",
+                "notes": 
+                [
+                    {"name":"integral test","title":"Integral Test"}
                 ]
             }
         ]

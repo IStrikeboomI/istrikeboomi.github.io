@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Integral Test</title>
+        <meta name="description" content="Integral Test">
+        <meta name="keywords" content="Integral test series">
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>For a series $ \displaystyle\sum_{n = b}^\infty a_n$, The integral test says</p>
+            <p>Create a function $f(n) = a_n$</p>
+            <p>If there is a finite point $k$ where the following is always true after said point on $[k,\infty)$,</p>
+            <ol>
+                <li>$f(n)$ is continuous</li>
+                <li>$f(n) > 0$ ($f(n)$ is positive)</li>
+                <li>$f'(n) < 0$ ($f(n)$ is decreasing)</li>
+            </ol>
+            <p>Then if,</p>
+            <p>$$\begin{align} 
+                \int_k^\infty{f(n) \ dn} &\text{ Converges, then } \sum_{n = b}^\infty a_n \text { Converges} \\
+                \int_k^\infty{f(n) \ dn} &\text{ Diverges, then } \sum_{n = b}^\infty a_n \text { Diverges}
+            \end{align}$$</p>
+            <hr>
+            <h3>Why Does This Work?</h3>
+            <p>The core idea behind the integral test is that a definite integral represent a continuous sum</p>
+            <p>This can be seen in the <a href="../../calculus 1/integrals/definition of the definite integral.html">definition of the definite integral</a></p>
+            <p>The series represents a discrete sum</p>
+            <p>If we graph the function $f(n)$ alongside rectangles with width 1 and height $a_n$ using the left endpoint</p>
+            <img src="assets/svg/integral test lower.svg">
+            <p>We see the total areas of the rectangles is smaller than actual area under the curve (the integral)</p>
+            <p>This means if the integral converges, then so does the series because the series is less than the integral</p>
+            <br>
+            <p>We can also apply this when the series overshoots the area (using the right endpoint by doing $a_{n+1}$)</p>
+            <img src="assets/svg/integral test upper.svg">
+            <p>Here the area of the rectangles is larger than the actual area under the curve</p>
+            <p>So if the integral diverges, so does the series because the series is larger than the integral</p>
+            <br>
+            <p>How do we know if its under or over estimate?</p>
+            <p>We can do both, but one of them is gonna give one of the following the conclusions</p>
+            <ol>
+                <li>The series is larger than the convergent integral</li>
+                <li>The series is smaller than the divergent integral</li>
+            </ol>
+            <p>Both of these statements are essentially useless</p>
+            <p>Do we have to start the integral at $k$?</p>
+            <p>You don't! you can have any finite lower bound $N \geq 1$ because it doesn't effect the convergence/diverge of the integral </p>
+            <hr>
+            <h3>Example</h3>
+            <p>$$\begin{align} 
+                \sum_{n = 2}^\infty {\frac{1}{n\ln(n)}}
+            \end{align}$$</p>
+            <p>First, we need to verify the conditions that we can use the integral test</p>
+            <p>$$\begin{align} 
+                f(n) &= \frac{1}{n\ln(n)} \\
+                f'(n) &= -\frac{\ln(n) + 1}{(n\ln(n))^2} \\
+            \end{align}$$</p>
+            <p>Since the denominator is always positive, the numerator is the only one affecting the sign</p>
+            <p>$$\begin{align} 
+                f'(n) &< 0 \\
+                -\ln(n) + 1 &< 0 \\
+                -\ln(n) &< -1 \\
+                \ln(n) &> 1 &&\text{Flip Inequality}\\
+                n &> e\\
+            \end{align}$$</p>
+            <p>So $f(n)$ is decreasing after $e$, and is clearly positive and continuous in the interval $[e,\infty)$</p>
+            <p>This means we can apply the integral test</p>
+            <p>Let's take the integral</p>
+            <p>$$\begin{align} 
+                \int_e^\infty{\frac{1}{n\ln(n)} \ dn} &= \lim_{t \to \infty}\int_e^t{\frac{1}{n\ln(n)} \ dn} \\
+                u = \ln(n) &, du = 1/n \ dn \\
+                n \to e &, u \to 1 \\
+                n \to t &, u \to \ln(t) \\
+
+                &= \lim_{t \to \infty}\int_1^{\ln(t)}{\frac{1}{u} \ du} \\
+                &= \lim_{t \to \infty} \left[\ln(|u|)\right]_1^{\ln(t)} \\
+                &= \infty \\
+            \end{align}$$</p>
+            <p>So this series diverges</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Determine the convergence or divergence of $\displaystyle\sum_{n = 1}^\infty {\frac{1}{n}}$</summary>
+                            <p>$$\begin{align} 
+                                f(n) &= \frac{1}{n} \\
+                                f'(n) &= -\frac{1}{n^2} \\
+                                f'(n) &< 0 &\text{ For all } n
+                            \end{align}$$</p>
+                            <p>$f(n)$ is clearly decreasing, continuous, and positive from $[1,\infty)$</p>
+                            <p>$$\begin{align} 
+                                \int_1^\infty{\frac{1}{n} \ dn} &= \lim_{t \to \infty}\int_1^t{\frac{1}{n} \ dn} \\
+                                &= \lim_{t \to \infty}\left[\ln(|n|)\right]_1^t \\
+                                &= \infty\\
+
+                            \end{align}$$</p>
+                            <p>So this series diverges by the integral test</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Determine the convergence or divergence of $\displaystyle\sum_{n = 1}^\infty {\frac{e^{1/n}}{n^2}}$</summary>
+                            <p>$$\begin{align} 
+                                f(n) &= \frac{e^{1/n}}{n^2} \\
+                                f'(n) &= -\frac{e^{1/n}(1 + 2x)}{n^4} \\
+                                f'(n) &< 0 &\text{ For all } n \in [1,\infty)
+                            \end{align}$$</p>
+                            <p>$f(n)$ is clearly decreasing, continuous, and positive from $[1,\infty)$</p>
+                            <p>$$\begin{align} 
+                                \int_1^\infty{\frac{e^{1/n}}{n^2} \ dn} &= \lim_{t \to \infty}\int_1^t{\frac{e^{1/n}}{n^2} \ dn} \\
+                                u = 1/n &, du = -1/n^2 \ dn \rightarrow -du = 1/n^2 \ dn\\
+                                n \to 1 &, u \to 1 \\
+                                n \to t &, u \to 1/t \\
+                                &= -\lim_{t \to \infty}\int_1^{1/t}{e^{u} \ du} \\
+                                &= -\lim_{t \to \infty}\left[e^u\right]_1^{1/t} \\
+                                &= -(e^0 - e^1) \\
+                                &= e - 1 \\
+                            \end{align}$$</p>
+                            <p>So this series converges by the integral test</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Determine the convergence or divergence of $\displaystyle\sum_{n = 1}^\infty {n^2e^{-n}}$</summary>
+                            <p>$$\begin{align} 
+                                f(n) &= n^2e^{-n} \\
+                                f'(n) &= 2ne^{-n} - n^2e^{-n} \\
+                                f'(n) &< 0 \\
+                                2ne^{-n} - n^2e^{-n} &< 0 \\
+                                (ne^{-n})(2 - n) &< 0 \\
+                                2 - n &< 0 &&\text{$ne^{-n}$ is always positive}\\
+                                n &></0> 2 \\
+                            \end{align}$$</p>
+                            <p>$f(n)$ is clearly decreasing, continuous, and positive from $[2,\infty)$</p>
+                            <p>$$\begin{align} 
+                                \int_1^\infty{n^2e^{-n} \ dn} &= \lim_{t \to \infty}\int_1^t{n^2e^{-n} \ dn} \\
+                            \end{align}$$</p>
+                            <p>Using the <a href="../integrals/tabular method.html">tabular method</a>,</p>
+                            <p>$$\begin{align} 
+                                &\begin{array} {c | c | c}
+                                S & D & I \\ \hline 
+                                + & n^2 & e^{-n}\\
+                                - & 2n & -e^{-n}\\
+                                + & 2 & e^{-n}\\
+                                - & 0 & -e^{-n}\\
+
+                                \end{array} \\ 
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \lim_{t \to \infty}\int_1^t{n^2e^{-n} \ dn} &= \lim_{t \to \infty}\left[-n^2e^{-n} - 2ne^{-n} - 2e^{-n}\right]_1^t\\
+                                &= \lim_{t \to \infty}\left[-t^2e^{-t} - 2ne^{-t} - 2e^{-t} - (1^2e^{-1} - 2(1)e^{-1} - 2e^{-1})\right]_1^t\\
+                                &= \lim_{t \to \infty}-t^2e^{-t}-  2ne^{-t} - 2e^{-t} - (-1^2e^{-1}- 2(1)e^{-1} - 2e^{-1})\\
+                                &= 0 + 0 + 0 - \left(\frac{1}{e} - \frac{2}{e} - \frac{2}{e}\right)\\
+                                &= \frac{3}{e}\\
+                            \end{align}$$</p>
+                            <p>So this series converges by the integral test</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
