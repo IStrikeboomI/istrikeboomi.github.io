@@ -92,14 +92,15 @@
             <p>If the numerator grows faster, then it results in an infinity</p>
             <p>If the denominator grows faster, then it results at 0</p>
             <p>If they both grow at the same rate, then you need to divide the coefficients for the fastest growing terms</p>
+            <p>This is because since they grow at the same rate, they must be proportional ($f(x) \propto g(x)$)</p>
             <p>For polynomials, it is easy to find the fastest growing function, whichever has the higher degree (largest exponent)</p>
             <p>For example: </p>
             <p>$$\begin{align} 
                 \lim_{x \to \infty} \frac{x^3 - 4x + 2}{x^2 - 9} &= \infty \\
                 \lim_{x \to \infty} \frac{x^2 - \sqrt{x}}{x^3 - 9x + 4} &= 0 \\
-                \lim_{x \to \infty} \frac{3x^2 + \sin(x)}{4x^2 + \cos(x)} &= \frac{5}{4} \\
+                \lim_{x \to \infty} \frac{3x^2 + \sin(x)}{4x^2 + \cos(x)} &= \frac{3}{4} \\
             \end{align}$$</p>
-            <p>For the last limit, the $\sin(x)$ and $\cos(x)$ don't matter because they are bounded, which means they can't grow infintly</p>
+            <p>For the last limit, the $\sin(x)$ and $\cos(x)$ don't matter because they are bounded on $[-1,1]$, which means they can't grow infintly</p>
             <p>If a function is bounded it also means it has a fixed range</p>
             <h3>AVOID INDETERMINATE FORMS!</h3>
             <p>Read up on <a href="/notes/calculus 1/limits/indeterminate forms.html">Indeterminate Forms</a> and make sure to avoid them</p>
@@ -113,40 +114,40 @@
                 <ul class="no-bullets">
                     <li>
                         <details>
-                            <summary>$\lim\limits_{x \to \infty} ln(x)$</summary>
-                            <p>$ln(x)$ grows without bounds</p>
+                            <summary>$\lim\limits_{x \to \infty} \ln(x)$</summary>
+                            <p>$\ln(x)$ grows without bounds</p>
                             <p>$$\begin{align} 
-                                \lim\limits_{x \to \infty} ln(x) = \infty
+                                \lim\limits_{x \to \infty} \ln(x) = \infty
                             \end{align}$$</p>
                         </details>
                     </li>
                     <li>
                         <details>
-                            <summary>$\lim\limits_{x \to 0} ln(|x|)$</summary>
-                            <p>$ln(|x|)$ has an asymptote at $0$</p>
+                            <summary>$\lim\limits_{x \to 0} \ln(|x|)$</summary>
+                            <p>$\ln(|x|)$ has an asymptote at $0$</p>
                             <p>$$\begin{align} 
-                                \lim\limits_{x \to 0} ln(|x|) = -\infty
+                                \lim\limits_{x \to 0} \ln(|x|) = -\infty
                             \end{align}$$</p>
                         </details>
                     </li>
                     <li>
                         <details>
-                            <summary>$\lim\limits_{x \to \infty} \frac{sin(x)}{x}$</summary>
-                            <p>$sin(x)$ is bounded, but $x$ isn't so it overtakes</p>
+                            <summary>$\lim\limits_{x \to \infty} \frac{\sin(x)}{x}$</summary>
+                            <p>$\sin(x)$ is bounded, but $x$ isn't so it overtakes</p>
                             <p>We get $\frac{1}{\infty}$ case so 0</p>
                             <p>$$\begin{align} 
-                                \lim\limits_{x \to \infty} \frac{sin(x)}{x} = 0
+                                \lim\limits_{x \to \infty} \frac{\sin(x)}{x} = 0
                             \end{align}$$</p>
                         </details>
                     </li>
                     <li>
                         <details>
-                            <summary>$\lim\limits_{x \to \infty} sin(x)$</summary>
-                            <p>$sin(x)$ is bounded, but it oscillates between $[-1,1]$ periodically</p>
+                            <summary>$\lim\limits_{x \to \infty} \sin(x)$</summary>
+                            <p>$\sin(x)$ is bounded, but it oscillates between $[-1,1]$ periodically</p>
                             <p>This means at infinity, it doesn't really approach anything because it's some unknown value within the range</p>
                             <p>So, the limit does not exist</p>
                             <p>$$\begin{align} 
-                                \lim\limits_{x \to \infty} sin(x) = DNE
+                                \lim\limits_{x \to \infty} \sin(x) = DNE
                             \end{align}$$</p>
                         </details>
                     </li>
@@ -162,9 +163,9 @@
                     </li>
                     <li>
                         <details>
-                            <summary>$\lim\limits_{x \to \infty} x^2ln(x)$</summary>
+                            <summary>$\lim\limits_{x \to \infty} x^2\ln(x)$</summary>
                             <p>$$\begin{align} 
-                                \lim\limits_{x \to \infty} x^2ln(x) &= \lim\limits_{x \to \infty} x^2 \cdot \lim\limits_{x \to \infty} ln(x) \\
+                                \lim\limits_{x \to \infty} x^2\ln(x) &= \lim\limits_{x \to \infty} x^2 \cdot \lim\limits_{x \to \infty} \ln(x) \\
                                 &= \infty \cdot \infty \\
                                 &= \infty
                             \end{align}$$</p>

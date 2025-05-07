@@ -15,9 +15,11 @@
     </head>
     <body>
         <div id="content">
-            <p>Content</p>
+            <p>The Improper Integral Comparison Tests are the <b>Direct Comparison Test</b> and the <b>Limit Comparison Test</b></p>
+            <p>These tests can help you determine wheter or not an improper integral covnerges or diverges</p>
+            <p>These also allow you to solve integrals you wouldn't be able to otherwise by comparing to a simpler integral</p>
             <hr>
-            <h3>Direct Comparison Test</h3>
+            <h3>Direct Comparison Test (DCT)</h3>
             <p>Let $f(x)$ and $g(x)$ be positive and continuous on $[a,\infty)$</p>
             <p>If $g(x) \geq f(x)$, then</p>
             <p>$$\begin{align} 
@@ -26,15 +28,124 @@
 
             \end{align}$$</p>
             <hr>
+            <h3>Limit Comparison Test (LCT)</h3>
+            <p>Let $f(x)$ and $g(x)$ be positive and continuous on $[a,\infty)$</p>
+            <p>If </p>
+            <p>$$\begin{align} 
+                \lim_{x \to \infty} \frac{f(x)}{g(x)} = L
+                \end{align}$$</p>
+            <p>Where $L$ is a positive, finite number ($0 < L < \infty$), then</p>
+            <p>$$\begin{align} 
+                \int_{a}^{\infty}{f(x) \ dx} \text{ And } \int_{a}^{\infty}{g(x) \ dx} \text{ either both converge or diverge}\\
+
+            \end{align}$$</p>
+            <hr>
+            <h3>Why These Work</h3>
+            <p>If one function is always greater than another function after some point, then the area under is also greater</p>
+            <img src="assets/svg/improper integral comparison.svg">
+            <p>Another core idea is that if an area is smaller than another convergent area, then it should also be convergent</p>
+            <p>Similarly, if an area is larger than another divergent area (infinite area), then it should also be divergent</p>
+            <p>Also, if we are larger than a convergent area or smaller than a divergent area, that means nothing</p>
+            <p>Larger than a convergent area could also be convergent, or it could be infinity</p>
+            <p>Similarly, smaller than a divergent area can also be infinity or it could convergent</p>
+
+            <br>
+            <p>For the limit comparsion test, think about what happens at limits at infinity</p>
+            <p>Since both $f(x)$ and $g(x)$ are positive, the limit should never hit $-\infty$</p>
+            <p>If we get $0$, that means $g(x)$ grows faster, which once again tells us nothing</p>
+            <p>If we get $\infty$, that means $f(x)$ grows faster, which once again tells us nothing</p>
+            <p>If we get a finite number, that means $f(x)$ and $g(x)$ grow at the same rate, so they are proportional ($f(x) \propto g(x)$)</p>
+            <p>This means they must have the same end behavior</p>
+            <hr>
             <details open>
                 <summary>Practice Problems</summary>
                 <ul class="no-bullets">
                     <li>
                         <details>
-                            <summary>Practice 1</summary>
+                            <summary>Determine if $\int_1^\infty{\frac{1}{x^3 + 1} \ dx}$ Converges or Diverges</summary>
+                            <p>We could solve this using partial fraction decompisition, but it's easier to compare instead</p>
                             <p>$$\begin{align} 
-
+                                \int_1^\infty{\frac{1}{x^3 + 1} \ dx}
                             \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                x^3 + 1 &> x^3 \\
+                                \frac{1}{x^3 + 1} &< \frac{1}{x^3} \\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \int_1^\infty{\frac{1}{x^3} \ dx} &= \lim_{t \to \infty}\int_1^t{\frac{1}{x^3} \ dx} \\
+                                &= \lim_{t \to \infty}\left[-\frac{1}{2x^2}\right]_1^t \\
+                                &= \frac{1}{2}
+                            \end{align}$$</p>
+                            <p>Since the integral we compared with converges and is larger, the original integral <b>converges</b></p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Determine if $\int_1^\infty{\frac{\sin^2(x)}{x^2} \ dx}$ Converges or Diverges</summary>
+                            <p>This integral we can't solve so we have to compare</p>
+                            <p>$$\begin{align} 
+                                \int_1^\infty{\frac{\sin^2(x)}{x^2} \ dx}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                0 \leq \sin^2(x) &\leq 1 \\
+                                \frac{\sin^2(x)}{x^2} &\leq \frac{1}{x^2} \\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \int_1^\infty{\frac{1}{x^2} \ dx} &= \lim_{t \to \infty}\int_1^t{\frac{1}{x^2} \ dx} \\
+                                &= \lim_{t \to \infty}\left[-\frac{1}{x}\right]_1^t \\
+                                &= 1
+                            \end{align}$$</p>
+                            <p>Since the integral we compared with converges and is larger, the original integral <b>converges</b></p>
+                        </details>
+                    </li>
+                    <li>
+                        <details >
+                            <summary>Determine if $\int_1^\infty{\frac{e^{-x}}{\sqrt{x}} \ dx}$ Converges or Diverges</summary>
+                            <p>This integral we can't solve so we have to compare</p>
+                            <p>$$\begin{align} 
+                                \int_1^\infty{\frac{e^{-x}}{\sqrt{x}} \ dx}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                0 \leq e^{-x} &\leq 1 &&\text{ For all $x > 1$}\\
+                                \frac{e^{-x}}{\sqrt{x}} &\leq \frac{1}{\sqrt{x}} &&\text{ For all $x > 1$}\\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \int_1^\infty{\frac{1}{\sqrt{x}} \ dx} &= \lim_{t \to \infty}\int_1^t{\frac{1}{\sqrt{x}} \ dx} \\
+                                &= \lim_{t \to \infty}\left[2\sqrt{x}\right]_1^t \\
+                                &= \infty
+                            \end{align}$$</p>
+                            <p>Since the function is smaller, but the larger function gave us infinity, we need to compare to somthing else</p>
+                            <p>$$\begin{align} 
+                                e^{x} &\geq x &&\text{For all $x$}\\
+                                e^{-x} &\leq \frac{1}{x} &&\text{Flip Inequality}\\
+                                \frac{e^{-x}}{\sqrt{x}} &\leq \frac{1}{x\sqrt{x}} \\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \int_1^\infty{\frac{1}{x\sqrt{x}} \ dx} &= \lim_{t \to \infty}\int_1^t{x^{-3/2} \ dx} \\
+                                &= \lim_{t \to \infty}\left[-\frac{2}{\sqrt{x}}\right]_1^t \\
+                                &= 2
+                            \end{align}$$</p>
+                            <p>Since the integral we compared with converges and is larger, the original integral <b>converges</b></p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Determine if $\int_2^\infty{\frac{x^2 + 3x + 5}{x^3 + x + 7} \ dx}$ Converges or Diverges</summary>
+                            <p>This integral we can solve, but it will be difficult, so we can compare it using the LCT</p>
+                            <p>I will choose to compare with $1/x$ because the leading terms can simplifiy down to it</p>
+                            <p>$$\begin{align} 
+                                \frac{x^2}{x^3} = \frac{1}{x}
+                            \end{align}$$</p>
+                            <p>Remeber when doing the limit, we are diving by $1/x$, which is the same as multiplying by $x$</p>
+                            <p>$$\begin{align} 
+                                \lim_{x\to \infty}\frac{x^2 + 3x + 5}{x^3 + x + 7} \cdot \frac{x}{1} = \lim_{x\to \infty}\frac{x^3 + 3x^2 + 5x}{x^3 + x + 7} = 1  
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \int_1^\infty{\frac{1}{x} \ dx} &= \lim_{t \to \infty}\int_1^t{\frac{1}{x} \ dx} \\
+                                &= \lim_{t \to \infty}\left[\ln(|x|)\right]_1^t \\
+                                &= \infty
+                            \end{align}$$</p>
+                            <p>Since the limit result is finite, the integrals are proportional, and since one of them diverges, the original integral <b>diverges</b></p>
                         </details>
                     </li>
                 </ul>
