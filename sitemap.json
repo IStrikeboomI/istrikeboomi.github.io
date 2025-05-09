@@ -122,6 +122,7 @@
                     {"name":"series","title":"Series"},
                     {"name":"integral test","title":"Integral Test"},
                     {"name":"p-series test","title":"P-Series Test"},
+                    {"name":"ratio test","title":"Ratio Test"},
                     {"name":"taylor series","title":"Taylor Series"}
 
                 ]

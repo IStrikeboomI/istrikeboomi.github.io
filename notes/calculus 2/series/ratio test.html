@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Ratio Test</title>
+        <meta name="description" content="Ratio Test">
+        <meta name="keywords" content="ratio test">
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>The Ratio Test for a series $\displaystyle\sum_{n=k}^\infty{a_n}$ states:</p>
+            <p>$$\begin{align} 
+                \lim_{n \to \infty}{\left|\frac{a_{n+1}}{a_n}\right|} = L \\
+            \end{align}$$</p>
+            <p>If $L < 1$, the series converges absolutely (it converges) </p>
+            <p>If $L > 1$, the series diverges </p>
+            <p>If $L = 1$, the test is inconclusive</p>
+            <p>The ratio test is best applied with series involving factorials or exponentials</p>
+            <hr>
+            <h3>Examples: </h3>
+            <p>$$\begin{align} 
+                \sum_{n=1}^\infty{\frac{n3^n}{n!}}
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                &\lim_{n \to \infty}{\left|\frac{(n+1)3^{n+1}}{(n+1)!} \cdot \frac{n!}{n3^n}\right|} \\
+                &\lim_{n \to \infty}{\left|\frac{(n+1)3^{n}3}{(n+1)n!} \cdot \frac{n!}{n3^n}\right|} \\
+                &\lim_{n \to \infty}{\left|\frac{3}{n}\right|} = 0\\
+
+            \end{align}$$</p>
+            <p>Since $0 < 1$, this series converges absolutely </p>
+            <p>$$\begin{align} 
+                \sum_{n=1}^\infty{\frac{n^n}{n!}}
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                &\lim_{n \to \infty}{\left|\frac{(n+1)^{n+1}}{(n+1)!} \cdot \frac{n!}{n^n}\right|} \\
+                &\lim_{n \to \infty}{\left|\frac{(n+1)^{n}(n+1)}{(n+1)n^n}\right|} \\
+                &\lim_{n \to \infty}{\left|\frac{(n+1)^{n}}{n^n}\right|} \\
+                &\lim_{n \to \infty}{\left(\frac{n+1}{n}\right)^n} &&\text{Inner Limit Is Always Positive}\\
+                &\lim_{n \to \infty}{\left(n + \frac{1}{n}\right)^n} = e &&\text{Limit Defintion of $e$}\\
+            \end{align}$$</p>
+            <p>Since $e > 1$, this series diverges</p>
+            <hr>
+            <details open>
+                <summary>Proof</summary>
+                <p>Let: </p>
+                <p>$$\begin{align} 
+                    \lim_{n \to \infty}{\left|\frac{a_{n+1}}{a_n}\right|} = L \\
+                \end{align}$$</p>
+                <p>If $L < 1$:</p>
+                <p>Take $r$ such that $L < r < 1$</p>
+                <p>For large $n \geq N$ (because the limit is going to $\infty$): $\left|\frac{a_{n+1}}{a_n}\right| < r < 1$</p>
+                <p>$$\begin{align} 
+                    \left|\frac{a_{n+1}}{a_n}\right| < r \rightarrow \left|a_{n+1}\right| < r|a_n| \\
+                    \left|a_{N+1}\right| < r|a_N| &&\tag{1} \\
+                    \left|a_{N+2}\right| < r|a_{N+1}| < r(r|a_n|) &&\text{By (1)} \\
+                    \left|a_{N+2}\right| < r|a_{N+1}| < r^2|a_n|
+                \end{align}$$</p>
+                <p>We can generalize this:</p>
+                <p>$$\begin{align} 
+                    \left|a_{N+k}\right| &< r^k|a_N| \\
+                    \sum_{i = b}^\infty{\left|a_{N+k}\right|} &< \sum_{i = b}^\infty{r^k|a_N|} \\
+                \end{align}$$</p>
+                <p>We know the right series is a geometric series, so it converges if $r < 1$ (which was established earlier)</p>
+                <p>And by using direct comparison test, the series on the right also converges</p>
+                <p>We can rewrite the series on the right into our original series by splitting the series</p>
+                <p>$$\begin{align} 
+                    \sum_{n = 1}^\infty{|a_n|} = \sum_{n = 1}^N{\left|a_{n}\right|} + \sum_{n = N+1}^\infty{\left|a_{n}\right|}
+                \end{align}$$</p>
+                <p>So this series is convergent, which makes our original series absolutely convergent</p>
+                <br>
+                <p>If $L > 1$:</p>
+                <p>$$\begin{align} 
+                    \left|\frac{a_{n+1}}{a_n}\right| > 1
+                \end{align}$$</p>
+            </details>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Determine Convergence Or Divergence of $\displaystyle\sum_{n=0}^\infty{\frac{(-1)^n 3^n}{2^n + 1}}$</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n=0}^\infty{\frac{(-1)^n 3^n}{2^n + 1}}
+                            \end{align}$$</p>
+                            <p>Since we are taking the absolute value, we just ignore the $(-1)^n$</p>
+                            <p>$$\begin{align} 
+                                &\lim_{n \to \infty}{\left|\frac{3^{n+1}}{2^{n+1} + 1} \cdot \frac{2^n + 1}{3^n}\right|} \\
+                                &\lim_{n \to \infty}{\left|\frac{3(2^n + 1)}{2^{n+1} + 1}\right|} \\
+                                &3\lim_{n \to \infty}{\left|\frac{2^n + 1}{2^{n+1} + 1}\right|} \\
+                                &3\lim_{n \to \infty}{\left|\frac{1 + 1/2^n}{2 + 1/2^n}\right|} \\
+                                &3\left(\frac{1}{2}\right) = \frac{3}{2}\\
+                            \end{align}$$</p>
+                            <p>Since $3/2 > 1$, this series diverges</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Determine If You Can Apply The Ratio Test for $\displaystyle\sum_{n=0}^\infty{\frac{(2n)!}{(n!)^2 \cdot 4^n}}$</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n=0}^\infty{\frac{(2n)!}{(n!)^2 \cdot 4^n}}
+                            \end{align}$$</p>
+                            <p>Since we are taking the absolute value, we just ignore the $(-1)^n$</p>
+                            <p>$$\begin{align} 
+                                &\lim_{n \to \infty}{\left|\frac{(2(n+1))!}{((n+1)!)^2 \cdot 4^{n+1}} \cdot \frac{(n!)^2 \cdot 4^n}{(2n)!}\right|} \\
+                                &\lim_{n \to \infty}{\left|\frac{(2n+2)!}{((n+1)n!)^2 \cdot 4^{n+1}} \cdot \frac{(n!)^2 \cdot 4^n}{(2n)!}\right|} \\
+                                &\lim_{n \to \infty}{\left|\frac{(2n+2)(2n+1)(2n!)}{(n+1)^2n!^2 \cdot 4^{n}4} \cdot \frac{(n!)^2 \cdot 4^n}{(2n)!}\right|} \\
+                                &\lim_{n \to \infty}{\left|\frac{(2n+2)(2n+1)}{(n+1)^2 \cdot 4}\right|} \\
+                                &\lim_{n \to \infty}{\left|\frac{4n^2 + 6n + 2}{(n^2 + 2n + 1)\cdot 4}\right|} \\
+                                &\lim_{n \to \infty}{\left|\frac{4n^2 + 6n + 2}{4n^2 + 8n + 4}\right|} = 1\\
+                            \end{align}$$</p>
+                            <p>Since $1 = 1$, you cannot apply the ratio test</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Determine Convergence Or Divergence of $\displaystyle\sum_{n=0}^\infty{\frac{(-1)^n n^2}{2^n}}$</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n=0}^\infty{\frac{(-1)^n n^2}{2^n}}
+                            \end{align}$$</p>
+                            <p>Since we are taking the absolute value, we just ignore the $(-1)^n$</p>
+                            <p>$$\begin{align} 
+                                &\lim_{n \to \infty}{\left|\frac{(n+1)^2}{2^{n + 1}} \cdot \frac{2^n}{n^2}\right|} \\
+                                &\lim_{n \to \infty}{\left|\frac{(n+1)^2}{(n^2)2}\right|} \\
+                                &\lim_{n \to \infty}{\left|\frac{n^2 + 2n + 1}{2n^2}\right|} = \frac{1}{2}\\
+
+                            \end{align}$$</p>
+                            <p>Since $1/2 < 1$, this series converges</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
