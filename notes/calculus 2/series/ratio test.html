@@ -47,7 +47,7 @@
             \end{align}$$</p>
             <p>Since $e > 1$, this series diverges</p>
             <hr>
-            <details open>
+            <details >
                 <summary>Proof</summary>
                 <p>Let: </p>
                 <p>$$\begin{align} 
@@ -77,7 +77,11 @@
                 <br>
                 <p>If $L > 1$:</p>
                 <p>$$\begin{align} 
-                    \left|\frac{a_{n+1}}{a_n}\right| > 1
+                    \left|\frac{a_{n+1}}{a_n}\right| > 1 \rightarrow |a_{n+1}| > |a_n|
+                \end{align}$$</p>
+                <p>This means the sequence is increasing, which means the series cannot converge by the test for divergence</p>
+                <p>$$\begin{align} 
+                    \lim_{n \to \infty}|a_n| \neq 0 \rightarrow \lim_{n \to \infty}a_n \neq 0
                 \end{align}$$</p>
             </details>
             <hr>
