@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Taylor Series</title>
+        <meta name="description" content="Taylor and Maclaurin Series">
+        <meta name="keywords" content="taylor maclaurin series">
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Taylor Series are a powerful tool that let's you turn an infinitely differentiable function into a power series</p>
+            <p>A Taylor Series of $f(x)$ centered at $a$:</p>
+            <p>$$\begin{align} 
+                f(x) = \sum_{n = 0}^\infty{\frac{f^{(n)}(a)}{n!}(x-a)^n}
+            \end{align}$$</p>
+            <p>A Maclaurin Series is a taylor series centered at $0$: </p>
+            <p>$$\begin{align} 
+                f(x) = \sum_{n = 0}^\infty{\frac{f^{(n)}(0)}{n!}x^n}
+            \end{align}$$</p>
+            <p>$f^{(n)}(a)$ denotes the $n$'th derivative of $f(x)$ evaluated at $a$</p>
+            <p>$f(x)$ must be infinitely differentiable, which means any of the derivatives will never be 0</p>
+            <hr>
+            <h3>Why This Works</h3>
+            <p>The goal we are trying to do is write $f(x)$ as a power series</p>
+            <p>$$\begin{align} 
+                f(x) = \sum_{n = 0}^\infty{c_n(x-a)^n} = c_0 + c_1(x-a) + c_2(x-a)^2 + c_3(x-a)^3 + \ldots
+            \end{align}$$</p>
+            <p>How could we find $c_n$? Well $c_0$ is easy to find, we just plug in $a$</p>
+            <p>$$\begin{align} 
+                f(x) = c_0 + c_1(a-a) + c_2(a-a)^2 + c_3(a-a)^3 + \ldots = c_0
+            \end{align}$$</p>
+            <p>Plugging in $a$ makes all the terms with an $(x-a)$ into a $0$ so only the first term remains</p>
+            <p>So how would we get the rest of the terms of $c_n$?</p>
+            <p>The goal is to get rid of the first term and leave the next term the only one without an $(x-a)$</p>
+            <p>How could we do that? With a derivative!</p>
+            <p>$$\begin{align} 
+                f(x) &= c_0 + c_1(x-a) + c_2(x-a)^2 + c_3(x-a)^3 + c_4(x-a)^4 + c_5(x-a)^5 + \ldots \\
+                f'(x) &= c_1 + 2c_2(x-a) + 3c_3(x-a)^2 + 4c_4(x-a)^3 + 5c_5(x-a)^4 + \ldots \\
+                f''(x) &= 2c_2 + 3 \cdot 2c_3(x-a) + 4 \cdot 3c_4(x-a)^2 + 5 \cdot 4c_5(x-a)^3 + \ldots \\
+                f'''(x) &= 3 \cdot 2c_3 + 4 \cdot 3 \cdot 2c_4(x-a) + 5 \cdot 4 \cdot 3c_5(x-a)^2+ \ldots  \\
+                f^{(4)}(x) &= 4 \cdot 3 \cdot 2c_4 + 5 \cdot 4 \cdot 3 \cdot 2c_5(x-a)+ \ldots  \\
+                f^{(5)}(x) &= 5 \cdot 4 \cdot 3 \cdot 2c_5 + \ldots \\
+                f^{(n)}(x) &= n!c_n + (n+1)!c_{n+1}(x-a) + \ldots \\
+            \end{align}$$</p>
+            <p>The factorial shows up because when we use the power rule, the exponent multiplies on the outside</p>
+            <p>If we evaluate each at $a$: </p>
+            <p>$$\begin{align} 
+                f(a) &= c_0 \\
+                f'(a) &= c_1\\
+                f''(a) &= 2c_2 \\
+                f'''(a) &= 3 \cdot 2c_3  \\
+                f^{(4)}(a) &= 4 \cdot 3 \cdot 2c_4\\
+                f^{(5)}(a) &= 5 \cdot 4 \cdot 3 \cdot 2c_5\\
+                f^{(n)}(a) &= n!c_n \rightarrow c_n = \frac{f^{(n)}(a)}{n!}\\
+            \end{align}$$</p>
+            <p>We've got our coefficient! we can plug this back into our power series to get the taylor series</p>
+            <p>$$\begin{align} 
+                f(x) = \sum_{n = 0}^\infty{\frac{f^{(n)}(a)}{n!}(x-a)^n} = f(a) + f'(a)(x-a) + \frac{f''(a)(x-a)^2}{2!} + \ldots
+            \end{align}$$</p>
+            <p>And for a maclaurin series: </p>
+            <p>$$\begin{align} 
+                f(x) = \sum_{n = 0}^\infty{\frac{f^{(n)}(0)}{n!}(x-a)^n} = f(0) + f'(0)x + \frac{f''(0)}{2!}x^2 + \frac{f'''(0)}{3!}x^3 \ldots
+            \end{align}$$</p>
+            <hr>
+            <h3>Example: Finding Maclaurin Series For $e^x$</h3>
+            <p>To find a maclaurin series, list a few derivatives at the center point and find a pattern for it</p>
+            <p>$$\begin{align} 
+                f(x) &= e^x \\
+                f'(x) &= e^x \\
+                f''(x) &= e^x \\
+                f'''(x) &= e^x \\
+                \vdots
+                \end{align}$$</p>
+            <p>evaluating these at the center point of $0$</p> 
+            <p>$$\begin{align} 
+                f(0) &= 1 \\
+                f'(0) &= 1 \\
+                f''(0) &= 1 \\
+                f'''(0) &= 1 \\
+                \vdots
+                \end{align}$$</p>
+            <p>We can see easily that $c_n = 1$, plugging these back into the series</p>
+            <p>$$\begin{align} 
+                e^x = \sum_{n = 0}^\infty{\frac{x^n}{n!}}
+            \end{align}$$</p>
+            <p>Now this is not an approximation for $e^x$, it is $e^x$, just in series form</p>
+            <p>This shows how powerful taylor series are because they can make a difficult to compute function into just addition and multiplication</p>
+            <p>We also need to check the radius of convergence for this power series, I wil use the ratio test (because of the factorial)</p>
+            <p>$$\begin{align} 
+                \lim_{n \to \infty}{\left|\frac{x^{n+1}}{(n+1)!} \cdot \frac{n!}{x^{n}}\right|} =  \lim_{n \to \infty}{\left|\frac{x}{n+1}\right|} = |x| \cdot \lim_{n \to \infty}{\left|\frac{1}{n+1}\right|} = |x| \cdot 0 = 0 \\
+                0 < 1
+                \end{align}$$</p>
+                <p>This shows the radius of convergence is infinity, so this series works everywhere</p>
+            <p>Note: this method might not work for all functions like the following</p>
+            <p>$$\begin{align} 
+                f(x) = \begin{cases}
+                e^{1/x^2} & \text{if } x \neq 0\\
+                0 & \text{if } x = 0
+                \end{cases}
+            \end{align}$$</p>
+            <p>While it is infinitely differentiable, all the derivatives at 0 go to 0 so you can't make a series</p>
+
+            <hr>
+            <h3>Common Maclaurin Series</h3>
+            <p>These are common functions and while it's not necessary to memorize it, it's good to know them</p>
+            <p>The following series converge for all $x$ unless specified otherwise</p>
+            <p>$$\begin{align} 
+                e^x &= \sum_{n = 0}^\infty{\frac{x^n}{n!}} \\
+                \sin(x) &= \sum_{n = 0}^\infty{\frac{(-1)^nx^{2n + 1}}{(2n + 1)!}} \\
+                \cos(x) &= \sum_{n = 0}^\infty{\frac{(-1)^nx^{2n}}{(2n)!}} \\
+                \tan^{-1}(x) &= \sum_{n = 0}^\infty{\frac{(-1)^nx^{2n + 1}}{2n + 1}} &&\text{For all $|x| \leq 1$}\\
+                \ln(1 + x) &= \sum_{n = 1}^\infty{\frac{(-1)^{n+1}x^{n}}{n}} &&\text{For all $-1 < x \leq 1$}\\
+                \frac{1}{1 - x} &= \sum_{n = 0}^\infty{x^n} &&\text{For all $|x| < 1$}\\
+
+                \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Find the Taylor Series for $f(x) = \frac{1}{x^2 + 1}$ centered at 1, and find its radius of convergence</summary>
+                            <p>$$\begin{align} 
+                                f(x)    &= \frac{1}{x^2 + 1}\\
+                                f'(x)   &= -\frac{2x}{(x^2 + 1)^2}\\
+                                f''(x)   &= \frac{2(3x^2-1)}{(x^2 + 1)^3}\\
+                                f'''(x)   &= -\frac{24x(x^2-1)}{(x^2 + 1)^4}\\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                f(1)    &= \frac{1}{1^2 + 1} = \frac{1}{2}\\
+                                f'(1)   &= -\frac{2(1)}{(1^2 + 1)^2} = -\frac{1}{2}\\
+                                f''(1)  &= \frac{2(3(1)^2-1)}{((1)^2 + 1)^3} = \frac{1}{2}\\
+                                f'''(1)  &= -\frac{24(1)((1)^2-1)}{((1)^2 + 1)^4} = -\frac{1}{2}\\
+                            \end{align}$$</p>
+                            <p>We can simplify to $c_n = (-1)^n(\frac{1}{2})$</p>
+                            <p>So the series would be: </p>
+                            <p>$$\begin{align} 
+                                \frac{1}{x^2 + 1} = \sum_{n = 0}^\infty{\frac{(-1)^n}{2(n!)}(x-1)^n}
+                            \end{align}$$</p>
+                            <p>To find the radius of convergence, I'll use the ratio test</p>
+                            <p>$$\begin{align} 
+                                \lim_{n \to \infty}{\left|\frac{(x-1)^{n+1}}{2(n+1)!} \cdot \frac{2(n!)}{(x-1)^n}\right|} = \lim_{n \to \infty}{\left|\frac{x-1}{n+1}\right|} = |x-1|\lim_{n \to \infty}{\left|\frac{1}{n+1}\right|} = |x-1| \cdot 0 = 0 \\
+                                0 < 1
+                            \end{align}$$</p>
+                            <p>So the radius of convergence is infinite</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Use the Taylor Series for $e^x$ to approximate $e$ with 6 terms</summary>
+                            <p>$$\begin{align} 
+                                e^x &= \sum_{n = 0}^\infty{\frac{x^n}{n!}} \\
+                                e = e^1 &= \sum_{n = 0}^\infty{\frac{1}{n!}}
+                            \end{align}$$</p>
+                            <p>the first 6 terms are: </p>
+                            <p>$$\begin{align} 
+                               &\frac{1}{0!} + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \frac{1}{5!} \\
+                               &=\frac{1}{1} + \frac{1}{1} + \frac{1}{2} + \frac{1}{6} + \frac{1}{24} + \frac{1}{120} \\
+                               &= \frac{1957}{720} \\
+                               &\approx 2.71805\overline{55}
+                            \end{align}$$</p>
+                            <p>This is close to $e$ up to 2 decimals ($e \approx 2.71828182846$)</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the Maclaurin Series for $\sin(2x)$ (Hint: Use the maclaurin series for $\sin(x)$)</summary>
+                            <p>Since the maclaurin series for $\sin(x)$ is equal to $\sin(x)$, we can just plug $2x$ into $x$ and get a valid series</p>
+                            <p>$$\begin{align} 
+                                \sin(x) &= \sum_{n = 0}^\infty{\frac{(-1)^nx^{2n + 1}}{(2n + 1)!}} \\
+                                \sin(2x) &= \sum_{n = 0}^\infty{\frac{(-1)^n(2x)^{2n + 1}}{(2n + 1)!}} \\
+                                &= \sum_{n = 0}^\infty{\frac{(-1)^n2^{2n+1}x^{2n + 1}}{(2n + 1)!}} \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
