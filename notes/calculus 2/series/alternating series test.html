@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Alternating Series Test</title>
+        <meta name="description" content="alternating series test">
+        <meta name="keywords" content="alternating series">
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>The Alternating Series Test (AST) says for an alternating series in the form of:</p>
+            <p>$$\begin{align} 
+                \sum_{n = k}^\infty{(-1)^n b_n} \text{ Or } \sum_{n = k}^\infty{(-1)^{n \pm 1} b_n}
+            \end{align}$$</p>
+            <p>The series converges if:</p>
+            <ol>
+                <li><p>$b_n$ is decreasing after some point</p></li>
+                <li><p>$b_n > 0$ after some point</p></li>
+                <li><p>$\lim\limits_{n \to \infty}b_n = 0$</p></li>
+            </ol>
+            <p>Otherwise, it diverges</p>
+            <br>
+            <p>The idea behind the alternating series test, is that the positive terms overshoot</p>
+            <p>The negative terms undershoot</p>
+            <p>Since the series is decreasing, the under and over shoots cancel out and converge to $S$</p>
+            <img src="assets/svg/alternating series test.svg">
+            <hr>
+            <h3>Examples</h3>
+            <p>$$\begin{align} 
+                \sum_{n = 1}^\infty{(-1)^n \frac{1}{n}}
+            \end{align}$$</p>
+            <p>First we need to check if the sequence is decreasing</p>
+            <P>$f(n) = \frac{1}{n} \rightarrow f'(n) = -\frac{1}{2}$</P>
+            <p>$f'(n) < 0$, For all $n$, so this is decreasing</p>
+            <p>$$\begin{align} 
+                \lim_{n \to \infty}{\frac{1}{n}} = 0
+            \end{align}$$</p>
+            <p>So this series converges</p>
+            <br>
+            <p>$$\begin{align} 
+                \sum_{n = 1}^\infty{(-1)^n \arctan\left(\frac{1}{n}\right)}
+            \end{align}$$</p>
+            <p>First we need to check if the sequence is decreasing</p>
+            <p>$$\begin{align} 
+                f(n) &= \arctan\left(\frac{1}{n}\right) \\
+                f'(n) &= \frac{1}{1+(1/x)^2} \cdot -\frac{1}{x^2} \\
+                f'(n) &< 0 &\text{For all $n$}
+            \end{align}$$</p>
+            <p>We have verified this series is decreasing</p>
+            <p>$$\begin{align} 
+                \lim_{n \to \infty}{\arctan\left(\frac{1}{n}\right)} = \arctan(0) = 0
+            \end{align}$$</p>
+            <p>So this series converges</p>
+            <hr>
+            <details>
+                <summary>Proof</summary>
+                <p>$$\begin{align} 
+                    \sum_{n = 1}^\infty{(-1)^n b_n} = b_1 - b_2 + b_3 - b_4 + b_5 + \ldots
+                \end{align}$$</p>
+                <p>First establish that $b_n > b_{n+1}$ (because $b_n$ is decreasing)</p>
+                <p>Also, $b_n - b_{n+1} > 0$</p>
+                <p>$$\begin{align} 
+                    S_2 &= b_1 - b_2 \geq 0 \\
+                    S_4 &= S_2 + b_3 - b_4 \geq S_2 \\
+                    S_6 &= S_4 + b_5 - b_6 \geq S_4 \\
+                    \vdots \\
+                    S_{2n} &= S_{2n - 2} + (b_{2n - 1} + b_{2n}) \geq S_{2n-2}
+                \end{align}$$</p>
+                <p>$$\begin{align} 
+                    0 \leq S_{2} \leq S_{4} \leq S_{6} \leq \ldots \leq S_{2n} \leq b_1
+                \end{align}$$</p>
+                <p>So the sequence $\{S_{2n}\}$ is increasing and bounded above by $b_1$</p>
+                <p>This makes it monotonic and bounded, so it converges</p>
+                <p>$$\begin{align} 
+                    \lim_{n \to \infty}{S_{2n}} = S
+                \end{align}$$</p>
+                <p>That was just for the even indexed partial sums, so for the odds,</p>
+                <p>$$\begin{align} 
+                    \lim_{n \to \infty}{S_{2n + 1}} = \lim_{n \to \infty}{S_{2n} + b_{2n + 1}} = S + 0 = S
+                \end{align}$$</p>
+                <p>Since, they both converge to the same sum, the series converges</p>
+            </details>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Determine the convergence or divergence of $\displaystyle\sum_{n = 1}^\infty{(-1)^n\frac{\sqrt{n + 2}}{n}}$</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n = 1}^\infty{(-1)^n\frac{\sqrt{n + 2}}{n}}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                f(n) &= \frac{\sqrt{n + 2}}{n} \\
+                                f'(n) &= -\frac{x+4}{2x^2\sqrt{x+2}} \\
+                                f'(n) &< 0 &\text{ For all $n > -4$}
+                            \end{align}$$</p>
+                            <p>So the sequence is decreasing for all $n > -4$</p>
+                            <p>$$\begin{align} 
+                                \lim_{n \to \infty}{\frac{\sqrt{n + 2}}{n}} = 0
+                            \end{align}$$</p>
+                            <p>So this series converges</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Determine the convergence or divergence of $\displaystyle\sum_{n = 1}^\infty{(-1)^{n+1}\frac{n}{n - \sqrt{n}}}$</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n = 1}^\infty{(-1)^{n+1}\frac{n}{n - \sqrt{n}}}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                f(n) &= \frac{n}{n - \sqrt{n}} \\
+                                f'(n) &= -\frac{1}{2(\sqrt{x} - 1)^2\sqrt{x}} \\
+                                f'(n) &< 0 &\text{ For all $n$}
+                            \end{align}$$</p>
+                            <p>So the sequence is decreasing for all $n$</p>
+                            <p>$$\begin{align} 
+                                \lim_{n \to \infty}{\frac{n}{n - \sqrt{n}}} = 1
+                            \end{align}$$</p>
+                            <p>So this series diverges because $1 \neq 0$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Determine the convergence or divergence of $\displaystyle\sum_{n = 1}^\infty{\cos(\pi n)ne^{-n}}$</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n = 1}^\infty{\cos(\pi n)ne^{-n}} = \sum_{n = 1}^\infty{(-1)^n\frac{n}{e^n}}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                f(n) &= \frac{n}{e^n} \\
+                                f'(n) &= -\frac{n-1}{e^n} \\
+                                f'(n) &< 0 &\text{ For all $n > 1$}
+                            \end{align}$$</p>
+                            <p>So the sequence is decreasing for all $n > 1$</p>
+                            <p>$$\begin{align} 
+                                \lim_{n \to \infty}{\frac{n}{e^n}} = 0
+                            \end{align}$$</p>
+                            <p>So this series converges</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

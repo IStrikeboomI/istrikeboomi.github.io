@@ -6,18 +6,17 @@
 
 \begin{tikzpicture}[transparency group=knockout]
 
-  \draw (2,0) arc[start angle=0, end angle=360, radius=2];
-  \coordinate (A) at (0,0);
-  \coordinate (B) at (2,0);
-  \coordinate (C) at ({-sqrt(3)},{sqrt(1)});
-
-  \draw pic[draw,fill=blue!30,angle radius=10,"$\theta$",font=\tiny] {angle=B--A--C};    
-  
-  \draw (0,0) --  ({-sqrt(3)},{sqrt(1)}) node[above,midway,sloped] {$1$};
-  \draw[dashed, red] ({-sqrt(3)},{sqrt(1)}) -- ({-sqrt(3)},0) node[below,midway,sloped] {$\sin(\theta)$};
-  \draw[dashed, green] (0,0) -- ({-sqrt(3)},0) node[below,midway,sloped] {$\cos(\theta)$};
-
-  \draw (-2,0) -- (2,0);
-  \draw (0,-2) -- (0,2);
+  \draw[<->, > = stealth, thick] (0, 0) -- (5, 0); 
+  \draw[-latex,color=blue,thick](0,2.5) -- (4,2.5) node[right] {$S_1$};
+  \draw[-latex,color=blue,thick](4,2.0) -- (2,2.0) node[left] {$S_2$};
+  \draw[-latex,color=blue,thick](2,1.5) -- (3,1.5) node[right] {$S_3$};
+  \draw[-latex,color=blue,thick](3,1.0) -- (2.5,1.0) node[left] {$S_4$};
+  \draw[-latex,color=blue,thick](2.5,.5) -- (2.8,.5) node[right] {$S_5$};
+  \draw[-,dashed,color=orange,thick] (4,2.5) -- (4,2);
+  \draw[-,dashed,color=orange,thick] (2,2) -- (2,1.5);
+  \draw[-,dashed,color=orange,thick] (3,1.5) -- (3,1);
+  \draw[-,dashed,color=orange,thick] (2.5,1) -- (2.5,.5);
+  \draw[blue] (2.75,2pt) -- (2.75,-2pt) node[below] {$S$};
+  \foreach \x in {0, 1, ..., 5} {\draw (\x, 2pt)--(\x, -2pt);};
 \end{tikzpicture}
 \end{document}
