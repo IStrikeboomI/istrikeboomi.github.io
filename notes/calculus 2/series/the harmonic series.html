@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>The Harmonic Series</title>
+        <meta name="description" content="The Harmonic Series">
+        <meta name="keywords" content="harmonic series">
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>The Harmonic Series is:</p>
+            <p>$$\begin{align} 
+                H = \sum_{n = 1}^\infty{\frac{1}{n}} = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \ldots
+            \end{align}$$</p>
+            <p>The partial harmonic series is the sum of the first $n$ terms: </p>
+            <p>$$\begin{align} 
+                H_n = \sum_{i = 1}^n{\frac{1}{i}} = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \ldots + \frac{1}{n}
+            \end{align}$$</p>
+            <p>An important relation is that the harmonic series <b>diverges</b></p>
+            <p>$$\begin{align} 
+                \lim_{n \to \infty}{H_n} = H = \infty 
+            \end{align}$$</p>
+            <hr>
+            <h3>Why Does This Diverge?</h3>
+            <p>Let's write out a few terms of the harmonic series</p>
+            <p>$$\begin{align} 
+                H = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} +  \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} + \frac{1}{9} + \frac{1}{10} + \ldots
+            \end{align}$$</p>
+            <p>Now let's make another series where the denominator is replace by the next higher power of two</p>
+            <p>$$\begin{align} 
+                 B = 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{4} +  \frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{16} + \frac{1}{16} + \ldots
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                &1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} +  \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} + \frac{1}{9} + \frac{1}{10} + \ldots \\
+                > &1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{4} +  \frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{16} + \frac{1}{16} + \ldots
+            \end{align}$$</p>
+            <p>We can compare each term of the harmonic series and the $B$ series and see the harmonic series is larger</p>
+            <p>$$\begin{align} 
+                H > B
+            \end{align}$$</p>
+            <p>We can condense the $B$ series </p>
+            <p>$$\begin{align} 
+                 B &= 1 + \left(\frac{1}{2}\right) + \left(\frac{1}{4} + \frac{1}{4}\right) +  \left(\frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8}\right) + \left(\frac{1}{16} + \frac{1}{16} + \ldots + \frac{1}{16}\right) + \ldots \\
+                &= 1 + \frac{1}{2} + \frac{1}{2} +  \frac{1}{2} + \frac{1}{2} + \ldots \\
+                &= \infty
+            \end{align}$$</p>
+            <p>Since we are summing up and infinite amount of $\frac{1}{2}$, the $B$ series is infinity</p>
+            <p>But wait! since the harmonic series is larger than our $B$, and since $B$ is infinity</p>
+            <p>That means that the harmonic series is infinity and it <b>diverges</b></p>
+            <hr>
+            <h3>Table Of Harmonic Series</h3>
+            <p>$$\begin{array} {|r|r|}
+                \hline n & H_n \text{(fraction)} & H_n \text{(decimal)} \\
+                \hline 1 & \displaystyle\frac{1}{1} & 1 \\
+                \hline 2 & \displaystyle\frac{3}{2} & 1.5 \\
+                \hline 3 & \displaystyle\frac{11}{6} & \approx 1.833 \\
+                \hline 4 & \displaystyle\frac{25}{12} & \approx 2.0833 \\
+                \hline 5 & \displaystyle\frac{137}{60} & \approx 2.2833 \\
+                \hline 6 & \displaystyle\frac{49}{20} & 2.45 \\
+                \hline 7 & \displaystyle\frac{363}{140} & \approx 2.59286 \\
+                \hline 8 & \displaystyle\frac{761}{280} & \approx 2.7178 \\
+                \hline 9 & \displaystyle\frac{7129}{2520} & \approx 2.82897 \\
+                \hline 10 & \displaystyle\frac{7381}{2520} & \approx 2.92897 \\ \hline
+            \end{array}$$</p>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

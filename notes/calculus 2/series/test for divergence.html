@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Test For Divergence</title>
+        <meta name="description" content="The Test For Divergence For Series">
+        <meta name="keywords" content="test for divergence tfd TFD">
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>The Test For Divergence (TFD) says for a series:</p>
+            <p>$$\begin{align} 
+                \sum_{n = k}^\infty{a_n}
+            \end{align}$$</p>
+            <p>If: </p>
+            <p>$$\begin{align} 
+                \lim_{n \to \infty}{a_n} \neq 0
+            \end{align}$$</p>
+            <p>Then the series diverges</p>
+            <p><b>IMPORTANT:</b> if the limit does equal zero, the test is inconclusive</p>
+            <p>This means the series could diverge or it could converge</p>
+            <p>This is one the most basic divergence tests</p>
+            <p>It should be used as one of the first tests if the limit "looks" like it won't go to $0$</p>
+            <br>
+            <p>The reasoning behind this test is that if the limit isn't zero at infinity,</p>
+            <p>That means it will be adding a finite amount of terms</p>
+            <p>Example:</p>
+            <p>$$\begin{align} 
+                \sum_{n = k}^\infty{\frac{3n^2}{2n^2 + n}} = \frac{3}{5} + \frac{12}{10} + \frac{27}{21} + \ldots + \frac{3}{2} + \frac{3}{2} + \ldots = \infty
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                \lim_{n \to \infty}\frac{3n^2}{2n^2 + n} = \frac{3}{2} \neq 0
+            \end{align}$$</p>
+            <p>So this series diverges</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Use the TFD on $\displaystyle\sum_{n = 4}^\infty{\frac{e^x}{2^x}}$</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n = 4}^\infty{\frac{e^x}{2^x}}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \lim_{n \to \infty}{\frac{e^x}{2^x}} = \infty
+                            \end{align}$$</p>
+                            <p>So this series diverges</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Use the TFD on $\displaystyle\sum_{n = 1}^\infty{\frac{\sqrt{x}}{x^2}}$</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n = 1}^\infty{\frac{\sqrt{x}}{x^2}}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \lim_{n \to \infty}{\frac{\sqrt{x}}{x^2}} = 0
+                            \end{align}$$</p>
+                            <p>So the TFD is inconclusive so this series could diverge or converge</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Use the TFD on $\displaystyle\sum_{n = 1}^\infty{n}$</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n = 1}^\infty{n}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \lim_{n \to \infty}{n} = \infty
+                            \end{align}$$</p>
+                            <p>So this series diverges</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Use the TFD on $\displaystyle\sum_{n = 1}^\infty{(-1)^n}$</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n = 1}^\infty{(-1)^n}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \lim_{n \to \infty}{(-1)^n} = DNE
+                            \end{align}$$</p>
+                            <p>So this series diverges</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
