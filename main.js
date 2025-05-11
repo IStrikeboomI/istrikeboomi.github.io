@@ -96,7 +96,6 @@ if (request.status === 200) {
                                 let header = document.createElement("h2");
                                 header.innerHTML = n[k].title;
                                 content.prepend(header);
-                                document.title = n[k].title.replaceAll("$","");
 
                                 //create back and forth arrows for notes
                                 let previousNote = document.createElement("a");
