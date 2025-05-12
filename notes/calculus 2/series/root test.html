@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Root Test</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>The Root Test (or Cauchy's n'th root/radical test) for a series $\displaystyle\sum_{n=k}^\infty{a_n}$ states:</p>
+            <p>$$\begin{align} 
+                \lim_{n \to \infty}{\sqrt[n]{|a_n|}} = \lim_{n \to \infty}{|a_n|^{1/n}} = L \\
+            \end{align}$$</p>
+            <p>If $L < 1$, the series converges absolutely (it converges) </p>
+            <p>If $L > 1$, the series diverges </p>
+            <p>If $L = 1$, the test is inconclusive</p>
+            <p>The root test is best applied with series involving exponentials</p>
+            <hr>
+            <h3>Examples</h3>
+            <p>$$\begin{align} 
+                \sum_{n=1}^\infty{\left(\frac{1}{n}\right)^{n}} \\
+                \lim_{n \to \infty}{\left|\left(\frac{1}{n}\right)^{n}\right|^{1/n}} &= \lim_{n \to \infty}{\frac{1}{n}}\\
+                &= 0
+            \end{align}$$</p>
+            <p>And since $0 < 1$, this series converges absolutely, so it <b>converges</b></p>
+            <br>
+            <p>$$\begin{align} 
+                \sum_{n=3}^\infty{\left(2 + \frac{4}{n}\right)^{n}} \\
+                \lim_{n \to \infty}{\left|\left(2 + \frac{4}{n}\right)^{n}\right|^{1/n}} &= \lim_{n \to \infty}{2 + \frac{4}{n}}\\
+                &= 2
+            \end{align}$$</p>
+            <p>And since $2 > 1$, this series <b>diverges</b></p>
+            <hr>
+            <details>
+                <summary>Proof</summary>
+                <p>This proof is very similar to the one in the <a href="ratio test.html">ratio test</a></p>
+                <p>Let: </p>
+                <p>$$\begin{align} 
+                    \lim_{n \to \infty}{\sqrt[n]{|a_n|}} = L \\
+                \end{align}$$</p>
+                <p>If $L > 1$: </p>
+                <p>Take $r$ such that $L < r < 1$</p>
+                <p>For large $n \geq N$ (because the limit is going to $\infty$): $\sqrt[n]{|a_n|} < r < 1$</p>
+                <p>$$\begin{align} 
+                    \sqrt[n]{|a_n|} < r \rightarrow |a_n| < r^n \\
+                    \sum_{n = k}^\infty{|a_n|} < \sum_{n = k}^\infty{r^n}
+                \end{align}$$</p>
+                <p>We know the right series is a geometric series, so it converges if $r < 1$ (which was established earlier)</p>
+                <p>And by using direct comparison test, the series on the right also converges</p>
+                <p>We can rewrite the series on the right into our original series by splitting the series</p>
+                <p>$$\begin{align} 
+                    \sum_{n = 1}^\infty{|a_n|} = \sum_{n = 1}^N{\left|a_{n}\right|} + \sum_{n = N+1}^\infty{\left|a_{n}\right|}
+                \end{align}$$</p>
+                <p>So this series is convergent, which makes our original series absolutely convergent</p>
+                <br>
+                <p>If $L > 1$:</p>
+                <p>$$\begin{align} 
+                    \sqrt[n]{|a_n|} > 1 \rightarrow |a_n| > 1
+                \end{align}$$</p>
+                <p>$$\begin{align} 
+                    \lim_{n \to \infty}|a_n| \neq 0 \rightarrow \lim_{n \to \infty}a_n \neq 0
+                \end{align}$$</p>
+                <p>Which means the series diverges by the <a href="test for divergence.html">Test For Divergence</a></p>
+            </details>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Determine Convergence Or Divergence of $\displaystyle\sum_{n=1}^\infty{\left(\frac{-2n}{6n + \sin(n)}\right)^{2n}}$</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n=1}^\infty{\left(\frac{-2n}{6n + \sin(n)}\right)^{2n}}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \lim_{n \to \infty}{\left|\left(\frac{-2n}{6n + \sin(n)}\right)^{2n}\right|^{1/n}} &= \lim_{n \to \infty}{\left(\frac{2n}{6n + \sin(n)}\right)^{2}} \\
+                                &= \left(\frac{1}{3}\right)^{2} \\
+                                &= \frac{1}{9} < 1 \\
+                            \end{align}$$</p>
+                            <p>So this series <b>converges</b></p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Determine Convergence Or Divergence of $\displaystyle\sum_{n=1}^\infty{\frac{n^n}{e^{n^2}}}$</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n=1}^\infty{\frac{n^n}{e^{n^2}}}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \lim_{n \to \infty}{\left|\frac{n^n}{e^{n^2}}\right|^{1/n}} &= \lim_{n \to \infty}{\frac{n}{e^{n}}} \\
+                                &= 0 < 1 \\
+                            \end{align}$$</p>
+                            <p>So this series <b>converges</b></p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Determine Convergence Or Divergence of $\displaystyle\sum_{n=1}^\infty{\left(1 + \frac{e\sqrt{\pi}}{n}\right)^{n^2}}$</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n=1}^\infty{\left(1 + \frac{e\sqrt{\pi}}{n}\right)^{n^2}}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \lim_{n \to \infty}{\left|\left(1 + \frac{e\sqrt{\pi}}{n}\right)^{n^2}\right|^{1/n}} &= \lim_{n \to \infty}{\left(1 + \frac{e\sqrt{\pi}}{n}\right)^{n}} \\
+                                &= e^{e\sqrt{\pi}} > 1 &&\text{By Limit Definition of $e$}\\
+                            \end{align}$$</p>
+                            <p>So this series <b>diverges</b></p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
