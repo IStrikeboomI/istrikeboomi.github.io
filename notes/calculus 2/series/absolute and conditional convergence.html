@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Absolute And Conditional Convergence</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>A Series $\displaystyle\sum_{n=k}^\infty{a_n}$ is <b>Absolutely Convergent</b> if:</p>
+            <p>$$\begin{align} 
+                \sum_{n=k}^\infty{|a_n|} &\text{ Converges}
+            \end{align}$$</p>
+            <p>A Series $\displaystyle\sum_{n=k}^\infty{a_n}$ is <b>Conditionally Convergent</b> if the following are both true:</p>
+            <p>$$\begin{align} 
+                \sum_{n=k}^\infty{a_n} &\text{ Converges}\\
+                \sum_{n=k}^\infty{|a_n|} &\text{ Diverges}
+            \end{align}$$</p>
+            <br>
+            <p>If a series is absolutely convergent, it is also convergent, the inverse however is not always true</p>
+            <br>
+            <p><b>Riemann series theorem</b> (or Riemann Rearrangement theorem):</p>
+            <p>If a series is absolutely convergent, the terms can be rearranged and give the same sum value</p>
+            <p>If a series is condtionally convergent, the terms can be rearranged to give <b>any</b> sum value</p>
+            <hr>
+            <h3>Using Absolute Convergence To Prove Convergence</h3>
+            <p>$$\begin{align} 
+                \sum_{n = 1}^\infty{\frac{\sin(n)}{2^n}}
+            \end{align}$$</p>
+            <p>We can't use <a href="comparison tests.html">DCT or LCT</a> because the series has negative results</p>
+            <p>However, we can take the absolute value and show that this series is absolutely convergent</p>
+            <p>$$\begin{align} 
+                \sum_{n = 1}^\infty{\left|\frac{\sin(n)}{2^n}\right|} = \sum_{n = 1}^\infty{\frac{|\sin(n)|}{2^n}} &&\text{Because $2^n > 0$}
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                |\sin(n)| &\leq 1 \\
+                \frac{|\sin(n)|}{2^n} &\leq \frac{1}{2^n} \\
+                \sum_{n = 1}^\infty\frac{|\sin(n)|}{2^n} &\leq \sum_{n = 1}^\infty\frac{1}{2^n} \\
+
+            \end{align}$$</p>
+            <p>And Since $\displaystyle\sum_{n = 1}{\frac{1}{2^n}}$ is a convergent geometric series, $\displaystyle\sum_{n = 1}^\infty\frac{|\sin(n)|}{2^n}$ converges by the DCT</p>
+            <p>But since the series is absolutely convergent, that means the original series is convergent</p>
+            <hr>
+            <details>
+                <summary>Proof Of Convergence</summary>
+                <p>$$\begin{align} 
+                    a_n &\leq |a_n| \\
+                    0 < |a_n| + a_n &\leq 2|a_n| \\
+                    \sum_{n = k}^\infty{(|a_n| + a_n)} &\leq 2\sum_{n = k}^\infty{|a_n}| \\
+                    \sum_{n = k}^\infty{|a_n|} + \sum_{n = k}^\infty{a_n} &\leq 2\sum_{n = k}^\infty{|a_n}| \\
+
+                \end{align}$$</p>
+                <p>Since $\displaystyle\sum_{n=k}^\infty{|a_n|}$ converges (given) that means that $\displaystyle\sum_{n=k}^\infty{a_n}$ HAS to converge to keep the inequality valid</p>
+            </details>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Determine if $\displaystyle\sum_{n = 1}^\infty{(-1)^n \frac{\ln(n)}{n}}$ is absolutely convergent, condtionally convergent, or diverges</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n = 1}^\infty{(-1)^n \frac{\ln(n)}{n}}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \sum_{n = 1}^\infty{\left|(-1)^n \frac{\ln(n)}{n}\right|} &=  \sum_{n = 1}^\infty{\frac{\ln(n)}{n}} \\
+                                \sum_{n = 1}^\infty{\frac{\ln(n)}{n}} &\geq  \sum_{n = 1}^\infty{\frac{1}{n}}
+                            \end{align}$$</p>
+                            <p>Since $\displaystyle\sum_{n = 1}^\infty{\frac{1}{n}}$ is a divergent p-series, the absolute series diverges</p>
+                            <p>This means we need to move on and check the original series</p>
+                            <p>$$\begin{align} 
+                                \sum_{n = 1}^\infty{(-1)^n \frac{\ln(n)}{n}}
+                            \end{align}$$</p>
+                            <p>I'm going to use <a href="alternating series test.html">AST</a> because all the conditions fit</p>
+                            <p>$$\begin{align} 
+                                f(n) &= \frac{\ln(n)}{n} \\
+                                f'(n) &= \frac{1 - \ln(n)}{n^2} \\
+                                1 - \ln(n) &< 0 \\
+                                ln(n) &> 1 \\
+                                n &> e \rightarrow n > 3 \text{ Terms}
+                            \end{align}$$</p>
+                            <p>So $f(n)$ is decreasing after 3 terms and it is always postive</p>
+                            <p>$$\begin{align} 
+                                \lim_{n \to \infty}{\frac{\ln(n)}{n}} = 0
+                            \end{align}$$</p>
+                            <p>So the original series converges by the AST, but it is not absolutely convergent</p>
+                            <p>This means it is <b>Conditionally Convergent</b></p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Determine if $\displaystyle\sum_{n = 1}^\infty{\frac{\cos(n)}{n^2}}$ is absolutely convergent, condtionally convergent, or diverges</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n = 1}^\infty{\frac{\cos(n)}{n^2}}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \sum_{n = 1}^\infty{\left|\frac{\cos(n)}{n^2}\right|} = \sum_{n = 1}^\infty{\frac{|\cos(n)|}{n^2}} \\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                |\cos(n)| &\leq 1 \\
+                                \frac{|\cos(n)|}{n^2} &\leq \frac{1}{n^2} \\
+                                \sum_{n = 1}^\infty{\frac{|\cos(n)|}{n^2}} &\leq \sum_{n = 1}^\infty{\frac{1}{n^2}} \\
+                            \end{align}$$</p>
+                            <p>Since the series on the right is a convergent p-series, that means the series converges by the DCT</p>
+                            <p>This makes the original series <b>Absolutely Convergent</b>, which also makes it convergent</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Determine if $\displaystyle\sum_{n = 2}^\infty{\frac{(-1)^n}{n\ln(n)\ln(\ln(n))}}$ is absolutely convergent, condtionally convergent, or diverges</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n = 2}^\infty{\frac{(-1)^n}{n\ln(n)\ln(\ln(n))}}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                \sum_{n = 2}^\infty{\left|\frac{(-1)^n}{n\ln(n)\ln(\ln(n))}\right|} = \sum_{n = 2}^\infty{\frac{1}{n\ln(n)\ln(\ln(n))}} \\
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                f(n) = \frac{1}{n\ln(n)\ln(\ln(n))}
+                            \end{align}$$</p>
+                            <p>Here $f(n)$ is decreasing, positive, and continous for $n > 2$</p>
+                            <p>This means we can apply the <a href="integral test.html">Integral Test</a></p>
+                            <p>$$\begin{align} 
+                                \int_2^\infty{\frac{1}{n\ln(n)\ln(\ln(n))} \ dn} &= \lim_{t \to \infty}\int_2^t{\frac{1}{n\ln(n)\ln(\ln(n))} \ dn} \\
+                                u = \ln(ln(n)) &, du = \frac{1}{n\ln(n)} \ dn \\
+                                n \to 2 &, u \to \ln(\ln(2)) \\
+                                n \to t &, u \to \ln(\ln(t)) \\
+                                &= \lim_{t \to \infty}\int_{\ln(\ln(2))}^{\ln(\ln(t))}{\frac{1}{u} \ du} \\
+                                &= \lim_{t \to \infty}\left[\ln(|u|)\right]_{\ln(\ln(2))}^{\ln(\ln(t))} \\
+                                &= \infty \\
+                            \end{align}$$</p>
+                            <p>Since the absolute series diverges, we need to find the convergence of the original series</p>
+                            <p>$$\begin{align} 
+                                \sum_{n = 2}^\infty{\frac{(-1)^n}{n\ln(n)\ln(\ln(n))}}
+                            \end{align}$$</p>
+                            <p>Using <a href="alternating series test.html">AST</a></p>
+                            <p>$$\begin{align} 
+                                \lim_{n\to \infty}{\frac{1}{n\ln(n)\ln(\ln(n))}} = 0
+                            \end{align}$$</p>
+                            <p>So the original series converges, but not the absolute series</p>
+                            <p>Which makes this series <b>Conditionally Convergent</b></p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
