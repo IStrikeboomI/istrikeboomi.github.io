@@ -122,6 +122,7 @@
                     {"name":"series","title":"Series"},
                     {"name":"test for divergence","title":"Test For Divergence"},
                     {"name":"the harmonic series","title":"The Harmonic Series"},
+                    {"name":"geometric series","title":"Geometric Series"},
                     {"name":"integral test","title":"Integral Test"},
                     {"name":"p-series test","title":"P-Series Test"},
                     {"name":"alternating series test","title":"Alternating Series Test"},

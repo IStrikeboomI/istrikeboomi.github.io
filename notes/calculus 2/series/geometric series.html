@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Geometric Series</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>A Geometric Series is a series in the form(s) of: </p>
+            <p>$$\begin{align} 
+                \sum_{n = 0}^\infty{ar^n} = \sum_{n=1}^\infty{ar^{n-1}} = a + ar + ar^2 + ar^3 + \ldots
+            \end{align}$$</p>
+            <p>Where $a$ and $r$ are real numbers</p>
+            <p>$r$ is also commonly denote as the "common ratio"</p>
+            <p>A geometric series only <b>converges</b> if $|r| < 1$ (or $-1 < r < 1$)</p>
+            <p>Otherwise geometric series diverges if $|r| \geq 1$</p>
+            <p>The formula for the value of a partial and full geometric series are:</p>
+            <p>$$\begin{align} 
+                S_n &= \frac{a(1-r^n)}{1-r} \\
+                S &= \frac{a}{1-r}
+            \end{align}$$</p>
+            <hr>
+            <h3>Deriving The Formula</h3>
+            <p>$$\begin{align} 
+                S_n &= a + ar + ar^2 + \ldots + ar^{n-1} \\
+                rS_n &= \ \ \ \ \ \ \ ar + ar^2 + \ldots + ar^{n-1} + ar^n\\
+                (S_n - rS_n) &= a - ar^n \\
+                S_n(1 - r) &= a - ar^n \\
+                S_n &= \frac{a(1 - r^n)}{1 -r} \\
+            \end{align}$$</p>
+            <p>The difference between $S_n$ and $rS_n$ is the first and last term</p>
+            <p>Subtracting them only leaves the first and last term</p>
+            <p>For the full series:</p>
+            <p>If $|r| < 1$, then the limit to infinity of $r^n$ would go to $0$</p>
+            <p>$$\begin{align} 
+                \lim_{n \to \infty}{\frac{a(1 - r^n)}{1 -r}} = \frac{a(1 - 0)}{1 - r} = \frac{a}{1-r}
+            \end{align}$$</p>
+            <p>If $|r| \geq 1$, then $r^n$ goes to infinity</p>
+            <p>$$\begin{align} 
+                \lim_{n \to \infty}{\frac{a(1 - r^n)}{1 -r}} = \infty
+            \end{align}$$</p>
+            <p>It's important to know this is not the test for divergence</p>
+            <p>This is because we are the taking the limit of the value of the series, <b>not</b> the sequence</p>
+            <hr>
+            <h3>Examples</h3>
+            <p>$$\begin{align} 
+                \sum_{n = 0}^\infty{\left(\frac{1}{2}\right)^n} = \frac{1}{ 1- 1/2} = 2
+            \end{align}$$</p>
+            <p>Here $a = 1$ and $r = 1/2$, and since $|1/2| < 1$, this series converges</p>
+            <br>
+            <p>$$\begin{align} 
+                \sum_{n = 1}^\infty{\left(\frac{1}{3}\right)^n} = \sum_{n = 1}^\infty{\frac{1}{3}\left(\frac{1}{3}\right)^{n-1}} = \frac{1/3}{1 - 1/3} = \frac{1}{2}
+            \end{align}$$</p>
+            <p>Since this series starts at $ n= 1$, we have to transform the inner part into the $ar^{n-1}$ form</p>
+            <P>And since $a = 1/3$ and $r=1/3$, this series converges</P>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Determine the value of $\displaystyle\sum_{n = 0}^\infty{2\frac{1}{8^n}}$</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n = 0}^\infty{2\frac{1}{8^n}} = \sum_{n = 0}^\infty{2\left(\frac{1}{8}\right)^n} = \frac{2}{1-1/8} = \frac{16}{7}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Determine the value of $\displaystyle\sum_{n = 1}^\infty{4\frac{2^{n-1}}{3^{2n}}}$</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n = 1}^\infty{4\frac{2^{n-1}}{3^{2n}}} &= \sum_{n = 1}^\infty{4\frac{2^{n-1}}{({3^2})^n}} \\
+                                &= \sum_{n = 1}^\infty{4\frac{2^{n-1}}{9^n}} \\
+                                &= \sum_{n = 1}^\infty{4\frac{2^{n-1}}{(9)9^{n-1}}} \\
+                                &= \sum_{n = 1}^\infty{\frac{4}{9}\left(\frac{2}{9}\right)^{n-1}} \\
+                                &= \frac{4/9}{1 - 2/9} \\
+                                &= \frac{4/9}{1 - 2/9} \\
+                                &= \frac{4}{7}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Determine the value of $\displaystyle\sum_{n = 0}^\infty{\frac{10^n}{(-9)^{n+1}}}$</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n = 0}^\infty{\frac{10^n}{(-9)^{n+1}}} &= \sum_{n = 0}^\infty{\frac{10^n}{(-9)(-9)^n}} \\
+                                &= \sum_{n = 0}^\infty{-9\left(-\frac{10}{9}\right)^n} \\
+                            \end{align}$$</p>
+                            <p>Since $-10/9 > 1$, this series <b>diverges</b></p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Determine the value of $\displaystyle\sum_{n = 0}^\infty{\left(\frac{1}{\sqrt{3}}\right)^{n-1}}$</summary>
+                            <p>$$\begin{align} 
+                                \sum_{n = 0}^\infty{\left(\frac{1}{\sqrt{3}}\right)^{n-1}} &= \sum_{n = 0}^\infty{\left(\frac{1}{\sqrt{3}}\right)^{-1}\left(\frac{1}{\sqrt{3}}\right)^{n}} \\
+                                &= \sum_{n = 0}^\infty{\sqrt{3}\left(\frac{1}{\sqrt{3}}\right)^{n}} \\
+                                &= \frac{\sqrt{3}}{1 - 1/\sqrt{3}} \\
+                                &= \frac{3}{\sqrt{3} - 1} \\
+                                &\approx 4.09807
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
