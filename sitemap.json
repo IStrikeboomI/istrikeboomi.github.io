@@ -130,7 +130,8 @@
                     {"name":"absolute and conditional convergence","title":"Absolute And Conditional Convergence"},
                     {"name":"ratio test","title":"Ratio Test"},
                     {"name":"root test","title":"Root Test"},
-                    {"name":"taylor series","title":"Taylor Series"}
+                    {"name":"taylor series","title":"Taylor Series"},
+                    {"name":"basel problem","title":"Basel Problem"}
 
                 ]
             }

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Basel Problem</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>The <a href="https://en.wikipedia.org/wiki/Basel_problem">Basel Problem</a> was introduced in 1650 by Pietro Mengoli</p>
+            <p>The problem was, is there a closed form solution for the following series</p>
+            <p>$$\begin{align} 
+                \sum_{n = 1}^\infty \frac{1}{n^2}
+            \end{align}$$</p>
+            <p>We already know it converges by the <a href="p-series test.html">p-series test</a>, but we want to find the actual value</p>
+            <p>In 1734, Leonhard Euler found a closed form solution, </p>
+            <p>$$\begin{align} 
+                \sum_{n = 1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6} \approx 1.644934
+            \end{align}$$</p>
+            <hr>
+            <h3>Why???</h3>
+            <p>At first glance it makes no sense for $\pi$ to show up, but we will get through it</p>
+            <p>First from the <a href="taylor series.html">Maclaurin series</a> for sine</p>
+            <p>$$\begin{align} 
+                \sin(x) = \sum_{n = 0}^\infty{\frac{(-1)^n x^{2n+1}}{(2n+1)!}} =x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \ldots
+            \end{align}$$</p>
+            <p>If we divide by $x$</p>
+            <p>$$\begin{align} 
+                \frac{\sin(x)}{x} = \sum_{n = 0}^\infty{\frac{(-1)^n x^{2n}}{(2n+1)!}} = 1 - \frac{x^2}{3!} + \frac{x^4}{5!} - \frac{x^6}{7!} + \ldots
+            \end{align}$$</p>
+            <p>Now we will try to write $\sin(x)$ as a polynomial in factored form with it's roots</p>
+            <p>What are $\sin(x)$ roots? $\sin(x) = 0, x = \pm n\pi$ here $n \in \mathbb{Z}$</p>
+            <p>So we can write $\sin(x)$ as</p>
+            <p>$$\begin{align} 
+                \sin(x) &= k(x - 0)(x - \pi)(x + \pi)(x - 2\pi)(x + 2\pi)(x - 3\pi)(x + 3\pi)\ldots \\
+                &= kx(x - \pi)(x + \pi)(x - 2\pi)(x + 2\pi)(x - 3\pi)(x + 3\pi)\ldots \\
+            \end{align}$$</p>
+            <p>Here, $k$ is some constant to keep the graph the correct shape and we need to find the value</p>
+            <p>We can divide both sides by $x$ to make it $\sin(x)/x$</p>
+            <p>$$\begin{align} 
+                \frac{\sin(x)}{x} &= k(x - \pi)(x + \pi)(x - 2\pi)(x + 2\pi)(x - 3\pi)(x + 3\pi)\ldots \\
+            \end{align}$$</p>
+            <p>We can find the value of $k$ by taking the limit of both sides</p>
+            <p>$$\begin{align} 
+                \lim_{n \to 0}\left(\frac{\sin(x)}{x}\right) &= \lim_{n \to 0}(k(x - \pi)(x + \pi)(x - 2\pi)(x + 2\pi)(x - 3\pi)(x + 3\pi))\ldots \\
+                1 &= k(0 - \pi)(0 + \pi)(0 - 2\pi)(0 + 2\pi)(0 - 3\pi)(0 + 3\pi)\ldots \\
+                \frac{1}{(-\pi)(\pi)(-2\pi)(2\pi)(-3\pi)(3\pi)\ldots} &= k \\
+                k &= \frac{1}{(-\pi^2)(-4\pi)(-9\pi^2)(-16\pi^2)\ldots}\\
+
+            \end{align}$$</p>
+            <p>The left side is the <a href="../../calculus 1/limits/limit of sin(x) over x approaching 0.html">important limit</a></p>
+            <p>We can plug this $k$ back into the sine polynomial</p>
+            <p>$$\begin{align} 
+                \frac{\sin(x)}{x} &= \frac{(x - \pi)(x + \pi)(x - 2\pi)(x + 2\pi)(x - 3\pi)(x + 3\pi)\ldots}{(-\pi^2)(-4\pi)(-9\pi^2)(-16\pi^2)\ldots} \\
+            \end{align}$$</p>
+            <p>On the numerator, we can use differnece of two squares $(a-b)(a+b) = a^2 - b^2$ to simplyfy</p>
+            <p>Doing this, we get <b>Euler's Polynomial For Sine</b></p>
+            <p>$$\begin{align} 
+                \frac{\sin(x)}{x} &= \frac{(x^2 - \pi^2)(x^2 - 4\pi^2)(x^2 - 9\pi^2)(x^2 - 16\pi^2)\ldots}{(-\pi^2)(-4\pi)(-9\pi^2)(-16\pi^2)\ldots} \\
+            \end{align}$$</p>
+            <p>Now we can split up the fraction as the product of multiple fractions</p>
+            <p>$$\begin{align} 
+                \frac{\sin(x)}{x} &= \left(\frac{x^2 - \pi^2}{-\pi^2}\right) \left(\frac{x^2 - 4\pi^2}{-4\pi^2}\right) \left(\frac{x^2 - 9\pi^2}{-9\pi^2}\right) \left(\frac{x^2 - 16\pi^2}{-16\pi^2}\right) \ldots\\
+                &= \left(1 - \frac{x^2}{\pi^2}\right) \left( 1-\frac{x^2}{4\pi^2}\right) \left(1 - \frac{x^2}{9\pi^2}\right) \left(1 - \frac{x^2}{16\pi^2}\right) \ldots\\
+            \end{align}$$</p>
+            <p>If we distribute this polynomial using FOIL</p>
+            <p>$$\begin{align} 
+                \frac{\sin(x)}{x} &= \left(1 - \frac{x^2}{\pi^2} - \frac{x^2}{4\pi^2} + \frac{x^4}{\pi^24\pi^2}\right)\left(1 - \frac{x^2}{9\pi^2}\right) \left(1 - \frac{x^2}{16\pi^2}\right) \ldots\\
+                &= \left(1 - \frac{x^2}{\pi^2} - \frac{x^2}{4\pi^2} + \frac{x^4}{\pi^24\pi^2}\right)x\left(1 - \frac{x^2}{16\pi^2}\right) \ldots\\
+                &= \left(1 - \frac{x^2}{\pi^2} - \frac{x^2}{4\pi^2} - \frac{x^2}{9\pi^2} + \frac{x^4}{\pi^24\pi^2} + \ldots\right)\left(1 - \frac{x^2}{16\pi^2}\right) \ldots\\
+                &= \left(1 - \frac{x^2}{\pi^2} - \frac{x^2}{4\pi^2} - \frac{x^2}{9\pi^2} - \frac{x^2}{16\pi^2} + \frac{x^4}{\pi^24\pi^2} + \ldots\right)\ldots\\
+            \end{align}$$</p>
+            <p>I'm ignoring the future terms because I only care about the terms with an $x^2$ (you will see why soon)</p>
+            <p>We can keep doing this and get a pattern</p>
+            <p>If we factor out a $-x^2/\pi^2$ from the $x^2$ terms:</p>
+            <p>$$\begin{align} 
+                \frac{\sin(x)}{x} &= \left(1 - -\frac{x^2}{\pi^2}\left(1 + \frac{1}{4} + \frac{1}{9} + \frac{1}{16} \ldots \right) + \frac{x^4}{\pi^24\pi^2} + \ldots\right)\ldots\\
+                &= \left(1 - -\frac{x^2}{\pi^2}\left(1 + \frac{1}{2^2} + \frac{1}{4^2} + \frac{1}{4^2} \ldots \right) + \frac{x^4}{\pi^24\pi^2} + \ldots\right)\ldots\\
+                &= \left(1 - -\frac{x^2}{\pi^2}\left(\sum_{n = 1}^\infty{\frac{1}{n^2}}\right) + \frac{x^4}{\pi^24\pi^2} + \ldots\right)\ldots\\
+            \end{align}$$</p>
+            <p>What this tells us is the value of the coefficient of the $x^2$ is</p>
+            <p>$$\begin{align} 
+                -\frac{x^2}{\pi^2}\left(\sum_{n = 1}^\infty{\frac{1}{n^2}}\right)
+            \end{align}$$</p>
+            <p>But Wait! from earlier with the $\sin(x)/x$ taylor, we can see the term for $x^2$ is $-\frac{x^2}{3!}$</p>
+            <p>Since they're both the same function, and since it's the only $x^2$ terms in both, it must mean they're the same value</p>
+            <p>$$\begin{align} 
+                -\frac{x^2}{3!} &= -\frac{x^2}{\pi^2}\sum_{n = 1}^\infty{\frac{1}{n^2}} \\
+                \frac{1}{6} &= \frac{1}{\pi^2}\sum_{n = 1}^\infty{\frac{1}{n^2}} \\
+                \frac{\pi^2}{6} &= \sum_{n = 1}^\infty{\frac{1}{n^2}} \\
+            \end{align}$$</p>
+            <p>And we solve the basel problem!</p>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
