@@ -132,8 +132,8 @@
                     {"name":"root test","title":"Root Test"},
                     {"name":"power series","title":"Power Series"},
                     {"name":"taylor series","title":"Taylor Series"},
-                    {"name":"basel problem","title":"Basel Problem"}
-
+                    {"name":"basel problem","title":"Basel Problem"},
+                    {"name":"eulers formula derivation","title":"Euler's Formula Derivation"}
                 ]
             }
         ]

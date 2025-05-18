@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Euler's Formula Derivation</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Euler's formula is: </p>
+            <p>$$\begin{align} 
+                e^{ix} = \cos(x) + i\sin(x)
+            \end{align}$$</p>
+            <p>Where $x$ is a real number</p>
+            <p>This is an important formula, so how do we derive it?</p>
+            <p>First recall the <a href="taylor series.html">maclaurin series</a> for $e^x, \cos(x),\sin(x)$</p>
+            <p>$$\begin{align} 
+                e^x &= \sum_{n = 0}^\infty{\frac{x^n}{n!}} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \ldots\\
+                \sin(x) &= \sum_{n = 0}^\infty{\frac{(-1)^nx^{2n + 1}}{(2n + 1)!}} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \ldots\\
+                \cos(x) &= \sum_{n = 0}^\infty{\frac{(-1)^nx^{2n}}{(2n)!}} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \ldots\\    
+            \end{align}$$</p>
+            <p>If we plug $x=i$ into the $e^x$ series:</p>
+            <p>$$\begin{align} 
+                e^{ix} &= \sum_{n = 0}^\infty{\frac{({ix})^n}{n!}} = \frac{{ix}^0}{0!} + \frac{{ix}^1}{1!} + \frac{{ix}^2}{2!} + \frac{{ix}^3}{3!} + \frac{{ix}^4}{4!} + \ldots\\
+            \end{align}$$</p>
+            <p>We can simplify this because the powers of $i^n$ are cyclical</p>
+            <p>$$\begin{align} 
+                i^0 &= 1 \\
+                i^1 &= i \\
+                i^2 &= -1 \\
+                i^3 &= -i \\
+                i^4 &= 1 \\
+                i^5 &= i \\
+                i^6 &= -1 \\
+                i^7 &= -i \\
+                \vdots
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                \sum_{n = 0}^\infty{\frac{({ix})^n}{n!}} = \frac{1}{1} + \frac{ix}{1} - \frac{x^2}{2!} - \frac{ix^3}{3!} + \frac{x^4}{4!} + \frac{ix^5}{5!}+ \ldots\\
+            \end{align}$$</p>
+            <p>If we move everything with an $i$ to one side and factor out the $i$</p>
+            <p>We are allowed to rearrange by the <a href="absolute and conditional convergence.html">Riemann series theorem </a></p>
+            <p>This is because we showed in the <a href="taylor series.html">Taylor Series note</a> that the $e^x$ series is absoluelty convergent</p>
+            <p>$$\begin{align} 
+                \sum_{n = 0}^\infty{\frac{({ix})^n}{n!}} = \left(1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \ldots\right) + i\left(x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \ldots\right)\ldots\\
+            \end{align}$$</p>
+            <p>What you might notice is that the left terms are cosine and the right terms are sine</p>
+            <p>$$\begin{align} 
+                e^{ix} = \sum_{n = 0}^\infty{\frac{({ix})^n}{n!}} =  \cos(x) + i\sin(x)\\
+                e^{ix} = \cos(x) + i\sin(x)
+            \end{align}$$</p>
+            <p>And we get euler's formula!</p>
+            <br>
+            <p>In summary, plug in $ix$ into the $e^x$ taylor series</p>
+            <p>Simplify using properties of $i^n$ and rearrange</p>
+            <p>Factor out $i$ and the series for $\cos(x)$ and $\sin(x)$ show up</p>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
