@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Power Series</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>A Power Series centered at $a$ is a series in the form</p>
+            <p>$$\begin{align} 
+                \sum_{n = 0}^{\infty}{c_n(x - a)^n} = c_0 + c_1(x-a) + c_2(x-a)^2 + \ldots
+            \end{align}$$</p>
+            <p>Where $c_n$ and $k$ are real numbers</p>
+            <p>A power series can be used to represent a function as an infinite series</p>
+            <p>The center of the power series is where the approximation (and nearby points) is closest</p>
+            <p>Power Series are also useful because they appear like polynomials</p>
+            <br>
+            <hr>
+            <h3>Convergence</h3>
+            <p>A Power Series has one of 3 possibilities of convergence</p>
+            <ol>
+                <li>A Power Series converges <b>only</b> at $x=a$, $R=0$</li>
+                <li>A Power Series converges for all $x$, $R=\infty$</li>
+                <li>A Power Series converges in range $R$ from $x$ on either side, $|x-a| < R$ </li>
+            </ol>
+            <br>
+            <p>This $R$ value is refered to as the <b>Radius Of Convergence</b></p>
+            <p>The <b>Interval Of Convergence</b> is the interval of the values that make a series converge</p>
+            <p>To find the interval of converge $I = (x-a,x+a)$, but make sure to check the endpoints</p>
+            <br>
+            <p>For example:</p>
+            <p>The power series for $\ln(1+x)$ (centered at 0) is:</p>
+            <p>$$\begin{align} 
+                \ln(1+x) = \sum_{n = 1}^\infty{\frac{(-1)^{n-1} x^n}{n}}
+            \end{align}$$</p>
+            <p>This particular series has an $R=1$ and an interval of convergence of $I = (-1,1]$</p>
+            <p>If we were to center this series $\ln(x)$ at $x=1$</p>
+            <p>$$\begin{align} 
+                \ln(x) = \sum_{n = 1}^\infty{\frac{(-1)^{n-1} (x-1)^n}{n}}
+            \end{align}$$</p>
+            <p>This series has the same $R=1$ and an interval of convergence of $I = (-1,1]$</p>
+            <p>If we graph the power series to a few terms vs the graph of $\ln(x+1)$</p>
+            <p>We see the series is very close to the center point $x=0$ and surroudning points</p>
+            <p>After $x > 1$, you can see how the series diverges</p>
+            <img src="assets/svg/ln(1+x) power series.svg">
+            <hr>
+            <h3>Deriving Power Series</h3>
+            <p>Remember the <a href="geometric series.html">geometric series formula</a></p>
+            <p>$$\begin{align} 
+                \sum_{n = 0}^\infty{x^n} = 1 + x + x^2 + x^3 + \ldots = \frac{1}{1-x} &&\text{If $|x| < 1$}
+            \end{align}$$</p>
+            <p>Also, if a power series has an $R > 0$</p>
+            <p>And the function it represents is differentiable and/or integratable on $(x-a,x+a)$</p>
+            <p>$$\begin{align} 
+                f(x) = \sum_{n=0}^\infty{c_n(x-a)^n}
+            \end{align}$$</p>
+            <p>Then,</p>
+            <p>$$\begin{align} 
+                f'(x) = \sum_{n=1}^\infty{nc_n(x-a)^{n-1}} \\
+                \int{f(x) \ dx} = C+\sum_{n=1}^\infty{c_n\frac{(x-a)^{n+1}}{n+1}}
+            \end{align}$$</p>
+            <p>Have the same radius of convergence, <b>but</b> the endpoints might not be the same</p>
+            <p>Notice how the the derivative series starts at $1$ and not $0$</p>
+            <p>This is because the first term is constant so it goes away</p>
+            <p>And also notice how the <a href="../../calculus 1/integrals/constant of integration.html">constant of integration</a> is present so you need to solve for it</p>
+            <hr>
+            <h3>Finding The Radius And Interval Of Convergence</h3>
+            <p>To find $R$, we need to make the inequality $|x-a| < R$</p>
+            <p>So which convergence tests have an inequality? </p>
+            <ul>
+                <li><a href="ratio test.html">Ratio Test</a></li>
+                <li><a href="root test.html">Root Test</a></li>
+                <li><a href="geometric series.html">Geometric Series Test</a></li>
+                <li><a href="p-series test.html">P-Series Test</a></li>
+            </ul>
+            <p>But most of the time you will be using the <b>Ratio Test</b> or the <b>Root Test</b></p>
+            <p>In the ratio and root test, the limit has $n$ going to $\infty$</p>
+            <p>But the Inequality for $R$ has $x$, this means using <a href="../../calculus 1/limits/limit properties.html">Limit Properties</a></p>
+            <p>You can then isolate $|x|$ and factor it out</p>
+            <hr>
+            <h3>Example</h3>
+            <p>Find the radius and interval of convergence of the following series</p>
+            <p>$$\begin{align} 
+                \sum_{n = 0}^\infty{\frac{x^n}{n!}}
+                \end{align}$$</p>
+            <p>I will use the <a href="ratio test.html">Ratio Test</a> because of the factorial and it gives an inequality</p>
+            <p>$$\begin{align} 
+                \lim_{n \to \infty}{\left|\frac{x^{n+1}}{(n+1)!} \cdot \frac{n!}{x^{n}}\right|} =  \lim_{n \to \infty}{\left|\frac{x}{n+1}\right|} = |x| \cdot \lim_{n \to \infty}{\left|\frac{1}{n+1}\right|} = |x| \cdot 0 = 0 \\
+                0 < 1
+                \end{align}$$</p>
+                <p>This shows the radius of convergence is infinity, so this series works everywhere</p>
+            <p>Since $R = \infty$, there are no endpoints we need to test for</p>
+            <br>
+            <p>Find the power series for $f(x) = \arctan(x)$ and then find the radius and inteveral of convergence</p>
+            <p>$$\begin{align} 
+                \arctan(x) &= \int{\frac{1}{1 + x^2} \ dx} + C \\
+                \frac{1}{1 + x^2} &= \frac{1}{1-(-x^2)} = \sum_{n = 0}^\infty{(-x^2)^n} = \sum_{n = 0}^\infty{(-1)^nx^{2n}} &&\text{If $|-x^2| < 1 \rightarrow |x| < 1$} \\
+                \end{align}$$</p>
+            <p>$$\begin{align}   
+                \int{\frac{1}{1 + x^2} \ dx} &= \int{\sum_{n = 0}^\infty{(-1)^nx^{2n}} \ dx} = \sum_{n = 0}^\infty{\left((-1)^n\int{x^{2n} \ dx}\right)} = C+\sum_{n = 0}^\infty{(-1)^n\frac{x^{2n + 1}}{2n + 1}} \\
+                \arctan(x) &= C+\sum_{n = 0}^\infty{(-1)^n\frac{x^{2n + 1}}{2n + 1}} \\
+            \end{align}$$</p>
+            <p>So we almost have a series for $\arctan(x)$, but we need to find what $C$ is</p>
+            <p>To do this I am going to plug in $x = 0$ to make the series go to $0$</p>
+            <p>$$\begin{align}   
+                \arctan(0) &= C+\sum_{n = 0}^\infty{(-1)^n\frac{0^{2n + 1}}{2n + 1}} \\
+                0 &= C + 0 \\
+                C &= 0
+            \end{align}$$</p>
+            <p>We can plug this $C$ back into the above equation</p>
+            <p>$$\begin{align}   
+                \arctan(x) &= \sum_{n = 0}^\infty{(-1)^n\frac{x^{2n + 1}}{2n + 1}} \\
+            \end{align}$$</p>
+            <p>Now we have an infinite polynomial for $\arctan(x)$!, but we still need to find $R$</p>
+            <p>Since the geometric series we used has $R = 1$, this series will also have $R = 1$</p>
+            <p>To find the interval we need the test the endpoints of $-1$ and $1$</p>
+            <p>$x = 1$</p>
+            <p>$$\begin{align}   
+                \sum_{n = 0}^\infty{(-1)^n\frac{1^{2n + 1}}{2n + 1}} = \sum_{n = 0}^\infty{(-1)^n\frac{1}{2n + 1}} \\
+            \end{align}$$</p>   
+            <p>This series converges by the <a href="alternating series test.html">Alternating Series Test</a></p>
+            <p>$x = -1$</p>
+            <p>$$\begin{align}   
+                \sum_{n = 0}^\infty{(-1)^n\frac{(-1)^{2n + 1}}{2n + 1}} = \sum_{n = 0}^\infty{(-1)^n\frac{-1}{2n + 1}} = -\sum_{n = 0}^\infty{(-1)^n\frac{1}{2n + 1}}\\
+            \end{align}$$</p>  
+            <p>This series converges by the <a href="alternating series test.html">Alternating Series Test</a></p> 
+            <p>So both endpoints converge so this series has an interval of convergence of $I = [-1,1]$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Find the radius and interval of convergence of $\displaystyle\sum_{n = 1}^\infty{\frac{(3x - 1)^n}{2^n\sqrt{n+1}}}$</summary>
+                            <p>Using the ratio test</p>
+                            <p>$$\begin{align} 
+                                \lim_{n \to \infty}{\left|\frac{(3x - 1)^{n+1}}{2^{n+1}\sqrt{n+2}} \cdot \frac{2^n\sqrt{n+1}}{(3x - 1)^n}\right|} &= \lim_{n \to \infty}{\left|\frac{(3x - 1)\sqrt{n+1}}{2\sqrt{n+2}}\right|} \\
+                                &= \left|\frac{3x-1}{2}\right|\lim_{n \to \infty}{\frac{\sqrt{n+1}}{\sqrt{n+2}}} \\
+                                &= \left|\frac{3x-1}{2}\right|\lim_{n \to \infty}{\sqrt{\frac{n+1}{n+2}}} \\
+                                &= \left|\frac{3x-1}{2}\right|\sqrt{\lim_{n \to \infty}{{\frac{n+1}{n+2}}}}&&\text{Because $\sqrt{n}$ is Continous}\\
+                                &= \left|\frac{3x-1}{2}\right|\cdot 1\\
+                                \left|\frac{3x-1}{2}\right| &< 1 \\
+                                -1 < &\frac{3x-1}{2} < 1 \\
+                                -2 < &3x-1 < 2 \\
+                                -1 < &3x < 3 \\
+                                -1/3 < &x < 1 \\
+                            \end{align}$$</p>
+                            <p>To get $R$, we need to rewrite the inequality</p>
+                            <p>$$\begin{align} 
+                                \left|\frac{3x-1}{2}\right| &< 1 \\
+                                \left|3x-1\right| &< 2 \\
+                                \left|3\left(x-\frac{1}{3}\right)\right| &< 2 \\
+                                \left|x-\frac{1}{3}\right| &< \frac{2}{3} \\
+                            \end{align}$$</p>
+                            <p>So we get $R = \frac{2}{3}$, to find the interval we use the endpoints above</p>
+                            <p>At $x = -1/3$</p>
+                            <p>$$\begin{align} 
+                                \sum_{n = 1}^\infty{\frac{(3(1/3) - 1)^n}{2^n\sqrt{n+1}}} = \sum_{n = 1}^\infty{\frac{0^n}{2^n\sqrt{n+1}}} = 0
+                            \end{align}$$</p>
+                            <p>So it converges</p>
+                            <p>At $x = 1$</p>
+                            <p>$$\begin{align} 
+                                \sum_{n = 1}^\infty{\frac{(3(1) - 1)^n}{2^n\sqrt{n+1}}} = \sum_{n = 1}^\infty{\frac{2^n}{2^n\sqrt{n+1}}} = \sum_{n = 1}^\infty{\frac{1}{\sqrt{n+1}}} = \infty
+                            \end{align}$$</p>
+                            <p>So this series diverges by the <a href="comparison tests.html">Limit Comparison Test</a> combined with the <a href="p-series test.html">P-series test</a> using the series $\displaystyle\sum_{n=1}^\infty{\frac{1}{\sqrt{n}}}$</p>
+                            <p>This finally gives us an $R = \frac{2}{3}$ and $I=[\frac{1}{3},1)$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find a power series for $\frac{1}{(1-x)^2}$ and it's radius and interval of convergence</summary>
+                            <p>$$\begin{align} 
+                                \frac{1}{(1-x)^2} &= \frac{d}{dx}\left(\frac{1}{1-x}\right) \\
+                                &= \frac{d}{dx}\left(\sum_{n = 0}^\infty{x^n}\right) &&\text{If $|x|<1 $}\\
+                                &= \sum_{n = 1}^\infty{nx^{n-1}} \\
+                            \end{align}$$</p>
+                            <p>So here $R = 1$, now to test the endpoints</p>
+                            <p>$x = 1$</p>
+                            <p>$$\begin{align} 
+                                \sum_{n = 1}^\infty{n1^{n-1}} \\
+                            \end{align}$$</p>
+                            <p>Diverges by <a href="test for divergence.html">Test For Divergence</a></p>
+                            <p>$x = -1$</p>
+                            <p>$$\begin{align} 
+                                \sum_{n = 1}^\infty{n(-1)^{n-1}} \\
+                            \end{align}$$</p>
+                            <p>Diverges by <a href="test for divergence.html">Test For Divergence</a></p>
+                            <p>So $I = (-1,1)$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
