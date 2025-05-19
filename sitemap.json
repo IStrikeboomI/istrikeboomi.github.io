@@ -123,6 +123,7 @@
                     {"name":"test for divergence","title":"Test For Divergence"},
                     {"name":"the harmonic series","title":"The Harmonic Series"},
                     {"name":"geometric series","title":"Geometric Series"},
+                    {"name":"telescoping series","title":"Telescoping Series"},
                     {"name":"integral test","title":"Integral Test"},
                     {"name":"p-series test","title":"P-Series Test"},
                     {"name":"comparison tests","title":"Comparison Tests"},
