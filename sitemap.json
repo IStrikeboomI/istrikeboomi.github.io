@@ -146,9 +146,15 @@
         ]
     },
     {
-        "subject" : "Linear Algebra",
+        "subject" : "Digital Electronics",
         "topics" : 
         [
+            {
+                "section":"Binary",
+                "notes":[
+                    {"name":"negative binary","title":"Negative Binary (Two's Complement)"}
+                ]
+            }
         ]
     },
     {

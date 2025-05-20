@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Negative Binary</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>The most common implmentation of negative binary number is <b>Two's Complement</b></p>
+            <p>A binary number that can support negative and positive is called a <b>signed</b> number</p>
+            <p>To convert a positive binary number to negative in Two's complement (or vice-versa):</p>
+            <p>Flip all the bits (0 becomes 1, 1 becomes 0) and then add 1</p>
+            <p>Doing two's complement <b>requires</b> a fixed bit length to accomodate the sign bit (that's at the end)</p>
+            <hr>
+            <h3>Negative Numbers</h3>
+            <p>So far, we know how to write only positive binary integers</p>
+            <p>But at some point we will need to use negative numbers</p>
+            <p>The math way would to be to just put a negative sign</p>
+            <p>$$\begin{align} 
+                -47_{10} = -101111_2
+            \end{align}$$</p>
+            <p>But we can't put a negative a sign in a computer because theres only 1 and 0</p>
+            <p>To alleviate this, we use a <b>sign bit</b></p>
+            <p>We use the last bit (MSB) as a sign bit, if it's 0 the number is positive, if it's 1 it's negative</p>
+            <p>In order to use a sign bit, we need to make sure the number of bits is fixed</p>
+            <p>This is so we dont accidentally include the sign bit when converting to decimal</p>
+            <p>Using the previous example we need to expand it (typically to the next power of 2), so to 8 bits</p>
+            <p>$$\begin{align} 
+                47_{10} &= \textcolor{red}{0}0101111_2 \\
+                -47_{10} &= \textcolor{red}{1}0101111_2 \\
+            \end{align}$$</p>
+            <p>This is called sign bit representation and it works, but it makes arithmetic difficult</p>
+            <hr>
+            <h3>One's Complement</h3>
+            <p>A better solution is to use one's complement</p>
+            <p>One's complement still uses the sign bit, but the rest of the number is read differently</p>
+            <p>To convert a positive binary number to negative in one's complemetn you need to flip all the bits</p>
+            <p>$$\begin{align} 
+                47_{10} &= 00101111_2 \\
+                -47_{10} &= 11010000_2 \\
+            \end{align}$$</p>
+            <p>Why would we do this? Try doing arithmetic with one's complement vs sign bit represeentation</p>
+            <p>For example, let's try to add the numbers previously</p>
+            <p>$$\begin{align} 
+                \textcolor{red}{0}0101111_2 \\
+                + \textcolor{red}{1}0101111_2 \\
+                \hline
+            \end{align}$$</p>
+            <p>Since we are doing $-47_{10} + 47_{10}$, we should hope to get 0, but theres not an easy way to get 0</p>
+            <p>Let's try with one's complement</p>
+            <p>$$\begin{align} 
+               00101111_2 \\
+            +  11010000_2 \\
+            \hline
+            11111111_2
+            \end{align}$$</p>
+            <p>Since the sign bit here is 1, this output is negative, so let's convert it to positive by flipping all the bits</p>
+            <p>$$\begin{align} 
+                11111111_2 \rightarrow 00000000_2 = 0_{10}
+            \end{align}$$</p>
+            <p>So we get zero! the result we wanted!</p>
+            <p>In short: One's complement makes it easy to add negative and positive numbers together</p>
+            <p>But there is an issue with one's complement, let's list out all the possible 4 bit numbers with one's complement</p>
+            <p>$$\begin{align}
+                1000_2 &= -7_{10} \\
+                1001_2 &= -6_{10} \\
+                1010_2 &= -5_{10} \\
+                1011_2 &= -4_{10} \\
+                1100_2 &= -3_{10} \\
+                1101_2 &= -2_{10} \\
+                1110_2 &= -1_{10} \\
+                1111_2 &= -0_{10} \\
+                0000_2 &= 0_{10} \\
+                0001_2 &= 1_{10} \\
+                0010_2 &= 2_{10} \\
+                0011_2 &= 3_{10} \\
+                0100_2 &= 4_{10} \\
+                0101_2 &= 5_{10} \\
+                0110_2 &= 6_{10} \\
+                0111_2 &= 7_{10} \\
+            \end{align}$$</p>
+            <p>Theres a negative zero! This wastes an number that could be used to store either an $8_{10}$ or $-8_{10}$</p>
+            <hr>
+            <h3>Two's Complement</h3>
+            <p>Two's complement fixes this issue by <b>adding 1</b> to remove the negative 0</p>
+            <p>To convert a positive binary number to negative in Two's complement (or vice-versa):</p>
+            <p>Flip all the bits (0 becomes 1, 1 becomes 0) and then add 1</p>
+            <p>Let's convert $-47_{10}$ to twos complement binary</p>
+            <p>$$\begin{align} 
+                47_{10} &= 00101111_2 \\
+                -47_{10} &= 11010000_2 + 1_2 = 11010001_2   \\
+            \end{align}$$</p>
+            <p>Let's list all the possible 4 bit numbers using two's complement this time</p>
+            <p>$$\begin{align}
+                1000_2 &= -8_{10} \\
+                1001_2 &= -7_{10} \\
+                1010_2 &= -6_{10} \\
+                1011_2 &= -5_{10} \\
+                1100_2 &= -4_{10} \\
+                1101_2 &= -3_{10} \\
+                1110_2 &= -2_{10} \\
+                1111_2 &= -1_{10} \\
+                0000_2 &= 0_{10} \\
+                0001_2 &= 1_{10} \\
+                0010_2 &= 2_{10} \\
+                0011_2 &= 3_{10} \\
+                0100_2 &= 4_{10} \\
+                0101_2 &= 5_{10} \\
+                0110_2 &= 6_{10} \\
+                0111_2 &= 7_{10} \\
+            \end{align}$$</p>
+            <p>Now a negative eight shows up because the zero gets asscioated with the postiive numbers</p>
+            <p>0 through 7 (8 positive numbers) and -1 throught -8 (8 negative numbers) for 16 total numbers</p>
+            <p>The arithmetic benefit still carries over just the same to two's complement</p>
+            <p>Just remember, if there is overflow, you can discard the overflowed bit</p>
+            
+            <p>Two's complement is the main system used to store negative numbers because of it's artihmetic benefits</p>
+            <hr>
+            <h3>Subtraction</h3>
+            <p>Now that we can use negative numbers, we can also subtract!</p>
+            <p>This is because subtracting two numbers is the same as adding a positive and a negative number</p>
+            <p>For example:</p>
+            <p>$$\begin{align} 
+                12 - 8 = 12 + (-8)
+            \end{align}$$</p>
+            <p>We can apply this same principle to binary and treat all of our subtractions as additions</p>
+            <p>For example:</p>
+            <p>Compute $17_{10} - 23_{10}$ in binary</p>
+            <p>Since $17_{10} - 23_{10} = 17_{10} + (-23_{10})$, we can use twos complement addition</p>
+            <p>First convert both to binary</p>
+            <p>$$\begin{align} 
+                17_{10} &= 10001_2 \rightarrow 00010001_2\\
+                23_{10} &= 10111_2 \rightarrow 00010111_2
+            \end{align}$$</p>
+            <p>Now convert $23_{10}$ to negative</p>
+            <p>$$\begin{align} 
+                23_{10} &= 00010111_2 \\
+                -23_{10} &= 11101000_2 + 1_2 \rightarrow 11101001_2 \\
+            \end{align}$$</p>
+            <p>Now we can add</p>
+            <p>$$\begin{align}
+                     1 \ \ \     \\
+               00010001_2 \\
+            +  11101001_2 \\
+            \hline
+            11111010_2
+            \end{align}$$</p>
+            <p>If we convert this to positive and then back to decimal</p>
+            <p>$$\begin{align} 
+                11111010_2 \rightarrow 00000101_2 + 1_2 = 00000110_2 = 6_{10}
+            \end{align}$$</p>
+            <p>And since the sign bit is 1, we need to account for the negative giving us a final answer of <b>-6</b></p>
+            <hr>
+            <h3>Counting in Two's Complement</h3>
+            <p>While this is not neccesary, because you can always just convert the positive to negative, it's good to know</p>
+            <p>Counting the positive numbers is easy because it's just the same, except you can't use the last bit (sign bit)</p>
+            <p>Using the number list in two's complement from earlier,</p>
+            <p>First notice the pattern of the non-sign bits from -8 to -1 and 0 to 7 are the same</p>
+            <p>$$\begin{align}
+                1000_2 &= -8_{10} \\
+                1001_2 &= -7_{10} \\
+                1010_2 &= -6_{10} \\
+                1011_2 &= -5_{10} \\
+                1100_2 &= -4_{10} \\
+                1101_2 &= -3_{10} \\
+                1110_2 &= -2_{10} \\
+                1111_2 &= -1_{10} \\
+                0000_2 &= 0_{10} \\
+                0001_2 &= 1_{10} \\
+                0010_2 &= 2_{10} \\
+                0011_2 &= 3_{10} \\
+                0100_2 &= 4_{10} \\
+                0101_2 &= 5_{10} \\
+                0110_2 &= 6_{10} \\
+                0111_2 &= 7_{10} \\
+            \end{align}$$</p>
+            <p>The way we count decrementing in two's complemnt is to start at -1 which is $1111_2$</p>
+            <p>Then you proceed to count normally in binary, but <b>switch</b> the 0 and 1</p>
+            <p>So if there is a 1, convert to a 0, and if there is a 0, convert to a 1 and move onto the next bit</p>
+            <p>This is equivlant to subtracting one</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Convert $-36_{10}$ to two's complement binary</summary>
+                            <p>$$\begin{align} 
+                                36_{10} &= 100100_2 \rightarrow 00100100_2 \\
+                                -36_{10} &= 11011011_2 + 1_2 \rightarrow 11011100_2 \\
+                                -36_{10} &= 11011100_2
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Convert the two's complement $00111011_2$ to decimal</summary>
+                            <p>Since the sign bit is 0, this number is positive</p>
+                            <p>We can just convert this normally</p>
+                            <p>$$\begin{align} 
+                                00111011_2 = 59_{10}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Convert the two's complement $11011110_2$ to decimal</summary>
+                            <p>$$\begin{align} 
+                                11011110_2 \rightarrow 00100001_2 + 1 = 00100010_2 \\
+                                00100010_2 \rightarrow 34_{10}
+                            \end{align}$$</p>
+                            <p>Since the sign bit is 1, this number is negative so the result is $-34_{10}$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Compute $-4_{10} + -14_{10}$ in binary</summary>
+                            <p>$$\begin{align} 
+                                4_{10} &= 00000100_2 \\
+                                14_{10} &= 00001110_2 \\ \\
+                                -4_{10} &= 11111011_2 + 1_2 = 11111100_2\\
+                                -14_{10} &= 11110001_2 + 1_2 = 11110010_2\\ \\
+                            \end{align}$$</p>
+                            <p>$$\begin{align}
+                                    111 \ \ \ \ \ \ \ \  \ \ \ \     \\
+                                11111100_2 \\
+                            +   11110010_2 \\
+                                \hline
+                                111101110_2
+                            \end{align}$$</p>
+                             
+                            <p>We have an overflow making our new number 9 bits, but we need only 8 bits so remove the extra bit</p>
+                            <p>Now we need to convert this back to decimal</p>
+                            <p>$$\begin{align} 
+                                11101110_2 \rightarrow 00010001_2 + 1_2 = 00010010_2 = 18_{10}
+                            \end{align}$$</p>
+                            <p>Since the sign bit is 1, this number is negative so the result is $-18_{10}$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Compute $19_{10} - 29_{10}$ in binary</summary>
+                            <p>$$\begin{align} 
+                                19_{10} &= 00010011_2 \\
+                                29_{10} &= 00011101_2 \\
+                                -29_{10} &= 11100010_2 + 1 = 11100011_2 \\
+                            \end{align}$$</p>
+                            <p>$$\begin{align}
+                                    11  \ \ \ \     \\
+                                00010011_2 \\
+                            +   11100011_2 \\
+                                \hline
+                                11110110_2
+                            \end{align}$$</p>
+                            <p>Now we need to convert this back into decimal</p>
+                            <p>$$\begin{align} 
+                                11110110_2 \rightarrow 00001001_2 + 1_2 = 00001010_2 = 10_{10}
+                            \end{align}$$</p>
+                            <p>Since the sign bit is 1, this number is negative so the result is $-10_{10}$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
