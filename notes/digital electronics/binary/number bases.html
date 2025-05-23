@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Number Bases</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>In the <b>positional numeral system</b> (which is what we typically use for numbers),</p>
+            <p>The <b>base</b>, or the <b>radix</b> is the number of digits there are to use</p>
+            <p>Each digit in the number contributes $\text{digit} \cdot \text{radix}^\text{index}$</p>
+            <p>The sum of contributions gives the full number</p>
+            <p>The way a number is denoted in another base is the number with a subscript of the base in base-10</p>
+            <br>
+            <p>The most common system is <b>base-10</b>, or <b>decimal</b>, which is what we use for regular numbers</p>
+            <p>Computers use base-2, or <b>binary</b> to store information</p>
+            <p>Computer information can also be read in base-16 or <b>hexademical</b></p>
+            <br>
+            <hr>
+            <h3>The Positional Numeral System</h3>
+            <p>What does the number $2149$ mean?</p>
+            <p>It means a 1000 2s plus a 100 1s plus 10 4s and 1 9</p>
+            <p>It other words</p>
+            <p>$$\begin{align} 
+                2149 &= 2000 + 100 + 40 + 9 \\
+                &= 2 \cdot 10^3 + 1 \cdot 10^2 + 4 \cdot 10^1 + 9 \cdot 10^0
+            \end{align}$$</p>
+            <p>Notice how each digit of the number has an index (that starts at 0) which is the exponent</p>
+            <p>The 2 is at index 3</p>
+            <p>The 1 is at index 2</p>
+            <p>The 4 is at index 1</p>
+            <p>The 9 is at index 0</p>
+            <p>This was in base-10 (decimal) because there are 10 possible digits (0 through 9)</p>
+            <p>Let's try to express the quantity 2419, but we only have 3 digits (0,1,2), so base-3</p>
+            <p>When we express numbers we use a subscript to denote the base</p>
+            <p>$$\begin{align} 
+                2149_{10} = 2221121_3 &= 2_3 \cdot 3_{10}^6 + 2_3 \cdot 3_{10}^5 + 2_3 \cdot 3_{10}^4 + 1_3 \cdot 3_{10}^3 + 1_3 \cdot 3_{10}^2 + 2_3 \cdot 3_{10}^1 + 1_3 \cdot 3_{10}^0 \\ 
+                &=1458_{10} + 486_{10} + 162_{10} + 27_{10} + 9_{10} + 6_{10} + 2_{10} \\
+                &= 2149_{10}
+            \end{align}$$</p>
+            <p>For simplicity, the rest of numbers I will write in base-10/decimal won't have a subscript</p>
+            <p>Here's a final color coded example showing how each part of the number corresponds</p>
+            <p>$$\begin{align} 
+                &\textcolor{red}{1542}_{\textcolor{green}{6}}\\
+                \text{Index Position:} &\textcolor{blue}{3210}
+            \end{align}$$</p>
+            <p>$$\begin{align} 
+                1542_6 = \textcolor{red}{1} \cdot \textcolor{green}{6}^\textcolor{blue}{3} +  \textcolor{red}{5} \cdot \textcolor{green}{6}^\textcolor{blue}{2} +  \textcolor{red}{1} \cdot \textcolor{green}{4}^\textcolor{blue}{1} +  \textcolor{red}{2} \cdot \textcolor{green}{6}^\textcolor{blue}{0} = 422_{10}
+            \end{align}$$</p>
+            <hr>
+            <h3>Bases Larger than 10</h3>
+            <p>Since we only have 10 common digits (0 through 9), what do we use after base-10?</p>
+            <p>We use the alphabet! Since we can also use lower and uppercase, this gives us 46 extra characters</p>
+            <p>Combining this with earlier gives us a possible base-56</p>
+            <p>You can go past the alphabet and use symbols, but theres not a commonplace system for that</p>
+            <p>One of the most common uses of the alphbet in numbers is base-16 (hexademical)</p>
+            <p>Hexadecimal uses 0 through 9 and then a through f</p>
+            <p>a represents 11, b represents 12, c represents 13, d represents 14, and f represents 15</p>
+            <p>There's not a common standard wheter or not to use lowercase or uppercase numbers, use either</p>
+            
+            <p>For example, here are some valid base-16 numbers:</p>
+            <p>$$\begin{align} 
+                    2B41_{16} &= 9393 \\
+                    100202_{16} &= 1049090\\
+                    DEAD_{16} &= 57005 \\
+                    2_{16} &= 2 \\
+            \end{align}$$</p>
+            <hr>
+            <h3>Conversion With Decimal</h3>
+            <p>To convert from base-10 to base-n</p>
+            <p>Divide the number by n and keep the result and remainder</p>
+            <p>Repeat this process with the result until it's 0</p>
+            <p>Write the final number from left to right using the remainders from bottom to top</p>
+            <br>
+            <p>To convert a number in base-n to base-10</p>
+            <p>Use the formula $\text{digit} \cdot \text{radix}^\text{index}$ and add up the result from each digit</p>
+            <br>
+            <p>Example: Convert $642$ to base-4 and back to base-10</p>
+            <p>$$\begin{align} 
+                642 / 4 &= 163 \ R \ 0 \\
+                163 / 4 &= 40 \ R \ 3 \\
+                40 / 4 &= 10 \ R \ 0 \\
+                10 / 4 &= 2 \ R \ 2 \\
+                2 / 4 &= 0 \ R \ 2 \\
+            \end{align}$$</p>
+            <p>Putting this together we get $22030_4$</p>
+            <p>To convert this back to base-10</p>
+            <p>$$\begin{align} 
+                2 \cdot 4^4 + 2 \cdot 4^3 + 0 \cdot 4^2 + 3 \cdot 4^1 + 0 \cdot 4^0 = 512 + 128 + 12 = 652 
+            \end{align}$$</p>
+            <p>We get back our original number</p>
+            <hr>
+            <h3>Counting</h3>
+            <p>How do we count in base-10? We start at 0 and increment all the way until the last digit 9</p>
+            <p>When we get to 9, there's not another digit so we reset it to 0 and increment it onto the next digit</p>
+            <p>For example:</p>
+            <p>$$\begin{align} 
+                1 \\
+                2 \\
+                3 \\
+                \vdots \\
+                9 \\
+                10 \\
+                11 \\
+                \vdots \\
+                19 \\
+                20 \\
+                \vdots
+            \end{align}$$</p>
+            <p>This same principle applies to any number base system</p>
+            <p>For example, counting in base-2</p>
+            <p>$$\begin{align} 
+                0_2,1_2,10_2,11_2,100_2,101_2,110_2,111_2
+            \end{align}$$</p>
+            <p>Base-3</p>
+            <p>$$\begin{align} 
+                0_3,1_3,2_3,10_3,11_3,12_3,20_3,\ldots
+            \end{align}$$</p>
+            <p>This is also why we need to denote the number base we are using because the number n in base-n will always be 10</p>
+            <p>10 in base-2 is 2, 10 in base-10 is 10, 10 in base-16 is 16, and so on and so forth</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Convert $531_{12}$ to base-10</summary>
+                            <p>$$\begin{align} 
+                                5 \cdot 12^2 + 3 \cdot 12^1 + 1 \cdot 12^0 = 720 + 36 + 1 = 757
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Convert $53_{10}$ to base-20</summary>
+                            <p>$$\begin{align} 
+                                52 / 20 = 2 \ R \ 13 \\
+                                2 / 20 = 0 \ R \ 2 \\
+                            \end{align}$$</p>
+                            <p>The remainder of 13 corresponds to $D$</p>
+                            <p>$53_{10} = 2D_{20}$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Convert $243_{7}$ to base-12 (hint: convert to base-10 first)</summary>
+                            <p>$$\begin{align} 
+                                243_{7} = 2 \cdot 7^2 + 4 \cdot 7^1 + 3 \cdot 7^0 = 98 + 28 + 3 = 129_{10}
+                            \end{align}$$</p>
+                            <p>$$\begin{align} 
+                                129 / 12 = 10 \ R \ 9 \\
+                                10 / 12 = 0 \ R \ 10 \\
+                            \end{align}$$</p>
+                            <p>So $243_7 = A9_{12}$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Name the next 5 numbers after $1DB_{16}$</summary>
+                            <p>$$\begin{align} 
+                                &1DB_{16} \\
+                                &1DC_{16} \\
+                                &1DD_{16} \\
+                                &1DE_{16} \\
+                                &1DF_{16} \\
+                                &1E0_{16} \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
