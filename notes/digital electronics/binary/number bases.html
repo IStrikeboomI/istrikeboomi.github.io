@@ -126,6 +126,24 @@
             <p>This is also why we need to denote the number base we are using because the number n in base-n will always be 10</p>
             <p>10 in base-2 is 2, 10 in base-10 is 10, 10 in base-16 is 16, and so on and so forth</p>
             <hr>
+            <h3>Max Size</h3>
+            <p>For the largest number (in base-10) you can make given a base and digits: $\text{base}^\text{digits} - 1$ (includes zero)</p>
+            <p>To find the amount of digits (in base-10) you need to write a number in a base $\lfloor \log_{\text{base}}{\text{num}} \rfloor + 1$</p>
+            <p>Where $\lfloor x \rfloor$ is the floor function which rounds down</p>
+            <br>
+            <p>The way we get these is by some combinatorics</p>
+            <p>How many possible numbers can we put in the first digit, whatever the base is minus 1</p>
+            <p>This is true for all the digits so you need to multiply them to get the combinations formula</p>
+            <p>To find the amount of digits, you can just round to the nearest largest number you can make </p>
+            <p>For example: to find the amount of digits needed to write $1244$ in base-2 is: </p>
+            <p>$$\begin{align}
+                \lfloor \log_{2}{1244} \rfloor + 1 = \lfloor 10.2807707701\ldots \rfloor + 1 = 10 + 1 = 11
+            \end{align}$$</p>
+            <p>So we need $11$ digits, to find the largest binary number with $11$ digits</p>
+            <p>$$\begin{align}
+                2^{11} -1 = 2048 - 1 = 2047
+                \end{align}$$</p>
+            <hr>
             <details open>
                 <summary>Practice Problems</summary>
                 <ul class="no-bullets">
@@ -171,6 +189,30 @@
                                 &1DE_{16} \\
                                 &1DF_{16} \\
                                 &1E0_{16} \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the amount of digits needed to write $2551$ in base-6</summary>
+                            <p>$$\begin{align}
+                                \lfloor \log_{6}{2551} \rfloor + 1 = 4 + 1 = 5 \text{ Digits}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the amount of digits needed to write $57248$ in base-2000</summary>
+                            <p>$$\begin{align}
+                                \lfloor \log_{2000}{57248} \rfloor + 1 = 1 + 1 = 2 \text{ Digits}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the largest number (in base-10) you can write in base-14 with 3 digits</summary>
+                            <p>$$\begin{align}
+                                14^3 - 1 = 2744 - 1 = 2743
                             \end{align}$$</p>
                         </details>
                     </li>
