@@ -153,6 +153,7 @@
                 "section":"Binary",
                 "notes":[
                     {"name":"number bases","title":"Number Bases"},
+                    {"name":"binary","title":"Binary"},
                     {"name":"negative binary","title":"Negative Binary (Two's Complement)"}
                 ]
             }
