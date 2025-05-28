@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Binary Data</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>When we store binary in a computer, we have to store it as binary data</p>
+            <p>This because if we have a piece of binary like $0b11100010$, there are many ways to interpret this</p>
+            <p>If this is <a href="negative binary.html">Two's Complement</a> number, it would have a different value compared to a regular <a href="binary.html">Binary</a> number</p>
+            <p>To differentiate these we have to use <b>data types</b> and <b>data sizes</b></p>
+            <hr>
+            <h3>Data Sizes</h3>
+            <p>Each binary digit is called a <b>bit</b>, data is stored in <b>8 bit</b> chunks called <b>bytes</b></p>
+            <p>1 byte = 8 bits</p>
+            <P>Subsequent sizes use SI/metric prefixes</P>
+            <ol>
+                <li>1 kilobyte (kb) = 1000 bytes</li>
+                <li>1 megabyte (mb) = 1000 kilobytes</li>
+                <li>1 gigabyte (gb) = 1000 megabytes</li>
+                <li>1 terabyte (tb) = 1000 gigabytes</li>
+            </ol>
+            <p>or</p>
+            <ol>
+                <li>1 kibibyte (kib) = 1024 bytes</li>
+                <li>1 mebibyte (mib) = 1024 kibibyte</li>
+                <li>1 gibibyte (gib) = 1024 mebibyte</li>
+                <li>1 tebibyte (tib) = 1024 gibibyte</li>
+            </ol>
+            <P>However, there is sometimes confusion because some people use kilo/mega/giga/tera as 1024 instead of 1000</P>
+            <p>For example, memory drive manufacters say a 1 tb drive is 1,000,000,000,000 bytes</p>
+            <p>But windows OS says 1 tb is 1,073,741,824 bytes (1024 * 1024 * 1024) bytes, so a 1 tb drive shows up as 931 gb</p>
+            <hr>
+            <h3>Data Types</h3>
+            <p>Whenever we store binary data using code, we need some context on how to intrepret said data</p>
+            <p>We can achieve this using data types</p>
+            <p>Here are some of the most common ones, commonly seen in programming languages like c++</p>
+            <p>We haven't covered how all these work through notes yet but we will</p>
+            <p>For storing integers (whole numbers): </p>
+            <p>Unsigned (always positive) intgers: </p>
+            <ol>
+                <li>unsigned byte (1 byte/8 bits) (ranges from 0 to 255)</li>
+                <li>unsigned short (2 bytes/16 bits) (ranges from 0 to 65535)</li>
+                <li>unsigned int (4 bytes/32 bits) (ranges from 0 to 4,294,967,295)</li>
+                <li>unsigned long (8 bytes/64 bits) (ranges from 0 to 18,446,744,073,709,551,615)</li>
+            </ol>
+            <p>Signed (can be negative or positive using <a href="negative binary.html">Two's Complement</a>) intgers: </p>
+            <ol>
+                <li>byte (1 byte/8 bits) (ranges from -128 to 127)</li>
+                <li>short (2 bytes/16 bits) (ranges from −32768 to 32767)</li>
+                <li>int (4 bytes/32 bits) (ranges from −2,147,483,648 to 2,147,483,647)</li>
+                <li>long (8 bytes/64 bits) (ranges from −9,223,372,036,854,775,808 to 9,223,372,036,854,775,807)</li>
+            </ol>
+            <p>For storing numbers with decimals (fractional) using IEEE-754: </p>
+            <ol>
+                <li>float (4 bytes/32 bits) (ranges from $\pm 1.175494351 \cdot 10^{-38}$ to $\pm 3.4028234 \cdot 10^{38}$)</li>
+                <li>double (8 bytes/64 bits) (ranges from $\pm 2.2250738585072014 \cdot 10^{-308}$ to $\pm 1.7976931348623157 \cdot 10^{308}$)</li>
+            </ol>
+            <p>For storing text characters: </p>
+            <ol>
+                <li>char (1 byte/8 bits) (ASCII character)</li>
+                <li>char (1 byte/8 bits) (ASCII character)</li>
+            </ol>
+            
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
