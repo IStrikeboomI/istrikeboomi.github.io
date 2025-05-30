@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Hexadecimal</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content"> 
+            <p>Hexadecimal (or hex for short) is a <a href="number bases.html">base-16</a> number system that uses 0-9 and then a-f</p>
+            <p>a represents 11, b represents 12, c represents 13, d represents 14, and f represents 15</p>
+            <p>Either lower or uppercase characters can be used, just make sure to stay consistent</p>
+            <p>Hex numbers typically <b>start with</b> 0x</p>
+            <p>Hexadecimal is beneficial for <b>compacting binary</b> easily</p>
+            <p>4 binary bits equals 1 hexadecimal digit</p>
+            <hr>
+            <h3>Conversion Table</h3>
+            <p>This table is good to memorize, but it can be derived easily</p>
+            <p>$$\begin{align}
+                0000_2 \ (0_{10}) = 0_{16} \ \ &\ \ \ \  1000_2 \ (8_{10}) =  8_{16} \\
+                0001_2 \ (1_{10}) = 1_{16} \ \ &\ \ \ \  1001_2 \ (9_{10}) =  9_{16} \\
+                0010_2 \ (2_{10}) = 2_{16} \ \ &\ \ \ \  1010_2 \ (10_{10}) = A_{16} \\
+                0011_2 \ (3_{10}) = 3_{16} \ \ &\ \ \ \  1011_2 \ (11_{10}) = B_{16} \\
+                0100_2 \ (4_{10}) = 4_{16} \ \ &\ \ \ \  1100_2 \ (12_{10}) = C_{16} \\
+                0101_2 \ (5_{10}) = 5_{16} \ \ &\ \ \ \  1101_2 \ (13_{10}) = D_{16} \\
+                0110_2 \ (6_{10}) = 6_{16} \ \ &\ \ \ \  1110_2 \ (14_{10}) = E_{16} \\
+                0111_2 \ (7_{10}) = 7_{16} \ \ &\ \ \ \  1111_2 \ (15_{10}) = F_{16} \\
+            \end{align}$$</p>
+            <hr>
+            <h3>Converting Between Binary</h3>
+            <p>The way we would traditionally convert to binary would be to divide by 16</p>
+            <p>But we know by <a href="binary.html#binary tricks">Binary Tricks</a>, diving by 16 is the same as shifting by 4 bits</p>
+            <p>We can split the binary into chunks of 4 bits and convert each bit to hex</p>
+            <p>We can also do this process in reverse to convert from hex to binary</p>
+            <p>Example: convert $0b10101011110101001011000011$</p>
+            <p>$$\begin{align}
+                0b10101011110101001011000011 \rightarrow 0010 \ 1010 \ 1111 \ 0101 \ 0010 \ 1100 \ 0011
+            \end{align}$$</p>
+            <P>Notice since we only had 26 bits, we had to pad it to 28 bits so we could evenly split by 4</P>
+            <p>$$\begin{align}
+                0010  &\rightarrow 2\\
+                1010  &\rightarrow A\\
+                1111  &\rightarrow F\\
+                0101  &\rightarrow 5\\
+                0010  &\rightarrow 2\\
+                1100  &\rightarrow C\\
+                0011  &\rightarrow 3
+            \end{align}$$</p>
+            <p>$$\begin{align}
+                0b10101011110101001011000011 = 0\text{x}\text{2AF52C3}
+                \end{align}$$</p>
+            <p>If we want to convert this back</p>
+            <p>$$\begin{align}
+                2 &\rightarrow 0010 \\
+                A &\rightarrow 1010 \\
+                F &\rightarrow 1111 \\
+                5 &\rightarrow 0101 \\
+                2 &\rightarrow 0010 \\
+                C &\rightarrow 1100 \\
+                3 &\rightarrow 0011 
+            \end{align}$$</p>
+            <p>$$\begin{align}
+                0\text{x}\text{2AF52C3} = 0b10101011110101001011000011
+            \end{align}$$</p>
+            <hr>
+            <h3>Conversion With Base-10</h3>
+            <p>The following here is how to convert an <b>unsigned integer</b> (positive, whole number) to hex</p>
+            <p>If you want to convert a negative integer, see <a href="negative binary.html">Negative binary</a>, and convert that to hex</p>
+            <p>To convert from decimal to hex, you need to keep dividing by 16</p>
+            <p>Divide the number by 16 and store and the result and the remainder</p>
+            <p>Repeat this process using the result until you get 0</p>
+            <p>Write the final number from left to right using the remainders from bottom to top</p>
+            <p>Example: convert $2398$ to hex</p>
+            <p>$$\begin{align}
+                2398 / 16 &= 149 \ R \ 14 \ (E_{16}) \\
+                149 / 16 &= 9 \ R \ 5 \\
+                9 / 16 &= 0 \ R \ 9 \\
+                \\
+                2398_{10} &= 95E_{16} \text{ or } \text{0x95E} \\
+            \end{align}$$</p>
+            <p>To convert from hex to decimal, add up each of the terms using the formula $\text{value} \cdot 16^\text{index}$</p>
+            <P>Don't forget that index <b>starts at zero</b></P>
+            <p>For example, convert 0x403B to decimal</p>
+            <p>$$\begin{align}
+                11 \cdot 16^0 + 3 \cdot 16^1 + 0 \cdot 16^2 + 4 \cdot 16^3 = 11 + 48 + 0 + 16384 = 16443
+            \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Convert 0x15A3 to binary and decimal</summary>
+                            <p>1 = 0001 5 = 0101 A = 1010 3 = 0011</p>
+                            <p>$$\begin{align}
+                                \text{0x15A3} = \text{0b0001010110100011}
+                            \end{align}$$</p>
+                            <p>$$\begin{align}
+                                \text{0x15A3} &= 3 \cdot 16^0 + 10 \cdot 16^1 + 5 \cdot 16^2 + 1 \cdot 16^3 \\
+                                &= 3 + 160 + 1280 + 4096 = 5539_{10}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Convert 0b100000011110110001</summary>
+                            <p>$0b100000011110110001 \rightarrow 0b00100000011110110001$</p>
+                            <p>$$\begin{align}
+                                0b00100000011110110001 = 0010 \ 0000 \ 0111 \ 1011 \ 0001
+                            \end{align}$$</p>
+                            <p>$$\begin{align}
+                                0010 &\rightarrow 2\\
+                                0000 &\rightarrow 0\\
+                                0111 &\rightarrow 7\\
+                                1011 &\rightarrow B\\
+                                0001 &\rightarrow 1\\
+                            \end{align}$$</p>
+                            <p>$0b100000011110110001 = \text{0x207B1}$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Convert 0xDEAD to binary</summary>
+                            <p>D = 1101 E=1110 A=1010 D = 1101</p>
+                            <p>$$\begin{align}
+                                \text{0xDEAD} = \text{0b1101111010101101}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>For a <a href="negative binary.html">Two's Complement</a> number in hex, how could we easily know the sign?</summary>
+                            <p>For a two's complement number, if the left most digit is 1, it is negative</p>
+                            <p>The hex characters with a left-most digit with 1 are 8,9,A,B,C,D,E,F</p>
+                            <p>So if the left-most digit is any of those, it is a negative number</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>What Is The Largest <a href="binary data.html">signed int</a> value in hex?</summary>
+                            <p>A signed int is 4 bytes (so 8 hex characters)</p>
+                            <p>Since we want the largest number, it needs to be positive so the left-most bit can't be one</p>
+                            <p>The rest of the bits need to be 1 so each term is contributing</p>
+                            <p>This gives the largest signed int in binary as</p>
+                            <p>0b01111111111111111111111111111111</p>
+                            <p>Converting this to hex, we get 0x7FFFFFFF</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
