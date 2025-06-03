@@ -154,6 +154,7 @@
                 "notes":[
                     {"name":"number bases","title":"Number Bases"},
                     {"name":"binary","title":"Binary"},
+                    {"name":"binary addition","title":"Binary Addition"},
                     {"name":"negative binary","title":"Negative Binary (Two's Complement)"},
                     {"name":"binary data","title":"Binary Data"},
                     {"name":"hexadecimal","title":"Hexadecimal"}

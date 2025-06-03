@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Binary Addition</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>When we start to do math with computers, we need to do it in binary</p>
+            <p>We would just convert the binary to decimal and do the math, but that won't work</p>
+            <p>To add numbers in binary, we use a very similar process to <b>long addition</b>, but using binary</p>
+            <p>Starting from the left-most digit, add up the digits using the following table</p>
+            <p>$$\begin{align}
+                &\begin{array} {c c c | c c}
+                \text{carry} & a & b & \text{sum} & \text{carry} & \\ \hline
+                0 & 0 & 0 & 0 & 0\\
+                0 & 0 & 1 & 1 & 0\\
+                0 & 1 & 0 & 1 & 0\\
+                0 & 1 & 1 & 0 & 1\\
+                1 & 0 & 0 & 1 & 0\\
+                1 & 0 & 1 & 0 & 1\\
+                1 & 1 & 0 & 0 & 1\\
+                1 & 1 & 1 & 1 & 1\\
+                \end{array}
+            \end{align}$$</p>
+            <hr>
+            <h3>Long Addition In Decimal Recap</h3>
+            <p>When we do long addition in decimal, we start at the right-most digit and add up the digits</p>
+            <p>If the digit is over 10, we do a carry by adding to the next digit</p>
+            <p>For example:</p>
+            <p>$$\begin{align}
+                  1 \ \ \ \ \\
+                4168 \\
+                +3271 \\
+                \hline
+                7439
+            \end{align}$$</p>
+            <p>Since $6 + 7 = 13$, we keep the one's place as 3 and add the ten's place of 1 to the next digit</p>
+            <hr>
+            <h3>Binary Long Addition</h3>
+            <p>If we try to add $1 + 1 = 2$, in binary $1_2 + 1_2 = 10_2$, this makes the sum 0 and carry 1</p>
+            <p>We can use this simple small number addition to derive the table above</p>
+            <p>We can also just do the addition in your head</p>
+            <p>For example: $10010110_2 + 00110101_2$</p>
+            <p>$$\begin{align}
+                  1 \ 1 \ \ 1 \ \ \ \ \ \ \ \\
+                  10010110_2 \\
+                + 00110101_2 \\
+                \hline
+                11001011_2
+                \end{align}$$</p>
+            <p>If we convert these to decimal to verify our answer,</p>
+            <p>$$\begin{align}
+                10010110_2 &= 150_{10} \\
+                00110101_2 &= 53_{10} \\
+                11001011_2 &= 203_{10}
+                \end{align}$$</p>
+            <p>We can see our answer is correct</p>
+            <hr>
+            <h3>Overflow</h3>
+            <p>If we need to carry on the last (right most) digit in decimal long addition, we just extend the number</p>
+            <p>$$\begin{align}
+                1 \ \ \ \ \ \\
+                 34 \\
+                +84 \\
+                \hline
+                114
+            \end{align}$$</p>
+            <p>We would do this similarly in binary in the math world, but we don't live in the math world</p>
+            <p>When we add or really do any math in binary on a computer, the output is put into a <b>fixed size</b> data</p>
+            <p>We could be adding 2 8 digit binary numbers, and putting the output into an 8 digit number</p>
+            <p>The output might not fit into only 8 digits, this is called <b>overflow</b></p>
+            <p>When we see overflow we just <b>ignore the carry</b> or remove the last digit</p>
+            <p>For example: put the output into an 8 digit number</p>
+            <p>$$\begin{align}
+                 1 1 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \\\
+                  11011010_2 \\
+                + 01100101_2 \\
+                \hline
+                100111111_2
+                \end{align}$$</p>
+            <p>Since the output is 9 digits, we have chop off the last bit to give $00111111_2$</p>
+            <br>
+            <p>Overflow has some major unintended consequences like adding two large numbers gives a negative</p>
+            <p>It's just important to keep overflow in the back of your head to prevent errors</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Add $1100_2$ and $10111_2$ in binary (don't account for overflow)</summary>
+                            <p>Since $1100_2$ is only 4 digits and $10111_2$ is 5 digits, we extend $1100_2$ to $01100_2$</p>
+                            <p>$$\begin{align} 
+                                111  \ \ \ \ \ \ \ \\\
+                                  01100_2 \\
+                                + 10111_2 \\
+                                \hline
+                                100011_2
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$101010_2 + 1000_2$ (don't account for overflow)</summary>
+                            <p>$$\begin{align}
+                                 1 \ \ \ \ \ \ \ \ \ \ \\
+                                  101010_2 \\
+                                + 001000_2 \\
+                                \hline
+                                110010_2
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details open>
+                            <summary>$1100 1001 0010 1010_2 + 0101 1001 1100 1000_2$ (Store result into a 16 digit number)</summary>
+                            <p>$$\begin{align}
+                                11 \ 11\ \ \ \ \ 1 \ \ \ \ \ \ \ 1 \ \ \ \ \ \ \ \ \ \ \\
+                                  1100 1001 0010 1010_2 \\
+                                + 0101 1001 1100 1000_2 \\
+                                \hline
+                                1 0010 0010 1111 0010_2
+                                \end{align}$$</p>
+                            <p>Since $1 0010 0010 1111 0010_2$ is 17 digits, we remove the last digit to get $0010 0010 1111 0010_2$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

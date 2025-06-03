@@ -13,7 +13,7 @@
     </head>
     <body>
         <div id="content">
-            <p>The most common implmentation of negative binary number is <b>Two's Complement</b></p>
+            <p>The most common implementation of negative binary number is <b>Two's Complement</b></p>
             <p>A binary number that can support negative and positive is called a <b>signed</b> number</p>
             <p>To convert a positive binary number to negative in Two's complement (or vice-versa):</p>
             <p>Flip all the bits (0 becomes 1, 1 becomes 0) and then add 1</p>
@@ -47,7 +47,7 @@
                 -47_{10} &= 11010000_2 \\
             \end{align}$$</p>
             <p>Why would we do this? Try doing arithmetic with one's complement vs sign bit represeentation</p>
-            <p>For example, let's try to add the numbers previously</p>
+            <p>For example, let's try to <a href="binary addition.html">add</a> the numbers previously</p>
             <p>$$\begin{align} 
                 \textcolor{red}{0}0101111_2 \\
                 + \textcolor{red}{1}0101111_2 \\
@@ -91,7 +91,7 @@
             <h3>Two's Complement</h3>
             <p>Two's complement fixes this issue by <b>adding 1</b> to remove the negative 0</p>
             <p>To convert a positive binary number to negative in Two's complement (or vice-versa):</p>
-            <p>Flip all the bits (0 becomes 1, 1 becomes 0) and then add 1</p>
+            <p>Flip all the bits (0 becomes 1, 1 becomes 0) and then <a href="binary addition.html">add</a> 1 (Adding 1 is the same as <a href="binary.html#counting_in_binary">counting in binary</a>)</p>
             <p>Let's convert $-47_{10}$ to twos complement binary</p>
             <p>$$\begin{align} 
                 47_{10} &= 00101111_2 \\
