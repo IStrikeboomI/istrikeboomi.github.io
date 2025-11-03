@@ -155,7 +155,7 @@
             <p>In order to prove $                ||\vec{u} \times \vec{v}|| = ||\vec{u}|| \cdot ||\vec{v}|| \cdot \sin(\theta)$, we can use algebra</p>
             <p>First, establish definition of cosine between two vectors</p>
             <p>$$\begin{align} 
-                cos(\theta) &= \frac{\vec{u}\cdot\vec{v}}{||\vec{u}||\cdot ||\vec{v}||}
+                \cos(\theta) &= \frac{\vec{u}\cdot\vec{v}}{||\vec{u}||\cdot ||\vec{v}||}
             \end{align}$$</p>
             <p>$$\begin{align} 
                 ||\vec{u}|| \cdot ||\vec{v}|| \cdot \sin(\theta)  &= ||\vec{u}|| \cdot ||\vec{v}|| \cdot \sqrt{1-\cos^2(\theta)} &&\text{Using Rearranged $\sin^2(\theta) + \cos^2(\theta) = 1$} \\
@@ -163,12 +163,32 @@
                 &= ||\vec{u}|| \cdot ||\vec{v}|| \cdot \sqrt{1-\frac{(\vec{u}\cdot\vec{v})^2}{||\vec{u}||^2\cdot ||\vec{v}||^2}} \\
                 &= ||\vec{u}|| \cdot ||\vec{v}|| \cdot \sqrt{\frac{||\vec{u}||^2\cdot ||\vec{v}||^2}{||\vec{u}||^2\cdot ||\vec{v}||^2}-\frac{(\vec{u}\cdot\vec{v})^2}{||\vec{u}||^2\cdot ||\vec{v}||^2}} \\
                 &= ||\vec{u}|| \cdot ||\vec{v}|| \cdot \sqrt{\frac{||\vec{u}||^2\cdot ||\vec{v}||^2 - (\vec{u}\cdot\vec{v})^2}{||\vec{u}||^2\cdot ||\vec{v}||^2}} \\
-                &= ||\vec{u}|| \cdot ||\vec{v}|| \cdot \frac{1}{||\vec{u}||^2\cdot ||\vec{v}||^2} \cdot \sqrt{||\vec{u}||^2\cdot ||\vec{v}||^2 - (\vec{u}\cdot\vec{v})^2} &&\text{Factor Out Denominator Out Of Square Root}\\
+                &= ||\vec{u}|| \cdot ||\vec{v}|| \cdot \frac{1}{||\vec{u}||^2\cdot ||\vec{v}||^2} \cdot \sqrt{||\vec{u}||^2\cdot ||\vec{v}||^2 - (\vec{u}\cdot\vec{v})^2} &&\text{Factor Out Of Square Root}\\
                 &= \sqrt{||\vec{u}||^2\cdot ||\vec{v}||^2 - (\vec{u}\cdot\vec{v})^2} &&\text{Cancel Out Terms}\\
                 &= \sqrt{(u_1^2 + u_2^2 + u_3^2)(v_1^2 + v_2^2 + v_3^2) - (u_1v_1 + u_2v_2 + u_3v_3)^2}\\
                 &= \sqrt{(u_2v_3 - u_3v_2)^2 + (u_3v_1 - u_1v_3)^2 + (u_1v_2 - u_2v_1)^2} &&\text{A Lot Of Algebra Later...}\\
                 &= ||\vec{u} \times \vec{v}||\\
             \end{align}$$</p>
+            <details>
+                <summary>Algebra Above Expanded</summary>
+                <p>$$\begin{align}
+                      &\sqrt{(u_1^2 + u_2^2 + u_3^2)(v_1^2 + v_2^2 + v_3^2) - (u_1v_1 + u_2v_2 + u_3v_3)^2}\\
+                    &= \sqrt{(u_1^2v_1^2 + u_1^2v_2^2 + u_1^2v_3^2 + u_2^2v_1^2 + u_2^2v_2^2 + u_2^2v_3^2 + u_3^2v_1^2 + u_3^2v_2^2 +
+                    u_3^2v_3^2) - (u_1v_1 + u_2v_2 + u_3v_3)(u_1v_1 + u_2v_2 + u_3v_3)}\\
+                    &= \sqrt{(\textcolor{red}{u_1^2v_1^2} + u_1^2v_2^2 + u_1^2v_3^2 + u_2^2v_1^2 + \textcolor{blue}{u_2^2v_2^2} + u_2^2v_3^2 + u_3^2v_1^2 + u_3^2v_2^2 +
+                    \textcolor{green}{u_3^2v_3^2}) - (\textcolor{red}{u_1^2v_1^2} + u_1u_2v_1v_2 + u_1u_3v_1v_3 + u_1u_2v_1v_2 + \textcolor{blue}{u_2^2v_2^2} + u_2u_3v_2v_3 + u_1u_3v_1v_3 + u_2u_3v_2v_3 + \textcolor{green}{u_3^2v_3^2})}\\
+                    &= \sqrt{u_1^2v_2^2 + u_1^2v_3^2 + u_2^2v_1^2 + u_2^2v_3^2 + u_3^2v_1^2 + u_3^2v_2^2 - \textcolor{red}{u_1u_2v_1v_2} - \textcolor{blue}{u_1u_3v_1v_3} - \textcolor{green}{u_1u_2v_1v_2} - \textcolor{red}{u_2u_3v_2v_3} - \textcolor{blue}{u_1u_3v_1v_3} - \textcolor{green}{u_2u_3v_2v_3} }\\
+                    &= \sqrt{u_1^2v_2^2 + u_1^2v_3^2 + u_2^2v_1^2 + u_2^2v_3^2 + u_3^2v_1^2 + u_3^2v_2^2 - 2u_1u_2v_1v_2 - 2u_1u_3v_1v_3 - 2u_2u_3v_2v_3}\\
+                    &= \sqrt{(u_1^2v_2^2 - 2u_1u_2v_1v_2 + u_2^2v_1^2) + (u_1^2v_3^2 - 2u_1u_3v_1v_3 + u_3^2v_1^2) + (u_2^2v_3^2 - 2u_2u_3v_2v_3 + u_3^2v_2^2)}\\
+                    \end{align}$$</p>
+                <p>Now recognize that $(ab - cd)^2 = (ab - cd)(ab - cd) = a^2b^2 - abcd - abcd + c^2d^2 = a^2b^2 - 2abcd + c^2d^2$</p>
+                <p>$$\begin{align}
+                    &\sqrt{(u_1^2v_2^2 - 2u_1u_2v_1v_2 + u_2^2v_1^2) + (u_1^2v_3^2 - 2u_1u_3v_1v_3 + u_3^2v_1^2) + (u_2^2v_3^2 -
+                    2u_2u_3v_2v_3 + u_3^2v_2^2)}\\
+                    &= \sqrt{(u_1v_2 - u_2v_1)^2  + (u_3v_1 - u_1v_3)^2 + (u_2v_3 - u_3v_2)^2}\\
+                    \end{align}$$</p>
+                <p>Which is equivalent to the expression above, just rearranged</p>
+            </details>
             <hr>
             <h3>Area Of A Parallelogram</h3>
             <p>The Area of a Parallelogram with the sides of $\vec{u}$ and $\vec{v}$ is $||\vec{u} \times \vec{v}||$</p>
