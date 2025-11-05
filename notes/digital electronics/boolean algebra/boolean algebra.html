@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <link rel="stylesheet" href="/formattedTable.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Boolean Algebra</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Boolean Algebra is solving binary variables (called booleans) that involve logical operators</p>
+            <p>Comparing to regular algebra, the variables only have <b>two possible values 0 or 1</b>, like bits</p>
+            <p>Boolean algebra is used in digital electronics to design circuits</p>
+            <hr>
+            <h3>Boolean Operators</h3>
+            <p>These are the 4 main operators</p>
+            <ol>
+                <li><b>AND</b> (multiplication) - both inputs have to be 1 for output to be 1</li>
+                <li><b>OR</b> (addition) - at least one input has to be 1 for output to be 1</li>
+                <li><b>NOT</b> (inversion) - inverts the input, 0 becomes 1 and 1 becomes 0</li>
+                <li><b>XOR</b> (exclusive or) - only one input can be 1 for output to be 1, if both are 1 or both are 0 output is 0</li>
+            </ol>
+            <p>AND, OR, and XOR are binary operaters meaning they need two values and outputs 1</p>
+            <p>NOT is a unary operator which means it only needs one value and outputs one value</p>
+            <p>Here are common symbols used for each operator</p>
+            <ol>
+                <li><b>AND</b> - * (or implicit multiplication), &, $\land$, AND</li>
+                <li><b>OR</b> - +, |, $\lor$, OR</li>
+                <li><b>NOT</b> - ', ~, !, $\neg$, NOT, A bar over the value</li>
+                <li><b>XOR</b> - ⊕, ^, XOR</li>
+            </ol>
+            <p>In these lessons I will use, * + ' ^, and & | ~ ^, operators for boolean algebra</p>
+            <hr>
+            <h3>Truth Tables</h3>
+            <p>Truth tables are used to show all possible input and output combinations for boolean expressions</p>
+            <p>The amount of rows a truth table is the possible choices to the power of number of variables</p>
+            <p>Since the amount of choices is 2, the amount of possible outputs/rows to the power of n variables ($2^n$)</p>
+            <p>Here are the truth tables for the operations</p>
+            <h4>AND</h4>
+            <p>$$\begin{align}
+                &\begin{array} {c | c | c}
+                A & B & AB \\ \hline
+                0 & 0 & 0 \\
+                0 & 1 & 0 \\
+                1 & 0 & 0 \\
+                1 & 1 & 1 \\
+                \end{array}
+            \end{align}$$</p>
+            <h4>OR</h4>
+            <p>$$\begin{align}
+                &\begin{array} {c | c | c}
+                A & B & A + B \\ \hline
+                0 & 0 & 0 \\
+                0 & 1 & 1 \\
+                1 & 0 & 1 \\
+                1 & 1 & 1 \\
+                \end{array}
+            \end{align}$$</p>
+            <h4>NOT</h4>
+            <p>$$\begin{align}
+                &\begin{array} {c | c}
+                A & A' \\ \hline
+                0 & 1 \\
+                1 & 0 \\
+                \end{array}
+            \end{align}$$</p>
+            <h4>XOR</h4>
+            <p>$$\begin{align}
+                &\begin{array} {c | c | c}
+                A & B & A \oplus B \\ \hline
+                0 & 0 & 0 \\
+                0 & 1 & 1 \\
+                1 & 0 & 1 \\
+                1 & 1 & 0 \\
+            \end{array}
+            \end{align}$$</p>
+            <hr>
+            <h3>Examples</h3>
+            <p>$A + BC = D$</p>
+            <p>The above statement is a boolean algebra expression with 3 input variables</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>    
+                        <details>
+                            <summary>Practice 1</summary>
+                            <p>$$\begin{align} 
+
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

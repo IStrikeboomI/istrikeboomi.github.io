@@ -159,6 +159,12 @@
                     {"name":"binary data","title":"Binary Data"},
                     {"name":"hexadecimal","title":"Hexadecimal"}
                 ]
+            },
+            {
+                "section":"Boolean Algebra",
+                "notes":[
+                    {"name":"boolean algebra","title":"Boolean Algebra"}
+                ]
             }
         ]
     },
