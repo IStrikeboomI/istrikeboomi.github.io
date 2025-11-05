@@ -36,11 +36,16 @@
                 <li><b>XOR</b> - ⊕, ^, XOR</li>
             </ol>
             <p>In these lessons I will use, * + ' ^, and & | ~ ^, operators for boolean algebra</p>
+            <p>In terms of operator precedence, it is similar to order of operations where you read left to right</p>
+            <p>NOT has the highest precedence, then AND, then OR, XOR depends on how it's defined</p>
+            <p>Parentheses are also used to prevent confusion of operator precedence</p>
             <hr>
-            <h3>Truth Tables</h3>
+            <h3 id="truth_tables">Truth Tables</h3>
             <p>Truth tables are used to show all possible input and output combinations for boolean expressions</p>
             <p>The amount of rows a truth table is the possible choices to the power of number of variables</p>
             <p>Since the amount of choices is 2, the amount of possible outputs/rows to the power of n variables ($2^n$)</p>
+            <p>The way you make a truth table is the top row to be all the inputs, followed by all the outputs</p>
+            <p>From there you fill in the inputs like you are <a href="../binary/binary.html#counting_in_binary">Counting In Binary</a></p>
             <p>Here are the truth tables for the operations</p>
             <h4>AND</h4>
             <p>$$\begin{align}
@@ -84,17 +89,172 @@
             <h3>Examples</h3>
             <p>$A + BC = D$</p>
             <p>The above statement is a boolean algebra expression with 3 input variables</p>
+            <p>Let's construct a truth table</p>
+            <p>$$\begin{align}
+                &\begin{array} {c | c | c | c}
+                A & B & C & D \\ \hline
+                0 & 0 & 0 & ? \\
+                0 & 0 & 1 & ? \\
+                0 & 1 & 0 & ? \\
+                0 & 1 & 1 & ? \\
+                1 & 0 & 0 & ? \\
+                1 & 0 & 1 & ? \\
+                1 & 1 & 0 & ? \\
+                1 & 1 & 1 & ? \\
+                \end{array}
+                \end{align}$$</p>
+            <p>Now we fill in the output column D by evaluating the expression for each row</p>
+            <p>If $A = 0, B = 0, C = 0$, $0 + 0(0) = 0 + 0 = 0$</p>
+            <p>If $A = 0, B = 0, C = 1$, $0 + 0(1) = 0 + 0 = 0$</p>
+            <p>If $A = 0, B = 1, C = 0$, $0 + 1(0) = 0 + 0 = 0$</p>
+            <p>If $A = 0, B = 1, C = 1$, $0 + 1(1) = 0 + 1 = 1$</p>
+            <p>If $A = 1, B = 0, C = 0$, $1 + 0(0) = 1 + 0 = 1$</p>
+            <p>If $A = 1, B = 0, C = 1$, $1 + 0(1) = 1 + 0 = 1$</p>
+            <p>If $A = 1, B = 1, C = 0$, $1 + 1(0) = 1 + 0 = 1$</p>
+            <p>If $A = 1, B = 1, C = 1$, $1 + 1(1) = 1 + 1 = 1$</p>
+            <p>So the final truth table is:</p>
+            <p>$$\begin{align}
+                &\begin{array} {c | c | c | c}
+                A & B & C & D \\ \hline
+                0 & 0 & 0 & 0 \\
+                0 & 0 & 1 & 0 \\
+                0 & 1 & 0 & 0 \\
+                0 & 1 & 1 & 1 \\
+                1 & 0 & 0 & 1 \\
+                1 & 0 & 1 & 1 \\
+                1 & 1 & 0 & 1 \\
+                1 & 1 & 1 & 1 \\
+                \end{array}
+            \end{align}$$</p>
+            <p>Let's do another example</p>
+            <p>$A(B' + B + A) = C$</p>
+            <p>Constructing the truth table</p>
+            <p>$$\begin{align}
+                &\begin{array} {c | c | c}
+                A & B & C \\ \hline
+                0 & 0 & ? \\
+                0 & 1 & ? \\
+                1 & 0 & ? \\
+                1 & 1 & ? \\
+                \end{array}
+            \end{align}$$</p>
+            <p>Now we fill in the output column C by evaluating the expression for each row</p>
+            <p>If $A = 0, B = 0$, $0(0' + 0 + 0) = 0(1 + 0 + 0) = 0(1) = 0$</p>
+            <p>If $A = 0, B = 1$, $0(1' + 1 + 0) = 0(0 + 1 + 0) = 0(1) = 0$</p>
+            <p>If $A = 1, B = 0$, $1(0' + 0 + 1) = 1(1 + 0 + 1) = 1(1) = 1$</p>
+            <p>If $A = 1, B = 1$, $1(1' + 1 + 1) = 1(0 + 1 + 1) = 1(1) = 1$</p>
+            <p>So the final truth table is:</p>
+            <p>$$\begin{align}
+                &\begin{array} {c | c | c}
+                A & B & C \\ \hline
+                0 & 0 & 0 \\
+                0 & 1 & 0 \\
+                1 & 0 & 1 \\
+                1 & 1 & 1 \\
+                \end{array}
+            \end{align}$$</p>
+            <p>Let's do one more example</p>
+            <p>$A'B + AB' = C$</p>
+            <p>Constructing the truth table</p>
+            <p>$$\begin{align}
+                &\begin{array} {c | c | c}
+                A & B & C \\ \hline
+                0 & 0 & ? \\
+                0 & 1 & ? \\
+                1 & 0 & ? \\
+                1 & 1 & ? \\
+                \end{array}
+            \end{align}$$</p>
+            <p>Now we fill in the output column C by evaluating the expression for each row</p>
+            <p>If $A = 0, B = 0$, $0'0 + 0 0' = 1(0) + 0(1) = 0 + 0 = 0$</p>
+            <p>If $A = 0, B = 1$, $0'1 + 0 1' = 1(1) + 0(0) = 1 + 0 = 1$</p>
+            <p>If $A = 1, B = 0$, $1'0 + 1 0' = 0(0) + 1(1) = 0 + 1 = 1$</p>
+            <p>If $A = 1, B = 1$, $1'1 + 1 1' = 0(1) + 1(0) = 0 + 0 = 0$</p>
+            <p>So the final truth table is:</p>
+            <p>$$\begin{align}
+                &\begin{array} {c | c | c}
+                A & B & C \\ \hline
+                0 & 0 & 0 \\
+                0 & 1 & 1 \\
+                1 & 0 & 1 \\
+                1 & 1 & 0 \\
+                \end{array}
+            \end{align}$$</p>
+            <p>If you look carefully this truth table is the same as the truth table for XOR</p>
+            <P>So we can conclude that $A'B + AB' = A \oplus B$</p>
             <hr>
             <details open>
                 <summary>Practice Problems</summary>
                 <ul class="no-bullets">
                     <li>    
                         <details>
-                            <summary>Practice 1</summary>
+                            <summary>Evaluate $(A \oplus B) + C + A'$, if $A=1, B = 1, C = 1$</summary>
                             <p>$$\begin{align} 
-
+                                (1 \oplus 1) + 1 + 1' &= 0 + 1 + 0 \\
+                                &= 1 + 0 \\
+                                &= 1
                             \end{align}$$</p>
                         </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Evaluate $A(B + C')'$, if $A=1, B = 0, C = 1$</summary>
+                            <p>$$\begin{align} 
+                                1(0 + 1')' &= 1(0 + 0)' \\
+                                &= 1(0)' \\
+                                &= 1(1) \\
+                                &= 1
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>How many rows would a truth table for an expression with 7 variables have?</summary>
+                            <p>Since there are 7 variables and 2 possible choices for each, $2^7 = 128$</p>
+                            <p>So 128 rows (not including the top row)</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Construct the truth table for $A' + B'C$</summary>
+                            <p>$$\begin{align}
+                                &\begin{array} {c | c | c | c}
+                                A & B & C & D \\ \hline
+                                0 & 0 & 0 & 1 \\
+                                0 & 0 & 1 & 1 \\
+                                0 & 1 & 0 & 1 \\
+                                0 & 1 & 1 & 1 \\
+                                1 & 0 & 0 & 0 \\
+                                1 & 0 & 1 & 1 \\
+                                1 & 1 & 0 & 0 \\
+                                1 & 1 & 1 & 0 \\
+                                \end{array}
+                            \end{align}$$</p>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Construct the truth table for $A(A' + BD(C \oplus D))$</summary>
+                            <p>$$\begin{align}
+                                    &\begin{array} {c | c | c | c | c}
+                                    A & B & C & D & E \\ \hline
+                                    0 & 0 & 0 & 0 & 0 \\
+                                    0 & 0 & 0 & 1 & 0 \\
+                                    0 & 0 & 1 & 0 & 0 \\
+                                    0 & 0 & 1 & 1 & 0 \\
+                                    0 & 1 & 0 & 0 & 0 \\
+                                    0 & 1 & 0 & 1 & 0 \\
+                                    0 & 1 & 1 & 0 & 0 \\
+                                    0 & 1 & 1 & 1 & 0 \\
+                                    1 & 0 & 0 & 0 & 0 \\
+                                    1 & 0 & 0 & 1 & 0 \\
+                                    1 & 0 & 1 & 0 & 0 \\
+                                    1 & 0 & 1 & 1 & 0 \\
+                                    1 & 1 & 0 & 0 & 0 \\
+                                    1 & 1 & 0 & 1 & 1 \\
+                                    1 & 1 & 1 & 0 & 1 \\
+                                    1 & 1 & 1 & 1 & 0 \\
+                                    \end{array}
+                            \end{align}$$</p>
                     </li>
                 </ul>
             </details>
