@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/main.css">
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+    <meta charset="utf-8">
+    <title>Adders</title>
+    <link rel="author" content="Strikeboom" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/icon.png">
+</head>
+<body>
+    <div id="content">
+        <p>Since we have logic gates, we can build circuits!</p>
+        <p>One of the most basic circuits we can build are <b>Adders</b></p>
+        <p>Adders are circuits that add binary numbers together using <a href="../binary/binary addition.html">binary addition</a></p>
+        <p>For adding single bits there are <b>half adders</b> and <b>full adders</b></p>
+        <p>One implementation to add larger binary numbers are <b>ripple carry adders</b></p>
+        <hr>
+        <h3>Half Adders</h3>
+        <p>Half adders add 2 bits and output a sum and carry</p>
+        <p>This is like adding a single column (without a carry in) when doing long addition</p>
+        <p>In Binary addition $0 + 0 = 0, 0 + 1 = 1, 1 + 0 = 1, 1 + 1 = 0$ with a carry of $1$</p>
+        <p>Here is the truth table for a half adder:</p>
+        <p>$$\begin{align}
+            &\begin{array} {c c | c c}
+            a & b & \text{sum} & \text{carry} \\ \hline
+            0 & 0 & 0 & 0\\
+            0 & 1 & 1 & 0\\
+            1 & 0 & 1 & 0\\
+            1 & 1 & 0 & 1\\
+            \end{array}
+        \end{align}$$</p>
+        <p>You could use sum of minterms to get the simplified equations</p>
+        <p>Or you can just recognize sum is the output for XOR and carry is AND</p>
+        <p>So the equations are:</p>
+        <p>$$\begin{align}
+            \text{sum} &= A \oplus B \\
+            \text{carry} &= A B
+        \end{align}$$</p>
+        <p>One issue with this is that it doesn't take into account the carry bit when adding</p>
+        <hr>
+        <h3>Full Adders</h3>
+        <p>To rememedy this carry in issue, we use a full adder</p>
+        <p>Full adders add 2 bits and a carry in bit, and output a sum and carry out bit</p>
+        <p>This is like adding a single column (with a carry in) when doing long addition</p>
+        <p>Here is the truth table for a full adder:</p>
+        <p>$$\begin{align}
+            &\begin{array} {c c c | c c}
+            \text{carry in} & a & b & \text{sum} & \text{carry out} \\ \hline
+            0 & 0 & 0 & 0 & 0\\
+            0 & 0 & 1 & 1 & 0\\
+            0 & 1 & 0 & 1 & 0\\
+            0 & 1 & 1 & 0 & 1\\
+            1 & 0 & 0 & 1 & 0\\
+            1 & 0 & 1 & 0 & 1\\
+            1 & 1 & 0 & 0 & 1\\
+            1 & 1 & 1 & 1 & 1\\
+            \end{array}
+        \end{align}$$</p>
+        <p>Using sum of minterms here are the base equations</p>
+        <p>$$\begin{align}
+            \text{sum} &= A'B'C_{in} + A'BC_{in}' + AB'C_{in}' + ABC_{in} \\
+            \text{carry out} &= A'BC_{in} + AB'C_{in} + ABC_{in}' + ABC_{in}
+        \end{align}$$</p>
+        <details>
+            <summary>Simplification of sum</summary>
+            <p>First recognize that $A \oplus B = A'B + AB'$ and $(A \oplus B)' = A'B' + AB$</p>
+            <p>$$\begin{align}
+                & A'B'C_{in} + A'BC_{in}' + AB'C_{in}' + ABC_{in} \\
+                &= A'(B'C_{in} + BC_{in}') + A(B'C_{in}' + BC_{in})&&\text{Distributive Property}\\
+                &= A'(B \oplus C_{in}) + A((B \oplus C_{in})')&&\text{Defintion of XOR}\\
+                &= A \oplus (B \oplus C_{in})&&\text{Defintion of XOR}\\
+                &= A \oplus B \oplus C_{in} &&\text{XOR Associative Property}\\
+                \end{align}$$</p>
+        </details>
+        <details>
+            <summary>Simplification of carry out</summary>
+            <p>$$\begin{align}
+                & A'BC_{in} + AB'C_{in} + ABC_{in}' + ABC_{in} \\
+                &= C_{in}(A'B + AB' + AB) + ABC_{in}' &&\text{Distributive AND Property}\\
+                &= C_{in}(A'B + A(B' + B)) + ABC_{in}' &&\text{Distributive ORProperty}\\
+                &= C_{in}(A'B + A \cdot 1) + ABC_{in}' &&\text{Inverse Property}\\
+                &= C_{in}(A'B + A) + ABC_{in}' &&\text{Identity Property}\\
+                &= C_{in}((A + A')(A + B)) + ABC_{in}' &&\text{Distributive OR Property}\\
+                &= C_{in}(A + B) + ABC_{in}' &&\text{Inverse And Identity Property}\\
+                &= AC_{in} + BC_{in} + ABC_{in}' &&\text{Distributive Property}\\
+                &= AC_{in} + (BC_{in} + A)(BC_{in} + BC_{in}') &&\text{Distributive OR Property}\\
+                &= AC_{in} + (BC_{in} + A)(B(C_{in} + C_{in}')) &&\text{Distributive AND Property}\\
+                &= AC_{in} + (BC_{in} + A)(B) &&\text{Inverse And Identity Property}\\
+                &= AC_{in} + BBC_{in} + AB &&\text{Distributive AND Property}\\
+                &= AC_{in} + BC_{in} + AB &&\text{Idempotent Property}\\
+                \end{align}$$</p>
+        </details>
+        <p>So the simplified equations are:</p>
+        <p>$$\begin{align}
+            \text{sum} &= A \oplus B \oplus C_{in} \\
+            \text{carry out} &= AC_{in} + BC_{in} + AB
+        \end{align}$$</p>
+        <hr>
+        <h3>Ripple Carry Adders</h3>
+        <p>To add larger binary numbers, we can daisy-chain together multiple full adders</p>
+        <p>This is called a ripple carry adder,</p>
+        <p>because the carry out from one full adder ripples into the next full adder as the carry in</p>
+        <p>The last full adder also has a carry out which can either be discarded or put into a new bit</p>
+        <hr>
+        <h3>Negative Numbers</h3>
+        <p>Since we are doing <a href="../binary/binary addition.html">binary addition</a>, which works with <a href="../binary/negative binary.html">Two's Complement</a>,</p>
+        <p>We can do arithmetic with negative numbers right out of the gate</p>
+    </div>
+    <script src="/main.js"></script>
+</body>
+
+</html>

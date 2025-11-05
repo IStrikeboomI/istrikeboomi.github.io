@@ -166,6 +166,12 @@
                     {"name":"boolean algebra","title":"Boolean Algebra"},
                     {"name":"simplifying boolean algebra expressions","title":"Simplifying Boolean Algebra Expressions"}
                 ]
+            },
+            {
+                "section":"Digital Circuits",
+                "notes":[
+                    {"name":"adders","title":"Adders"}
+                ]
             }
         ]
     },
