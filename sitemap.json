@@ -163,7 +163,8 @@
             {
                 "section":"Boolean Algebra",
                 "notes":[
-                    {"name":"boolean algebra","title":"Boolean Algebra"}
+                    {"name":"boolean algebra","title":"Boolean Algebra"},
+                    {"name":"simplifying boolean algebra expressions","title":"Simplifying Boolean Algebra Expressions"}
                 ]
             }
         ]

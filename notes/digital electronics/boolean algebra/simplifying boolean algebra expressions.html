@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/main.css">
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+    <meta charset="utf-8">
+    <title>Simplifying Boolean Algebra Expressions</title>
+    <link rel="author" content="Strikeboom" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/icon.png">
+</head>
+<body>
+    <div id="content">
+        <p>Many times we need to convert a boolean algebra expression into a circuit</p>
+        <p>But when we do that, each operator introduces more circuitry</p>
+        <p>We can fix this by simplifying boolean algebra expressions into simpler forms</p>
+        <p>We achieve this using <b>Boolean Algebra Properties</b></p>
+        <hr>
+        <h3>Boolean Algebra Properties</h3>
+        <p>Commutative Properties: </p>
+        <ul>
+            <li>AND: $AB = BA$</li>
+            <li>OR: $A + B = B + A$</li>
+            <li>XOR: $A \oplus B = B \oplus A$</li>
+        </ul>
+        <p>Associative Properties: </p>
+        <ul>
+            <li>AND: $A(BC) = (AB)C$</li>
+            <li>OR: $A + (B + C) = (A + B) + C$</li>
+            <li>XOR: $A \oplus (B \oplus C) = (A \oplus B) \oplus C$</li>
+        </ul>
+        <p>Distributive Properties (2 variable): </p>
+        <ul>
+            <li>AND over OR: $A(B + C) = AB + AC$</li>
+            <li>OR over AND: $A + (BC) = (A + B)(A + C)$</li>
+        </ul>
+        <p>Distributive Properties ($n$ variables):</p>
+        <ul>
+            <li>AND over OR: $A(B_1 + B_2 + ... + B_n) = AB_1 + AB_2 + ... + AB_n$</li>
+            <li>OR over AND: $A + (B_1B_2...B_n) = (A + B_1)(A + B_2)...(A + B_n)$</li>
+        </ul>
+        <p>Identity Properties: </p>
+        <ul>
+            <li>AND: $A1 = A$</li>
+            <li>OR: $A + 0 = A$</li>
+            <li>XOR: $A \oplus 0 = A$</li>
+        </ul>
+        <p>Null Properties: </p>
+        <ul>
+            <li>AND: $A0 = 0$</li>
+            <li>OR: $A + 1 = 1$</li>
+            <li>XOR: $A \oplus 1 = A'$</li>
+        </ul>
+        <p>Idempotent Properties: </p>
+        <ul>
+            <li>AND: $AA = A$</li>
+            <li>OR: $A + A = A$</li>
+            <li>XOR: $A \oplus A = 0$</li>
+        </ul>
+        <p>Inverse Properties: </p>
+        <ul>
+            <li>AND: $AA' = 0$</li>
+            <li>OR: $A + A' = 1$</li>
+            <li>XOR: $A \oplus A' = 1$</li>
+        </ul>
+        <p>Absorption Properties: </p>
+        <ul>
+            <li>AND/OR: $A + AB = A$</li>
+            <li>OR/AND: $A(A + B) = A$</li>
+        </ul>
+        <p>De Morgan's Law (2 variables): </p>
+        <ul>
+            <li>$(AB)' = A' + B'$</li>
+            <li>$(A + B)' = A'B'$</li>
+        </ul>
+        <p>De Morgan's Law (n variables): </p>
+        <ul>
+            <li>$(A_1A_2...A_n)' = A_1' + A_2' + ... + A_n'$</li>
+            <li>$(A_1 + A_2 + ... + A_n)' = A_1'A_2'...A_n'$</li>
+        </ul>
+        <p>Complement Property/Double Negation : $(A')' = A$</p>
+        <p>Table of Properties:</p>
+        <table border="1">
+            <tr>
+            <th>Property</th>
+            <th>AND</th>
+            <th>OR</th>
+            <th>XOR</th>
+            </tr>
+            <tr>
+            <td>Commutative</td>
+            <td>$AB = BA$</td>
+            <td>$A + B = B + A$</td>
+            <td>$A \oplus B = B \oplus A$</td>
+            </tr>
+            <tr>
+            <td>Associative</td>
+            <td>$A(BC) = (AB)C$</td>
+            <td>$A + (B + C) = (A + B) + C$</td>
+            <td>$A \oplus (B \oplus C) = (A \oplus B) \oplus C$</td>
+            </tr>
+            <tr>
+            <td>Distributive (2 var)</td>
+            <td>$A(B + C) = AB + AC$</td>
+            <td>$A + (BC) = (A + B)(A + C)$</td>
+            <td>N/A</td>
+            </tr>
+            <tr>
+            <td>Identity</td>
+            <td>$A1 = A$</td>
+            <td>$A + 0 = A$</td>
+            <td>$A \oplus 0 = A$</td>
+            </tr>
+            <tr>
+            <td>Null</td>
+            <td>$A0 = 0$</td>
+            <td>$A + 1 = 1$</td>
+            <td>$A \oplus 1 = A'$</td>
+            </tr>
+            <tr>
+            <td>Idempotent</td>
+            <td>$AA = A$</td>
+            <td>$A + A = A$</td>
+            <td>$A \oplus A = 0$</td>
+            </tr>
+            <tr>
+            <td>Inverse</td>
+            <td>$AA' = 0$</td>
+            <td>$A + A' = 1$</td>
+            <td>$A \oplus A' = 1$</td>
+            </tr>
+            <tr>
+            <td>Absorption</td>
+            <td>$A(A + B) = A$</td>
+            <td>$A + AB = A$</td>
+            <td>N/A</td>
+            </tr>
+        </table>
+        <p>All of these properties <b>go both ways</b></p>
+        <p>This seems like a like of properties, but with practice you will get used to it </p>
+        <p>You can simply use the table and the three above (De Morgan's Law and Complement property) as a cheat sheet</p>
+        <p>All of the one and two variable properties are easy to prove, just use truth tables and brute force all solutions</p>
+        <hr>
+        <h3>Examples</h3>
+        <p>To simplify boolean algebra expressions, we simply use the properties to reduce the expression step by step</p>
+        <p>Here is an example:</p>
+        <p>Simplify $A + AB'$: </p>
+        <p>$$\begin{align}
+            A + AB' &= A(1 + B') &\text{Distributive Property} \\
+            &= A1 &\text{Null Property} \\
+            &= A &\text{Identity Property} \\
+        \end{align}$$</p>
+        <p>So the simplified expression is $A$</p>
+        <p>If we make a truth table for unsimplified and simplified</p>
+        <p>We can see that both expressions are equivalent</p>
+        <p>$$\begin{array}{c|c|c}
+        A & B & A + AB' & A \\
+        \hline
+        0 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        1 & 0 & 1 & 1 \\
+        1 & 1 & 1 & 1 \\
+        \end{array}$$</p>
+        <p>Another example</p>
+        <p>Simplify $AB' + (C'(A'+B'))'$: </p>
+        <p>$$\begin{align}
+            AB' + (C'(A'+B'))' &= AB' + (C'' +  (A+ B')') &\text{De Morgan's Law} \\
+            &= AB' + (C + (A'+ B')') &\text{Complement Property} \\
+            &= AB' + (C + (A''B'')) &\text{De Morgan's Law} \\
+            &= AB' + (C + (AB)) &\text{Complement Property} \\
+            &= AB' + C + AB &\text{Associative Property} \\
+            &= AB' + AB + C  &\text{Commutative Property} \\
+            &= A(B' + B) + C &\text{Distributive Property} \\
+            &= A1 + C &\text{Inverse Property} \\
+            &= A + C &\text{Identity Property} \\
+        \end{align}$$</p>
+        <p>So the simplified expression is $A + C$</p>
+        <p>If we make a truth table for unsimplified and simplified</p>
+        <p>We can see that both expressions are equivalent</p>
+        <p>$$\begin{array}{c|c|c|c}
+        A & B & C & AB' + (C'(A'+B'))' & A  + C \\
+        \hline
+        0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 1 & 1 & 1 \\
+        0 & 1 & 0 & 0 & 0 \\
+        0 & 1 & 1 & 1 & 1 \\
+        1 & 0 & 0 & 1 & 1 \\
+        1 & 0 & 1 & 1 & 1 \\
+        1 & 1 & 0 & 1 & 1 \\
+        1 & 1 & 1 & 1 & 1 \\
+        \end{array}$$</p>
+        <hr>
+        <details open>
+            <summary>Practice Problems</summary>
+            <ul class="no-bullets">
+            <li>
+                <details>
+                <summary>Simplify $A'BC' + A'C$</summary>
+                <p>$$\begin{align} 
+                    A'BC' + A'C &= A'(BC' + C) &\text{Distributive Property} \\
+                    &= A'((C+C')(C+B)) &\text{Distributive Property} \\
+                    &= A'(C+B) &\text{Inverse Property} \\
+                    \end{align}$$</p>
+                </details>
+            </li>
+            <li>
+                <details>
+                <summary>Simplify $(ABC)'A + B(B' + C'A)$</summary>
+                <p>$$\begin{align}
+                    (ABC)'A + B(B' + C'A) &= (A' + B' + C')A + B(B' + C'A) &\text{De Morgan's Law} \\
+                    &= (A'A + B'A + C'A) + (BB' + BC'A) &\text{Distributive Property} \\
+                    &= (0 + B'A + C'A) + (0 + BC'A) &\text{Inverse Property} \\
+                    &= B'A + C'A + BC'A &\text{Identity Property} \\
+                    &= A(B' + C' + BC') &\text{Distributive Property} \\
+                    &= A(B' + C') &\text{Absorption Property} \\
+                    \end{align}$$</p>
+                </details>
+            </li>
+            <li>
+                <details>
+                <summary>Simplify $(AC + B) \oplus (AB'C)$ and make a truth table, (Hint: XOR = $A'B + AB'$)</summary>
+                <p>$$\begin{align}
+                    (AC + B) \oplus (AB'C) &= (AC + B)'(AB'C) + (AC + B)(AB'C)' &\text{XOR Definition} \\
+                    &= ((AC)'B')(AB'C) + (AC + B)(A' + B'' + C') &\text{De Morgan's Law} \\
+                    &= ((A' + C')B')(AB'C) + (AC + B)(A' + B'' + C') &\text{De Morgan's Law} \\
+                    &= (A'B' + B'C')(AB'C) + (AC + B)(A' + B'' + C') &\text{Distributive AND Property} \\
+                    &= (A'B' + B'C')(AB'C) + (AC + B)(A' + B + C') &\text{Complement Property} \\
+                    &= A'B'(AB'C) + B'C'(AB'C) + A'(AC + B) + B(AC + B) + C'(AC + B) &\text{Distributive Property} \\
+                    &= A'B'(AB'C) + B'C'(AB'C) + A'AC + A'B + BAC + BB + C'AC + C'B &\text{Distributive Property} \\
+                    &= A'B'AB'C + B'C'AB'C + A'AC + A'B + BAC + BB + C'AC + C'B &\text{Associative Property} \\
+                    &= 0 + 0 + 0 + A'B + ABC + B + 0 + C'B &\text{Inverse and Idempotent Properties} \\
+                    &= A'B + ABC + B + C'B &\text{Identity Property} \\
+                    &= A'B + B + ABC + C'B &\text{Commutative Property} \\
+                    &= B( A' + 1 + AC + C') &\text{Distributive Property} \\
+                    &= B(1) &\text{Null Property} \\
+                    &= B &\text{Identity Property} \\
+                    \end{align}$$</p>
+                <p>So the simplified expression is $B$</p>
+                <p>Truth table for both expressions: </p>
+                <p>$$\begin{array}{c|c|c|c|c}
+                A & B & C & (AC + B) \oplus (AB'C) & B \\
+                \hline
+                0 & 0 & 0 & 0 & 0 \\
+                0 & 0 & 1 & 0 & 0 \\
+                0 & 1 & 0 & 1 & 1 \\
+                0 & 1 & 1 & 1 & 1 \\
+                1 & 0 & 0 & 0 & 0 \\
+                1 & 0 & 1 & 0 & 0 \\
+                1 & 1 & 0 & 1 & 1 \\
+                1 & 1 & 1 & 1 & 1 \\
+                \end{array}$$</p>
+                </details>
+                </li>
+            </ul>
+        </details>
+    </div>
+    <script src="/main.js"></script>
+</body>
+
+</html>
