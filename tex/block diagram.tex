@@ -1,0 +1,62 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+
+\begin{document}
+\begin{tikzpicture}[
+    FA/.style={draw, rectangle, minimum width=1.6cm, minimum height=1.2cm, align=center, font=\small},
+    bitlabel/.style={font=\footnotesize},
+    >=stealth
+  ]
+
+  % Create 8 full-adder blocks FA0 ... FA7 placed left-to-right
+  \foreach \i in {0,...,7} {
+    \node[FA] (FA\i) at ({2*\i},0) {FA\\[2pt] $i=\i$};
+  }
+
+  % Input A_i and B_i lines (from top and bottom respectively)
+  \foreach \i in {0,...,7} {
+    % A_i: from left into the left side of FA (upper)
+    \coordinate (Ain\i) at ($ (FA\i.west) + (-1,0.35) $);
+    \draw[-] (Ain\i) -- ($ (FA\i.west) + (-0.1,0.35) $) node[midway, above] {$A_{\i}$};
+
+    % B_i: from left into the left side of FA (lower)
+    \coordinate (Bin\i) at ($ (FA\i.west) + (-1,-0.35) $);
+    \draw[-] (Bin\i) -- ($ (FA\i.west) + (-0.1,-0.35) $) node[midway, below] {$B_{\i}$};
+
+    % Sum output S_i to the right, slightly down
+    \coordinate (Sout\i) at ($ (FA\i.east) + (1,0) $);
+    \draw[-] ($ (FA\i.east) + (0.1,0.0) $) -- (Sout\i) node[midway, above] {$S_{\i}$};
+  }
+
+  % Carry chain:
+  % Place C_0 to the left of FA0, then draw carry arrows from each FA to next
+  \coordinate (C0) at ($ (FA0.west) + (-1.5,0.8) $);
+  \draw[-] (C0) -- ($ (FA0.west) + (-0.15,0.8) $) node[midway, above] {$C_0$};
+
+  \foreach \i [evaluate=\i as \next using int(\i+1)] in {0,...,6} {
+    % coordinates slightly above the FA blocks for carry wires
+    \coordinate (Cout\i) at ($ (FA\i.east) + (0,0.8) $);
+    \coordinate (Cin\next) at ($ (FA\next.west) + (0,0.8) $);
+    \draw[->] (Cout\i) -- (Cin\next) node[midway, above] {$C_{\next}$};
+  }
+
+  % Final carry out C8 from FA7
+  \coordinate (Cout7) at ($ (FA7.east) + (0,0.8) $);
+  \coordinate (C8) at ($ (FA7.east) + (1.2,0.8) $);
+  \draw[->] (Cout7) -- (C8) node[midway, above] {$C_{8}$};
+
+  % Draw small input carry arrow into FA0's carry input location
+  % (connect the C0 line to an input on FA0)
+  \draw[->] ($ (FA0.west) + (-0.15,0.8) $) -- ($ (FA0.west) + (0.15,0.8) $);
+
+  % Annotate top/bottom for clarity
+  \node[bitlabel, above=8pt of FA7.north east, anchor=east] (top) {A inputs (top) and carry (top)};
+  \node[bitlabel, below=8pt of FA7.south east, anchor=east] (bottom) {B inputs (bottom) and sums (right)};
+
+  % Optional: group the whole adder with a dashed rectangle and label
+  \path let \p1 = (FA0.west), \p2 = (FA7.east) in
+    node[draw,dashed, inner sep=8pt, fit={(FA0.north west) (FA7.south east)}, label=below:{8-bit ripple-carry adder}] {};
+\end{tikzpicture}
+\end{document}
