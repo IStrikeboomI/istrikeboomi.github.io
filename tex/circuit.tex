@@ -15,7 +15,7 @@
 }
  
 % Logic ports
-\node[or port] (ORa) at (0,0){};
+\node[or port,number inputs = 3] (ORa) at (0,0){};
 \node[not port] (Noa) at (0,-2){};
 \node[or port] (ORb) at (0,-4){};
  
@@ -25,7 +25,7 @@
 \node[or port] (ORc) at (5,-1.5){};
  
 % Connection
-\draw (ORa.out) -- (Nob.in);
+%\draw (ORa.out) -- (Nob.in);
  
 \draw (Noa.out) -| (ANDa.in 1);
 \draw (ORb.out) -| (ANDa.in 2);
@@ -34,7 +34,7 @@
 \draw (Nob.out) -| (ORc.in 1);
 \draw (ORc.out) -- ++(1,0) node[near end,above]{Out};
  
-\draw (ORa.in 1) -- ++(-1.5,0)node[left](In1){In1};
+\draw (ORa.in 2) -- ++(-1.5,0)node[left](In1){In1};
 \draw (ORb.in 2) -- ++(-1.5,0)node[left](In3){In3};
  
 % Jump crossing element
