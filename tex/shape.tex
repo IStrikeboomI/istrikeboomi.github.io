@@ -4,47 +4,22 @@
 \usepackage{tkz-euclide}
 \begin{document}
 
-\begin{tikzpicture}[
-    node distance=1.8cm,
-    adder/.style={draw, minimum width=1.4cm, minimum height=1cm, align=center}
-]
+\begin{tikzpicture}
+%\draw[draw=black, fill=gray!10] (0,0) rectangle ++(3,3) 
+%node[pos = .5] (FA0) {Full Adder};
+%\draw[latex-, very thick] (FA0)+(-1,1.5) -- ++(-1,2.5) node[above] {A};
+%\draw[latex-, very thick] (FA0)+(1,1.5) -- ++(1,2.5) node[above] {B};
+%\draw[-latex, very thick] (FA0)+(0,-1.5) -- ++(0,-2.5) node[below] {Sum};
+%\draw[-latex, very thick] (FA0)+(1.5,-.5) -- ++(2.5,-.5) node[midway,above] {$C_{out}$};
+%\node[] at ($(FA0)+(-1,1)$) {A};
+%\node[] at ($(FA0)+(1,1)$) {B};
+%\node[] at ($(FA0)+(-1,-.5)$) {$C_{in}$};
+%\node[] at ($(FA0)+(1,-.5)$) {$C_{out}$};
+%\node[] at ($(FA0)+(0,-1.2)$) {Sum};
+%\draw[-latex, very thick] (FA0)+(-2.5,-0.5) -- ++(-1.5,-0.5) node[midway,above] (FA1) {$C_{in}$};
 
-% Full adders
-\node[adder] (FA0) {FA$_0$};
-\node[adder, right=of FA0] (FA1) {FA$_1$};
-\node[adder, right=of FA1] (FA2) {FA$_2$};
-\node[adder, right=of FA2] (FA3) {FA$_3$};
-\node[adder, right=of FA3] (FA4) {FA$_4$};
-\node[adder, right=of FA4] (FA5) {FA$_5$};
-\node[adder, right=of FA5] (FA6) {FA$_6$};
-\node[adder, right=of FA6] (FA7) {FA$_7$};
-
-% Inputs A and B
-\foreach \i in {0,...,7} {
-    \draw (FA\i.north west) ++(-0.3,0.25) node[left] {$A_\i$} -- ++(0.3,0);
-    \draw (FA\i.south west) ++(-0.3,-0.25) node[left] {$B_\i$} -- ++(0.3,0);
-}
-
-% Sum outputs
-\foreach \i in {0,...,7} {
-    \draw (FA\i.east) ++(0.3,0) node[right] {$S_\i$} -- (FA\i.east);
-}
-
-% Carry in
-\draw (FA0.west) ++(-0.6,0) node[left] {$C_{in}$} -- (FA0.west);
-
-% Carry chain (fixed)
-\foreach \i/\next in {0/1,1/2,2/3,3/4,4/5,5/6,6/7} {
-    \draw[->] (FA\i.east |- FA\i.north) ++(0,-0.1)
-         -- (FA\next.west |- FA\next.north)
-         node[midway, above] {$C_{\next}$};
-}
-
-% Final carry out
-\draw[->] (FA7.east |- FA7.north) ++(0,-0.1)
-    -- ++(0.6,0) node[right] {$C_{out}$};
-
+\node[anchor=north, yshift=-5mm, font=\large]
+    at (current bounding box.south)
+      {istrikeboomi.github.io};
 \end{tikzpicture}
-
-
 \end{document}
