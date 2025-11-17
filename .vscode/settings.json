@@ -4,5 +4,15 @@
         "L'Hôpital's",
         "Maclaurin",
         "raphson"
-    ]
+    ],
+    "files.exclude": {
+        "**/.git": true,
+        "**/*.aux" : true,
+        "**/*.log" : true,
+        "**/*.pgf-plot.gnuplot" : true,
+        "**/*.pgf-plot.table" : true,
+        "**/*.synctex.gz" : true,
+        "**/*.synctex(busy)" : true,
+        "**/*.bbl" : true,
+    }
 }
