@@ -12,31 +12,34 @@
 \ctikzset{
     logic ports=ieee
 }
-\node[xor port, number inputs = 3] (XOR){};
-\draw (XOR.in 1) -- ++(-1.5,0)node[left](A){A};
-\draw (XOR.in 2) -- ++(-1.5,0)node[left](B){B};
-\draw (XOR.in 3) -- ++(-1.5,0)node[left](C){$C_{in}$};
-\draw (XOR.out) -- ++(.5,0) node[right]{Sum};
-
-% AC
-\node[and port] (AND1) at (0,-2){};
-\draw (AND1.in 1) -| ++(-0.25,2.1) coordinate(A1) node[circ] at (A1) {};
-\draw (AND1.in 2) -| ++(-0.75,1.9) coordinate(temp) node[circ] at (temp) {};
-% BC
-\node[and port] (AND2) at (0,-4){};
-\draw (AND2.in 1) -| ++(-0.5,0) to[short] ++(0,1) to[crossing] ++(0,.9) to[short,-*] ++(0,1.8);
-\draw (AND2.in 2) -| ++(-0.75,2.25) coordinate(temp) [xing] {};
-
-% AB
-\node[and port] (AND3) at (0,-6){};
-\draw (AND3.in 1) -| ++(-0.25,0) to[short] ++(0,1) to[crossing] ++(0,.9) to[crossing] ++(0,.2) to[crossing] ++(0,2.65) to[short, -*] ++(0,-.75);
-\draw (AND3.in 2) -| ++(-0.5,0) to[short] ++(0,1.55) to[crossing] ++(0,.9) to[short,-*] ++(0,.1);
-
-\node[or port, number inputs = 3] (OR) at (3,-4){};
-\draw (OR.in 1) -| (AND1.out);
-\draw (OR.in 2) -| (AND2.out);
-\draw (OR.in 3) -| (AND3.out);
-\draw (OR.out) -- ++(.5,0) node[right]{$C_{out}$};
+\node[not port] (a) at (0,0){};
+\draw (a.in 1) -- ++(-.5,0)node[left](A){$A$};
+\draw (a.out) -- ++(.5,0) node[right]{$A'$};
+%\node[xor port, number inputs = 3] (XOR){};
+%\draw (XOR.in 1) -- ++(-1.5,0)node[left](A){A};
+%\draw (XOR.in 2) -- ++(-1.5,0)node[left](B){B};
+%\draw (XOR.in 3) -- ++(-1.5,0)node[left](C){$C_{in}$};
+%\draw (XOR.out) -- ++(.5,0) node[right]{Sum};
+%
+%% AC
+%\node[and port] (AND1) at (0,-2){};
+%\draw (AND1.in 1) -| ++(-0.25,2.1) coordinate(A1) node[circ] at (A1) {};
+%\draw (AND1.in 2) -| ++(-0.75,1.9) coordinate(temp) node[circ] at (temp) {};
+%% BC
+%\node[and port] (AND2) at (0,-4){};
+%\draw (AND2.in 1) -| ++(-0.5,0) to[short] ++(0,1) to[crossing] ++(0,.9) to[short,-*] ++(0,1.8);
+%\draw (AND2.in 2) -| ++(-0.75,2.25) coordinate(temp) [xing] {};
+%
+%% AB
+%\node[and port] (AND3) at (0,-6){};
+%\draw (AND3.in 1) -| ++(-0.25,0) to[short] ++(0,1) to[crossing] ++(0,.9) to[crossing] ++(0,.2) to[crossing] ++(0,2.65) to[short, -*] ++(0,-.75);
+%\draw (AND3.in 2) -| ++(-0.5,0) to[short] ++(0,1.55) to[crossing] ++(0,.9) to[short,-*] ++(0,.1);
+%
+%\node[or port, number inputs = 3] (OR) at (3,-4){};
+%\draw (OR.in 1) -| (AND1.out);
+%\draw (OR.in 2) -| (AND2.out);
+%\draw (OR.in 3) -| (AND3.out);
+%\draw (OR.out) -- ++(.5,0) node[right]{$C_{out}$};
 
 
 %% Logic ports

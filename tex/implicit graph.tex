@@ -36,6 +36,9 @@
 \addplot[incl, draw=blue] coordinates {(1,0)};
 \addplot[green,very thick,domain=-5:5,samples=1000] gnuplot {-2*x + 2};
 \end{axis}
+\node[anchor=north, yshift=-5mm, font=\large]
+    at (current bounding box.south)
+      {istrikeboomi.github.io};
 \end{tikzpicture}
 
 \end{document}

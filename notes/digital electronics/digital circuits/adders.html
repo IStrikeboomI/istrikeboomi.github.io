@@ -101,16 +101,22 @@
             \text{carry out} &= AC_{in} + BC_{in} + AB
         \end{align}$$</p>
         <img src="assets/svg/full adder.svg">
+        <p>This can be simplified by using a block that represents a single full adder</p>
+        <img src="assets/svg/full adder block.svg">
         <hr>
         <h3>Ripple Carry Adders</h3>
         <p>To add larger binary numbers, we can daisy-chain together multiple full adders</p>
         <p>This is called a ripple carry adder,</p>
         <p>because the carry out from one full adder ripples into the next full adder as the carry in</p>
         <p>The last full adder also has a carry out which can either be discarded or put into a new bit</p>
+        <p>Here is an example of a 4-bit ripple carry adder:</p>
+        <img src="assets/svg/ripple carry adder.svg">
+        <p>The inputs for this is 2 4-bit numbers and outputs a 4-bit sum and carry</p>
+        <p>The first $C_{in}$ is 0 because we're not carrying in anything</p>
         <hr>
         <h3>Negative Numbers</h3>
         <p>Since we are doing <a href="../binary/binary addition.html">binary addition</a>, which works with <a href="../binary/negative binary.html">Two's Complement</a>,</p>
-        <p>We can do arithmetic with negative numbers right out of the gate</p>
+        <p>We can do arithmetic with negative numbers right out of the gate!</p>
     </div>
     <script src="/main.js"></script>
 </body>
