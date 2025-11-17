@@ -163,6 +163,58 @@
             <p>If we take the case where A=0 B=1 C=1, we can see the flow of the inputs and outputs (in green)</p>
             <img src="assets/svg/easy digital circuit labeled.svg">
             <p>Some other things we can do for this circuit is replace the top AND and NOT into a single NAND gate</p>
+            <br>
+            <p>Here's another circuit</p>
+            <img src="assets/svg/medium digital circuit.svg">
+            <p>This circuit takes in 2 inputs A, B and has 2 outputs</p>
+            <p>Here we see the split AFTER the not gate so it splits the $A'$</p>
+            <p>The little semicircle on the $A'$ input wire and $B$ input wire indicates a crossing or a hop</p>
+            <p>This is not neccesary, but it makes it clearer the wire is not effected by $B$ and is only part of $A'$</p>
+            <p>If we write the boolean expression:</p>
+            <p>$$\begin{align}
+                \text{Out 1} &= A'B \\
+                \text{Out 2} &= A' + B
+            \end{align}$$</p>
+            <p>We can make a truth table for this circuit as well</p>
+            <p>$$\begin{align}
+                &\begin{array} {c c | c c}
+                A & B & A'B & A' + B \\ \hline
+                0 & 0 & 0 & 1 \\
+                0 & 1 & 1 & 1 \\
+                1 & 0 & 0 & 0 \\
+                1 & 1 & 0 & 1 \\
+                \end{array}
+                \end{align}$$</p>
+            <br>
+            <p>For a slightly harder circuit</p>
+            <img src="assets/svg/hard digital circuit.svg">
+            <p>This circuit takes in 4 inputs A, B, C, D</p>
+            <P>if we write this boolean expression:</P>
+            <p>$$\begin{align}
+                (((AB) \oplus B) \oplus (C + D)')'
+            \end{align}$$</p>
+            <p>We can make a truth table for this circuit as well</p>
+            <p>$$\begin{align}
+                &\begin{array} {c c c c | c c c c c}
+                A & B & C & D & AB & AB \oplus B & (C+D)' & (AB \oplus B) \oplus (C+D)' & ((AB \oplus B) \oplus (C+D)')'' \\ \hline
+                0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 \\
+                0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 \\
+                0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 \\
+                0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 1 \\
+                0 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 1 \\
+                0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 \\
+                0 & 1 & 1 & 0 & 0 & 1 & 0 & 1 & 0 \\
+                0 & 1 & 1 & 1 & 0 & 1 & 0 & 1 & 0 \\
+                1 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 \\
+                1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 \\
+                1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 \\
+                1 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 1 \\
+                1 & 1 & 0 & 0 & 1 & 0 & 1 & 1 & 0 \\
+                1 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 1 \\
+                1 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 1 \\
+                1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 1 \\
+                \end{array}
+                \end{align}$$</p>
             <hr>
             <h3>Logic Gates With More Than 2 Inputs</h3>
             <p>Other than NOT And Buffer gates, all the logic gates can have more then 2 inputs</p>
@@ -180,10 +232,32 @@
                 <ul class="no-bullets">
                     <li>
                         <details>
-                            <summary>Practice 1</summary>
-                            <p>$$\begin{align} 
+                            <summary>Create the boolean expression and truth table for the following circuit</summary>
+                            <img src="assets/svg/digital circuit practice 1.svg">
 
+                            <p>$$\begin{align} 
+                                (A + B) \oplus (BC) \oplus(A' + C)
                             \end{align}$$</p>
+                            <p>$$\begin{align}
+                                &\begin{array} {c c c | c c c c c c}
+                                A & B & C & A + B & BC & A' + C & (A + B) \oplus (BC) & ((A + B) \oplus (BC)) \oplus (A' + C) \\ \hline
+                                0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 \\
+                                0 & 0 & 1 & 0 & 0 & 1 & 0 & 1 \\
+                                0 & 1 & 0 & 1 & 0 & 1 & 1 & 0 \\
+                                0 & 1 & 1 & 1 & 1 & 1 & 0 & 1 \\
+                                1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 \\
+                                1 & 0 & 1 & 1 & 0 & 1 & 1 & 0 \\
+                                1 & 1 & 0 & 1 & 0 & 0 & 1 & 1 \\
+                                1 & 1 & 1 & 1 & 1 & 1 & 0 & 1 \\
+
+                                \end{array}
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Create a circuit that represents $((AB)')A B$</summary>
+                            <img src="assets/svg/digital circuit practice 2.svg">
                         </details>
                     </li>
                 </ul>

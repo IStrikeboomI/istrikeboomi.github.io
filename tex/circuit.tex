@@ -12,13 +12,57 @@
 \ctikzset{
     logic ports=ieee
 }
-\node[and port] (AND1) at (0,0) {};
-\node[and port] (AND2) at (2.5,-1) {};
-\draw (AND1.in 1) -- ++(-1,0) node[left] (A) {A};
-\draw (AND1.in 2) -- ++(-1,0) node[left] (B) {B};
-\draw (AND2.in 2) -- ++(-3.5,0) node[left] (C) {C};
-\draw (AND1.out) -| (AND2.in 1);
-\draw (AND2.out) -- ++(1,0) node[right] (Out) {Out};
+\node[nand port] (NAND1) at (0,0) {};
+\node[and port,number inputs = 3] (AND1) at (3,-1) {};
+\draw (NAND1.in 1) -- ++(-1,0) node[left] (A) {A};
+\draw (NAND1.in 2) -- ++(-1,0) node[left] (B) {B};
+\draw (NAND1.out) -| (AND1.in 1);
+\draw (AND1.in 2) -| ++(-3,.225) to[crossing] ++(0,1) to[short,-*] ++(0,.065);
+\draw (AND1.in 3) -- ++(-3.5,0) to[short,-*] ++(0,1.1);
+\draw (AND1.out) -- ++(.5,0) node[right] (Out) {Out};
+%\node [and port] (AND1) at (0,0) {};
+%\node [or port] (OR1) at (0,-2) {};
+%\draw (NOT1.in) -- ++(-1,0) node[left] (A) {A};
+%\draw (NOT1.out) -| (AND1.in 1);
+%\draw (AND1.in 2) -- ++(-2,0) node[left] (B) {B};
+%\draw (OR1.in 1) -- ++(0,.95) to[crossing] ++(0,1) to[short,-*] ++(0,.05);
+%\draw (OR1.in 2) -- ++(-1,0) to[short,-*] ++(0,2);
+%\draw (AND1.out) -| ++(.5,0) node[right] (Out) {Out 1};
+%\draw (OR1.out) -| ++(.5,0) node[right] (Out) {Out 2};
+
+%\node[or port] (OR1) at (0,0) {};
+%\node[and port] (AND1) at (0,-2) {};
+%\node[or port] (OR2) at (0,-4) {};
+%\draw (OR1.in 1) -- ++(-1,0) node[left] (A) {A};
+%\draw (OR1.in 2) -- ++(-1,0) node[left] (B) {B};
+%\draw (AND1.in 1) -- ++(-.25,0) to[short,-*] ++(0,1.45);
+%\draw (AND1.in 2) -- ++(-1,0) node[left] (C) {C};
+%\node[not port,rotate=270,scale=.5] (NOT1) at (-1.5,-3.2825) {};
+%\draw (NOT1.in) -- ++(0,.075) to[crossing] ++(0,1) to[short,-*] ++(0,2.05);
+%\draw (NOT1.out) -| (OR2.in 1);
+%\draw (OR2.in 2) -| ++(-.75,0) to[short,-*] ++(0,2);
+%
+%\node[xor port, number inputs = 3] (XOR1) at (3,-2) {};
+%\draw (OR1.out) -| (XOR1.in 1) node[above] {};
+%\draw (AND1.out) -| (XOR1.in 2) node[above] {};
+%\draw (OR2.out) -| (XOR1.in 3) node[above] {};
+%\draw (XOR1.out) -- ++(.5,0) node[right] (Out) {Out};
+%\node[and port] (AND1) at (0,0) {};
+%\node[nor port] (NOR1) at (0,-2) {};
+%\draw (AND1.in 1) -- ++(-1,0) node[left] (A) {A};
+%\draw (AND1.in 2) -- ++(-1,0) node[left] (B) {B};
+%\draw (NOR1.in 1) -- ++(-1,0) node[left] (C) {C};
+%\draw (NOR1.in 2) -- ++(-1,0) node[left] (D) {D};
+%
+%\node[xor port] (XOR1) at (3,-1) {};
+%\draw (AND1.out) -| (XOR1.in 1) node[above] {};
+%\draw (XOR1.in 2) -| ++(-3,0) to[short, -*] ++(0,1) node[left] {};
+%
+%\node [xnor port] (XNOR1) at (6,-1) {};
+%\draw (NOR1.out) -| (XNOR1.in 2) node[above] {};
+%\draw (XOR1.out) -| (XNOR1.in 1);
+%\draw (XNOR1.out) -- ++(.5,0) node[right] (Out) {Out};
+
 %\node[and port] (AND1) at (0,0) {};
 %\node[and port] (AND2) at (0,-2) {};
 %\node[not port] (NOT1) at (2,-.7225) {};
