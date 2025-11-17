@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Digital Circuits And Logic Gates</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Digital Circuits are a special type of circuit that are used to implement boolean algebra</p>
+            <p>Digital Circuits are extremely prevalent showing up as the main force in every computer, phone, etc.</p>
+            <p>They are built using <b>logic gates</b> (which do operations/arithmetic) and wires called <b>shorts</b> (which carry signals)</p>
+            <hr>
+            <h3>What Makes A Circuit A Digital Circuit?</h3>
+            <p>The main idea behind digital circuits is that they are <b>discrete</b> typically with values in binary 0 and 1</p>
+            <p>This is contrasted to analog circuits which use a wide range of values</p>
+            <p>Typically a value of 0 is represented physically as 0 volts via ground</p>
+            <p>Similarly a value of 1 is represented as 3.3 or 5 volts</p>
+            <p>The actual real world voltages might vary between 0 and 5 volts, but they need to be rounded to either 0 or 1</p>
+            <p>An <b>important</b> note is that an input that is not connected to ground or power is <b>not 0</b></p>
+            <p>This is an invalid state typically called <b>floating</b> and it should not happen</p>
+            <hr>
+            <h3>Logic Gates</h3>
+            <p>The way we do operations in digital circuits is with logic gates</p>
+            <p>Logic gates are components that implement <a href="../boolean algebra/boolean algebra.html">boolean algebra operations</a></p>
+            <p>There are 8 logic gates</p>
+            <ul>
+                <li>Buffer Gate</li>
+                <li>AND Gate</li>
+                <li>OR Gate</li>
+                <li>XOR Gate</li>
+                <li>NOT Gate</li>
+                <li>NAND Gate</li>
+                <li>NOR Gate</li>
+                <li>XNOR Gate</li>
+            </ul>
+            <p>Buffer Gate (Let's input pass through):</p>
+            <img src="assets/svg/buffer gate.svg">
+            <p>Here's the truth table</p>
+            <p>$$\begin{align}
+                &\begin{array} {c | c | c}
+                A & A \\ \hline
+                0 & 0 \\
+                1 & 1 \\
+                \end{array}
+                \end{align}$$</p>
+            <p>AND Gate (Only 1 is both inputs are 1):</p>
+            <img src="assets/svg/and gate.svg">
+            <p>$$\begin{align}
+                &\begin{array} {c c | c}
+                A & B & AB \\ \hline
+                0 & 0 & 0 \\
+                0 & 1 & 0 \\
+                1 & 0 & 0 \\
+                1 & 1 & 1 \\
+                \end{array}
+                \end{align}$$</p>
+            <p>OR Gate (1 if either or both inputs are 1):</p>
+            <img src="assets/svg/or gate.svg">
+            <p>$$\begin{align}
+                &\begin{array} {c c | c}
+                A & B & A + B \\ \hline
+                0 & 0 & 0 \\
+                0 & 1 & 1 \\
+                1 & 0 & 1 \\
+                1 & 1 & 1 \\
+                \end{array}
+                \end{align}$$</p>
+            <p>XOR Gate (1 if only one input is 1) (works like a not equals):</p>
+            <img src="assets/svg/xor gate.svg">
+            <p>$$\begin{align}
+                &\begin{array} {c c | c}
+                A & B & A \oplus B \\ \hline
+                0 & 0 & 0 \\
+                0 & 1 & 1 \\
+                1 & 0 & 1 \\
+                1 & 1 & 0 \\
+                \end{array}
+                \end{align}$$</p>
+            <p>NOT Gate (Inverts the input):</p>
+            <img src="assets/svg/not gate.svg">
+            <p>$$\begin{align}
+                &\begin{array} {c | c}
+                A & A' \\ \hline
+                0 & 1 \\
+                1 & 0 \\
+                \end{array}
+                \end{align}$$</p>
+            <p>NAND Gate (Inverts the AND gate output):</p>
+            <img src="assets/svg/nand gate.svg">
+            <p>$$\begin{align}
+                &\begin{array} {c c | c}
+                A & B & (AB)' \\ \hline
+                0 & 0 & 1 \\
+                0 & 1 & 1 \\
+                1 & 0 & 1 \\
+                1 & 1 & 0 \\
+                \end{array}
+                \end{align}$$</p>
+            <p>NOR Gate (Inverts the OR gate output):</p>
+            <img src="assets/svg/nor gate.svg">
+            <p>$$\begin{align}
+                &\begin{array} {c c | c}
+                A & B & (A + B)' \\ \hline
+                0 & 0 & 1 \\
+                0 & 1 & 0 \\
+                1 & 0 & 0 \\
+                1 & 1 & 0 \\
+                \end{array}
+                \end{align}$$</p>
+            <p>XNOR Gate (Inverts the XOR gate output) (1 if both inputs are equal):</p>
+            <img src="assets/svg/xnor gate.svg">
+            <p>$$\begin{align}
+                &\begin{array} {c c | c}
+                A & B & (A \oplus B)' \\ \hline
+                0 & 0 & 1 \\
+                0 & 1 & 0 \\
+                1 & 0 & 0 \\
+                1 & 1 & 1 \\
+                \end{array}
+                \end{align}$$</p>
+            <p>Here are some extra notes on logic gates</p>
+            <p>The way logic gates are implemented into a real circuit is with <b>transistors</b>, which we will cover later</p>
+            <p>You might notice a buffer gate seems kinda useless, and in a purely digital world they are</p>
+            <p>However, they are useful for amplifying signals and for isolating different parts of a circuit</p>
+            <p>For the inverse gates (NOT, NAND, NOR, XNOR) the drawing of the gate has a hollow circle at the output</p>
+            <p>This is called an inversion bubble and it indicates that the output is inverted</p>
+            <p>For example, the NAND gate is just an AND gate with an inversion bubble</p>
+            <p>Similarly you make an AND gate using a NAND gate with a NOT gate</p>
+            <hr>
+            <h3>Full Digital Circuit Examples</h3>
+            <p>Take a look at the following digital circuit</p>
+            <img src="assets/svg/easy digital circuit.svg">
+            <p>This circuit takes in 3 inputs A, B, C</p>
+            <p>For the top AND gate the inputs are A and B and for the bottom the inputs are B and C</p>
+            <p>The B input is split between them which is denoted by the black bullet point, which indicates a split</p>
+            <p>The first AND gate outputs to a NOT gate, which inverts the output</p>
+            <p>The outputs of the NOT gate and the second AND gate go into an OR gate for the final circuit</p>
+            <p>We can represent this with the following boolean expression:</p>
+            <p>$$\begin{align}
+                (A B)' + (B C)
+            \end{align}$$</p>
+            <p>If we make a truth table of the circuit</p>
+            <p>$$\begin{align}
+                &\begin{array} {c c c | c}
+                A & B & C & (A B)' + (B C) \\ \hline
+                0 & 0 & 0 & 1 \\
+                0 & 0 & 1 & 1 \\
+                0 & 1 & 0 & 1 \\
+                0 & 1 & 1 & 1 \\
+                1 & 0 & 0 & 1 \\
+                1 & 0 & 1 & 1 \\
+                1 & 1 & 0 & 0 \\
+                1 & 1 & 1 & 1 \\
+                \end{array}
+                \end{align}$$</p>
+            <p>If we take the case where A=0 B=1 C=1, we can see the flow of the inputs and outputs (in green)</p>
+            <img src="assets/svg/easy digital circuit labeled.svg">
+            <p>Some other things we can do for this circuit is replace the top AND and NOT into a single NAND gate</p>
+            <hr>
+            <h3>Logic Gates With More Than 2 Inputs</h3>
+            <p>Other than NOT And Buffer gates, all the logic gates can have more then 2 inputs</p>
+            <p>This is equivalent to putting the logic gates in series, in a process called <b>daisy-chaining</b></p>
+            <p>For example, a 3 input AND gate is the same as putting two 2 input AND gates in series</p>
+            <img src="assets/svg/3 input and gate.svg">
+            <p>This can be expanded to</p>
+            <img src="assets/svg/3 input and gate expanded.svg">
+            <p>Similarly, a 4 input AND gate is the same as putting three 2 input AND gates in series</p>
+            <p>This is the same for OR, XOR, NAND, NOR, XNOR gates (because they are <a href="../boolean algebra/simplifying boolean algebra expressions.html">associative</a>)</p>
+     
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Practice 1</summary>
+                            <p>$$\begin{align} 
+
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

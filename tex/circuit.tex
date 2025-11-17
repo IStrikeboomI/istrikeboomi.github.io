@@ -12,9 +12,26 @@
 \ctikzset{
     logic ports=ieee
 }
-\node[not port] (a) at (0,0){};
-\draw (a.in 1) -- ++(-.5,0)node[left](A){$A$};
-\draw (a.out) -- ++(.5,0) node[right]{$A'$};
+\node[and port] (AND1) at (0,0) {};
+\node[and port] (AND2) at (2.5,-1) {};
+\draw (AND1.in 1) -- ++(-1,0) node[left] (A) {A};
+\draw (AND1.in 2) -- ++(-1,0) node[left] (B) {B};
+\draw (AND2.in 2) -- ++(-3.5,0) node[left] (C) {C};
+\draw (AND1.out) -| (AND2.in 1);
+\draw (AND2.out) -- ++(1,0) node[right] (Out) {Out};
+%\node[and port] (AND1) at (0,0) {};
+%\node[and port] (AND2) at (0,-2) {};
+%\node[not port] (NOT1) at (2,-.7225) {};
+%\node[or port] (OR1) at (4,-1) {};
+%\draw (AND1.in 1) -- ++(-1,0) node[left] (A) {A};
+%\draw (AND1.in 2) -| ++(-0,0) to[short,-*] ++(0,-.70) to[short] ++(-.95,0) node[left] (B) {B};
+%\draw (-1.05,-1) -| (AND2.in 1) node[left] {};
+%\draw (AND1.out) -| (NOT1.in) node[left] {};
+%\draw (NOT1.out) -- (OR1.in 1) node[above] {};
+%\draw (AND2.in 2) -- ++(-1,0) node[left] (C) {C};
+%\draw (AND2.out) -| (OR1.in 2) node[left] {};
+%\draw (OR1.out) node[right] (Out) {};
+
 %\node[xor port, number inputs = 3] (XOR){};
 %\draw (XOR.in 1) -- ++(-1.5,0)node[left](A){A};
 %\draw (XOR.in 2) -- ++(-1.5,0)node[left](B){B};

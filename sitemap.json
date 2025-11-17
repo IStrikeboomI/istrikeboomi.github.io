@@ -170,6 +170,7 @@
             {
                 "section":"Digital Circuits",
                 "notes":[
+                    {"name":"digital circuits and logic gates","title":"Digital Circuits And Logic Gates"},
                     {"name":"adders","title":"Adders"}
                 ]
             }
