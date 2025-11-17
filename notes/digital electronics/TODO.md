@@ -1,4 +1,5 @@
 big and little endian
+IEEE 754 float and arithemetic
 
 representing real world thinss with boolean algebra
 sum of product product of sum
