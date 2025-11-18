@@ -146,6 +146,18 @@
         ]
     },
     {
+        "subject" : "Electrical Engineering",
+        "topics" : 
+        [
+            {
+                "section":"Basics",
+                "notes":[
+                    {"name":"electrical engineering basics","title":"Electrical Engineering Basics"}
+                ]
+            }
+        ]
+    },
+    {
         "subject" : "Digital Electronics",
         "topics" : 
         [
