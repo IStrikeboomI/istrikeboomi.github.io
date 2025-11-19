@@ -6,23 +6,146 @@
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
         </script>
         <meta charset="utf-8">
-        <title>Template</title>
+        <title>Electrical Engineering Basics</title>
         <link rel="author" content="Strikeboom" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="/icon.png">
     </head>
     <body>
         <div id="content">
-            <p>Content</p>
+            <p>This section covers the basics of electrical engineering</p>
+            <p>We will be mainly focusing on <b>circuits</b></p>
+            <p>An electrical circuit is a closed path that allows electrical <b>current</b> to flow</p>
+            <p>Electric circuits are made from <b>components</b> that "process electricity"</p>
+            <p>And made of <b>shorts</b>/conductors that allow current to move (wires)</p>
+            <hr>
+            <h3>What is Electricity?</h3>
+            <p>Electricity is the flow of <b>electrons</b> through a conductor</p>
+            <P>Electrons have a property called charge in a unit called <b>coulombs</b></P>
+            <p>A single electron has a charge of approximately $-1.602 \times 10^{-19}$ coulombs</p>
+            <p>In other words 1 coulomb is the charge of approximately $6.242 \times 10^{18}$ electrons</p>
+            <p>Electric current is the flow of charge over time</p>
+            <p>Current is measured in <b>amperes</b> (amps) where 1 ampere is equal to 1 coulomb per second</p>
+            <p>Mathematically we can express current as:</p>
+            <p>$$I(t) = \frac{dQ(t)}{dt}$$</p>
+            <p>Where $I(t)$ is current in amperes at time $t$, $Q(t)$ is charge in coulombs at time $t$, and $t$ is time in seconds</p>
+            <p>$\frac{d}{dt}$ represents the <a href="../../calculus 1/derivatives/derivatives.html">derivative</a> (rate of change) in respect to $t$ (time)</p>
+            <P>If current is constant, then $Q = It$</P>
+            <p>In other words if a part of a circuit has a current of 1 amp, that means if we split the wire there</p>
+            <p>And measure the amount of electrons that flow per second, it would be approximately $6.242 \times 10^{18}$</p>
+            <br>
+            <p>The "force" or pressure that causes current to flow is called <b>voltage</b> (in volts)</p>
+            <p>Voltage is the <b>electrical potential difference</b> between two points in a circuit</p>
+            <p>Similar to how a ball high on a ledge has potential energy due to its position</p> 
+            <p>To find the voltage across a component you find the difference between the potential on both sides</p>
+            <p>Voltage represents potential energy per unit charge</p>
+            <p>You might have seen the term "volts" in batteries or other power sources</p>
+            <br>
+            <p>Imagine if I had a circuit with some voltage that causes some current to flow</p>
+            <p>If I was to increase the voltage (pressure), you would think the current would also increase</p>
+            <p>This is absolutely correct which represents that current is proportional to voltage</p>
+            <P>$$ V \propto I$$</P>
+            <br>
+            <p>Another important property of circuits is <b>resistance</b> (in ohms $\Omega$)</p>
+            <p>Resistance is a measure of how much a component or material opposes the flow of current</p>
+            <p>Materials with low resistance allow current to flow easily (conductors)</p>
+            <p>Materials with high resistance restrict the flow of current (insulators)</p>
+            <br>
+            <p>Using resistance, we can turn the proportionality into an equation:</p>
+            <p>$$ V = IR $$</p>
+            <p>This is known as a very important equation <b>Ohm's Law</b></p>
+            <p>We can rearrange this equation to solve for current or resistance if needed:</p>
+            <p>$$ I = \frac{V}{R} $$</p>
+            <p>$$ R = \frac{V}{I} $$</p>
+            <hr>
+            <h3>Water Analogy</h3>
+            <p>To better understand these concepts, we can use a water analogy</p>
+            <ul>
+                <li>Voltage is like water pressure</li>
+                <li>Current is like the flow rate of water</li>
+                <li>Resistance is like a narrow pipe that restricts water flow</li>
+            </ul>
+            <p>Just like how increasing water pressure increases flow rate, increasing voltage increases current</p>
+            <p>Just like how a narrower pipe restricts water flow, higher resistance restricts current flow</p>
+            <hr>
+            <h3>Circuits</h3>
+            <p>Circuits are made up of various components that have different electrical properties</p>
+            <p>Some common components include:</p>
+            <ul>
+                <li>Voltage sources - provide electrical potential difference</li>
+                <li>Resistors - provide resistance to current flow</li>
+                <li>LEDS - emit light when current flows through them</li>
+                <li>Switches - can open or close a circuit to control current flow</li>
+                <li>Potentiometers - variable resistors used to adjust voltage or current</li>
+                <li>Capacitors - store electrical energy temporarily</li>
+                <li>Inductors - store energy in a magnetic field when current flows through them</li>
+                <li>Diodes - allow current to flow in one direction only</li>
+                <li>Transistors - used for switching and amplification of signals</li>
+            </ul>
+            <p>We will be focusing on basic circuits for now so only voltage sources, resistors, and switches</p>
+            <p>Here is an example circuit:</p>
+            <img src="assets/svg/simple circuit.svg">
+            <p>The circle on the left with the plus on top and minus on bottom is a voltage source of voltage $V_1$</p>
+            <p>The squiggly line on the right is a resistor with resistance $R_1$</p>
+            <p>The arrow with the $I$ represents the current flowing through the circuit (it's not a component)</p>
+            <p>The lines that connect the components are wires that allow current to flow </p>
+            <p>You can think of the wires as $0 \Omega$ (Ohm) resistors</p>
+            <p>One of the most important things is making sure there is a <b>closed</b> loop/path for current to flow</p>
+            <p>If there is a break in the circuit (open circuit), current will not flow, you can think of an open circuit as an $\infty$ ohm resistor</p>
+            <p>A loop is some path from the positive end of the voltage source (called $V_{cc}$) back to the negative end (called ground)</p>
+            <hr>
+            <h3>Applying Ohm's Law In Circuits</h3>
+            <p>Ohm's Law can be applied to analyze simple electrical circuits</p>
+            <p>For example, consider a circuit with a voltage source and some component with resistance</p>
+            <img src="assets/svg/simple ohms law circuit.svg">
+            <p>This is the same circuit as above, just with units filled in</p>
+            <p>The goal is to find the current through the resistor (same as $I$ but we will talk about that later)</p>
+            <p>The voltage source is trying to keep the voltage across the resistor at a constant $5$ volts</p>
+            <p>The resistance of the resistor is $10 \Omega$ (Ohms)</p>
+            <p>Using Ohm's Law, we can calculate the current $I$ as $I = \frac{V}{R} = \frac{5V}{10 \Omega} = 0.5A$</p>
+            <p>So there is half an amp through the resistor</p>
+            <hr>
+            <h3>Summary</h3>
+            <p>We just went over a lot so let's recap</p>
+            <ul>
+                <li>Electricity is the flow of electrons through a conductor</li>
+                <li>Current is the flow of charge (in coulombs) over time (in amperes)</li>
+                <li>Voltage is the electrical potential difference (in volts)</li>
+                <li>Resistance is how much a component opposes current flow (in ohms)</li>
+                <li>Ohm's Law relates voltage, current, and resistance: $V = IR$</li>
+                <li>Circuits are made up of components connected by wires to form closed loops</li>
+            </ul>
             <hr>
             <details open>
                 <summary>Practice Problems</summary>
                 <ul class="no-bullets">
                     <li>
                         <details>
-                            <summary>Practice 1</summary>
+                            <summary>Find the voltage across a $10K \Omega$ resistor with $100$ mA (milliamps) going through it</summary>
                             <p>$$\begin{align} 
-
+                                10000 \ \Omega \times 0.1 \ A & = 1000 \ V \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the current through a $220 \Omega$ resistor with $12V$ across it</summary>
+                            <p>$$\begin{align} 
+                                I & = \frac{V}{R} \\
+                                I & = \frac{12V}{220 \ \Omega} \\
+                                I & \approx 0.0545 \ A \\
+                                I & \approx 54.5 \ mA \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>A circuit has a $9$V battery connected to a resistor that is pulling $9$ mA of current. What is the resistance of the resistor?</summary>
+                            <p>$$\begin{align} 
+                                R & = \frac{V}{I} \\
+                                R & = \frac{9V}{0.009A} \\
+                                R & = 1000 \ \Omega \\
+                                R & = 1 \ k\Omega \\
                             \end{align}$$</p>
                         </details>
                     </li>
