@@ -50,23 +50,166 @@
             <p>We can also use the formula above for meshes (there are 5 resistors and 2 voltage sources so 7 components)</p>
             <p>So $3 = 7 - 5 + 1$ which is correct</p>
             <hr>
+            <h3>Polarity and Positive/Negative Voltage and Current</h3>
+            <p>When analyzing circuits its important to keep track of voltage and current directions</p>
+            <p>By convention voltage sources have a positive and negative terminal (called the polarity)</p>
+            <p>Current is considered to flow from the positive terminal to the negative terminal of a voltage source</p>
+            <p>For a resistor the positive side is the terminal where current enters, negative where current leaves</p>
+
+            <p>This is called <b>Conventional Current Flow</b></p>
+            <p>When current flows through a resistor there is a voltage drop across the resistor</p>
+            <p>This means the terminal where current enters the resistor is at a higher voltage </p>
+            <p>Than the terminal where current leaves the resistor</p>
+            <p>This is why to find the voltage across a resistor, you need to do the difference of each side</p>
+            <p>$$V_R = V_{in} - V_{out}$$ $V_{in}$ is the voltage at the terminal where current enters</p>
+            <p>$V_{out}$ is the voltage at the terminal where current leaves</p>
+            <br>
+            <p>If current flows in the opposite direction of what you assumed, the current will be negative</p>
+            <p>If voltage is measured in the opposite direction of what you assumed, the voltage will be negative</p>
+            <p>This just means that negative current and voltage is backwards (this is fine)</p>
+            <p>Here is a diagram showing resistor polarity and how it relates to current and voltage</p>
+            <img src="assets/svg/resistor polarity.svg">
+            <p>Note that resistors don't inheritly have polarity</p>
+            <p>The location of the plus and minus signs depend on the current</p>
+            <hr>
+            <h3>KCL and KVL</h3>
+            <p>The next 2 extremely important laws for circuits are <b>KCL</b> and <b>KVL</b></p>
+            <p><b>KCL</b> or <b>Kirichoff's Current Law</b> says the sum of the currents entering and leaving a <b>node</b> is 0</p>
+            <p>In other words the currents entering a node equal the currents leaving a node</p>
+            <P>Expressed Mathematically:</P>
+            <p>$$\sum I_{in} = \sum I_{out}$$ or $$\sum I = 0$$</p>
+            <p>This is because charge cannot build up at a node</p>
+            <p>Here is a digram to represent it</p>
+            <img src="assets/svg/kcl.svg">
+            <p>The currents entering are $I_1,I_2,I_3$ and the currents leaving are $-I_4,-I_5$ (negative because they are leaving)</p>
+            <p>$$I_1 + I_2 + I_3 - I_4 - I_5 = 0 \text{ or } I_1 + I_2 + I_3 = I_4 + I_5$$ </p>
+            <p><b>KVL</b> or <b>Kirchhoff's Voltage Law</b> says the sum of the voltages around any <b>closed loop</b> is 0</p>
+            <p>In other words the sum of voltage rises equal the sum of voltage drops around a loop</p>
+            <P>Expressed Mathematically:</P>
+            <p>$$\sum V_{rise} = \sum V_{drop}$$ or $$\sum V = 0$$</p>
+            <p>This is because energy cannot be created or destroyed in a closed loop</p>
+            <p>Heres an example diagram</p>
+            <img src="assets/svg/kvl.svg">
+            <p>This circuit has 3 loops so we can make 3 KVL equations ($V_{R_1}$ and $V_{R_2}$ are the voltages across $R_1$ and $R_2$)</p>
+            <p>$$\begin{align}
+                V_{in1} + V_{R_1} + V_{R_2} &= 0 \\
+                V_{in2} + V_{R_1} &= 0 \\
+                V_{in1} + V_{in2} + V_{R_2} &= 0
+            \end{align}$$</p>
+            <p>We can also make the KCL equations for the 3 nodes (use Ohm's law $I = V/R$ for current across resistors)</p>
+            <p>These 2 laws are extremely important for analyzing circuits</p>
+            <p>Later on we will assign values to the voltage source and resistors and solve for currents/voltages</p>
+            <p>$$\begin{align}
+                I_{V_{in1}} + \frac{V_{R_1}}{R_1} + I_{V_{in2}} &= 0 \\
+                I_{V_{in2}} + \frac{V_{R_1}}{R_1}  + \frac{V_{R_2}}{R_2} &= 0 \\
+                I_{V_{in1}} + \frac{V_{R_2}}{R_2} &= 0
+            \end{align}$$</p>
+            <hr>
             <h3>Series And Parallel Circuits</h3>
             <p>There are a few ways to connect components in a circuit, <b>Series</b>, <b>Parallel</b>, or neither</p>
             <p>Components have to have 2 ends (a positive and negative) so they can make a closed circuit</p>
-
+            
             <p>Components are in <b>Series</b> if they solely share a node (no other component connected to that node)</p>
             <p>Components are in <b>Parallel</b> if they share both nodes (connected to the same two nodes)</p>
-            
+            <p>Knowing if components are in series or parallel is important for analyzing circuits</p>
+            <p>This is because we can (depending on the component) combine components using some formula</p>
+            <p>You can also be in series or parallel with shorts by treating them as $0$ ohm resistors</p>
+            <p>Being in series with a short doesn't mean much but being in parallel with a short is important</p>
+            <p>Find which components are in series or parallel in the following circuits</p>
+            <img src="assets/svg/parallel series circuit.svg">
+            <p>First for series components</p>
+            <ul>
+                <li>$R_5$ and $R_6$ are in series</li>
+                <li>$R_6$ and $V_{in1}$ are in series</li>
+                <li>$V_{in1}$ and $R_1$ are in series</li>
+            </ul>
+            <p>Next for parallel components</p>
+            <ul>
+                <li>$R_2$, $R_3$, $R_4$, are in parallel</li>
+                <li>$R_7$ and the short it is on are in parallel</li>
+            </ul>
+            <p>Heres the same circuit above labeled (blue rectangles show series and red rectangles show parallel)</p>
+            <img src="assets/svg/parallel series circuit labeled.svg">
+            <p>One reason why we care about series and parallel circuits is using KCL and KVL we can show the following</p>
+            <p><b>Voltage</b> is the same across components in <b>parallel</b></p>
+            <p><b>Current</b> is the same across components in <b>series</b></p>
+            <p>This is extremely important and makes it easier to analyze circuits</p>
+            <hr>
+            <h3>Summary</h3>
+            <p>The 3 main laws for electrical circuit analysis are</p>
+            <ul>
+                <li>Ohm's Law $V=IR$</li>
+                <li>KCL $\sum I = 0$ at a node</li>
+                <li>KVL $\sum V = 0$ in a loop</li>
+            </ul>
+            <p>Nodes are the whole wire/short where components connects</p>
+            <p>A Loop a closed path</p>
+            <p>Components in Series exclusivley share a node</p>
+            <p>Components in Parallel share the same top node and same bottom node</p>
+            <p>Voltage in Parallel is the same and current in series is the same</p>
+            <p>Voltage in Series and current in parallel may be different</p>
+            <p>Voltage and current flow out of a voltage source from the + end and back through the - end</p>
+            <p>Voltage and current flow into a resistor from the + end and back through the - end</p>
             <hr>
             <details open>
                 <summary>Practice Problems</summary>
                 <ul class="no-bullets">
                     <li>
                         <details>
-                            <summary>Practice 1</summary>
-                            <p>$$\begin{align} 
+                            <summary>For the following circuit, find the components in series and parallel and generate KCL and KVL equations</summary>
+                            <img src="assets/svg/circuits practice 1.svg">
+                            <p>$R_2$ and $V_{in}$ are in series</p>
+                            <p>$R_1$ and $R_3$ are in parallel</p>
+                            <p>There are 3 loops</p>
+                            <p>$V_{in} + V_{R_1} + V_{R_2} = 0$</p>
+                            <p>$V_{in} + V_{R_3} + V_{R_2} = 0$</p>
+                            <p>$V_{R_1} + V_{R_3} = 0$</p>
+                            <p>There are 3 nodes</p>
+                            <p>$I_{V_{in}} + \frac{V_{R_1}}{R_1} + \frac{V_{R_3}}{R_3} = 0$</p>
+                            <p>$\frac{V_{R_1}}{R_1} + \frac{V_{R_2}}{R_2} + \frac{V_{R_3}}{R_3} = 0$</p>
+                            <p>$I_{V_{in}} + \frac{V_{R_2}}{R_2}= 0$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>For the following circuit, find the components in series and parallel and generate KCL and KVL
+                                equations</summary>
+                            <img src="assets/svg/circuits practice 2.svg">
+                            <p>No components are in series</p>
+                            <p>$R_1$, $R_2$, and $V_{in1}$ are in parallel</p>
+                            <p>Notice how $V_{in2}$ is not part of hte circuit because there is no wire connecting the negative end</p>
+                            <p>That means it's not part of a loop</p>
+                            <p>There are 3 loops</p>
+                            <p>$V_{in1} + V_{R_1}= 0$</p>
+                            <p>$V_{in1} + V_{R_2} = 0$</p>
+                            <p>$V_{R_1} + V_{R_2} = 0$</p>
+                            <p>There are 2 nodes</p>
+                            <p>Since $V_{in2}$ isn't a complete circuit, the current it contributes is 0</p>
+                            <p>$I_{V_{in1}} + \frac{V_{R_1}}{R_1} + \frac{V_{R_2}}{R_2} = 0$</p>
+                            <p>$I_{V_{in1}} + \frac{V_{R_1}}{R_1} + \frac{V_{R_2}}{R_2} = 0$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>For the following circuit, find the components in series and parallel and generate KCL and KVL
+                                equations</summary>
+                            <img src="assets/svg/circuits practice 3.svg">
+                            <p>No components are in series or parallel</p>
+                            <p>Notice how $R_3$ and $R_4$ are in parallel with the wire itself</p>
+                            <p>Since voltage is same in parallel, the voltage of the wire is the voltage of the resistors</p>
+                            <p>But the voltage of a short is 0 (because it's resistance is 0 ohms and $V = 0\times R = 0$)</p>
+                            <p>Since there is voltage across $R_3$ and $R_4$, theres nothing to move current, so it's current is 0 amps</p>
+                            <p>This means we can just rid of them since they dont contribute</p>
+                            <img src="assets/svg/circuits practice 3 simplified.svg">
+                            <p>This gives an easier circuit and now we notice $R_1$, $R_2$ and $V_{in}$ are in parallel</p>
+                            <p>There are 3 loops</p>
+                            <p>$V_{in} + V_{R_1}= 0$</p>
+                            <p>$V_{in} + V_{R_2} = 0$</p>
+                            <p>$V_{R_1} + V_{R_2} = 0$</p>
+                            <p>There are 2 nodes</p>
+                            <p>$I_{V_{in}} + \frac{V_{R_1}}{R_1} + \frac{V_{R_2}}{R_2} = 0$</p>
+                            <p>$I_{V_{in}} + \frac{V_{R_1}}{R_1} + \frac{V_{R_2}}{R_2} = 0$</p>
 
-                            \end{align}$$</p>
                         </details>
                     </li>
                 </ul>
