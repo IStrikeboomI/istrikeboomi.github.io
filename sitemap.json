@@ -152,7 +152,8 @@
             {
                 "section":"Basics",
                 "notes":[
-                    {"name":"electrical engineering basics","title":"Electrical Engineering Basics"}
+                    {"name":"electrical engineering basics","title":"Electrical Engineering Basics"},
+                    {"name":"circuits","title":"Circuits"}
                 ]
             }
         ]

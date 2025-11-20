@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Circuits</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>This note will be building upon the previous introducing more circuit laws and terminology</p>
+            <p>The first main law we have established is Ohm's Law $V = IR$</p>
+            <hr>
+            <h3>Circuit Terminology</h3>
+            <p>Take a look at this "complex" circuit</p>
+            <img src="assets/svg/complex circuit.svg">
+            <p>We can't use ohm's law directly here because there are multiple resistors and voltage sources</p>
+            <p>We can break this circuit down into smaller parts using <b>Nodes, Loops, and Meshes</b></p>
+            <p>A <b>Node</b> is any point in the circuit where two or more components connect</p>
+            <p>Think of it as the number of independent shorts/wires in the circuits</p>
+            <p>A <b>Loop</b> is any closed path in the circuit (only consider components on the outside)</p>
+            <p>A <b>Mesh</b> is a loop that does not contain any other loops inside of it</p>
+            <p>There is a formula for Meshes, $\text{Meshes} = \text{Components} - \text{Nodes} + 1$</p>
+            <p>If we count the amount of nodes, loops and meshes in the above circuit</p>
+            <p>We get 5 nodes, 5 loops, and 3 meshes</p>
+            <p>We get 5 nodes because there are 5 independent shorts (boxed in blue)</p>
+            <img src="assets/svg/complex circuit nodes.svg">
+            <p>There are 5 loops</p>
+            <ol>
+                <li>$V_{in1}$ to $R_4$ to $R_1$</li>
+                <li>$R_1$ to $R_2$ to $R_5$</li>
+                <li>$V_{in2}$ to $R_3$ to $R_2$</li>
+                <li>$V_{in1}$ to $R_4$ to $R_2$ to $R_5$</li>
+                <li>$V_{in2}$ to $R_3$ to $R_5$ to $R_1$</li>
+                <li>$V_{in1}$ to $R_4$ to $V_{in2}$ to $R_3$ to $R_5$</li>
+            </ol>
+            <img src="assets/svg/complex circuit loops.svg">
+            <p>This is cluttered so we can split this into the 3 smaller loops, 2 medium loops, and the other loop</p>
+            <img src="assets/svg/complex circuit small loop.svg">
+            <img src="assets/svg/complex circuit medium loop.svg">
+            <img src="assets/svg/complex circuit big loop.svg">
+            <p>Finally we have 3 meshes</p>
+            <img src="assets/svg/complex circuit meshes.svg">
+            <p>You might notice the 3 smaller loops are the meshes</p>
+            <p>We can also use the formula above for meshes (there are 5 resistors and 2 voltage sources so 7 components)</p>
+            <p>So $3 = 7 - 5 + 1$ which is correct</p>
+            <hr>
+            <h3>Series And Parallel Circuits</h3>
+            <p>There are a few ways to connect components in a circuit, <b>Series</b>, <b>Parallel</b>, or neither</p>
+            <p>Components have to have 2 ends (a positive and negative) so they can make a closed circuit</p>
+
+            <p>Components are in <b>Series</b> if they solely share a node (no other component connected to that node)</p>
+            <p>Components are in <b>Parallel</b> if they share both nodes (connected to the same two nodes)</p>
+            
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Practice 1</summary>
+                            <p>$$\begin{align} 
+
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
