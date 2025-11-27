@@ -27,10 +27,10 @@
             <p>A <b>Mesh</b> is a loop that does not contain any other loops inside of it</p>
             <p>There is a formula for Meshes, $\text{Meshes} = \text{Components} - \text{Nodes} + 1$</p>
             <p>If we count the amount of nodes, loops and meshes in the above circuit</p>
-            <p>We get 5 nodes, 5 loops, and 3 meshes</p>
+            <p>We get 5 nodes, 6 loops, and 3 meshes</p>
             <p>We get 5 nodes because there are 5 independent shorts (boxed in blue)</p>
             <img src="assets/svg/complex circuit nodes.svg">
-            <p>There are 5 loops</p>
+            <p>There are 6 loops</p>
             <ol>
                 <li>$V_{in1}$ to $R_4$ to $R_1$</li>
                 <li>$R_1$ to $R_2$ to $R_5$</li>
@@ -198,7 +198,7 @@
                             <p>Notice how $R_3$ and $R_4$ are in parallel with the wire itself</p>
                             <p>Since voltage is same in parallel, the voltage of the wire is the voltage of the resistors</p>
                             <p>But the voltage of a short is 0 (because it's resistance is 0 ohms and $V = 0\times R = 0$)</p>
-                            <p>Since there is voltage across $R_3$ and $R_4$, theres nothing to move current, so it's current is 0 amps</p>
+                            <p>Since there is no voltage across $R_3$ and $R_4$, theres nothing to move current, so its current is 0 amps</p>
                             <p>This means we can just rid of them since they dont contribute</p>
                             <img src="assets/svg/circuits practice 3 simplified.svg">
                             <p>This gives an easier circuit and now we notice $R_1$, $R_2$ and $V_{in}$ are in parallel</p>
