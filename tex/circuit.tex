@@ -5,13 +5,9 @@
 \usetikzlibrary{calc}
  
 \begin{document}
-\begin{circuitikz}[american voltages]
+\begin{circuitikz}[american]
 
-\draw (0,0) to[V,l_=$V_{in}$] (2,0);
-\draw (0,0) -- (0,2) to[R,l_=$R_1$] (2,2) -- (2,0);
-\draw (0,0) -- (0,-2) to[R,l_=$R_2$] (2,-2) -- (2,0);
-
-
+\draw (0,0) to[I,l_=$I$] (0,1);
 \node[anchor=north, yshift=-5mm, font=\large]
     at (current bounding box.south)
       {istrikeboomi.github.io};

@@ -14,10 +14,10 @@
 \begin{axis}[
   axis lines=middle,
   grid=major,
-  xmin=-1,
-  xmax= 2,
-  ymin=-3,
-  ymax=2,
+  xmin=-5,
+  xmax= 5,
+  ymin=-4,
+  ymax=6,
   %xlabel=$x$,
   %ylabel=$y$,
   %xtick={0,1,...,6},
@@ -28,12 +28,13 @@
   %restrict y to domain = -2:30,
   legend style={at={(rel axis cs:0,1)},anchor=north west,draw=none,inner sep=0pt, fill = white}
 ]
-
-\addplot[blue,very thick,domain=-1:3,samples=100,name path=f] gnuplot {log(x+1)};
-\addplot[green,very thick,domain=-1:3,samples=100,name path=f] gnuplot {x};
-\addplot[orange,very thick,domain=-1:3,samples=100,name path=f] gnuplot {x - x^2/2};
-\addplot[red,very thick,domain=-1:3,samples=100,name path=f] gnuplot {x - x^2/2 + x^3/3};
-\addplot[yellow,very thick,domain=-1:3,samples=100,name path=f] gnuplot {x - x^2/2 + x^3/3 - x^4/4};
+\addplot[blue,very thick,domain=-5:5,samples=100,name path=f] gnuplot {5 + rand(0)/10};
+\addplot[red,very thick,domain=-5:5,samples=100,name path=f] gnuplot {3*sin(x) + rand(0)/3};
+%\addplot[blue,very thick,domain=-1:3,samples=100,name path=f] gnuplot {log(x+1)};
+%\addplot[green,very thick,domain=-1:3,samples=100,name path=f] gnuplot {x};
+%\addplot[orange,very thick,domain=-1:3,samples=100,name path=f] gnuplot {x - x^2/2};
+%\addplot[red,very thick,domain=-1:3,samples=100,name path=f] gnuplot {x - x^2/2 + x^3/3};
+%\addplot[yellow,very thick,domain=-1:3,samples=100,name path=f] gnuplot {x - x^2/2 + x^3/3 - x^4/4};
 
 %\path[name path=axis] (axis cs:1,0) -- (axis cs:10,0);
 %\addplot [thick,color=green,fill=green, fill opacity=0.4]fill between[of=f2 and axis,soft clip={domain=1:10}];
@@ -52,8 +53,8 @@
 %\addplot[excl, draw=blue] coordinates {(-2,0)};
 
 
-\addlegendentry{$\ln(x + 1)$};
-\addlegendentry{$n = 1$};
+\addlegendentry{$V(t) = 5$};
+\addlegendentry{$V(t) = \sin(t)$};
 \addlegendentry{$n = 2$};
 \addlegendentry{$n = 3$};
 \addlegendentry{$n = 4$};

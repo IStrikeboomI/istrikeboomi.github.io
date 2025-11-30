@@ -13,16 +13,68 @@
     </head>
     <body>
         <div id="content">
-            <p>Content</p>
+            <p>We've discussed voltage sources earlier, but what really is a voltage source?</p>
+            <p>A voltage source is a two-terminal device that maintains a fixed voltage</p>
+            <p>This is irregardless of the current being drawn from it</p>
+            <p>Examples of common voltage sources are batteries, wall power, solar cells, USB power</p>
+            <p>Using KVL, voltage sources in <b>series</b> add voltage</p>
+            <p>Using KCL, voltage sources in <b>parallel</b> maintain the same voltage, but it increases max current you can draw</p>
+            <hr>
+            <h3>Real vs Ideal Voltage Sources</h3>
+            <p>There are 2 kinds of voltage sources, real and ideal</p>
+            <p>An ideal voltage source maintains a constant voltage regardless of the current drawn</p>
+            <p>While a real voltage source has some <b>internal resistance</b> that causes the voltage to drop as current increases.</p>
+            <p>This internal resistance is usually very small, but it is still there</p>
+            <p>For example, a 9V battery may only provide 8.5V when a high current is drawn from it</p>
+            <p>This also explains with using ohm's law why we don't get infinite current</p>
+            <P>For an ideal voltage source $5 V = 0\Omega \times I$ has no solution</P>
+            <p>But for a real voltage source $5 V = 0.1\Omega \times I$ has a solution of $I = 50 A$</p>
+            <hr>
+            <h3>Current Limited Voltage Sources</h3>
+            <p>Some voltage sources are current limited</p>
+            <p>This means that they can only provide a max current</p>
+            <p>For example, a USB power source can only provide $200$mA of current</p>
+            <P>The reason why the sources are current limited is because too much current leads to heat</P>
+            <p>If you want more current, you either need a different power source or multiple sources in parallel</p>
+            <hr>
+            <h3>Types of Voltage</h3>
+            <p>There are 2 main types of voltage sources, AC and DC</p>
+            <p>AC stands for alternating current, while DC stands for direct current</p>
+            <p>AC voltage sources change polarity periodically (sinusoidal), while DC voltage sources maintain a constant value</p>
+            <p>Most household power is AC (120 V), while batteries are DC (1.5V, 3V, 5V, 9V)</p>
+            <p>We will cover circuits in AC and DC later in more detail, just know they're not interchangeable</p>
+            <p>If we graph DC voltage over time, it would look like a straight horizontal line</p>
+            <p>If we graph AC voltage over time, it would look like a sine wave</p>
+            <img src="assets/svg/ac dc ideal graph.svg">
+            <p>Now this for an ideal source, if we graph a real source it would look a little more noisy</p>
+            <img src="assets/svg/ac dc real graph.svg">
+            <hr>
+            <h3>Symbols</h3>
+            <p>Here are the common symbols for voltage sources</p>
+            <P>The first is a DC voltage source</P>
+            <p>The second is an AC voltage source</p>
+            <p>The third and fourth are batteries, which are types of DC voltage sources</p>
+            <p>The last is $V_{cc}$ which is an implied voltage source for components</p>
+            <img src="assets/svg/voltage sources.svg">
+            <p>There's also symbols for ground which is the same as the negative terminal</p>
+            <p>Both of the following symbols represent ground</p>
+            <img src="assets/svg/ground.svg">
+            <hr>
+            <h3>Current Sources</h3>
+            <p>There's also current sources, which are the opposite of voltage sources</p>
+            <p>Current sources maintain a constant current regardless of voltage</p>
+            <p>We will cover current sources in more detail later</p>
+            <p>This is the following symbol</p>
+            <img src="assets/svg/current source.svg">
             <hr>
             <details open>
                 <summary>Practice Problems</summary>
                 <ul class="no-bullets">
                     <li>
                         <details>
-                            <summary>Practice 1</summary>
+                            <summary>What is the total voltage if a $1V$, $4V$, and $5V$ voltage sources are in series</summary>
                             <p>$$\begin{align} 
-
+                                1V + 4V + 5V &= 10V \\  
                             \end{align}$$</p>
                         </details>
                     </li>
