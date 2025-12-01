@@ -135,6 +135,42 @@
                     <li>
                         <details>
                             <summary>Find the total resistance of the following circuit</summary>
+                            <img src="assets/svg/resistors practice 2 1.svg">
+                            <p>First we can notice on the far right, we have 3 resistors in parallel $24 \Omega \| 12 \Omega \| 1\Omega$</p>
+                            <p>Also the $6 \Omega$ and $3 \Omega$ resistors are in series</p>
+                            <img src="assets/svg/resistors practice 2 2.svg">
+                            <p>Now, we have 3 more resistors in parallel $4 \Omega \| 9 \Omega \| .88\Omega$</p>
+                            <img src="assets/svg/resistors practice 2 3.svg">
+                            <p>Now all 3 resistors are in series</p>
+                            <img src="assets/svg/resistors practice 2 4.svg">
+                            <p>So our final answer is $10.667 \Omega$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details open>
+                            <summary>Find the total resistance of the following circuit and find the current emitted by the voltage source</summary>
+                            <img src="assets/svg/resistors practice 3 1.svg">
+                            <img src="assets/svg/resistors practice 3 2.svg">
+                            <img src="assets/svg/resistors practice 3 3.svg">
+                            <img src="assets/svg/resistors practice 3 4.svg">
+                            <img src="assets/svg/resistors practice 3 5.svg">
+                            <img src="assets/svg/resistors practice 3 6.svg">
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Create a formula that combines $n$ equivalent resistors in parallel</summary>
+                            <p>Since all the resistors are equivalent</p>
+                            <p>$$\begin{align}
+                                \frac{1}{R_{total}} &= \sum_{i=1}^n \frac{1}{R} \\
+                                &= \frac{1}{R} \sum_{i=1}^n 1 &&\text{Since $\frac{1}{R}$ doesn't use $i$}  \\
+                                &= n \cdot \frac{1}{R} \\   
+                                &= \frac{n}{R} \\ 
+                            \end{align}$$</p>
+                            <p>$$\begin{align}
+                                R_{total} &= \frac{R}{n} \\
+                            \end{align}$$</p>
+                            <p>What you might notice is since $n > 1$, the total resistance decreases as more resistors are added in parallel.</p>
                         </details>
                     </li>
                 </ul>
