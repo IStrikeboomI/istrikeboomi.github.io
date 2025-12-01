@@ -13,17 +13,128 @@
     </head>
     <body>
         <div id="content">
-            <p>We discussed</p>
+            <p>We discussed resistors earlier in the context of circuits as providing resistance to current</p>
+            <p>Resistance is measured in ohms (Ω), the higher the resistance the less current it can provide</p>
+            <p>This is given by Ohm's law $V=IR$</p>
+            <p>Now resistors are a useful component because they give a known value</p>
+            <p>But truth is any matter can be used a resistor, because resistance is a property of matter</p>
+            <p>The way resistors dissipate energy is through <b>heat</b></p>
+            <P>The higher the voltage, the higher current it's disspating so the hotter it gets</P>
+            <p>We can also combine resistance in series or parallel</p>
+            <p>To combine 2 resistors in series: $R_{total} = R_1 + R_2$</p>
+            <p>To combine 2 resistors in parallel: $\frac{1}{R_{total}} = \frac{1}{R_1} + \frac{1}{R_2}$</p>
+            <p>To generalize to $n$ resistors</p>
+            <p>Series:</p>
+            <p>$$R_{total} = \sum_{i=1}^n R_i = R_1 + R_2 + \cdots + R_n$$</p>
+            <P>Parallel</P>
+            <p>$$\frac{1}{R_{total}} = \sum_{i=1}^n \frac{1}{R_i} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots + \frac{1}{R_n}$$</p>
+            <p>or</p>
+            <p>$$R_{total} = \left( \sum_{i=1}^n \frac{1}{R_i} \right)^{-1} = \left( \frac{1}{R_1} + \frac{1}{R_2} + \cdots + \frac{1}{R_n} \right)^{-1} $$</p>
+            <hr>
+            <h3>Resistivity</h3>
+            <p>Resistivity is a property of matter that indicates how much resistance it provides</p>
+            <p>Resistivity is measured in ohm meters ($\Omega \cdot m$) and typically denoted with rho $\rho$</p>
+            <p>Reistance depends on resitivity, length, and also temperature of the material</p>
+            <p>The resistance of a material is given by the formula</p>
+            <p>$$R = \rho \frac{L}{A}$$</p>
+            <p>Where $L$ is the length of the material and $A$ is the cross sectional area</p>
+            <p>This means that the longer the material, the higher the resistance</p>
+            <p>And the thicker the material, the lower the resistance</p>
+            <p>We typically don't worry about resitivity, but with resistance</p>
+            <P>Since resistivity is a property of matter, everything has resistance</P>
+            <p>This includes the human body, which has a resistance value that can varies a lot</p>
+            <p>Typically its between $100k \Omega$ and $1M \Omega$</p>
+            <hr>
+            <h3>Types of Resistors</h3>
+            <p>There are many types of resistors, the most common being fixed and variable resistors</p>
+            <p>Fixed resistors have a set resistance value, while variable resistors can change their resistance</p>
+            <p>Variable resistors are also called potentiometers or rheostats</p>
+            <p>Resistor (the component) are typically cylinder shaped</p>
+            <p>They also might have 4 or 5 color bands the indicate their resistance value</p>
+            <p>Here are some color code charts</p>
+            <a href="https://static4.arrow.com/-/media/arrow/images/miscellaneous/1123-chart-how-to-read-resistor-color-codes-body-image.jpg">Chart 1</a>
+            <a href="https://res.utmel.com/Images/UEditor/c1290dff-919c-4c71-b9f2-aa57a8eef5f6.png">Chart 2</a>
+            <p>Resistors can vary between 10 $\Omega$ and 10 M$\Omega$, or even higher</p>
+            <p>You might notice the last band means tolerance or error</p>
+            <p>This is because manufacturing is not perfect so there is some variance</p>
+            <p>Typical resistors also have a max voltage/power they can handle before they get too hurt and burn</p>
+            <p>There are also other kinds of resistors like SMD resistors which are surface mounted</p>
+            <hr>
+            <h3>Conductance</h3>
+            <P>If resistance is the opposition to current</P>
+            <p>Then conductance (in Siemens $\Omega^{-1}$or Mho $\mho$)is the reciprocal of resistance</p>
+            <p>For example if a resistor has resistance of $50 \Omega$</p>
+            <p>Then it has a conductance of $\frac{1}{50} \text{ or } .02 \Omega^{-1}$</p>
+            <hr>
+            <h3>Resistors In Circuits</h3>
+            <p>The symbol for a resistor is a squiggly line</p>
+            <P>A rectangle is also used for some resistive load (any matter), but not a resistor</P>
+            <img src="assets/svg/resistors.svg">
+            <hr>
+            <h3>Resistors in Series And Parallel</h3>
+            <p>For resistors in series:</p>
+            <img src="assets/svg/resistors in series.svg">
+            <p>Using KVL and Ohm's law (the resistors share the same current because they are in series)</p>
+            <p>$$\begin{align} 
+                V_{total} &= V_1 + V_2 \\
+                &= I R_1 + I R_2 \\
+                &= I (R_1 + R_2) \\
+                R_{total} &= R_1 + R_2 \\
+            \end{align}$$</p>
+            <p>Combined:</p>
+            <img src="assets/svg/resistors in series combined.svg">
+            <p>For resistors in parallel:</p>
+            <img src="assets/svg/resistors in parallel.svg">
+            <p>Using KCL and Ohm's law (the resistors share the same voltage because they are in parallel)</p>
+            <p>$$\begin{align}
+                I_{total} &= I_1 + I_2 \\
+                &= \frac{V}{R_1} + \frac{V}{R_2} \\
+                &= V \left( \frac{1}{R_1} + \frac{1}{R_2} \right) \\
+                \frac{1}{R_{total}} &= \frac{1}{R_1} + \frac{1}{R_2} \\
+            \end{align}$$</p>
+            <p>Combined:</p>
+            <img src="assets/svg/resistors in parallel combined.svg">
+            <p>If we generalize to $n$ resistors:</p>
+            <p>Series:</p>
+            <p>$$R_{total} = \sum_{i=1}^n R_i = R_1 + R_2 + \cdots + R_n$$</p>
+            <P>Parallel</P>
+            <p>$$\frac{1}{R_{total}} = \sum_{i=1}^n \frac{1}{R_i} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots + \frac{1}{R_n}$$</p>
+            <hr>
+            <h3>Full Circuit Combining Resistors Example</h3>
+            <p>Find the resistance of the following circuit</p>
+            <img src="assets/svg/series and parallel resistors 1.svg">
+            <p>We can notice the $5 \Omega$ and $20 \Omega$ resistors are in parallel</p>
+            <p>$$\frac{1}{R} = \frac{1}{5} + \frac{1}{20} = \frac{1}{4}$$</p>
+            <p>So $R = 4 \Omega$</p>
+            <p>Now we can redraw the circuit</p>
+            <img src="assets/svg/series and parallel resistors 2.svg">
+            <p>Here the $10 \Omega$, $4 \Omega$, and $15 \Omega$ resistors are in series</p>
+            <p>$$R = 10 + 4 + 15 = 29 \Omega$$</p>
+            <p>Now we can redraw the circuit again</p>
+            <img src="assets/svg/series and parallel resistors 3.svg">
+            <p>So the equivalent resistance is $29 \Omega$</p>
             <hr>
             <details open>
                 <summary>Practice Problems</summary>
                 <ul class="no-bullets">
                     <li>
                         <details>
-                            <summary>Practice 1</summary>
+                            <summary>What is the resistance of a resistor with color bands Red, Red, Black, Orange, Gold</summary>
+                            <p>First Red means 2</p>
+                            <p>Second Red means 2</p>
+                            <p>Third black means 0</p>
+                            <p>Fourth Orange means multiply by 1000</p>
+                            <p>Gold means tolerance of $\pm 5\%$</p>
+                            <p>Putting this all together</p>
                             <p>$$\begin{align} 
-
+                                220 \times 1000 &= 220000 \Omega \\
+                                &= 220 k\Omega \pm 5%\\
                             \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the total resistance of the following circuit</summary>
                         </details>
                     </li>
                 </ul>
