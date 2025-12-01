@@ -7,7 +7,7 @@
 \begin{document}
 \begin{circuitikz}[american]
 
-\draw (0,2) to[V,l_=$5 V$] (0,0) -- (2,0) to[R,l_=$45.76 \Omega$] (2,2) -- (0,2);
+\draw (0,0) to[short,*-] (2,0) to[R, l=$10 \Omega$] (2,2) to[short,-*] (0,2);
 \node[anchor=north, yshift=-5mm, font=\large]
     at (current bounding box.south)
       {istrikeboomi.github.io};

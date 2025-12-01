@@ -60,6 +60,25 @@
             <p>Typical resistors also have a max voltage/power they can handle before they get too hurt and burn</p>
             <p>There are also other kinds of resistors like SMD resistors which are surface mounted</p>
             <hr>
+            <h3>Resistor Color Code Example</h3>
+            <p>Look at the following picture</p>
+            <p>We start at the leftmost band and move right<p>
+            <p>We know the leftmost is where the bands are grouped together tighter</p>
+            <p>It also opposite the side of the metallic colored band (always the tolerance)</p>
+            <p>The bands are brown, black, orange, gold, so only 4 band (ignore 3 digit of table)</p>
+            <p>brown first digit means 1</p>
+            <p>black second digit means 0</p>
+            <p>orange multiplier means 1000</p>
+            <p>gold tolerance means 5%</p>
+            <p>Putting this all together</p>
+            <p>$$\begin{align} 
+                10 \times 1000 &= 10000 \Omega \\
+                &= 10 k\Omega \pm 5 \% \\
+            \end{align}$$</p>
+            <p>The $10k\Omega$ is called the nominal value and the $\pm 5 \%$ is called the tolerance</p>
+            <p>The $\pm 5 \%$ means the actual resistance can vary by 5 percent above or below the nominal value</p>
+            <p>This means the value can range between $9.5 k\Omega$ and $10.5 k\Omega$</p>
+            <hr>
             <h3>Conductance</h3>
             <P>If resistance is the opposition to current</P>
             <p>Then conductance (in Siemens $\Omega^{-1}$or Mho $\mho$)is the reciprocal of resistance</p>
@@ -128,7 +147,7 @@
                             <p>Putting this all together</p>
                             <p>$$\begin{align} 
                                 220 \times 1000 &= 220000 \Omega \\
-                                &= 220 k\Omega \pm 5%\\
+                                &= 220 k\Omega \pm 5\% \\
                             \end{align}$$</p>
                         </details>
                     </li>
@@ -137,9 +156,21 @@
                             <summary>Find the total resistance of the following circuit</summary>
                             <img src="assets/svg/resistors practice 2 1.svg">
                             <p>First we can notice on the far right, we have 3 resistors in parallel $24 \Omega \| 12 \Omega \| 1\Omega$</p>
-                            <p>Also the $6 \Omega$ and $3 \Omega$ resistors are in series</p>
+                            <p>$$\begin{align} 
+                                \frac{1}{R} &= \frac{1}{24} + \frac{1}{12} + \frac{1}{1} \\
+                                &= 0.04167 + 0.08333 + 1 \\
+                                &= 1.125 \\
+                                R &= 0.8889 \Omega \\
+                            \end{align}$$</p>
+                            <p>Also the $6 \Omega$ and $3 \Omega$ resistors are in series $3 \Omega + 6 \Omega = 9 \Omega$</p>
                             <img src="assets/svg/resistors practice 2 2.svg">
                             <p>Now, we have 3 more resistors in parallel $4 \Omega \| 9 \Omega \| .88\Omega$</p>
+                            <p>$$\begin{align} 
+                                \frac{1}{R} &= \frac{1}{4} + \frac{1}{9} + \frac{1}{0.88} \\
+                                &= 0.25 + 0.1111 + 1.125 \\
+                                &= 1.4861 \\
+                                R &\approx 0.667 \Omega \\
+                            \end{align}$$</p>
                             <img src="assets/svg/resistors practice 2 3.svg">
                             <p>Now all 3 resistors are in series</p>
                             <img src="assets/svg/resistors practice 2 4.svg">
@@ -147,14 +178,35 @@
                         </details>
                     </li>
                     <li>
-                        <details open>
+                        <details>
                             <summary>Find the total resistance of the following circuit and find the current emitted by the voltage source</summary>
                             <img src="assets/svg/resistors practice 3 1.svg">
+                            <p>So this circuit is pretty complicated espically with the diagonal resistor</p>
+                            <p>First we can combine the $50 \Omega$ and $40 \Omega$ resistors in series</p>
+                            <p>Also the $5 \Omega$ resistor is in parallel with a short ($0 \Omega$)</p>
+                            <p>Since we can't divide by 0, we have to use a limit</p>
+                            <p>$$\begin{align}
+                                R_{total} = \lim_{R \to 0}\left(\frac{1}{5} + \frac{1}{R}\right)^{-1} = 0 \\
+                                \end{align}$$</p>
                             <img src="assets/svg/resistors practice 3 2.svg">
+                            <p>Now for the diagonal resistor, we can notice its in parallel with the $90 \Omega$ and $10 \Omega$</p>
+                            <p>We can redraw it by moving the poles to the middle</p>
                             <img src="assets/svg/resistors practice 3 3.svg">
+                            <p>Now we can combine them in parallel</p>
                             <img src="assets/svg/resistors practice 3 4.svg">
+                            <p>The $20 \Omega$ and $8.089 \Omega$ are in parallel</p>
                             <img src="assets/svg/resistors practice 3 5.svg">
+                            <p>All the resistors are in series</p>
                             <img src="assets/svg/resistors practice 3 6.svg">
+                            <p>This gives an equivalent resistance of $45.76 \Omega$</p>
+                            <p>To find the current use Ohm's law</p>
+                            <p>
+                            $$\begin{align}
+                                I &= \frac{V}{R} \\
+                                &= \frac{5V}{45.76 \Omega} \\
+                                &= 0.1092 A = 109.2 mA \\
+                            \end{align}$$
+                            </p>
                         </details>
                     </li>
                     <li>
@@ -171,6 +223,18 @@
                                 R_{total} &= \frac{R}{n} \\
                             \end{align}$$</p>
                             <p>What you might notice is since $n > 1$, the total resistance decreases as more resistors are added in parallel.</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the total resistance of the following circuit</summary>
+                            <img src="assets/svg/resistors practice 5 1.svg">
+                            <p>The $15 \Omega$ resistor isn't connected on both ends so it's not part of the circuit</p>
+                            <p>You can think of the open circuit as an $\infty \Omega$ resistor in series </p>
+                            <p>so combining it with the $15 \Omega$ also makes it $\infty \Omega$ (another open circuit)</p>
+                            <p>This means we can just get rid of it</p>
+                            <img src="assets/svg/resistors practice 5 2.svg">
+                            <p>So our resistance is $10 \Omega$</p>
                         </details>
                     </li>
                 </ul>
