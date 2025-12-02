@@ -61,18 +61,22 @@
             <p>There are also other kinds of resistors like SMD resistors which are surface mounted</p>
             <hr>
             <h3>Resistor Color Code Example</h3>
-            <p>Look at the following picture</p>
+            <p>Look at the following picture of a resistor</p>
+            <img width="400" src="assets/images/10k resistor.jpg">
             <p>We start at the leftmost band and move right<p>
             <p>We know the leftmost is where the bands are grouped together tighter</p>
             <p>It also opposite the side of the metallic colored band (always the tolerance)</p>
-            <p>The bands are brown, black, orange, gold, so only 4 band (ignore 3 digit of table)</p>
+            <p>The bands are brown, black, black, red, gold</p>
+            <p>I know the image looks hard to see, but it's easier to see in person</p>
+            <p>If there were 4 bands instead of 5 you would ignore the third digit place</p>
             <p>brown first digit means 1</p>
             <p>black second digit means 0</p>
-            <p>orange multiplier means 1000</p>
+            <p>black third digit means 0</p>
+            <p>red multiplier means $10^2$</p>
             <p>gold tolerance means 5%</p>
             <p>Putting this all together</p>
             <p>$$\begin{align} 
-                10 \times 1000 &= 10000 \Omega \\
+                100 \times 10^2 &= 10000 \Omega \\
                 &= 10 k\Omega \pm 5 \% \\
             \end{align}$$</p>
             <p>The $10k\Omega$ is called the nominal value and the $\pm 5 \%$ is called the tolerance</p>
