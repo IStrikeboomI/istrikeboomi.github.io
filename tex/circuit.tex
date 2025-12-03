@@ -7,7 +7,11 @@
 \begin{document}
 \begin{circuitikz}[american]
 
-\draw (0,0) to[short,*-] (2,0) to[R, l=$10 \Omega$] (2,2) to[short,-*] (0,2);
+\draw (0,2) to[V,l_=$5 V$] (0,0);
+\draw (0,2) -- (1,2) to[R,l_=$1 k\Omega$,v^=$V_1$,i_=$I_1$] (4,2) -- (5,2);
+\draw (5,2) to[R,l_=$500 \Omega$,i_=$I_2$,v^=$V_2$] (5,0);
+\draw (5,0) -- (4,0) to[R,l_=$2 k\Omega$,v^=$V_3$,i_=$I_3$] (1,0) -- (0,0);
+\draw (5,2) -- (7,2) to[R,l_=$1 k\Omega$,v^=$V_4$,i_=$I_4$] (7,0) -- (5,0);
 \node[anchor=north, yshift=-5mm, font=\large]
     at (current bounding box.south)
       {istrikeboomi.github.io};

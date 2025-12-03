@@ -24,7 +24,99 @@
             <p>What we mean by "solving circuits" is finding currents and voltages at points in a circuit</p>
             <hr>
             <h3>Procedure</h3>
-            
+            <ol>
+                <li>Identify all the nodes and loops in the circuit</li>
+                <li>Assign polarity to all resistors if they don't have one</li>
+                <li>Create KCL and KVL equations (use Ohm's law to voltage of resistors)</li>
+                <li>Set up System of Equations (Make sure each unkown is in atleast one equation)</li>
+                <li>Solve System of Equations for current</li>
+                <li>Calculate voltages using Ohm's law</li>
+            </ol>
+            <p>Let's look at an example</p>
+            <p>Find the voltage and current in each resistor</p>
+            <p>$R_1 = 1k\Omega, R_2 = 500 \Omega, R_3 = 2 k\Omega, R_4 = 1 k\Omega$</p>
+            <img src="assets/svg/ohms kvl kcl example 1 1.svg">
+            <p>There are 3 loops in this circuit and 4 nodes</p>
+            <p>Now these resistors don't have polarity assigned to it</p>
+            <p>That means we need to assign polarity to each resistor</p>
+            <p>Now it doesn't matter which side has the positive or negative</p>
+            <p>All that matters is that you stick with it</p>
+            <p>If your signs are backwards you will just get negative voltage, <a href="circuits.html#polarity">which is fine</a></p>
+            <p>The way to assign polarity is assume current is coming out of the positive of the battery</p>
+            <p>The current enters the positive of the resistor</p>
+            <img src="assets/svg/ohms kvl kcl example 1 2.svg">
+            <p>Now we can make KVL and KCL equations</p>
+            <p>We have 4 unknowns (currents through each resistor)</p>
+            <p>So we need (at least) 4 equations</p>
+            <p>The way we make KVL equations is start somewhere on the loop</p>
+            <p>Now go clockwise or counterclockwise around the loop</p>
+            <p>When entering the positive side of a component you add</p>
+            <p>When entering the negative side of a component you subtract</p>
+            <p>For the 2 loops involving the $5V$ I'm going to start above the $5V$ and go CCW</p>
+            <p>For the loop without the $5V$ I'm going to start above $R_2$ and go CW</p>
+            <p>$$\begin{align}
+                5 - 2000I_3 - 500I_2 - 1000I_1 = 0 \\
+                5 - 2000I_3 - 1000I_4 -1000I_1 = 0 \\
+                1000I_4 - 500I_2 = 0 \\
+            \end{align}$$</p>
+            <p>For KCL equations you follow the current flow</p>
+            <img src="assets/svg/ohms kvl kcl example 1 3.svg">
+            <p>Since we have 4 nodes we can make 4 equations</p>
+            <p>But 2 of the nodes are dependent on the voltage source</p>
+            <p>We don't know the current of the voltage source, so we only have 2 equations</p>
+            <p>$$\begin{align}
+                I_1 = I_2 + I_4 \\
+                I_2 + I_4 = I_3\\
+            \end{align}$$</p>
+            <p>So we have 5 total equations, but 4 unknowns, so we can get rid of one of them</p>
+            <p>$$\begin{align}
+            5 - 2000I_3 - 500I_2 - 1000I_1 = 0 \\
+            1000I_4 - 500I_2 = 0 \\
+            I_1 = I_2 + I_4 \\
+            I_2 + I_4 = I_3 \\
+            \end{align}$$</p>
+            <p>If we rewrite this into a more traditional looking system</p>
+            <p>$$\begin{align}
+                1000I_1 + 500I_2 + 2000I_3 + 0I_4 = 5 \\
+                0I_1 - 500I_2 + 0I_3 + 1000I_4 = 0 \\
+                I_1 - I_2 + 0I_3 -0I_4 = 0\\
+                0I_1 + I_2 - I_3 + I_4 = 0 \\
+            \end{align}$$</p>
+            <p>And as a matrix,</p>
+            <p>$$\begin{bmatrix}
+                1000 & 500 & 2000 & 0 \\
+                0 & -500 & 0 & 1000 \\
+                1 & -1 & 0 & -1 \\
+                0 & 1 & -1 & 1 \\
+            \end{bmatrix}
+            \begin{bmatrix}
+                I_1 \\
+                I_2 \\
+                I_3 \\
+                I_4 \\
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+                5 \\
+                0 \\
+                0 \\
+                0 \\
+            \end{bmatrix}$$</p>
+            <p>Now you can solve this system using whatever method you want, I'll just skip it here</p>
+            <P>After solving we get</p>
+            <p>$$\begin{align}
+                I_1 = .0015 A  &= 1.5 mA \\
+                I_2 = .001 A &= 1 mA \\
+                I_3 = .0015 A &= 1.5 mA \\
+                I_4 = .0005 A &= 0.5 mA \\
+            \end{align}$$</p>
+            <p>Now to get voltages, we can use Ohm's law $V=IR$</p>
+            <p>$$\begin{align}
+                V_1 = I_1 R_1 = .0015 * 1000 = 1.5 V \\
+                V_2 = I_2 R_2 = .001 * 500 = 0.5 V \\
+                V_3 = I_3 R_3 = .0015 * 2000 = 3 V \\
+                V_4 = I_4 R_4 = .0005 * 1000 = 0.5 V \\
+            \end{align}$$</p>
             <hr>
             <details open>
                 <summary>Practice Problems</summary>
