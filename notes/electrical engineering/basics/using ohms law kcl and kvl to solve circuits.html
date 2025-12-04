@@ -118,14 +118,218 @@
                 V_4 = I_4 R_4 = .0005 * 1000 = 0.5 V \\
             \end{align}$$</p>
             <hr>
+            <h3>Some Extra Details</h3>
+            <p>When doing KVL, only meshes (independent loops) make independent equations</p>
+            <p>When we make systems, we need independent equations so make sure you have</p>
+            <p>enough independent equations for the unknowns</p>
+            <p>If you can't make a KCL equation because there is a voltage source,</p>
+            <p>Remember current in series is the same so you can substitute to make an independent eqn.</p>
+            <hr>
             <details open>
                 <summary>Practice Problems</summary>
                 <ul class="no-bullets">
                     <li>
                         <details>
-                            <summary>Practice 1</summary>
+                            <summary>Find the Voltage And Currents of each resistor in the following circuit</summary>
+                            <img src="assets/svg/ohms kvl kcl practice 1.svg">
+                            <p>There are 6 loops and 4 nodes (but only 2 without a voltage source)</p>
+                            <p>All the possible KVL equations</p>
                             <p>$$\begin{align} 
+                                10 - 15I_5 - 5I_4 - 10I_1 = 0 \\
+                                10 - 15I_5 - 15I_3 - 10I_1 = 0 \\
+                                10 - 15I_5 - 25I_2 - 10I_1 = 0 \\
+                                25I_2 - 5I_4 = 0 \\
+                                15I_3 - 5I_4 = 0 \\
+                                15I_3 - 25I_2 = 0 \\
+                            \end{align}$$</p>
+                            <p>And KCL</p>
+                            <p>$$\begin{align}
+                                I_1 = I_2 + I_3 + I_4 \\
+                                I_2 + I_3 + I_4 = I_5 \\
+                            \end{align}$$</p>
+                            <p>We have 8 equations and 5 unknowns, so we can eliminate 3 equations</p>
+                            <p>$$\begin{align} 
+                                10 - 15I_5 - 5I_4 - 10I_1 = 0 \\
+                                25I_2 - 5I_4 = 0 \\
+                                15I_3 - 5I_4 = 0 \\
+                                I_1 = I_2 + I_3 + I_4 \\
+                                I_2 + I_3 + I_4 = I_5 \\
+                            \end{align}$$</p>
+                            <p>Rewriting into standard form</p>
+                            <p>$$\begin{align} 
+                                10I_1 + 0I_2 + 0I_3 + 5I_4 + 15I_5 = 10 \\
+                                0I_1 -25I_2 + 0I_3 + 5I_4 + 0I_5 = 0 \\
+                                0I_1 + 0I_2 -15I_3 + 5I_4 + 0I_5 = 0 \\
+                                I_1 - I_2 - I_3 - I_4 + 0I_5 = 0 \\
+                                0I_1 + I_2 + I_3 + I_4 - I_5 = 0 \\
+                            \end{align}$$</p>
+                            <p>As a matrix</p>
+                            <p>$$\begin{bmatrix}
+                                10 & 0 & 0 & 5 & 15 \\
+                                0 & -25 & 0 & 5 & 0 \\
+                                0 & 0 & -15 & 5 & 0 \\
+                                1 & -1 & -1 & -1 & 0 \\
+                                0 & 1 & 1 & 1 & -1 \\
+                            \end{bmatrix}
+                            \begin{bmatrix}
+                                I_1 \\
+                                I_2 \\
+                                I_3 \\
+                                I_4 \\
+                                I_5 \\
+                            \end{bmatrix}
+                            =
+                            \begin{bmatrix}
+                                10 \\
+                                0 \\
+                                0 \\
+                                0 \\
+                                0 \\
+                            \end{bmatrix}$$</p>
+                            <p>After solving we get</p>
+                            <p>$$\begin{align}
+                                I_1 \approx 0.354 A &= 354 mA \\
+                                I_2 \approx 0.046 A &= 46 mA \\
+                                I_3 \approx 0.077 A &= 77 mA \\
+                                I_4 \approx 0.231 A &= 231 mA \\
+                                I_5 \approx 0.354 A &= 354 mA \\
+                            \end{align}$$</p>
+                            <p>Now to get voltages using Ohm's law</p>
+                            <p>$$\begin{align}
+                                V_1 = I_1 R_1 = 0.354 * 10 = 3.54 V \\
+                                V_2 = I_2 R_2 = 0.046 * 25 = 1.15 V \\
+                                V_3 = I_3 R_3 = 0.077 * 15 = 1.155 V \\
+                                V_4 = I_4 R_4 = 0.231 * 5 = 1.155 V \\
+                                V_5 = I_5 R_5 = 0.354 * 15 = 5.31 V \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the Voltage And Currents of each resistor in the following circuit</summary>
+                            <img src="assets/svg/ohms kvl kcl practice 2.svg">
+                            <p>There are 7 loops and 4 nodes (but none without a voltage source)</p>
+                            <p>For the KVL equations</p>
+                            <p>$$\begin{align} 
+                                5 + 10I_1 + 12 + 15I_4 = 0 \\
+                                5 + 10I_1 + 1I_2 = 0 \\
+                                12 + 15I_4 - 1I_2 = 0 \\
+                                12 - 5I_3 = 0 \\
+                                5I_3 + 15I_4 - 1I_2 = 0 \\
+                                5 + 10I_1 + 5I_3 + 15I_4 = 0 \\
+                                5 + 10I_1 + 12 - 5I_3 + 1I_2 = 0 \\
+                            \end{align}$$</p>
+                            <p>We have 7 equations but only 4 unknowns so we can get rid of the extra</p>
+                            <p>Since there are no KCL equations, be careful when selecting the equations to remove</p>
+                            <p>Remember, if any rows or columns are linearly dependent, you won't get an answer</p>
+                            <p>If we convert each equation into a matrix</p>
+                            <p>$$\begin{align} 
+                                10I_1 + 0I_2 + 0I_3 + 15I_4 = -17 \\
+                                10I_1 + 1I_2 + 0I_3 + 0I_4 = -5 \\
+                                0I_1 - 1I_2 + 0I_3 + 15I_4 = -12 \\
+                                0I_1 + 0I_2 -5I_3 + 0I_4 = -12 \\
+                                0I_1 - 1I_2 + 5I_3 + 15I_4 = 0 \\
+                                10I_1 + 0I_2 + 5I_3 + 15I_4 = -5 \\
+                                10I_1 + 1I_2 -5I_3 + 0I_4 = -17 \\
+                            \end{align}$$</p>
+                            <p>$$\begin{bmatrix}
+                                10 & 0 & 0 & 15 \\
+                                10 & 1 & 0 & 0 \\
+                                0 & -1 & 0 & 15 \\
+                                0 & 0 & -5 & 0 \\
+                                0 & -1 & 5 & 15 \\
+                                10 & 0 & 5 & 15 \\
+                                10 & 1 & -5 & 0 \\
+                            \end{bmatrix}$$</p>
+                            <p>We can remove the 1st, 5th, 6th,and  7th equations</p>
+                            <p>But that leaves us with 3 equation for 4 unknowns</p>
+                            <p>$$\begin{align}
+                                10I_1 + 1I_2 + 0I_3 + 0I_4 = -5 \\
+                                0I_1 - 1I_2 + 0I_3 + 15I_4 = -12 \\
+                                0I_1 + 0I_2 -5I_3 + 0I_4 = -12 \\
+                            \end{align}$$</p>
+                            <p>$$
+                                \begin{bmatrix}
+                                10 & 1 & 0 & 0 \\
+                                0 & -1 & 0 & 15 \\
+                                0 & 0 & -5 & 0 \\
+                                \end{bmatrix}$$</p>
+                            <p>We can't do that</p>
+                            <p>The reason we have this issue is because we have 3 meshes</p>
+                            <p>That means we need a KCL equation to add an independent equation</p>
+                            <p>The KCL equations we make are</p>
+                            <p>$$\begin{align}
+                                I_1 = I_{5V}  \\
+                                I_2 + I_3 + I_{12V} = {I_1} \\
+                                I_4 = I_3 + I_{12V} \\
+                                I_{5V} = I_2 + I_4 \\ 
+                            \end{align}$$</p>
+                            <p>We can plug the 3rd KCL equation into the 2nd KCL equation</p>
+                            <p>$$\begin{align}
+                                I_2 + I_4 = {I_1} \\
+                            \end{align}$$</p>
 
+                            <p>This is our 4th independent equation!</p>
+                            <p>So our final system is</p>
+                            <p>$$\begin{align}
+                                10I_1 + 1I_2 + 0I_3 + 0I_4 = -5 \\
+                                0I_1 - 1I_2 + 0I_3 + 15I_4 = -12 \\
+                                0I_1 + 0I_2 -5I_3 + 0I_4 = -12 \\
+                                -I_1 + I_2 + 0I_3 + I_4 = 0\\
+                            \end{align}$$</p>
+                            <p>$$\begin{bmatrix}
+                                10 & 1 & 0 & 0 \\
+                                0 & -1 & 0 & 15 \\
+                                0 & 0 & -5 & 0 \\
+                                -1 & 1 & 0 & 1 \\
+                            \end{bmatrix}
+                            \begin{bmatrix}
+                                I_1 \\
+                                I_2 \\
+                                I_3 \\
+                                I_4 \\
+                            \end{bmatrix}
+                            =
+                            \begin{bmatrix}
+                                -5 \\
+                                -12 \\
+                                -12 \\
+                                0 \\
+                            \end{bmatrix}$$</p>
+                            <p>After solving we get</p>
+                            <p>$$\begin{align}
+                                I_1 \approx -0.525 A &= -525 mA \\
+                                I_2 \approx .257 A &= 257 mA \\
+                                I_3 = 2.4 A &= 2400 mA \\
+                                I_4 \approx -.782 A &= -782 mA \\
+                            \end{align}$$</p>
+                            <p>Now to get voltages using Ohm's law</p>
+                            <p>$$\begin{align}
+                                V_1 = I_1 R_1 = -0.525 * 10 = -5.25 V \\
+                                V_2 = I_2 R_2 = 0.257 * 1 = 0.257 V \\
+                                V_3 = I_3 R_3 = 2.4 * 5 = 12 V \\
+                                V_4 = I_4 R_4 = -0.782 * 15 = -11.73 V \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find the resistance of resistor R (in Ohms)</summary>
+                            <img src="assets/svg/ohms kvl kcl practice 3.svg">
+                            <p>Since current in series is the same and everything is in series</p>
+                            <p>We can find the resistance R by Ohm's law $R = \frac{10 V}{I}$</p>
+                            <p>We need to find the current I first</p>
+                            <p>We can use KVL to find I</p>
+                            <P>I'm going to assume the left of $10 \Omega$ is the positive terminal</P>
+                            <p>$$\begin{align}
+                                -20 + 10 + 10I - 30 &= 0\\
+                                10I &= 40 \\
+                                I &= 4 A \\
+                            \end{align}$$</p>
+                            <p>Now we can find R</p>
+                            <p>$$\begin{align}
+                                R &= \frac{10 V}{4 A} \\
+                                R &= 2.5 \Omega \\
                             \end{align}$$</p>
                         </details>
                     </li>
