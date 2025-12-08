@@ -158,6 +158,12 @@
                     {"name":"resistors","title":"Resistors"},
                     {"name":"using ohms law kcl and kvl to solve circuits","title":"Using Ohm's Law, KCL, and KVL to Solve Circuits"}
                 ]
+            },
+            {
+                "section":"DC Circuits",
+                "notes":[
+                    {"name":"rc circuits","title":"RC Circuits (Charging and Discharging Capacitors)"}
+                ]
             }
         ]
     },
