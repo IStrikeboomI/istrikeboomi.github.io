@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Imaginary And Complex Numbers</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>An imaginary number is a real number multiplied by the imaginary unit \(i\)</p>
+            <p>Here $i^2 = -1$ or $i = \sqrt{-1}$</p>
+            <p>The addition of a real number and an imaginary number is called a complex number.</p>
+            <p>A complex number is in the form of $a + bi$, where $a,b \in \mathbb{R}$ (real numbers), and $i = \sqrt{-1}$</p>
+            <p>This is called <b>cartesian form</b> or <b>rectangular form</b></p>
+            <p>The set of all imaginary numbers is denoted by $\mathbb{I}$</p>
+            <p>The set of all complex numbers is denoted by $\mathbb{C}$</p>
+            <p>All real numbers and imaginary numbers are subsets of complex numbers</p>
+            <p>Instead of using $x$, we typically use $z$ to represent known complex numbers.</p>
+            <hr>
+            <h3>What are Imaginary Numbers?</h3>
+            <p>An imaginary number is one where when you square it, the result is a negative real number.</p>
+            <p>This is needed because the square root of a negative number is not defined in the set of real numbers.</p>
+            <p>Negative square roots can appear when solving equations like $x^2 + 1 = 0$</p>
+            <p>To solve this, we define the imaginary unit \(i\) such that \(i^2 = -1\)</p>
+            <p>Thus, the square root of any negative number can be expressed as a multiple of \(i\)</p>
+            <p>For example, $\sqrt{-9} = \sqrt{9} \cdot \sqrt{-1} = 3i$</p>
+            <hr>
+            <h3>Polynomial Example</h3>
+            <p>Consider the polynomial equation $x^2 + 4 = 0$</p>
+            <p>To solve for \(x\), we can rearrange the equation:</p>
+            <p>$$\begin{align}
+                x^2 + 4 &= 0 \\
+                x^2 &= -4 \\
+                x &= \pm \sqrt{-4} \\
+                x &= \pm 2i
+            \end{align}$$</p>
+            <br>
+            <p>For another polynomial consider $x^2 + 3x + 12 = 0$</p>
+            <p>We can use the quadratic formula to solve for \(x\):</p>
+            <p>$$\begin{align}
+                x &= \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \\
+                a &= 1, b = 3, c = 12 \\
+                x &= \frac{-3 \pm \sqrt{3^2 - 4(1)(12)}}{2(1)} \\
+                x &= \frac{-3 \pm \sqrt{9 - 48}}{2} \\
+                x &= \frac{-3 \pm \sqrt{-39}}{2} \\
+                x &= \frac{-3 \pm \sqrt{39}i}{2} \\
+                x &= \frac{-3}{2} \pm \frac{\sqrt{39}}{2}i
+            \end{align}$$</p>
+            <hr>
+            <h3>Properties of Complex Numbers</h3>
+            <p>Complex numbers can be added, subtracted, multiplied, and divided using the same rules as real numbers</p>
+            <p>Just remember \(i^2 = -1\)</p>
+            <p>For example, to add two complex numbers:</p>
+            <p>$$\begin{align}
+                (2 + 3i) + (4 + 5i) &= (2 + 4) + (3i + 5i) \\
+                &= 6 + 8i
+            \end{align}$$</p>
+            <p>To multiply two complex numbers (distribute each term):</p>
+            <p>$$\begin{align}
+                (1 + 2i)(3 + 4i) &= 1 \cdot 3 + 1 \cdot 4i + 2i \cdot 3 + 2i \cdot 4i \\
+                &= 3 + 4i + 6i + 8i^2 \\
+                &= 3 + 10i + 8(-1) \\
+                &= -5 + 10i
+            \end{align}$$</p>
+            <hr>
+            <h3>Conjugate of a Complex Number</h3>
+            <p>The conjugate of a complex number is obtained by changing the sign of the imaginary part.</p>
+            <p>For example, the conjugate of \(a + bi\) is \(a - bi\)</p>
+            <p>The conjugate of $z$ is denoted as \(\overline{z}\) or \(z^*\)</p>
+            <p>Conjugates are useful in division of complex numbers to eliminate the imaginary part from the denominator.</p>
+            <p>For example, to divide two complex numbers:</p>
+            <p>$$\begin{align}
+                \frac{2 + 3i}{1 + 4i} &= \frac{(2 + 3i)(1 - 4i)}{(1 + 4i)(1 - 4i)} \\
+                &= \frac{2 - 8i + 3i - 12i^2}{1 - 16i^2} \\
+                &= \frac{2 - 5i + 12}{1 + 16} \\
+                &= \frac{14 - 5i}{17} \\
+                &= \frac{14}{17} - \frac{5}{17}i
+            \end{align}$$</p>
+            <hr>
+            <h3>Real and Imaginary Operators</h3>
+            <p>For a complex number $$z = a + bi$$</p>
+            <p>The real operator $\Re(z)$ extract the real part $\Re(z) = a$ (Also denoted as $\text{Re}(z)$)</p>
+            <p>The imaginary operator $\Im(z)$ extract the imaginary part $\Im(z) = b$ (Also denoted as $\text{Im}(z)$)</p>
+            <hr>
+            <h3>Complex Plane</h3>
+            <p>The complex plane is a 2d extension of the number line to represent complex numbers graphically.</p>
+            <p>The horizontal axis (x-axis) represents the real part of the complex number.</p>
+            <p>The vertical axis (y-axis) represents the imaginary part of the complex number.</p>
+            <p>For example, the complex number \(3 + 2i\) is represented by the point (3, 2) in the complex plane.</p>
+            <img src="assets/svg/complex plane.svg" alt="Complex Plane">
+            <hr>
+            <h3>Multiplying by $i$</h3>
+            <p>When you multiply by $i$, you rotate by $90^\circ$ (or \(\frac{\pi}{2}\) radians) counterclockwise in the complex plane.</p>
+            <img src="assets/svg/complex plane multiply by i.svg">
+            <p>Expressed numerically</p>
+            <p>$$\begin{align}
+                1 \cdot i &= i \quad & (0^\circ \to 90^\circ) \\
+                i \cdot i &= i^2 = -1 \quad & (90^\circ \to 180^\circ) \\
+                -1 \cdot i &= -i \quad & (180^\circ \to 270^\circ) \\
+                -i \cdot i &= -i^2 = 1 \quad & (270^\circ \to 360^\circ)
+            \end{align}$$</p>
+            <p>This cycle repeats every four multiplications by $i$</p>
+            <p>$$\begin{align}
+                i^0 &= 1 \\
+                i^1 &= i \\
+                i^2 &= -1 \\
+                i^3 &= -i \\
+                i^4 &= 1 \\
+                &\vdots \\
+                i^{n} = 1 &&\text{Where } n \mod 4 = 0 \\
+                i^{n+1} = i \\
+                i^{n+2} = -1 \\
+                i^{n+3} = -i \\
+                i^{n+4} = 1 \\
+
+            \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Given $z = 4i$, find the conjugate $z^*$</summary>
+                            <p>$$z^* = -4i$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Compute $z = (4+2i)(i + 1) - (3+2i)$, and find $\Re(z)$ and $\Im(z)$</summary>
+                            <p>$$\begin{align} 
+                                z &= (4+2i)(i + 1) - (3+2i) \\
+                                &= 4i + 4 + 2i^2 + 2i - 3 - 2i \\
+                                &= 4i + 4 - 2 + 2i - 3 - 2i \\
+                                &= (4 - 2 - 3) + (4i + 2i - 2i) \\
+                                &= -1 + 4i \\
+                                \Re(z) &= -1 \\
+                                \Im(z) &= 4
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Solve for $x$: $x^2 + 2x + 5 = 0$</summary>
+                            <p>$$\begin{align} 
+                                x &= \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \\
+                                a &= 1, b = 2, c = 5 \\
+                                x &= \frac{-2 \pm \sqrt{2^2 - 4(1)(5)}}{2(1)} \\
+                                x &= \frac{-2 \pm \sqrt{4 - 20}}{2} \\
+                                x &= \frac{-2 \pm \sqrt{-16}}{2} \\
+                                x &= \frac{-2 \pm 4i}{2} \\
+                                x &= -1 \pm 2i
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Compute $i^{2587}$</summary>
+                            <p>Instead of multiplying 2587 times, use the fact that powers of $i$ repeat every 4 steps.</p>
+                            <p>$2587 / 4 = 646$ remainder $3$</p>
+                            <p>Thus, $i^{2587} = i^3 = -i$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Compute $z = \frac{2-2i}{4 + i}$, and find $\Re(z)$ and $\Im(z)$</summary>
+                            <p>$$\begin{align}
+                                z &= \frac{2-2i}{4 + i} \\
+                                &= \frac{(2-2i)(4 - i)}{(4 + i)(4 - i)} \\
+                                &= \frac{8 - 2i - 8i + 2i^2}{16 - i^2} \\
+                                &= \frac{8 - 10i + 2(-1)}{16 + 1} \\
+                                &= \frac{6 - 10i}{17} \\
+                                &= \frac{6}{17} - \frac{10}{17}i \\
+                                \Re(z) &= \frac{6}{17} \\
+                                \Im(z) &= -\frac{10}{17}
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

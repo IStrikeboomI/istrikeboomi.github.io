@@ -14,22 +14,32 @@
 \begin{axis}[
   axis lines=middle,
   grid=major,
-  xmin=-1,
-  xmax= 10,
-  ymin=-1,
-  ymax=7,
-  %xlabel=$x$,
-  %ylabel=$y$,
-  %xtick={0,1,...,6},
-  %ytick={0,1,...,4},
+  xmin=-5,
+  xmax= 5,
+  ymin=-5,
+  ymax=5,
+  xlabel=$\Re(z)$,
+  ylabel=$\Im(z)$,
+  xtick={-5,-4,...,5},
+  ytick={-5,-4,...,5},
   xticklabel = \empty,
   yticklabel = \empty,
   tick style={very thick},
   %restrict y to domain = -2:30,
   legend style={at={(rel axis cs:0,1)},anchor=north west,draw=none,inner sep=0pt, fill = white}
 ]
-\addplot[blue,very thick,domain=0:10,samples=100,name path=f] gnuplot {5 };
-\addplot[red,very thick,domain=0:10,samples=100,name path=f] gnuplot {5*(1-exp(-x/3))};
+\addplot[incl, draw=blue] coordinates {(2,3)} node[below] {$2 + 3i$};
+\addplot[incl, draw=blue] coordinates {(-3,2)} node[below] {$-3 + 2i$};
+\addplot[incl, draw=blue] coordinates {(-2,-3)} node[below] {$-2 - 3i$};
+\addplot[incl, draw=blue] coordinates {(3,-2)} node[below] {$3 - 2i$};
+
+\draw[-latex,very thick,red] (2,3) -- (-3,2) node [midway, above] {$\times i$};
+\draw[-latex,very thick,red] (-3,2) -- (-2,-3) node [midway, left] {$\times i$};
+\draw[-latex,very thick,red] (-2,-3) -- (3,-2) node [midway, below] {$\times i$};
+\draw[-latex,very thick,red] (3,-2) -- (2,3) node [midway, right] {$\times i$};
+
+%\addplot[blue,very thick,domain=0:10,samples=100,name path=f] gnuplot {5 };
+%\addplot[red,very thick,domain=0:10,samples=100,name path=f] gnuplot {5*(1-exp(-x/3))};
 %\addplot[blue,very thick,domain=-1:3,samples=100,name path=f] gnuplot {log(x+1)};
 %\addplot[green,very thick,domain=-1:3,samples=100,name path=f] gnuplot {x};
 %\addplot[orange,very thick,domain=-1:3,samples=100,name path=f] gnuplot {x - x^2/2};
@@ -53,11 +63,11 @@
 %\addplot[excl, draw=blue] coordinates {(-2,0)};
 
 
-\addlegendentry{$V(t) = 5$};
-\addlegendentry{$V_C(t) = V\left(1 - e^{-\frac{t}{RC}}\right)$};
-\addlegendentry{$n = 2$};
-\addlegendentry{$n = 3$};
-\addlegendentry{$n = 4$};
+%\addlegendentry{$V(t) = 5$};
+%\addlegendentry{$V_C(t) = V\left(1 - e^{-\frac{t}{RC}}\right)$};
+%\addlegendentry{$n = 2$};
+%\addlegendentry{$n = 3$};
+%\addlegendentry{$n = 4$};
 
 \end{axis};
 \node[anchor=north, yshift=-5mm, font=\large]

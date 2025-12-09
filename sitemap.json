@@ -27,6 +27,13 @@
                     {"name":"vector valued functions", "title": "Vector Valued Functions"}
 
                 ]
+            },
+            {
+                "section":"Complex Numbers", 
+                "notes" : 
+                [
+                    {"name":"imaginary and complex numbers", "title": "Imaginary and Complex Numbers"}
+                ]
             }
         ]
     },
