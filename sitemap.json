@@ -32,8 +32,8 @@
                 "section":"Complex Numbers", 
                 "notes" : 
                 [
-                    {"name":"imaginary and complex numbers", "title": "Imaginary and Complex Numbers"}
-                ]
+                    {"name":"imaginary and complex numbers", "title": "Imaginary and Complex Numbers"},
+                    {"name":"eulers formula and polar form", "title": "Euler's Formula and Polar Form"}                ]
             }
         ]
     },
