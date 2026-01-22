@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>RC Circuits</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>An RC circuit that contains a resistor and a capacitor connected in series or parallel.</p>
+            <p>It can also have a DC voltage source.</p>
+            <p>The function of voltage across a charging capacitor over time is ($V_0$ is voltage of source):</p>
+            <p>$$V_C(t) = V_0\left(1 - e^{-\frac{t}{RC}}\right)$$</p>
+            <p>The function of voltage across a discharging capacitor over time is:</p>
+            <p>$$V_C(t) = V_0 e^{-\frac{t}{RC}}$$</p>
+            <p>Rewriting in terms of the RC time constant $\tau = RC$</p>
+            <p>$$V_C(t) = V_0\left(1 - e^{-\frac{t}{\tau}}\right)$$</p>
+            <p>$$V_C(t) = V_0 e^{-\frac{t}{\tau}}$$</p>
+            <hr>
+            <h3>Charging</h3>
+            <p>A charging RC circuit needs a resistor and a capacitor connected in series with a voltage source.</p>
+            <p>The voltage source provides current to charge the capacitor</p>
+            <p>The order of the components doesn't matter</p>
+            <img src="assets/svg/rc circuit charging 1.svg">
+            <img src="assets/svg/rc circuit charging 2.svg">
+            <p>So whats the voltage across the capacitor?</p>
+            <p>Using Kirchhoff's Voltage Law:</p>
+            <p>$$V = V_R + V_C$$</p>
+            <P>$V_C$ is what we are trying to find, so we leave that alone</P>
+            <p>Using Ohm's Law, $V_R = I_RR$, and the components are in series, current is the same $I_C = I_R$</p>
+            <p>So what's the current of the capacitor? $I_C(t) = C\frac{dV_C(t)}{dt}$</p>
+            <p>Sub it back in</p>
+            <p>$$CR\frac{dV_C}{dt} + V_C = V$$</p>
+            <P>This is a first order linear differential equation</P>
+            <p>$$\frac{dV_C}{dt} + \frac{1}{RC}V_C = \frac{1}{RC}V$$</p>
+            <p>The integrating factor is $e^{\int \frac{1}{RC} dt} = e^{\frac{t}{RC}}$</p>
+            <p>Subbing that in</p>
+            <p>$$\begin{align}
+                e^{\frac{t}{RC}}\frac{dV_C}{dt} + e^{\frac{t}{RC}}\frac{1}{RC}V_C &= e^{\frac{t}{RC}}\frac{1}{RC}V \\
+                \frac{d}{dt}\left(V_C e^{\frac{t}{RC}}\right) &= \frac{V}{RC}e^{\frac{t}{RC}} \\
+                V_C e^{\frac{t}{RC}} &= \int \frac{V}{RC}e^{\frac{t}{RC}} dt \\
+                V_C e^{\frac{t}{RC}} &= V e^{\frac{t}{RC}} + K \\
+                V_C &= V + Ke^{-\frac{t}{RC}} \\
+            \end{align}$$</p>
+            <p>K is the <a href="../../calculus 1/integrals/constant of integration.html">constant of integration</a>, so to find it evalute at $t=0$</p>
+            <p>This is because at $t=0$, the initial voltage across the capacitor is 0 (because it's uncharged)</p>
+            <p>$$\begin{align}
+                V_C(0) &= V + Ke^{-\frac{0}{RC}} \\
+                0 &= V + K \\
+                K &= -V \\
+            \end{align}$$</p>
+            <p>Subbing K back in</p>
+            <p>$$\begin{align}
+                V_C &= V - Ve^{-\frac{t}{RC}} \\
+                V_C &= V\left(1 - e^{-\frac{t}{RC}}\right) \\
+                \end{align}$$</p>
+            <hr>
+            <h3>Discharging</h3>
+            <p>A discharging RC circuit needs a resistor and a capacitor connected in series.</p>
+            <p>The capacitor provides current to the circuit as it discharges</p>
+            <p>The order of the components doesn't matter</p>
+            <img src="assets/svg/rc circuit discharging.svg">
+            <p>So whats the voltage across the capacitor?</p>
+            <p>Using Kirchhoff's Voltage Law:</p>
+            <p>$$0 = V_R + V_C$$</p>
+            <p>Using the same method above</p>
+            <p>$$V_C + RC\frac{dV_C}{dt}= 0$$</p>
+            <p>This is a separable differential equation</p>
+            <p>$$\begin{align}
+                \frac{dV_C}{dt} &= -\frac{1}{RC}V_C \\
+                \frac{1}{V_C} \frac{dV_C}{dt} &= -\frac{1}{RC} \\
+                \int \frac{1}{V_C} \frac{dV_C}{dt} \ dt&= \int -\frac{1}{RC} \ dt \\
+                \ln|V_C| &= -\frac{t}{RC} + K \\
+                |V_C| &= e^{-\frac{t}{RC} + K} \\
+                V_C &= Ke^{-\frac{t}{RC}} \\
+            \end{align}$$</p>
+            <p>K is the constant of integration, so to find it evalute at $t=0$</p>
+            <p>This is because at $t=0$, the initial voltage across the capacitor is $V_0$ (because it's fully charged)</p>
+            <p>$$\begin{align}
+                V_C(0) &= Ke^{-\frac{0}{RC}} \\
+                V_0 &= K \\
+            \end{align}$$</p>
+            <p>Subbing K back in</p>
+            <p>$$\begin{align}
+                V_C &= V_0 e^{-\frac{t}{RC}} \\
+                \end{align}$$</p>
+            <hr>
+            <h3>RC Time Constant Tau ($\tau = RC$)</h3>
+            <p>For both charging and discharging, the function inputs time and outputs voltage</p>
+            <p>Both are in the form of Voltage multiplying an exponential</p>
+            <p>$$V_C(t) = V_0\left(1 - e^{-\frac{t}{RC}}\right)$$</p>
+            <p>$$V_C(t) = V_0 e^{-\frac{t}{RC}}$$</p>
+            <p>Since the function outputs voltage, that means $e^{-\frac{t}{RC}}$ must be unitless</p>
+            <p>Since it contains time being divided by resistance multiplied by capacitance</p>
+            <p>That means resistance multiplied by capacitance must have units of time</p>
+            <p>This is called the RC time constant, denoted by the Greek letter tau ($\tau$ in seconds)</p>
+            <p>$$\tau = RC$$</p>
+            <p>This can also be interpreted by using $V= IR$ and $Q=CV$</p>
+            <p>$$\begin{align}
+                \text{Ohms} \cdot \text{Farads} &= \frac{\text{Volts}}{\text{Amps}} \cdot \frac{\text{Coulombs}}{\text{Volts}} \\
+                &= \frac{\text{Volts}}{\text{Amps}} \cdot \frac{\text{Amps} \cdot \text{Seconds}}{\text{Volts}} \\
+                &= \text{Seconds} \\
+            \end{align}$$</p>
+            <P>Rewriting the equations in terms of $\tau$</P>
+            <p>$$V_C(t) = V_0\left(1 - e^{-\frac{t}{\tau}}\right)$$</p>
+            <p>$$V_C(t) = V_0 e^{-\frac{t}{\tau}}$$</p>
+            <br>
+            <p>At $\tau = t$ seconds</p>
+            <p>Then for a charging capacitor:</p>
+            <p>$$V_C(\tau) = V_0\left(1 - e^{-1}\right) \approx 0.63V_0$$</p>
+            <p>And for a discharging capacitor:</p>
+            <p>$$V_C(\tau) = V_0 e^{-1} \approx 0.37V_0$$</p>
+            <p>So $\tau$ is time to charge to approximatley $63 \%$ of the source voltage</p>
+            <p>And time to discharge to approximately $37 \%$ of the source voltage</p>
+            <hr>
+            <h3>Analysis</h3>
+            <p>Since $e^{-\frac{t}{\tau}}$ is a decaying exponential, it has an asymptote at $0$</p>
+            <P>This means a charging capacitor has an asymptote at $V_0$</P>
+            <p>And a discharging capacitor has an asymptote at $0$</p>
+            <p>This means an (ideal) capacitor will never be fully charged or fully discharged</p>
+            <p>Real capacitors are imperfect so they do eventually reach a stable charge/voltage</p>
+            <p>If we graph voltage over time for the source and capacitor</p>
+            <p>Charging:</p>
+            <img src="assets/svg/rc circuit charging graph.svg">
+            <p>Discharging:</p>
+            <img src="assets/svg/rc circuit discharging graph.svg">
+            <br>
+            <p>If we take the derivatives of the voltage, to see the rate of voltage change:</p>
+            <p>Charging:</p>
+            <p>$$\begin{align}
+                \frac{dV_C}{dt} &= \frac{d}{dt}\left(V_0\left(1 - e^{-\frac{t}{\tau}}\right)\right) \\
+                &= V_0 \cdot \frac{1}{\tau} e^{-\frac{t}{\tau}} \\
+            \end{align}$$</p>
+            <p>Discharging:</p>
+            <p>$$\begin{align}
+                \frac{dV_C}{dt} &= \frac{d}{dt}\left(V_0 e^{-\frac{t}{\tau}}\right) \\
+                &= -V_0 \cdot \frac{1}{\tau} e^{-\frac{t}{\tau}} \\
+            \end{align}$$</p>
+            <p>Second Derivative:</p>
+            <p>Charging:</p>
+            <p>$$\begin{align}
+                \frac{d^2V_C}{dt^2} &= \frac{d}{dt}\left(V_0 \cdot \frac{1}{\tau} e^{-\frac{t}{\tau}}\right) \\
+                &= -V_0 \cdot \frac{1}{\tau^2} e^{-\frac{t}{\tau}} \\
+            \end{align}$$</p>
+            <p>Discharging:</p>
+            <p>$$\begin{align}
+                \frac{d^2V_C}{dt^2} &= \frac{d}{dt}\left(-V_0 \cdot \frac{1}{\tau} e^{-\frac{t}{\tau}}\right) \\
+                &= V_0 \cdot \frac{1}{\tau^2} e^{-\frac{t}{\tau}} \\
+            \end{align}$$</p>
+            <p>Since the 2nd derivative of the charging capacitor is negative, it's charging <a href="../../calculus 1/derivatives/increasing decreasing and concavity.html">at a slower rate</a></p>
+            <p>Since the 2nd derivative of the discharging capacitor is positive, it's discharging <a href="../../calculus 1/derivatives/increasing decreasing and concavity.html">at a slower rate</a></p>
+            <p>What this is means is at the start, voltage change is larger then later on</p>
+            <br>
+            <p>For the current:</p>
+            <p>Using $I_C(t) = C\frac{dV_C}{dt}$</p>
+            <p>Charging:</p>
+            <p>$$\begin{align}
+                I_C(t) &= C \cdot V_0 \cdot \frac{1}{\tau} e^{-\frac{t}{\tau}} \\
+                &= \frac{V_0}{R} e^{-\frac{t}{\tau}} \\
+            \end{align}$$</p>
+            <p>Discharging:</p>
+            <p>$$\begin{align}
+                I_C(t) &= C \cdot -V_0 \cdot \frac{1}{\tau} e^{-\frac{t}{\tau}} \\
+                &= -\frac{V_0}{R} e^{-\frac{t}{\tau}} \\
+            \end{align}$$</p>
+            <p>What you might notice is the current of the discharging capacitor is <b>negative</b></p>
+            <p>This is because the current is flowing in the opposite direction to charging</p>
+            <p>A discharging capacitor discharges <b>backwards</b> compared to charging</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>For an RC circuit with $V = 12V$, $R = 100k \Omega$, $C = 10 \mu F$, find $t$ when $V_C = 5V,10V,12V,14V$</summary>
+                            <p>Given:</p>
+                            <p>$V = 12V$</p>
+                            <p>$R = 100k \Omega = 100000 \Omega$</p>
+                            <p>$C = 10 \mu F = 0.00001 F$</p>
+                            <p>$\tau = RC = 100000 \times 0.00001 = 1s$</p>
+                            <p>Using the charging formula:</p>
+                            <p>$$V_C(t) = 12\left(1 - e^{-t}\right)$$</p>
+                            <p>$$\begin{align} 
+                                t &= -\ln\left(1 - \frac{V_C}{12}\right) \\                            
+                            \end{align}$$</p>
+                            <p>For $V_C = 5V$:</p>
+                            <p>$$\begin{align} 
+                                t &= -\ln\left(1 - \frac{5}{12}\right) \\
+                                &\approx 0.5108s \\
+                            \end{align}$$</p>
+                            <p>For $V_C = 10V$:</p>
+                            <p>$$\begin{align} 
+                                t &= -\ln\left(1 - \frac{10}{12}\right) \\
+                                &\approx 1.7918s \\
+                            \end{align}$$</p>
+                            <p>For $V_C = 12V$:</p>
+                            <p>$$\begin{align} 
+                                t &= -\ln\left(1 - \frac{12}{12}\right) \\
+                                &\approx \infty \\
+                            \end{align}$$</p>
+                            <p>For $V_C = 14V$:</p>
+                            <p>$$\begin{align} 
+                                t &= -\ln\left(1 - \frac{14}{12}\right) \\
+                                &\text{Undefined (imaginary)} \\
+                            \end{align}$$</p>
+                            <p>So it will never reach 12V or 14V</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

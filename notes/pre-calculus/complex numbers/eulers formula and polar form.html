@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Euler's Formula and Polar Form</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Euler's Formula is: </p>
+            <p>$$e^{ix} = \cos x + i\sin x$$</p>
+            <p>Where \(e\) is Euler's number, \(i\) is the imaginary unit</p>
+            <p>And \(x\) is a real number representing an angle in radians.</p>
+            <p>Using Euler's formula, we can express complex numbers in polar form:</p>
+            <p>$$z = re^{i\theta}$$</p>
+            <p>Where \(r\) is the magnitude (or modulus) of the complex number</p>
+            <p>and \(\theta\) is the argument (or angle) in radians.</p>
+            <p>To convert from rectangular form to polar form, we use:</p>
+            <p>$$r = \sqrt{x^2 + y^2}$$</p>
+            <p>$$\theta = \arctan\left(\frac{y}{x}\right)$$</p>
+            <p>To convert from polar form to rectangular form, we use:</p>
+            <p>$$x = r\cos\theta$$</p>
+            <p>$$y = r\sin\theta$$</p>
+            <p>Also $\text{cis}(x) = e^{ix} = \cos x + i\sin x$ is an alternate notation</p>
+            <hr>
+            <h3>Intuitive Meaning</h3>
+            <p>$e^{i\theta}$ represents a rotation in the complex plane by an angle $\theta$ radians.</p>
+            <p>$\cos(\theta)$ represents the real part of the complex number $e^{i\theta}$.</p>
+            <p>$\sin(\theta)$ represents the imaginary part of the complex number $e^{i\theta}$.</p>
+            <p>This puts the real on the x axis and the imaginary on the y axis</p>
+            <p>Similar to the <a href="../trigonometry/unit circle.html">unit circle</a></p>
+            <p>Now in order to <a href="../../calculus 2/series/eulers formula derivation.html">derive Euler's formula</a>, you need calculus/series</p>
+            <p>But the consquences it leads to are important and calculus is not needed</p>
+            <img src="assets/svg/eulers formula.svg">
+            <hr>
+            <h3>Applications</h3>
+            <p>We can rewrite $1,-1,i,-i$ in polar form:</p>
+            <p>$$1 = 1 \cdot e^{i \cdot 0}$$</p>
+            <p>$$-1 = 1 \cdot e^{i \cdot \pi}$$</p>
+            <p>$$i = 1 \cdot e^{i \cdot \frac{\pi}{2}}$$</p>
+            <p>$$-i = 1 \cdot e^{i \cdot \frac{3\pi}{2}}$$</p>
+            <p>And since there are exponentials, they have the same properties as exponentials</p>
+            <p>Like $e^{ia} \cdot e^{ib} = e^{i(a+b)}$ which means multiplying complex numbers adds their angles</p>
+            <p>And $\frac{e^{ia}}{e^{ib}} = e^{i(a-b)}$ which means dividing complex numbers subtracts their angles</p>
+            <p>Or with polar form:</p>
+            <p>$$r_1 e^{i\theta_1} \cdot r_2 e^{i\theta_2} = (r_1 r_2) e^{i(\theta_1 + \theta_2)}$$</p>
+            <p>$$\frac{r_1 e^{i\theta_1}}{r_2 e^{i\theta_2}} = \left(\frac{r_1}{r_2}\right) e^{i(\theta_1 - \theta_2)}$$</p>
+            <p>Also since $\cos(\theta)$ and $\sin(\theta)$ are periodic by $2\pi$, we have $e^{i(\theta + 2\pi)} = e^{i\theta}$</p>
+            <hr>
+            <h3>Conversion Between Rectangular and Polar Forms</h3>
+            <p>To convert from rectangular form to polar form, we use:</p>
+            <p>$$r = \sqrt{x^2 + y^2}$$</p>
+            <p>$$\theta = \arctan\left(\frac{y}{x}\right)$$</p>
+            <p>This is because $r$ is the distance from the origin to the point $(x, y)$</p>
+            <p>$\theta$ is the angle from the positive x-axis to that point.</p>
+            <p>To convert from polar form to rectangular form, we use:</p>
+            <p>$$x = r\cos\theta$$</p>
+            <p>$$y = r\sin\theta$$</p>
+            <p>This is because $x$ is the horizontal component</p>
+            <p>And $y$ is the vertical component.</p>
+            <hr>
+            <h3>De Moivre's Theorem</h3>
+            <p>De Moivre's Theorem states that for any real number $n$:</p>
+            <p>$$\left(\cos \theta + i \sin \theta\right)^n = \cos(n\theta) + i \sin(n\theta)$$</p>
+            <p>This can be written more compactly using Euler's formula:</p>
+            <p>$$\left(e^{i\theta}\right)^n = e^{in\theta}$$</p>
+            <p>Or for a polar form complex number</p>
+            <p>$$\left(re^{i\theta}\right)^n = r^n e^{in\theta} = r^n\left(\cos(n\theta) + i \sin(n\theta)\right)$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Convert $5 + 2i$ to polar form</summary>
+                            <p>$$\begin{align} 
+                                r &= \sqrt{5^2 + 2^2} = \sqrt{29} \\
+                                \theta &= \arctan\left(\frac{2}{5}\right) \approx 0.3805 \text{ radians} \\
+                                \text{Polar Form} &= \sqrt{29} e^{i \cdot 0.3805}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Convert $e^{i\frac{\pi}{4}}$ to rectangular form</summary>
+                            <p>$$\begin{align}
+                                x &= \cos\left(\frac{\pi}{4}\right) = \frac{\sqrt{2}}{2} \\
+                                y &= \sin\left(\frac{\pi}{4}\right) = \frac{\sqrt{2}}{2} \\
+                                \text{Rectangular Form} &= \frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2}
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Convert $e^{i}$ to rectangular form</summary>
+                            <p>$$\begin{align}
+                                x &= \cos(1) \approx 0.5403 \\
+                                y &= \sin(1) \approx 0.8415 \\
+                                \text{Rectangular Form} &= 0.5403 + i\cdot 0.8415
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Use De Moivre's Theorem to compute $(\cos 30^\circ + i \sin 30^\circ)^3$</summary>
+                            <p>$$\begin{align}
+                                (\cos 30^\circ + i \sin 30^\circ)^3 &= \cos(3 \cdot 30^\circ) + i \sin(3 \cdot 30^\circ) \\
+                                &= \cos 90^\circ + i \sin 90^\circ \\
+                                &= 0 + i \cdot 1 = i
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Solve $(2 + 9i)/(6 + 6i)$ by converting to polar form and then back to rectangular form</summary>
+                            <p>$$\begin{align}
+                                \text{Rectangular Form:} & \quad \frac{2 + 9i}{6 + 6i} \\
+                                \text{Polar Form of Numerator:} & \quad r_1 = \sqrt{2^2 + 9^2} = \sqrt{85}, \quad \theta_1 = \arctan\left(\frac{9}{2}\right) \\
+                                \text{Polar Form of Denominator:} & \quad r_2 = \sqrt{6^2 + 6^2} = 6\sqrt{2}, \quad \theta_2 = \arctan\left(1\right) = \frac{\pi}{4} \\
+                                \text{Division in Polar Form:} & \quad \frac{r_1}{r_2} e^{i(\theta_1 - \theta_2)} = \frac{\sqrt{85}}{6\sqrt{2}} e^{i\left(\arctan\left(\frac{9}{2}\right) - \frac{\pi}{4}\right)}
+                            \end{align}$$</p>
+                            <p>Now converting back to rectangular form:</p>
+                            <p>$$\begin{align}
+                                x &= \frac{\sqrt{85}}{6\sqrt{2}} \cos\left(\arctan\left(\frac{9}{2}\right) - \frac{\pi}{4}\right) \\
+                                y &= \frac{\sqrt{85}}{6\sqrt{2}} \sin\left(\arctan\left(\frac{9}{2}\right) - \frac{\pi}{4}\right)
+                            \end{align}$$</p>
+                            <p>This gives us</p>
+                            <p>$$\text{Rectangular Form} \approx 0.708 + 0.459i$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Solve $(2 + 9i)\cdot(6 + 6i)$ by converting to polar form and then back to rectangular form</summary>
+                            <p>$$\begin{align}
+                                \text{Rectangular Form:} & \quad (2 + 9i)(6 + 6i) \\
+                                \text{Polar Form of First Factor:} & \quad r_1 = \sqrt{2^2 + 9^2} = \sqrt{85}, \quad \theta_1 =
+                                \arctan\left(\frac{9}{2}\right) \\
+                                \text{Polar Form of Second Factor:} & \quad r_2 = \sqrt{6^2 + 6^2} = 6\sqrt{2}, \quad \theta_2 =
+                                \arctan\left(1\right) = \frac{\pi}{4} \\
+                                \text{Multiplication in Polar Form:} & \quad r_1 r_2 e^{i(\theta_1 + \theta_2)} =
+                                \sqrt{85} \cdot 6\sqrt{2} e^{i\left(\arctan\left(\frac{9}{2}\right) + \frac{\pi}{4}\right)}
+                                \end{align}$$</p>
+                            <p>Now converting back to rectangular form:</p>
+                            <p>$$\begin{align}
+                                x &= \sqrt{85} \cdot 6\sqrt{2} \cos\left(\arctan\left(\frac{9}{2}\right) + \frac{\pi}{4}\right) \\
+                                y &= \sqrt{85} \cdot 6\sqrt{2} \sin\left(\arctan\left(\frac{9}{2}\right) + \frac{\pi}{4}\right)
+                                \end{align}$$</p>
+                            <p>This gives us</p>
+                            <p>$$\text{Rectangular Form} \approx -26 + 66i$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

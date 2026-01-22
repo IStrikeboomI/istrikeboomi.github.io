@@ -27,6 +27,13 @@
                     {"name":"vector valued functions", "title": "Vector Valued Functions"}
 
                 ]
+            },
+            {
+                "section":"Complex Numbers", 
+                "notes" : 
+                [
+                    {"name":"imaginary and complex numbers", "title": "Imaginary and Complex Numbers"},
+                    {"name":"eulers formula and polar form", "title": "Euler's Formula and Polar Form"}                ]
             }
         ]
     },
@@ -157,6 +164,12 @@
                     {"name":"voltage sources","title":"Voltage Sources"},
                     {"name":"resistors","title":"Resistors"},
                     {"name":"using ohms law kcl and kvl to solve circuits","title":"Using Ohm's Law, KCL, and KVL to Solve Circuits"}
+                ]
+            },
+            {
+                "section":"DC Circuits",
+                "notes":[
+                    {"name":"rc circuits","title":"RC Circuits (Charging and Discharging Capacitors)"}
                 ]
             }
         ]
