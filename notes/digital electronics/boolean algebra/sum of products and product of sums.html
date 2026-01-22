@@ -57,17 +57,181 @@
             <hr>
             <h3>Converting to SOP or POS</h3>
             <p>If we are given a boolean algebra expression, we can convert it to SOP or POS using boolean algebra properties</p>
-            
+            <p>For example, convert the following expression to SOP and POS: $F = A + B(C' + A) + C$ (you don't need to simplify)</p>
+            <p>For SOP:</p>
+            <p>$$\begin{align}
+            F &= A + B(C' + A) + C \\
+              &= A + BC' + BA + C \\
+            \end{align}$$</p>
+            <p>For POS:</p>
+            <p>$$\begin{align}
+            F &= A + B(C' + A) + C \\
+              &= (A + B)(A + (C' + A)) + C &&\text{Distributive AND}\\
+              &= (C+(A+B))(C+A+(C'+A)) &&\text{Distributive AND}\\
+            \end{align}$$</p>
+            <p>Note since we didn't simplify, the second POS expression is always 1, so it's redundant.</p>
+            <p>If we make a truth table</p>
+            <p>$$\begin{align}
+            &\begin{array} {c c c | c}
+            A & B & C & F \\ \hline
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 1 & 1 \\
+            0 & 1 & 0 & 1 \\
+            0 & 1 & 1 & 1 \\
+            1 & 0 & 0 & 1 \\
+            1 & 0 & 1 & 1 \\
+            1 & 1 & 0 & 1 \\
+            1 & 1 & 1 & 1 \\
+            \end{array}
+            \end{align}$$</p>
+            <p>We can see the truth table is 1 for when any of the SOP expression is 1.</p>
+            <p>We can also see the truth table is 0 for when any of the POS expression is 0.</p>
             <hr>
             <details open>
                 <summary>Practice Problems</summary>
                 <ul class="no-bullets">
                     <li>
                         <details>
-                            <summary>Practice 1</summary>
+                            <summary>Create a truth table for $F = ABC + D' + AD$</summary>
                             <p>$$\begin{align} 
-
+                            &\begin{array} {c c c c | c}
+                            A & B & C & D & F \\ \hline
+                            0 & 0 & 0 & 0 & 1 \\
+                            0 & 0 & 0 & 1 & 0 \\
+                            0 & 0 & 1 & 0 & 1 \\
+                            0 & 0 & 1 & 1 & 0 \\
+                            0 & 1 & 0 & 0 & 1 \\
+                            0 & 1 & 0 & 1 & 0 \\
+                            0 & 1 & 1 & 0 & 1 \\
+                            0 & 1 & 1 & 1 & 0 \\
+                            1 & 0 & 0 & 0 & 1 \\
+                            1 & 0 & 0 & 1 & 1 \\
+                            1 & 0 & 1 & 0 & 1 \\
+                            1 & 0 & 1 & 1 & 1 \\
+                            1 & 1 & 0 & 0 & 1 \\
+                            1 & 1 & 0 & 1 & 1 \\
+                            1 & 1 & 1 & 0 & 1 \\
+                            1 & 1 & 1 & 1 & 1 \\
+                            \end{array}
                             \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Create a truth table for $F = (A + D)(B + C')(A + B')$</summary>
+                            <p>$$\begin{align}
+                                &\begin{array} {c c c c | c}
+                                A & B & C & D & F \\ \hline
+                                0 & 0 & 0 & 0 & 0 \\
+                                0 & 0 & 0 & 1 & 1 \\
+                                0 & 0 & 1 & 0 & 0 \\
+                                0 & 0 & 1 & 1 & 0 \\
+                                0 & 1 & 0 & 0 & 0 \\
+                                0 & 1 & 0 & 1 & 0 \\
+                                0 & 1 & 1 & 0 & 0 \\
+                                0 & 1 & 1 & 1 & 0 \\
+                                1 & 0 & 0 & 0 & 1 \\
+                                1 & 0 & 0 & 1 & 1 \\
+                                1 & 0 & 1 & 0 & 0 \\
+                                1 & 0 & 1 & 1 & 0 \\
+                                1 & 1 & 0 & 0 & 1 \\
+                                1 & 1 & 0 & 1 & 1 \\
+                                1 & 1 & 1 & 0 & 1 \\
+                                1 & 1 & 1 & 1 & 1 \\
+                                \end{array}
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Convert $F=(A+D)(B'+C) + AD + B + D(A + B' + C)$ to SOP and POS (you can simplify), and make a truth table</summary>
+                            <p>Truth Table For original Expression:</p>
+                            <p>$$\begin{align}
+                                &\begin{array} {c c c c | c}
+                                A & B & C & D & F \\ \hline
+                                0 & 0 & 0 & 0 & 0 \\
+                                0 & 0 & 0 & 1 & 1 \\
+                                0 & 0 & 1 & 0 & 0 \\
+                                0 & 0 & 1 & 1 & 1 \\
+                                0 & 1 & 0 & 0 & 1 \\
+                                0 & 1 & 0 & 1 & 1 \\
+                                0 & 1 & 1 & 0 & 1 \\
+                                0 & 1 & 1 & 1 & 1 \\
+                                1 & 0 & 0 & 0 & 1 \\
+                                1 & 0 & 0 & 1 & 1 \\
+                                1 & 0 & 1 & 0 & 1 \\
+                                1 & 0 & 1 & 1 & 1 \\
+                                1 & 1 & 0 & 0 & 1 \\
+                                1 & 1 & 0 & 1 & 1 \\
+                                1 & 1 & 1 & 0 & 1 \\
+                                1 & 1 & 1 & 1 & 1 \\
+                                \end{array}
+                                \end{align}$$</p>
+                            <p>SOP:</p>
+                            <p>$$\begin{align}
+                            F &= (A+D)(B'+C) + AD + B + D(A + B' + C) \\
+                              &= AB' + AC + DB' + DC + AD + B + DA + DB' + DC \\
+                              &= AB' + AC + AD + B + DB' + DC \\
+                              &= AB' + AC + AD + (B+D)(B+B') + DC \\
+                            &= AB' + AC + AD + B + D + DC \\
+                            &= AB' + AC + B + D\\
+                            &= (B + A)(B+B') + AC + D\\
+                            &= B + A + AC + D\\
+                            &= B + A + D\\
+                            \end{align}$$</p>
+                            <p>Truth Table:</p>
+                            <p>$$\begin{align}
+                            &\begin{array} {c c c c | c}
+                            A & B & C & D & F \\ \hline
+                            0 & 0 & 0 & 0 & 0 \\
+                            0 & 0 & 0 & 1 & 1 \\
+                            0 & 0 & 1 & 0 & 0 \\
+                            0 & 0 & 1 & 1 & 1 \\
+                            0 & 1 & 0 & 0 & 1 \\
+                            0 & 1 & 0 & 1 & 1 \\
+                            0 & 1 & 1 & 0 & 1 \\
+                            0 & 1 & 1 & 1 & 1 \\
+                            1 & 0 & 0 & 0 & 1 \\
+                            1 & 0 & 0 & 1 & 1 \\
+                            1 & 0 & 1 & 0 & 1 \\
+                            1 & 0 & 1 & 1 & 1 \\
+                            1 & 1 & 0 & 0 & 1 \\
+                            1 & 1 & 0 & 1 & 1 \\
+                            1 & 1 & 1 & 0 & 1 \\
+                            1 & 1 & 1 & 1 & 1 \\
+                            \end{array}
+                            \end{align}$$</p>
+                            <p>POS:</p>
+                            <p>$$\begin{align}
+                            F &= (A+D)(B'+C) + AD + B + D(A + B' + C) \\
+                              &= (B+(A+D))(B+(B'+C)) + (AD+D)(AD+(A + B' + C)) \\
+                            &= B+A+D + D(A + B' + C) \\
+                            &= (B+A+D + D)(B+A+D +(A + B' + C)) \\
+                            &= (B + A + D) \\
+                            \end{align}$$</p>
+                            <p>For the truth table:</p>
+                            <p>$$\begin{align}
+                                &\begin{array} {c c c c | c}
+                                A & B & C & D & F \\ \hline
+                                0 & 0 & 0 & 0 & 0 \\
+                                0 & 0 & 0 & 1 & 1 \\
+                                0 & 0 & 1 & 0 & 0 \\
+                                0 & 0 & 1 & 1 & 1 \\
+                                0 & 1 & 0 & 0 & 1 \\
+                                0 & 1 & 0 & 1 & 1 \\
+                                0 & 1 & 1 & 0 & 1 \\
+                                0 & 1 & 1 & 1 & 1 \\
+                                1 & 0 & 0 & 0 & 1 \\
+                                1 & 0 & 0 & 1 & 1 \\
+                                1 & 0 & 1 & 0 & 1 \\
+                                1 & 0 & 1 & 1 & 1 \\
+                                1 & 1 & 0 & 0 & 1 \\
+                                1 & 1 & 0 & 1 & 1 \\
+                                1 & 1 & 1 & 0 & 1 \\
+                                1 & 1 & 1 & 1 & 1 \\
+                                \end{array}
+                                \end{align}$$</p>
+
                         </details>
                     </li>
                 </ul>

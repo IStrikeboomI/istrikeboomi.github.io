@@ -1,8 +1,8 @@
 big and little endian
+Binary fractional numbers
 IEEE 754 float and arithemetic
 
 representing real world thinss with boolean algebra
-sum of product product of sum
 sum of minterms product of maxterms
 k maps
 
