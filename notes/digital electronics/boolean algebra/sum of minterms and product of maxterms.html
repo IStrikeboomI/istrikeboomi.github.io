@@ -66,19 +66,19 @@
                 \end{align}$$</p>
             <p>And the output is 0 for the following input combinations:</p>
             <ul>
-                <li>0000 ($A'B'C'D'$)</li>
-                <li>0010 ($A'B'CD'$)</li>
-                <li>0100 ($A'BC'D'$)</li>
-                <li>0101 ($A'BC'D$)</li>
-                <li>0110 ($A'BCD'$)</li>
-                <li>1000 ($AB'C'D'$)</li>
-                <li>1001 ($AB'C'D$)</li>
-                <li>1011 ($AB'CD$)</li>
-                <li>1110 ($ABC'D$)</li>
+                <li>0000 ($A + B + C + D$)</li>
+                <li>0010 ($A + B + C' + D$)</li>
+                <li>0100 ($A + B' + C + D$)</li>
+                <li>0101 ($A + B' + C + D'$)</li>
+                <li>0110 ($A + B' + C' + D$)</li>
+                <li>1000 ($A' + B + C + D$)</li>
+                <li>1001 ($A' + B + C + D'$)</li>
+                <li>1011 ($A' + B + C' + D'$)</li>
+                <li>1110 ($A' +B'+C'+D$)</li>
             </ul>
             <p>So the product of maxterms expression is:</p>
             <p>$$\begin{align}
-                F &= (A+B+C+D)(A+B+C'+D)(A+B'+C+D) \\&(A+B'+C'+D)(A'+B+C+D)(A'+B+C'+D)(A'+B'+C+D) \\
+                F &= (A+B+C+D)(A+B+C'+D)(A+B'+C+D)(A+B'+C+D') \\&(A+B'+C'+D)(A'+B+C+D)(A'+B+C+D')(A'+B+C'+D)(A'+B'+C+D) \\
                 &= \prod M(0, 2, 4, 5, 6, 8, 9, 11, 14)
                 \end{align}$$</p>
             <p>Now both of these expressions are equivalent to the original function F.</p>
