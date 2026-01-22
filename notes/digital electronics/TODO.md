@@ -4,7 +4,6 @@ IEEE 754 float and arithemetic
 binary coded decimal
 
 representing real world thinss with boolean algebra
-sum of minterms product of maxterms
 gray code
 k maps
 

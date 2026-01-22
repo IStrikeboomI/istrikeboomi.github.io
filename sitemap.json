@@ -194,7 +194,8 @@
                 "notes":[
                     {"name":"boolean algebra","title":"Boolean Algebra"},
                     {"name":"simplifying boolean algebra expressions","title":"Simplifying Boolean Algebra Expressions"},
-                    {"name":"sum of products and product of sums","title":"Sum of Products and Product of Sums"}
+                    {"name":"sum of products and product of sums","title":"Sum of Products and Product of Sums"},
+                    {"name":"sum of minterms and product of maxterms","title":"Sum of Minterms and Product of Maxterms"}
                 ]
             },
             {
