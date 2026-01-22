@@ -13,7 +13,51 @@
     </head>
     <body>
         <div id="content">
-            <p>Content</p>
+            <p>Sum of Products (SOP) and Product of Sums (POS) are ways to express boolean algebra expressions.</p>
+            <p>SOP consists of the sum (OR) of multiple product (AND) terms.</p>
+            <p>POS consists of the product (AND) of multiple sum (OR) terms.</p>
+            <p>The reason why we do this is because of the <a href="simplifying boolean algebra expressions.html">Null Property</a>, which is (for AND) $A \cdot 0 = 0$ and (for OR) $A + 1 = 1$.</p>
+            <p>This means if a single term in the SOP expression is 1, the entire expression evaluates to 1.</p>
+            <p>Similarly, if a single term in the POS expression is 0, the entire expression evaluates to 0.</p>
+            <p>This saves on computational complexity since you can now do each term in isolation.</p>
+            <hr>
+            <h3>Examples</h3>
+            <p>Create the truth table for the following SOP expression $F = AB + AC + B'$</p>
+            <p>For this, we evaluate each term in the expression separately.</p>
+            <p>Then at the end, we OR all the terms together. If at least one term is 1, the entire expression evaluates to 1.</p>
+            <p>$$\begin{align}
+            &\begin{array} {c c c | c c c | c}
+            A & B & C & AB & AC & B' & F \\ \hline
+            0 & 0 & 0 & 0  & 0 & 1 & 1 \\
+            0 & 0 & 1 & 0  & 0 & 1 & 1 \\
+            0 & 1 & 0 & 0  & 0 & 0 & 0 \\
+            0 & 1 & 1 & 0  & 0 & 0 & 0 \\
+            1 & 0 & 0 & 0  & 0 & 1 & 1 \\
+            1 & 0 & 1 & 0  & 1 & 1 & 1 \\
+            1 & 1 & 0 & 1  & 0 & 0 & 1 \\
+            1 & 1 & 1 & 1  & 1 & 0 & 1 \\
+            \end{array}
+            \end{align}$$</p>
+            <p>Now let's do a POS example. Create the truth table for the following POS expression $F = (A + B)(A + C)(B' + C)$</p>
+            <p>For this, we evaluate each term in the expression separately.</p>
+            <p>Then at the end, we AND all the terms together. If at least one term is 0, the entire expression evaluates to 0.</p>
+            <p>$$\begin{align}
+            &\begin{array} {c c c | c c c | c}
+            A & B & C & (A + B) & (A + C) & (B' + C) & F \\ \hline
+            0 & 0 & 0 & 0  & 0 & 1 & 0 \\
+            0 & 0 & 1 & 0  & 1 & 1 & 0 \\
+            0 & 1 & 0 & 1  & 0 & 0 & 0 \\
+            0 & 1 & 1 & 1  & 1 & 1 & 1 \\
+            1 & 0 & 0 & 1  & 1 & 1 & 1 \\
+            1 & 0 & 1 & 1  & 1 & 1 & 1 \\
+            1 & 1 & 0 & 1  & 1 & 0 & 0 \\
+            1 & 1 & 1 & 1  & 1 & 1 & 1 \\
+            \end{array}
+            \end{align}$$</p>
+            <hr>
+            <h3>Converting to SOP or POS</h3>
+            <p>If we are given a boolean algebra expression, we can convert it to SOP or POS using boolean algebra properties</p>
+            
             <hr>
             <details open>
                 <summary>Practice Problems</summary>
