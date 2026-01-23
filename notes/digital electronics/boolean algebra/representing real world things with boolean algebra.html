@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Representing Real World Things with Boolean Algebra</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>So far we have learned many boolean algebra and binary concepts, but why is what we learned important?</p>
+            <p>It's because eventually we will use those principals to model, design, and build circuits</p>
+            <p>But when we design circuits, we need to know how to convert between real world problems/statments</p>
+            <p>This involves making variables from our input parameters (real world these can be sensors, switches, etc.)</p>
+            <p>Then we need to use boolean algebra to represent the logic of the system</p>
+            <hr>
+            <h3>Example 1: Simple Security System</h3>
+            <p>Imagine we want to design a simple security system for a house</p>
+            <p>The security system is an alarm that goes off (output) when it is not daytime and motion is detected</p>
+            <p>We can represent daytime as a boolean variable `D` (true if daytime, false if night)</p>
+            <p>We can represent motion detected as a boolean variable `M` (true if motion detected, false if no motion)</p>
+            <p>Now we can create a boolean expression for when the alarm should go off</p>
+            <p>$A = D' \cdot M$</p>
+            <p>We will show later how to convert this into a <a href="../digital circuits/digital circuits and logic gates.html">digital circuit</a></p>
+            <hr>
+            <h3>Example 2: Fan Temperature Cooling System</h3>
+            <p>Imagine a fan that turns on when it is manually turn on or temperature is too high and it has been 30 seconds </p>
+            <p>Manual switch is $S$, temperature too hot is $T$, and time past 30s is $P$</p>
+            <p>$F = S + TP$</p>
+            <hr>
+            <h3>Example 3: Cat Cafe</h3>
+            <p>Imagine a cat cafe that has a spot for people to go in</p>
+            <p>There are 2 cats that come in controlled by electronic doors</p>
+            <p>The cats hate each other, but they like people</p>
+            <p>The people are happy when the cats are happy, AKA not fighting (so only 1 cat at a time)</p>
+            <p>Let $C_1$ and $C_2$ be the boolean variables for cat 1 and cat 2 being in the cafe</p>
+            <p>$H = C_1'C_2 + C_2'C1 = C_1 \oplus C_2$</p>
+            <hr>
+            <h3>Convert into a sentence</h3>
+            <p>Let's say we have the boolean expression:</p>
+            <p>$$G = C'(S + A + W)$$</p>
+            <ul>
+                <li>$G$ means the grass is green</li>
+                <li>$C$ means it is cold</li>
+                <li>$S$ means it is summer</li>
+                <li>$A$ means it is spring</li>
+                <li>$W$ means the grass has been watered</li>
+            </ul>
+            <p>So the sentence is:</p>
+            <p>The grass is green when it is not cold and it is either summer, spring, or the grass has been watered.</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>It is humid if someone is cooking or taking a hot shower and the dehumidifier is off</summary>
+                            <p>$$H = (C + S)D'$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>The TV is off if no one is home or there is an energy watch</summary>
+                            <ul>
+                                <li>$T$ means the TV is on</li>
+                                <li>$H$ means someone is home</li>
+                                <li>$E$ means there is an energy watch</li>
+                            </ul>
+                            <p>$T' = H' + E$</p>
+                            <p>We can use De Morgan's law to simplify this:</p>
+                            <p>$$T = HE'$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>You can only drive if you have gas money and a leaner permit and someone else <br> with a license is in the car or if you have a drivers license</summary>
+                            <ul>
+                                <li>$M$ means you have gas money</li>
+                                <li>$L$ means you have a learner permit</li>
+                                <li>$S$ means someone with a license is in the car</li>
+                                <li>$D$ means you have a driver's license</li>
+                            </ul>
+                            <p>$C = M(LS + D)$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

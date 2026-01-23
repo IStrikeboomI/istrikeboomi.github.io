@@ -3,8 +3,6 @@ Binary fractional numbers
 IEEE 754 float and arithemetic
 binary coded decimal
 
-representing real world thinss with boolean algebra
-gray code
 k maps
 
 tri state buffer
