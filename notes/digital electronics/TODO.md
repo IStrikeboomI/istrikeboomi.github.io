@@ -1,7 +1,8 @@
 big and little endian
 Binary fractional numbers
 IEEE 754 float and arithemetic
-binary coded decimal
+binary multiplication
+ASCII
 
 k maps
 

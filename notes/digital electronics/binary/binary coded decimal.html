@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Binary Coded Decimal</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Binary Coded Decimal (BCD) is a way to represent decimal numbers in binary form</p>
+            <p>In BCD, each decimal digit is represented by a 4-bit binary number</p>
+            <p>For example, the decimal number 45 would be represented in BCD as:</p>
+            <p>4 = 0100 and 5 = 0101, so 45 in BCD is $0100 \ 0101$</p>
+            <p>The benefit of BCD is that it makes for easier conversion with decimal and binary</p>
+            <hr>
+            <h3>Conversion</h3>
+            <p>To convert a decimal number to BCD, we convert each digit to its 4-bit binary equivalent</p>
+            <p>To convert a BCD number to decimal, we reverse the process</p>
+            <p>The conversion of a digit to binary is the same as in <a href="binary.html">binary</a>, you can use the table</p>
+            <p>$$\begin{align}
+                \begin{array} {c | c}
+                \text{Decimal} & \text{BCD (4-bit Binary)} \\
+                \hline
+                0 & 0000 \\
+                1 & 0001 \\
+                2 & 0010 \\
+                3 & 0011 \\
+                4 & 0100 \\
+                5 & 0101 \\
+                6 & 0110 \\
+                7 & 0111 \\
+                8 & 1000 \\
+                9 & 1001 \\
+                \end{array}
+            \end{align}$$</p>
+            <hr>
+            <h3>Addition in BCD</h3>
+            <p>You can add BCD numbers normally using <a href="binary addition.html">binary addition</a>, but there is a big caveat</p>
+            <p>Since a digit can't exceed 9, if the sum of two BCD digits is greater than 9</p>
+            <p>You must add a 6 (0110) to <b>each digit</b>, to force an overflow/carry</p>
+            <p>This is because in standard decimal addition, adding two numbers larger than 9 carries</p>
+            <p>For example, adding 7 (0111) and 8 (1000) in BCD:</p>
+            <p>$$\begin{align}
+                0111 \ (7) \\
+              + 1000 \ (8) \\
+              \hline
+               1111 \ (15) \\
+            \end{align}$$</p>
+            <br>
+            <p>Another example 423 + 219 (= 642) in BCD:</p>
+            <p>$$\begin{align}
+                  1 \ 1 \ \ \ \ \ \  \ \ \ \ \ \ \\\
+                0100 \ 0010 \ 0011 \ (423) \\
+              + 0010 \ 0001 \ 1001 \ (219) \\
+              \hline
+               0110 \ 0011 \ 1100 \ \ \  \ \ \ \ \ \ \  \\
+            \end{align}$$</p>
+            <p>But there's an issue, the first digit is over 9 so we add 6 to the first digit</p>
+            <p>$$\begin{align}
+                    1 \ 1 \ 1 \ 1  \ \ \ \ \  \\
+                0110 \ 0011 \ 1100 \\
+              + 0000 \ 0000 \ 0110 \\
+              \hline
+                0110 \ 0100 \ 0010\\
+            \end{align}$$</p>
+            <p>So the final result is 642 in BCD</p>
+            <br>
+            <p>Another example 678 + 535 = 1213</p>
+            <p>$$\begin{align}
+                0110 \ 0111 \ 1000 \ (678) \\
+                + 0101 \ 0011 \ 0101 \ (535) \\
+                \hline
+                1011 \ 1010 \ 1101 \ \ \ \ \ \ \ \ \ \
+            \end{align}$$</p>
+            <p>All 3 digits are over 9, so we add 6 to each digit</p>
+            <p>$$\begin{align}
+                1011 \ 1010 \ 1101 \\
+              + 0110 \ 0110 \ 0110 \\
+              \hline
+                0001 \ 0010 \ 0001 \ 0011 \\
+            \end{align}$$</p>
+            <p>The final result is 1213 in BCD</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Convert $13527$ to BCD</summary>
+                            <p>$$\begin{align} 
+                                0001 \ 0011 \ 0101 \ 0010 \ 0111 \\
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Convert BCD $0011 \ 0111 \ 0110 \ 0000 \ 0001$ to decimal</summary>
+                            <p>$$\begin{align}
+                                37601
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Add $1442$ and $72093$ in BCD</summary>
+                            <p>$$\begin{align}
+                                         0001 \ 0100 \ 0100 \ 0010 \ (1442) \  \ \\
+                                + 0111 \ 0010 \ 0000 \ 1001 \ 0011 \ (72093) \\
+                                \hline
+                                  0111 \ 0011 \ 0100 \ 1101 \ 0101 \ \ \ \ \ \  \ \ \ \ \ \ \ \
+                            \end{align}$$</p>
+                            <p>The second digit is invalid so we add 6 to it</p>
+                            <p>$$\begin{align}
+                                0111 \ 0011 \ 0100 \ 1101 \ 0101 \\
+                                + 0000 \ 0000 \ 0000 \ 0110 \ 0000 \\
+                                \hline
+                                0111 \ 0011 \ 0101 \ 0011 \ 0101 \\
+                            \end{align}$$</p>
+                            <p>So the answer is $1442 + 72093 = 73535$ in BCD.</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
