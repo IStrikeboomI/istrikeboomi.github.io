@@ -198,7 +198,8 @@
                     {"name":"sum of products and product of sums","title":"Sum of Products and Product of Sums"},
                     {"name":"sum of minterms and product of maxterms","title":"Sum of Minterms and Product of Maxterms"},
                     {"name":"representing real world things with boolean algebra","title":"Representing Real World Things with Boolean Algebra"},
-                    {"name":"gray code","title":"Gray Code"}
+                    {"name":"gray code","title":"Gray Code"},
+                    {"name":"karnaugh maps","title":"Karnaugh Maps"}
                 ]
             },
             {

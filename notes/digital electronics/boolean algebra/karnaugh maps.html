@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Karnaugh Maps</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Karnaugh Maps (Or K-Maps) are a geometrical way to simplify boolean algebra expressions.</p>
+            <p>More specifically, they can simplify <a href="sum of minterms and product of maxterms.html">sum of minterms and product of maxterms</a></p>
+            <p>It can be used for any number of variables, but is most commonly used for 2,3, and 4 variables.</p>
+            <p>The benefit of a K-map is that it can be simpler and cleaner than using <a href="simplifying boolean algebra expressions.html">boolean algebra properties</a></p>
+            <hr>
+            <h3>Construction</h3>
+            <p>A K-Map is a grid where half of the variables are represented on the rows and columns</p>
+            <p>The Rows and columns are numbered using <a href="gray code.html">Gray Codes</a>, not traditional binary</p>
+            <p>Here's how you contruct a k-map</p>
+            <img src="assets/svg/2 variable k-map empty.svg">
+            <img src="assets/svg/3 variable k-map empty.svg">
+            <img src="assets/svg/4 variable k-map empty.svg">
+            <p>Each cell index is the $ab$ variables with the $cd$ variables, but since it's a gray code, it won't be in order</p>
+            <img src="assets/svg/2 variable k-map order.svg">
+            <img src="assets/svg/3 variable k-map order.svg">
+            <img src="assets/svg/4 variable k-map order.svg">
+            <hr>
+            <h3>Filling Out The K-Map</h3>
+            <p>To fill out the k-map, you need to know the minterms or maxterms of the boolean expression</p>
+            <p>In other words, you need a truth table, if you don't have one you need to make it</p>
+            <p>For example if we have a function $f(a,b,c) = \sum m(0,1,2,4)$, we would fill out the k-map:</p>
+            <p>First make the truth table</p>
+            <p>$$\begin{align}
+                \begin{array} {c | c | c | c}
+                a & b & c & f(a,b,c) \\
+                \hline
+                0 & 0 & 0 & 1 \\
+                0 & 0 & 1 & 1 \\
+                0 & 1 & 0 & 1 \\
+                0 & 1 & 1 & 0 \\
+                1 & 0 & 0 & 1 \\
+                1 & 0 & 1 & 0 \\
+                1 & 1 & 0 & 0 \\
+                1 & 1 & 1 & 0 \\
+                \end{array}
+            \end{align}$$</p>
+            <p>If it's a minterm, you fill in the cells with 1s, and if it's a maxterm, you fill in the cells with 0s.</p>
+            <p>So we fill in the k-map with 1s at the minterms 0,1,2,4, and 0s everywhere else</p>
+            <img src="assets/svg/3 variable k-map filled.svg">
+            <hr>
+            <h3>Grouping Rules</h3>
+            <hr>
+            <h3>Simplifying</h3>
+            <hr>
+            <h3>4 Variable Example</h3>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Practice 1</summary>
+                            <p>$$\begin{align} 
+
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

@@ -1,9 +1,18 @@
 \documentclass[tikz,border=10pt]{standalone}
 \usepackage{amsmath}
 \usepackage{tikz}
+\usepackage{karnaugh-map}
+\usepackage{diagbox}
 \usetikzlibrary{positioning,calc}
 
 \begin{document}
+% https://mirrors.mit.edu/CTAN/graphics/pgf/contrib/karnaugh-map/karnaugh-map.pdf
+ \begin{karnaugh-map}(label=corner)[4][2][1][$bc$][$a$]
+      \minterms{0,1,2,4}
+      \autoterms[0]
+      %\implicant{4}{6}
+      %\implicant{1}{5}
+  \end{karnaugh-map}
 \begin{tikzpicture}
   %\draw[draw=black, fill=gray!10] (0,0) rectangle ++(3,3) 
 %node[pos = .5] (FA0) {Full Adder};
