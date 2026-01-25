@@ -21,7 +21,7 @@
             <h3>Construction</h3>
             <p>A K-Map is a grid where half of the variables are represented on the rows and columns</p>
             <p>The Rows and columns are numbered using <a href="gray code.html">Gray Codes</a>, not traditional binary</p>
-            <p>Here's how you contruct a k-map</p>
+            <p>Here's how you construct a k-map</p>
             <img src="assets/svg/2 variable k-map empty.svg">
             <img src="assets/svg/3 variable k-map empty.svg">
             <img src="assets/svg/4 variable k-map empty.svg">
@@ -54,20 +54,82 @@
             <img src="assets/svg/3 variable k-map filled.svg">
             <hr>
             <h3>Grouping Rules</h3>
+            <p>In the end if you want sum of products, group 1s, if you want product of sum, group 0s</p>
+            <p>Groups must follow these rules:</p>
+            <ul>
+                <li>Groups must be rectangular (no diagonal)</li>
+                <li>Groups must contain 1,2,4,8,... (Powers of 2) cells</li>
+                <li>Groups can wrap around the edges of the k-map</li>
+                <li>Groups can wrap around the 4 corners</li>
+                <li>Groups should be as large as possible</li>
+                <li>Cells can share multiple groups (overlap)</li>
+                <li>All 1s (or 0s) must be included in at least one group</li>
+            </ul>
+            <p>If we want to group the 1s in the example above</p>
+            <img src="assets/svg/3 variable k-map 1 grouped.svg">
+            <p>If you group the 0s,</p>
+            <img src="assets/svg/3 variable k-map 0 grouped.svg">
+            <p>The following examples are also valid groupings</p>
+            <img src="assets/svg/4 variable k-map example 1.svg">
+            <img src="assets/svg/4 variable k-map example 2.svg">
+            <img src="assets/svg/4 variable k-map example 3.svg">
             <hr>
             <h3>Simplifying</h3>
+            <p>In order to simplify, in each group you keep the variables that stay the same</p>
+            <p>You also eliminate the variables that change</p>
+            <p>Using the 3 variable example,</p>
+            <img src="assets/svg/3 variable k-map 1 grouped.svg">
+            <p>In the green group, if we write out the minterms,$A'B'C'$ and $A'B'C$</p>
+            <p>The $A'$ and $B'$ stay the same so they stay into the simplified product of $A'B'$</p>
+            <p>In the red group, the minterms are $A'B'C'$ and $AB'C'$, so it becomes $B'C'$</p>
+            <p>In the yellow group, the minterms are $A'B'C'$ and $A'BC'$, so it becomes $A'C'$</p>
+            <p>This gives the final expression as $F = A'B' + B'C' + A'C'$</p>
+            <br>
+            <p>If we were to group the 0s instead,</p>
+            <img src="assets/svg/3 variable k-map 0 grouped.svg">
+            <p>In the green group, the maxterms are $A'BC'$ and $A'B'C'$, so it becomes $A'+C'$</p>
+            <p>In the red group, the maxterms are $A'B'C'$ and $AB'C'$, so it becomes $B'+ C'$</p>
+            <p>In the yellow group, the maxterms are $A'B'C'$ and $A'B'C$, so it becomes $A' + B'$</p>
+            <p>This gives the final expression as $F = (A'+C')(B'+C')(A'+B')$</p>
             <hr>
             <h3>4 Variable Example</h3>
+            <p>Given the function $f(a,b,c,d) = \sum m(0,1,4,5,6,7,10,15)$, simplify using a k-map</p>
+            <p>If we construct the k-map,</p>
+            <img src="assets/svg/4 variable k-map filled.svg">
+            <p>We can group the 1s,</p>
+            <img src="assets/svg/4 variable k-map grouped.svg">
+            <p>For the red group, the minterms are $A'B'C'D', A'B'C'D, A'BC'D', A'BC'D$, so it becomes $A'C'$</p>
+            <p>For the green group, the minterms are $A'BC'D', A'BC'D, A'BCD,AB'CD'$ so it  becomes $A'B$</p>
+            <p>For the yellow group the minterms are $A'BCD, ABCD$, so it becomes $BCD$</p>
+            <p>For the blue group, its only minterm is $AB'CD'$, so it becomes $AB'CD$</p>
+            <p>This gives the final expression as $F = A'C' + A'B + BCD + AB'CD'$</p>
             <hr>
             <details open>
                 <summary>Practice Problems</summary>
                 <ul class="no-bullets">
                     <li>
                         <details>
-                            <summary>Practice 1</summary>
+                            <summary>Simplify $f(a,b,c,d) = \sum m(0,2,4,6,8,10,13,15)$</summary>
+                            <img src="assets/svg/k-map practice 1.svg">
+                            <p>For red group: $B'D'$</p>
+                            <p>For green group: $A'D'$</p>
+                            <p>For yellow group: $ABD$</p>
                             <p>$$\begin{align} 
-
+                                F = B'D' + A'D' + ABD
                             \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Simplify $f(a,b,c,d) = \prod M(0,3,4,7,12,15)$</summary>
+                            <img src="assets/svg/k-map practice 2.svg">
+                            <p>For red group: $A + C + D$</p>
+                            <p>For green group: $B' + C + D$</p>
+                            <p>For yellow group: $A + C' + D'$</p>
+                            <p>For blue group: $B' + C' + D'$</p>
+                            <p>$$\begin{align}
+                                F = (A + C + D)(B' + C + D)(A + C' + D')(B' + C' + D')
+                                \end{align}$$</p>
                         </details>
                     </li>
                 </ul>

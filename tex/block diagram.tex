@@ -7,11 +7,13 @@
 
 \begin{document}
 % https://mirrors.mit.edu/CTAN/graphics/pgf/contrib/karnaugh-map/karnaugh-map.pdf
- \begin{karnaugh-map}(label=corner)[4][2][1][$bc$][$a$]
-      \minterms{0,1,2,4}
-      \autoterms[0]
-      %\implicant{4}{6}
-      %\implicant{1}{5}
+ \begin{karnaugh-map}(label=corner)[4][4][1][$cd$][$ab$]
+      \maxterms{0,3,4,7,12,15}
+      \autoterms[1]
+      \implicant{0}{4}
+      \implicant{4}{12}
+      \implicant{3}{7}
+      \implicant{7}{15}
   \end{karnaugh-map}
 \begin{tikzpicture}
   %\draw[draw=black, fill=gray!10] (0,0) rectangle ++(3,3) 
