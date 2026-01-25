@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Seven Segment Displays</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Content</p>
+            <hr>
+            <h3>Boolean Expressions</h3>
+            <p>Here is the truth table for a seven segment display ($D_0$ is the <a href="../binary/number bases.html">MSB</a>):</p>
+
+            <p>$$\begin{align}
+                \begin{array} {c  c  c  c | c |c  c  c  c  c  c}
+                D_0 & D_1 & D_2 & D_3 & \text{Char} &a & b & c & d & e & f & g \\
+                \hline
+                0 & 0 & 0 & 0 & \text{0} & 1 & 1 & 1 & 1 & 1 & 1 & 0 \\
+                0 & 0 & 0 & 1 & \text{1} & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\
+                0 & 0 & 1 & 0 & \text{2} & 1 & 1 & 0 & 1 & 1 & 0 & 1 \\
+                0 & 0 & 1 & 1 & \text{3} & 1 & 1 & 1 & 1 & 0 & 0 & 1 \\
+                0 & 1 & 0 & 0 & \text{4} & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\
+                0 & 1 & 0 & 1 & \text{5} & 1 & 0 & 1 & 1 & 0 & 1 & 1 \\
+                0 & 1 & 1 & 0 & \text{6} & 1 & 0 & 1 & 1 & 1 & 1 & 1 \\
+                0 & 1 & 1 & 1 & \text{7} & 1 & 1 & 1 & 0 & 0 & 0 & 0 \\
+                1 & 0 & 0 & 0 & \text{8} & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+                1 & 0 & 0 & 1 & \text{9} & 1 & 1 & 1 & 1 & 0 & 1 & 1 \\
+                1 & 0 & 1 & 0 & \text{A} & 1 & 1 & 1 & 0 & 1 & 1 & 1 \\
+                1 & 0 & 1 & 1 & \text{B} & 0 & 0 & 1 & 1 & 1 & 1 & 1 \\
+                1 & 1 & 0 & 0 & \text{C} & 1 & 0 & 0 & 1 & 1 & 1 & 0 \\
+                1 & 1 & 0 & 1 & \text{D} & 0 & 1 & 1 & 1 & 1 & 0 & 1 \\
+                1 & 1 & 1 & 0 & \text{E} & 1 & 0 & 0 & 1 & 1 & 1 & 1 \\
+                1 & 1 & 1 & 1 & \text{F} & 1 & 0 & 0 & 0 & 1 & 1 & 1 \\
+                \end{array}
+            \end{align}$$</p>
+            <p>Using a <a href="../boolean algebra/karnaugh maps.html">K-map</a> to simplify,</p>
+            <details>
+                <summary>Segment a</summary>
+                <p>$f(D_0,D_1,D_2,D_3) = \sum m(0,2,3,5,6,7,8,9,10,12,14,15)$</p>
+                <img src="assets/svg/segment a k-map.svg">
+                <p>$$a = D_3'D_2D_1 + D_3D_2'D_1' + D_2'D_1' + D_3'D_1 + D_3D_0' + D_2D_1$$</p>
+            </details>
+            <details>
+                <summary>Segment b</summary>
+                <p>$f(D_0,D_1,D_2,D_3) = \sum m(0,1,2,3,4,7,8,9,10,13)$</p>
+                <img src="assets/svg/segment b k-map.svg">
+                <p>$$b = D_2'D_0' + D_2'D_1' + D_3'D_1D_0 + D_3D_1D_0 + D_3'D_1'D_0'$$</p>
+            </details>
+            <details>
+                <summary>Segment c</summary>
+                <p>$f(D_0,D_1,D_2,D_3) = \sum m(0,1,3,4,5,6,7,8,9,10,11,13)$</p>
+                <img src="assets/svg/segment c k-map.svg">
+                <p>$$c = D_3D_2' + D_1'D_0 + D_3'D_2 + D_3'D_0 + D_2'D_1'$$</p>
+            </details>
+            <details>
+                <summary>Segment d</summary>
+                <p>$f(D_0,D_1,D_2,D_3) = \sum m(0,2,3,5,6,8,9,11,12,13,14)$</p>
+                <img src="assets/svg/segment d k-map.svg">
+                <p>$$d = D_3D_2D_0' + D_2'D_1'D_0' + D_2D_1'D_0 + D_3'D_1D_0' + D_3D_2'D_1 + D_3'D_2'D_1$$</p>
+            </details>
+            <details>
+                <summary>Segment e</summary>
+                <p>$f(D_0,D_1,D_2,D_3) = \sum m(0,2,6,8,10,11,12,13,14,15)$</p>
+                <img src="assets/svg/segment e k-map.svg">
+                <p>$$e = D_2'D_0' + D_1D_0' + D_3D_2 + D_3D_1$$</p>
+            </details>
+            <details>
+                <summary>Segment f</summary>
+                <p>$f(D_0,D_1,D_2,D_3) = \sum m(0,4,5,6,8,9,10,11,12,14,15)$</p>
+                <img src="assets/svg/segment f k-map.svg">
+                <p>$$f = D_3D_2' + D_2D_0' + D_3D_1 + D_1'D_0' + D_3'D_2D_1'$$</p>
+            </details>
+            <details>
+                <summary>Segment g</summary>
+                <p>$f(D_0,D_1,D_2,D_3) = \sum m(2,3,4,5,6,8,9,10,11,13,14,15)$</p>
+                <img src="assets/svg/segment g k-map.svg">
+                <p>$$g = D_2D_0' + D_3D_2' + D_2'D_1 + D_3D_0 + D_3'D_2D_1'$$</p>
+            </details>
+            <p>This gives us the following simplified expressions:</p>
+            <ol type="a">
+                <li>$D_3'D_2D_1 + D_3D_2'D_1' + D_2'D_1' + D_3'D_1 + D_3D_0' + D_2D_1$</li>
+                <li>$D_2'D_0' + D_2'D_1' + D_3'D_1D_0 + D_3D_1D_0 + D_3'D_1'D_0'$</li>
+                <li>$D_3D_2' + D_1'D_0 + D_3'D_2 + D_3'D_0 + D_2'D_1'$</li>
+                <li>$D_3D_2D_0' + D_2'D_1'D_0' + D_2D_1'D_0 + D_3'D_1D_0' + D_3D_2'D_1 + D_3'D_2'D'_1$</li>
+                <li>$D _2'D _0' + D _1D _0' + D _3D _2 + D _3D _1$</li>
+                <li>$D _3D _2' + D _2D _0' + D _3D _1 + D _1'D _0' + D _3'D _2D _1'$</li>
+                <li>$D _2D _0' + D _3D _2' + D _2'D _1 + D _3D _0 + D _3'D _2D _1'$</li>
+            </ol>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Practice 1</summary>
+                            <p>$$\begin{align} 
+
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

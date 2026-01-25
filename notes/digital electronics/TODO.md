@@ -4,8 +4,7 @@ IEEE 754 float and arithemetic
 binary multiplication
 ASCII
 
-k maps
-
+seven segment displays
 tri state buffer
 logic gate implementations
 logic ICs

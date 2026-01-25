@@ -7,13 +7,18 @@
 
 \begin{document}
 % https://mirrors.mit.edu/CTAN/graphics/pgf/contrib/karnaugh-map/karnaugh-map.pdf
- \begin{karnaugh-map}(label=corner)[4][4][1][$cd$][$ab$]
-      \maxterms{0,3,4,7,12,15}
-      \autoterms[1]
-      \implicant{0}{4}
-      \implicant{4}{12}
-      \implicant{3}{7}
-      \implicant{7}{15}
+ \begin{karnaugh-map}(label=corner)[4][4][1][$D_1D_0$][$D_3D_2$]
+      \minterms{2,3,4,5,6,8,9,10,11,13,14,15}
+      \autoterms[0]
+      %\implicantcorner
+      \implicantedge{3}{2}{11}{10}
+      \implicant{4}{5}
+      \implicant{13}{11}
+      \implicant{8}{10}
+      \implicant{2}{10}
+      \node[anchor=north, yshift=-5mm, font=\large]
+    at (current bounding box.south)
+      {istrikeboomi.github.io};
   \end{karnaugh-map}
 \begin{tikzpicture}
   %\draw[draw=black, fill=gray!10] (0,0) rectangle ++(3,3) 
