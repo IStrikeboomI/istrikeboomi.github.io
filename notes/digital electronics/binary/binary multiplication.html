@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Binary Multiplication</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Just like how we can do <a href="binary addition.html">Addition in binary</a>, we can also multiply</p>
+            <p>Similarly, binary multiplication follows a process similar to decimal long multiplication</p>
+            <p>We can do an even simpler procedure if we are multiplying by power of 2 (1,2,4,8,etc.)</p>
+            <hr>
+            <h3>Multiplying By Power of 2 Using Left Shifts</h3>
+            <p>This procedure was covered in <a href="binary.html#binary tricks">Binary Tricks</a></p>
+            <p>In decimal, if we want to multiply a number by 10, 100, 1000, etc.</p>
+            <p>We can simply add zeros to the end of the number (which is moving the whole thing left)</p>
+            <p>In binary, we can do the same thing but with powers of 2</p>
+            <p>To multiply by 2, we add one 0 to the end of the number</p>
+            <p>To multiply by 4, we add two 0s to the end of the number</p>
+            <p>To multiply by 8, we add three 0s to the end of the number</p>
+            <p>The process of adding zeros is called a left shift in binary, because it shifts the bits to the left</p>
+            <p>For example: Multiply $1100101_2$ by $4_{10}$ (or shift binary left by 2)</p>
+            <p>$$\begin{align}
+                1100101_2 \times 4_{10} &= 110010100_2 \\
+                &= 228_{10}
+            \end{align}$$</p>
+            <p>The operator for a left shift is denoted by << </p>
+            <p>So the above operation can be rewritten as $0b1100101 << 2$</p>
+            <p>You can do a similar thing for right shifts (>>) to divide by powers of 2</p>
+            <hr>
+            <h3>Long Multiplication Recap</h3>
+            <p>When you do long multiplication in decimal, you go digit by digit, multiplying the digit by the top number</p>
+            <p>Then you shift the result to the left by one digit for each digit in the bottom number</p>
+            <p>Finally, you add all the results together to get the final answer</p>
+            <p>For example: Multiply 23 by 45</p>
+            <p>$$\begin{align}
+                23 \\
+                \times 4 5 \\
+                \hline
+                1 1 5 \\
+                + 9 2 \ \ \    \\
+                \hline
+                1 0 3 5 \\
+            \end{align}$$</p>
+            <hr>
+            <h3>General Binary Multiplication</h3>
+            <p>Binary multiplication works the same way as decimal long multiplication</p>
+            <p>But there is a benefit because we only have 0s and 1s</p>
+            <p>When multiplying by 0, the result is always 0, so we can skip that step</p>
+            <p>When multiplying by 1, the result is always the same as the top number, so we can just copy the top</p>
+            <p>Another tip is that multiplication is commutative, so pick the number with more 0s on the bottom</p>
+            <p>For example: Multiply $1101_2$ by $1011_2$ ($13 \times 11 = 143$)</p>
+            <p>$$\begin{align}
+                1101 \\
+         \times 1011 \\
+         \hline
+                1101  \\
+                1101 \ \ \\
+                0000 \ \ \ \ \\
+                + 1101 \ \ \ \ \ \ \\
+                 \hline
+                10001111 \\
+            \end{align}$$</p>
+            <p>Sometimes when you add the results, you may need to carry bits further than 1 digit place</p>
+            <p>For example if you need to add $1_2 + 1_2 + 1_2 + 1_2 + 1_2 + 1_2 = 110_2$, you carry a 1 to the 2 next columns</p>
+            <p>For example multiply $10010101_2$ by $11101011_2$ ($149 \times 235 = 35015 (1000100011000111_2)$)</p>
+            <p>$$\begin{align}
+                11101011 \\
+                \times 10010101 \\
+                \hline
+                11101011 \\
+                00000000 \ \ \\
+                11101011 \ \ \ \ \\
+                00000000 \ \ \ \ \ \ \\
+                11101011 \ \ \ \ \ \ \ \ \\
+                00000000 \ \ \ \ \ \ \ \ \ \ \\
+                00000000 \ \ \ \ \ \ \ \ \ \ \ \ \\
+                + 11101011 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \\
+                \hline            
+                \end{align}$$</p>
+            <p>I'm going to do the addition separately so you can easily see the carries</p>
+            <p>I also added vertical bars so you can easily see the digits, because it does get cluttered</p>
+            <p>The top carry is by 2 digits, bottom carry is by 1</p>
+            <p>$$\begin{align}
+                1 \ \ \ \  1 \ \ \ \ \ 1  \  \  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \\
+                1 \ \ 1 \ \ 1 \ \ 1 \ \ \ \ 1 \ \ \ \ \ \ \ \ \  \ \ 1 \ 1 \ \ \ \ \ \ \ \ \ \ \ \ \ \\
+                1\vert1\vert1\vert0\vert1\vert0\vert1\vert1 \\
+                0\vert0\vert0\vert0\vert0\vert0\vert0\vert0\vert0 \\
+                1\vert1\vert1\vert0\vert1\vert0\vert1\vert1\vert0\vert0 \\
+                0\vert0\vert0\vert0\vert0\vert0\vert0\vert0\vert0\vert0\vert0 \\
+                1\vert1\vert1\vert0\vert1\vert0\vert1\vert1\vert0\vert0\vert0\vert0 \\
+                0\vert0\vert0\vert0\vert0\vert0\vert0\vert0\vert0\vert0\vert0\vert0\vert0 \\
+                0\vert0\vert0\vert0\vert0\vert0\vert0\vert0\vert0\vert0\vert0\vert0\vert0\vert0 \\
+              + 1\vert1\vert1\vert0\vert1\vert0\vert1\vert1\vert0\vert0\vert0\vert0\vert0\vert0\vert0 \\
+                \hline
+                1\vert0\vert0\vert0\vert1\vert0\vert0\vert0\vert1\vert1\vert0\vert0\vert0\vert1\vert1\vert1
+                \end{align}$$</p>
+            <hr>
+            <h3 id="overflow">Overflow</h3>
+            <p>Similar to <a href="binary addition.html#overflow">addition, you can overflow</a>, which is when the output is too large for the fixed size data type</p>
+            <p>When this happens, the result is truncated (excess bits is removed)</p>
+            <p>This means we can ignore the extra digits to add after the data size for easier computation</p>
+            <p>For example, multiply $1111_2$ and $0011_2$ and store in a 4 bit result</p>
+            <p>$$\begin{align}
+                1111 \\
+            \times 0011 \\
+            \hline
+                \vert1111 \\
+                1\vert111 \ \ \\
+                00\vert00 \ \ \ \ \\
+              + 000\vert0 \ \ \ \ \ \ \\
+                \hline
+                \text{xxxx}\vert1101 \\
+            \end{align}$$</p>
+            <p>Anything beyond the 4 bits is going to be truncated, so we ignore with with an x</p>
+            <p>Overflow can cause unexpected behavior in computations, such as negative results</p>
+            <p>It's important to keep overflow in mind when doing binary multiplication to prevent errors</p>
+            <p>One way to prevent errors is to use a larger output data type.</p>
+            <p>For example multiplying two 8 bit numbers, the result would be 16 bits</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Compute $1111_2 \times 0011_2$ and store in an 8 bit result</summary>
+                            <p>$$\begin{align} 
+                                1111 \\
+                                \times 0011 \\
+                                \hline
+                                    1111 \\
+                                    1111 \ \ \\
+                                    0000 \ \ \ \ \\
+                                  + 0000 \ \ \ \ \ \ \\
+                                    \hline
+                                    00101101
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Compute $10100011_2 \times 10110011_2 $ and store in an 8 bit result</summary>
+                            <p>$$\begin{align}
+                                10110011 \\
+                                \times 10100011 \\
+                                \hline
+                                10110011 \\
+                                10110011 \ \ \\
+                                00000000 \ \ \ \ \\
+                                00000000 \ \ \ \ \ \ \\
+                                00000000 \ \ \ \ \ \ \ \ \\
+                                10110011 \ \ \ \ \ \ \ \ \ \ \\
+                                00000000 \ \ \ \ \ \ \ \ \ \ \ \ \\
+                                + 10110011 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \\
+                                \hline
+                                \text{xxxxxx}\vert111111001
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

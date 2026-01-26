@@ -1,7 +1,6 @@
 big and little endian
 Binary fractional numbers
 IEEE 754 float and arithemetic
-binary multiplication
 ASCII
 
 seven segment displays

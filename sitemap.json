@@ -187,7 +187,8 @@
                     {"name":"negative binary","title":"Negative Binary (Two's Complement)"},
                     {"name":"binary data","title":"Binary Data"},
                     {"name":"hexadecimal","title":"Hexadecimal"},
-                    {"name":"binary coded decimal","title":"Binary Coded Decimal"}
+                    {"name":"binary coded decimal","title":"Binary Coded Decimal"},
+                    {"name":"binary multiplication","title":"Binary Multiplication"}
                 ]
             },
             {
