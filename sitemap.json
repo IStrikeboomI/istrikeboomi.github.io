@@ -189,7 +189,8 @@
                     {"name":"hexadecimal","title":"Hexadecimal"},
                     {"name":"binary coded decimal","title":"Binary Coded Decimal"},
                     {"name":"binary multiplication","title":"Binary Multiplication"},
-                    {"name":"big endian and little endian","title":"Big Endian And Little Endian"}
+                    {"name":"big endian and little endian","title":"Big Endian And Little Endian"},
+                    {"name":"fractional binary","title":"Fractional Binary"}
                 ]
             },
             {

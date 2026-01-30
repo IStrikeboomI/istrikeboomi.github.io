@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Fractional Binary</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>So far we have only looked at binary numbers that are whole numbers.</p>
+            <p>Now it's time to look at fractional binary numbers.</p>
+            <p>Note: This is how to store binary fractional numbers in the math world</p>
+            <p>We will be looking at how fractional binary numbers are stored in computers later (but it's similar)</p>
+            <br>
+            <p>Fractional Binary numbers are stored by having digits left of the <b>binary point</b></p>
+            <p>The binary point is the equivalent of the decimal point in base 10</p>
+            <p>Have an index of $-1,-2,-3,...$, you use the same formula</p>
+            <p>So the indicies of $101.101_2$ are $2^2, 2^1, 2^0, 2^{-1}, 2^{-2}, 2^{-3}$</p>
+            <hr>
+            <h3>Converting Fractional Binary To Decimal</h3>
+            <p>To convert fractional binary to decimal</p>
+            <p>You use the same formula as normal binary, but with negative powers of 2</p>
+            <p>You can do this by converting the whole and fractional parts separately</p>
+            <p>For example, to convert the binary number $101.101_2$ to decimal:</p>
+            <p>First, convert the whole part $101_2$: 5</p>
+            <p>Then, convert the fractional part $0.101_2$: $2^{-1} + 2^{-3} = \frac{1}{2} + \frac{1}{8} = \frac{5}{8}$</p>
+            <p>So, $101.101_2 = 5 + \frac{5}{8} = 5.625$</p>
+            <p>Another way to do it is to use the formula directly:</p>
+            <p>$$\begin{align}
+                1 \cdot 2^2 + 0 \cdot 2^1 + 1 \cdot 2^0 + 1 \cdot 2^{-1} + 0 \cdot 2^{-2} + 1 \cdot 2^{-3} = 4 + 0 + 1 + 0.5 + 0 + 0.125 = 5.625
+            \end{align}$$</p>
+            <br>
+            <p>Another example, convert $.00110101_2$ to decimal:</p>
+            <p>First, convert the whole part $0_2$: 0</p>
+            <p>Then, convert the fractional part $.00110101_2$: $2^{-3} + 2^{-4} + 2^{-6} + 2^{-8} = \frac{1}{8} + \frac{1}{16} + \frac{1}{64} + \frac{1}{256}$</p>
+            <p>So, $.00110101_2 = \frac{32 + 16 + 4 + 1}{256} = \frac{53}{256} = 0.2060546875$</p>
+            <hr>
+            <h3>Converting Decimal To Fractional Binary</h3>
+            <p>To convert decimal to fractional binary, you can convert the whole and fractional parts separately</p>
+            <p>For example, to convert $6.625$ to binary:</p>
+            <p>First, convert the whole part $6$ to binary: $110_2$</p>
+            <p>Then, convert the fractional part $0.625$ to binary:</p>
+            <p>The way to do this is keep multiplying the fractional part by 2:</p>
+            <p>You then take the whole part (either 0 or 1) and append it to the left of the binary point:</p>
+            <p>Repeat this process until the fractional part becomes 0:</p>
+            <p>$0.625 \times 2 = 1.25$ → integer part is $1$, fractional part is $0.25$</p>
+            <p>$0.25 \times 2 = 0.5$ → integer part is $0$, fractional part is $0.5$</p>
+            <p>$0.5 \times 2 = 1.0$ → integer part is $1$, fractional part is $0$</p>
+            <p>So, the binary representation of $0.625$ is $.101_2$</p>
+            <p>Combining both parts, we get $6.625 = 110.101_2$</p>
+            <br>
+            <p>Another example, convert $0.2$ to binary:</p>
+            <p>Since the whole part is $0$, we only need to convert the fractional part $0.2$ to binary:</p>
+            <p>$0.2 \times 2 = 0.4$ → integer part is $0$, fractional part is $0.4$</p>
+            <p>$0.4 \times 2 = 0.8$ → integer part is $0$, fractional part is $0.8$</p>
+            <p>$0.8 \times 2 = 1.6$ → integer part is $1$, fractional part is $0.6$</p>
+            <p>$0.6 \times 2 = 1.2$ → integer part is $1$, fractional part is $0.2$</p>
+            <p>$0.2 \times 2 = 0.4$ → integer part is $0$, fractional part is $0.4$</p>
+            <p>Notice that we are back to $0.4$, so the pattern will repeat</p>
+            <p>So, the binary representation of $0.2$ is approximately $0.0011\overline{0011}_2$</p>
+            <p>This means that $0.2$ cannot be represented exactly in binary<p>
+            <p>This is similar to how you cannot represent $1/7$ exactly in decimal (it's $0.142857\overline{142857}$)</p>
+            <br>
+            <p>Another example, convert $.7578125$ to binary:</p>
+            <p>Since the whole part is $0$, we only need to convert the fractional part $0.7578125$ to binary:</p>
+            <p>$0.7578125 \times 2 = 1.515625$ → integer part is $1$, fractional part is $0.515625$</p>
+            <p>$0.515625 \times 2 = 1.03125$ → integer part is $1$, fractional part is $0.03125$</p>
+            <p>$0.03125 \times 2 = 0.0625$ → integer part is $0$, fractional part is $0.0625$</p>
+            <p>$0.0625 \times 2 = 0.125$ → integer part is $0$, fractional part is $0.125$</p>
+            <p>$0.125 \times 2 = 0.25$ → integer part is $0$, fractional part is $0.25$</p>
+            <p>$0.25 \times 2 = 0.5$ → integer part is $0$, fractional part is $0.5$</p>
+            <p>$0.5 \times 2 = 1.0$ → integer part is $1$, fractional part is $0$</p>
+            <p>So, the binary representation of $0.7578125$ is $.1100001_2$</p>
+            <hr>
+            <h3>Arithmetic</h3>
+            <p>Fractional binary arithmetic works the same way as normal binary arithmetic</p>
+            <p>Just make sure to line up the binary points when <a href="binary addition.html">adding</a></p>
+            <p>For example, to add $101.101_2$ ($5.625$) and $10.11_2$ ($2.75$):</p>
+            <p>$$\begin{align}
+                 101&.101 \\
+              +   \ \ 10&.110 \\
+              \hline
+                 1000&.011  \\
+            \end{align}$$</p>
+            <p>The result is $1000.011_2$ ($8.375$)</p>
+            <br>
+            <p>For <a href="binary multiplication.html">multiplying</a>, it's a little different</p>
+            <p>Another example, to multiply $11.01_2$ ($3.25$) and $10.1_2$ ($2.5$):</p>
+            <p>To multiply drop the binary point for the numbers</p>
+            <p>Then at the end, place the binary point back in the result</p>
+            <p>You place it by how many fractional points you removed combined</p>
+            <p>So we multiply $1101_2$ and $101_2$ (we dropped 3 fractional points)</p>
+            <p>$$\begin{align}
+                   1101 \\
+            \times  101 \\
+              \hline
+            1101\\
+            0000 \ \ \\
+            + 1101 \ \ \ \ \\
+                \hline
+                1000001
+            \end{align}$$</p>
+            <p>Now we place the binary point back in, counting 3 places from the right</p>
+            <p>The result is $1000.001_2$ ($8.125$)</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Convert $1110.010101110_2$ to decimal</summary>
+                            <p>First, convert the whole part $1110_2$: 14</p>
+                            <p>Then, convert the fractional part $0.010101110_2$:</p>
+                            <p>$2^{-2} + 2^{-4} + 2^{-6} + 2^{-7} + 2^{-8} = .33984375$</p>
+                            <p>So, $1110.010101110_2 = 14 + .33984375 = 14.33984375$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Convert $11.66015625$ to binary</summary>
+                            <p>First, convert the whole part $11$ to binary: $1011_2$</p>
+                            <p>Then, convert the fractional part $0.66015625$ to binary:</p>
+                            <p>$0.66015625 \times 2 = 1.3203125$ → integer part is $1$, fractional part is $0.3203125$</p>
+                            <p>$0.3203125 \times 2 = 0.640625$ → integer part is $0$, fractional part is $0.640625$</p>
+                            <p>$0.640625 \times 2 = 1.28125$ → integer part is $1$, fractional part is $0.28125$</p>
+                            <p>$0.28125 \times 2 = 0.5625$ → integer part is $0$, fractional part is $0.5625$</p>
+                            <p>$0.5625 \times 2 = 1.125$ → integer part is $1$, fractional part is $0.125$</p>
+                            <p>$0.125 \times 2 = 0.25$ → integer part is $0$, fractional part is $0.25$</p>
+                            <p>$0.25 \times 2 = 0.5$ → integer part is $0$, fractional part is $0.5$</p>
+                            <p>$0.5 \times 2 = 1.0$ → integer part is $1$, fractional part is $0$</p>
+                            <p>So, the binary representation of $0.66015625$ is $.10101001_2$</p>
+                            <p>Combining both parts, we get $11.66015625 = 1011.10101001_2$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Add $6.4375$ and $12.9765625$ in binary</summary>
+                            <p>First, convert both numbers to binary:</p>
+                            <p>$6.4375 = 110.0111_2$</p>
+                            <p>$12.9765625 = 1100.1111101_2$</p>
+                            <p>Now, add the two binary numbers, making sure to line up the binary points:</p>
+                            <p>$$\begin{align}
+                                 \ \  110&.0111000 \\
+                              + 1100&.1111101 \\
+                              \hline
+                                10011&.0110101  \\
+                            \end{align}$$</p>
+                            <p>The result is $10011.0110101_2$ ($19.4140625$)</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Multiply $2.75$ and $1.125$ in binary</summary>
+                            <p>First, convert both numbers to binary:</p>
+                            <p>$2.75 = 10.11_2$</p>
+                            <p>$1.125 = 1.001_2$</p>
+                            <p>Now, multiply the two binary numbers:</p>
+                            <p>We drop 2 binary points for the first number and 3 from the second number</p>
+                            <p>$$\begin{align}
+                                1011 \\
+                                \times 1001 \\
+                                \hline
+                                1011\\
+                                0000 \ \ \\
+                                0000 \ \ \ \ \\
+                                + 1011 \ \ \ \ \ \ \\
+                                \hline
+                                1100011
+                                \end{align}$$</p>
+                            <p>Now we place the binary point back in, counting 5 places from the right</p>
+                            <p>The result is $11.00011_2$ ($3.09375$)</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
