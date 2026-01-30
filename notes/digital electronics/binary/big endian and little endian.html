@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Big Endian And Little Endian</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>When storing data that is multiply bytes in memory, you have a choice of how to order the bytes</p>
+            <p>The order in which bytes are stored in memory is called endianness.</p>
+            <p>In <b>big endian</b>, the <a href="number bases.html">most significant byte</a> is stored first (at lowest memory address).</p>
+            <p>In <b>little endian</b>, the least significant byte is stored first (at lowest memory address).</p>
+            <p>Each indivual byte however is stored using big endian (MSB comes first within each byte)</p>
+            <p>Big endian used in our normal base-10/decimal system</p>
+            <p>On modern computers, most use little endian for storing <a href="binary data.html">binary data</a></p>
+            <hr>
+            <h3>Example</h3>
+            <p>Let's say we have the hexadecimal number 0x12345678 (4 bytes)</p>
+            <p>In big endian, it would be stored in memory as:</p>
+            <p>Address: 0x00 | 0x01 | 0x02 | 0x03</p>
+            <p>Value: &nbsp;&nbsp;&nbsp;  0x12 | 0x34 | 0x56 | 0x78</p>
+            <p>In little endian, it would be stored in memory as:</p>
+            <p>Address: 0x00 | 0x01 | 0x02 | 0x03</p>
+            <p>Value: &nbsp; &nbsp; 0x78 | 0x56 | 0x34 | 0x12</p>
+            <p>You might notice that in little endian, the bytes are reversed compared to big endian.</p>
+            <p>You might also have noticed we have only done big endian numbers so far</p>
+            <hr>
+            <h3>Converting Between Endian Formats</h3>
+            <p>To convert between big endian and little endian, you simply reverse the order of the bytes.</p>
+            <p>Don't forget in hex, 1 byte is 2 hexadecimal digits (00-FF)</p>
+            <p>For example, to convert the big endian number 0x12345678 to little endian</p>
+            <p>You would reverse the order of the bytes to get 0x78563412.</p>
+            <p>To convert the little endian number 0x78563412 to big endian</p>
+            <p>You would reverse the order of the bytes to get 0x12345678.</p>
+            <hr>
+            <h3>Why Endianness Matters</h3>
+            <p>Endianness matters when interpreting binary data</p>
+            <p>If you read multi-byte data with the wrong endianness, you'll get incorrect values.</p>
+            <p>Since we have done everything so far in big endian</p>
+            <p>You have to convert from little to big endian to do arithmetic properly.</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Convert Big Endian of 0b1110001101010101 to Little Endian</summary>
+                            <p>First, split the binary into bytes: 0b11100011 01010101</p>
+                            <p>Then, reverse the order of the bytes: 0b01010101 11100011</p>
+                            <p>So, the Little Endian representation is 0b0101010111100011</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Convert Little Endian of 0xFF00FF88 to Big Endian</summary>
+                            <p>First, split the hexadecimal into bytes: 0xFF 00 FF 88</p>
+                            <p>Then, reverse the order of the bytes: 0x88 FF 00 FF</p>
+                            <p>So, the Big Endian representation is 0x88FF00FF</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Convert Little Endian of 0xFFEA1001 to Decimal</summary>
+                            <p>First, split the hexadecimal into bytes: 0xFF 0xEA 0x10 0x01</p>
+                            <p>Then, reverse the order of the bytes to get Big Endian: 0x01 0x10 0xEA 0xFF</p>
+                            <p>Now, combine the bytes back into a single hexadecimal number: 0x0110EAFF</p>
+                            <p>Finally, convert the hexadecimal number to decimal: 17885951</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>What is the decimal value of the MSB Of 0xB8EEF523 in Big and Little Endian?</summary>
+                            <p>First, split the hexadecimal into bytes: 0xB8 0xEE 0xF5 0x23</p>
+                            <p>In big endian, the MSB is 0xB8, which is 184 in decimal.</p>
+                            <p>In little endian, the MSB is 0x23, which is 35 in decimal.</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
