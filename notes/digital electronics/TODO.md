@@ -1,6 +1,4 @@
-big and little endian
-Binary fractional numbers
-IEEE 754 float and arithemetic
+IEEE 754 float arithemetic
 ASCII
 
 seven segment displays
@@ -12,8 +10,15 @@ muxs and demuxs
 alus
 converting to nand and nor
 clocks
-data busses
+data buses
 Simulating Digital circuit in logisim evolution
-registers
-latches and flip flops
+
+registers and register files
+sr and d latch
+d flip flop
+jk flip flop
+t flip flop
 shift registers
+sram
+dram
+rom, eprom, eeprom, flash

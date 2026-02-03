@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>IEEE 754 Floating Point</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>IEEE 754 Floating Point is the most common standard for floating point numbers</p>
+            <p>Floating point numbers are <a href="fractional binary.html">fractional binary numbers</a> stored in computers</p>
+            <p>In common programming languages like C,C++,and Java, IEEE 754 is used as the data types <b>float</b> and <b>double</b></p>
+            <p>Float is the 32 bit (4 bytes) IEEE 754 standard, and double is the 64 bit (8 bytes) IEEE 754 standard</p>
+            <p>The way it stores numbers is using a binary version of <b>scientific notation</b></p>
+            <p>For float, it uses a sign bit, an 8 bit exponent, and a 23 bit mantissa (or significand)</p>
+            <p>For double, it uses a sign bit, an 11 bit exponent, and a 52 bit mantissa (or significand)</p>
+            <p>The bounds for float are approximately $-3.4 \times 10^{38}$ to $3.4 \times 10^{38}$</p>
+            <p>The bounds for double are approximately $-1.8 \times 10^{308}$ to $1.8 \times 10^{308}$</p>
+            <p>IEEE 754 solved having to store fractional numbers in a limited number of bits, but it does have some limitations</p>
+            <p>There are <a href="https://www.h-schmidt.net/FloatConverter/IEEE754.html">online float simulators</a> to help visualize how IEEE 754 works</p>
+            <hr>
+            <h3>Scientific Notation Recap</h3>
+            <p>Scientific notation is a way of writing very large or very small numbers in a compact form</p>
+            <p>In base-10, scientific notation is written as $a \times 10^b$</p>
+            <p>$a$ is between 1 and 10 (exclusive of 10),$10$ is the base,$b$ is the exponent</p>
+            <p>In base-2, scientific notation is written as $a \times 2^b$</p>
+            <p>$a$ is between 1 and 2 (exclusive of 2),$2$ is the base,$b$ is the exponent</p>
+            <p>Since $a$ is always between 1 and 2, we can write it as $1 + f$, where $f$ is the fractional part of $a$</p>
+            <p>We call this fractional part the <b>mantissa</b> or <b>significand</b></p>
+            <p>For example, a $111.1101011_2$ can be written as $1.1101011_2 \times 2^2$</p>
+            <p>Here the mantissa is $1101011_2$ (the part after the $1.$) and the exponent is $2$</p>
+            <br>
+            <p>In order to convert a binary fractional number to scientific notation</p>
+            <p>We first move the decimal point to the left or right such that the number is in the form $1.f$</p>
+            <p>We then count how many places we moved the decimal point, this is our exponent</p>
+            <p>If we moved the decimal point to the left, the exponent is positive</p>
+            <p>If we moved the decimal point to the right, the exponent is negative</p>
+            <hr>
+            <h3>IEEE 754 Floating Point Representation</h3>
+            <p>In IEEE 754, a floating point number is represented as follows:</p>
+            <ul>
+                <li>1 bit for the sign (0 for positive, 1 for negative)</li>
+                <li>8 bits for the exponent (for float), 11 bits for the exponent (for double)</li>
+                <li>23 bits for the mantissa (for float), 52 bits for the mantissa (for double)</li>
+            </ul>
+            <p>From here on I will be using float because it is smaller, but the same principle applies to double</p>
+            <p>If the sign bit is 0, the number is positive, if its 1, the number is negative</p>
+            <p>The exponent is stored in a biased form, where a bias value is added to the actual exponent to make it positive</p>
+            <p>For float, the bias value is 127, for double, the bias value is 1023</p>
+            <p>To get the actual exponent, we subtract the bias value from the stored exponent</p>
+            <p>The mantissa bits are stored as the fractional part of the number</p>
+            <br>
+            <p>For example convert $45.125$ to a float</p>
+            <p>First convert it to binary: $45.125 = 101101.001_2$</p>
+            <p>Next convert it to scientific notation: $1.01101001_2 \times 2^5$</p>
+            <p>The mantissa is $01101001$ (we add trailing zeros to make it 23 bits)</p>
+            <p>The exponent is $5 + 127 = 132 = 10000100_2$</p>
+            <p>The sign bit is $0$ since the number is positive</p>
+            <p>Putting it all together, we get: $0\ 10000100\ 01101001000000000000000$</p>
+            <p>or $0\text{x}42348000$ in <a href="big endian and little endian.html">big endian</a> <a href="hexadecimal.html">hexadecimal</a> (or $0\text{x}42348000$ in <a href="big endian and little endian.html">little endian</a>)</p>
+            <p>In a computer it would be stored as a 32-bit binary number</p>
+            <hr>
+            <h3>Converting From IEEE 754 To Decimal</h3>
+            <p>Given a 32-bit IEEE 754 float, we can convert it back to decimal as follows:</p>
+            <ul>
+                <li>Extract the sign bit, exponent bits, and mantissa bits</li>
+                <li>Calculate the actual exponent by subtracting the bias (127 for float or 1023 for double)</li>
+                <li>Reconstruct the number using the formula: $(-1)^{\text{sign}} \times (1 + \text{mantissa}) \times 2^{\text{exponent}}$</li>
+            </ul>
+            <p>For example, convert $0\ 10000100\ 01101001000000000000000$ to decimal</p>
+            <p>The sign bit is $0$, so the number is positive</p>
+            <p>The exponent is $10000100_2 = 132$, so the actual exponent is $132 - 127 = 5$</p>
+            <p>The mantissa is $01101001000000000000000_2 = 0.40625$</p>
+            <p>Putting it all together, we get: $(-1)^0 \times (1 + 0.40625) \times 2^5 = 1.40625 \times 32 = 45.125$</p>
+            <hr>
+            <h3>Special Values</h3>
+            <p>There are special values in IEEE 754:</p>
+            <ul>
+                <li>Zero: All bits are zero</li>
+                <li>Infinity: Exponent is all ones, mantissa is all zeros</li>
+                <li>NaN (Not a Number): Exponent is all ones, mantissa is non-zero</li>
+            </ul>
+            <p>You get infinity when you try to divide a non-zeroby zero or perform other operations that result in infinity</p>
+            <p>You get NaN when you perform undefined operations like $0/0$ or $\infty - \infty$</p>
+            <br>
+            <p>There is a value called eps (epsilon or $\epsilon$), which is the smallest positive number larger than 1</p>
+            <p>For float, $\epsilon$ is approximately $1.1920929 \times 10^{-7}$, for double it is $2.220446049250313 \times 10^{-16}$</p>
+            <hr>
+            <h3>Why Is Exponent Biased?</h3>
+            <p>Biased exponents allow us to represent both positive and negative exponents using only unsigned integers</p>
+            <p>Without bias, we would need to use signed integers for exponents, which would complicate the hardware design</p>
+            <p>It also makes it easier to compare floating point numbers, because a positive number starts with a 1</p>
+            <p>A negative number starts with a 0</p>
+            <hr>
+            <h3>Limitations</h3>
+            <p>Since we are storing a finite number of bits, we can only represent a finite number of floating point numbers</p>
+            <p>This can lead to rounding errors when performing arithmetic operations</p>
+            <p>For example, the decimal number $0.1$ cannot be represented exactly in binary</p>
+            <p>This means we have to truncate the binary representation to fit within the available bits</p>
+            <p>If we do convert $0.1$ to float, we get $0b00111101110011001100110011001101$</p>
+            <p>If you convert this back, you get $0.100000001490116119384765625$</p>
+            <p>This error becomes larger the larger numbers we have</p>
+            <p>For example if we try to convert $38979428135$ to float, we get $0b01010001000100010011010110101110$</p>
+            <p>If you convert this back, you get $38979428352$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Convert $535.5703125$ to IEEE 754 float</summary>
+                            <p>First convert the integer part: $535 = 1000010111_2$</p>
+                            <p>Then convert the fractional part: $0.5703125 = 0.1001001_2$</p>
+                            <p>So $535.5703125 = 1000010111.1001001_2$</p>
+                            <p>Normalize it: $1.0000101111001001_2 \times 2^9$</p>
+                            <p>The sign bit is $0$, since the number is positive</p>
+                            <p>The exponent is $9 + 127 = 136$, so in binary it's $136 = 10001000_2$</p>
+                            <p>The mantissa is $00001011110000000000000_2$ (the fractional part without the leading 1)</p>
+                            <p>So the final IEEE 754 float is: $0b0 \ 10001000 \ 00001011110010010000000$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details >
+                            <summary>Convert $0.3466796875$ to IEEE 754 float</summary>
+                            <p>First convert the integer part: $0 = 0_2$</p>
+                            <p>Then convert the fractional part: $0.3466796875 = 0.0101100011_2$</p>
+                            <p>Normalize it: $1.01100011 \times 2^{-2}$</p>
+                            <p>The sign bit is $0$, since the number is positive</p>
+                            <p>The exponent is $-2 + 127 = 125$, so in binary it's $125 = 01111101_2$</p>
+                            <p>The mantissa is $01100011000000000000000_2$ (the fractional part without the leading 1)</p>
+                            <p>So the final IEEE 754 float is: $0b0 \ 01111101 \ 01100011000000000000000  $</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Convert <a href="big endian and little endian.html">the big endian</a> float $0\text{x}C1440000$ to decimal</summary>
+                            <p>First convert the hex to binary: $0\text{x}C1440000 = 11000001010001000000000000000000_2$</p>
+                            <p>The sign bit is $1$, so the number is negative</p>
+                            <p>The exponent is $10000010_2 = 130$, so the actual exponent is $130 - 127 = 3$</p>
+                            <p>The mantissa is $10001000000000000000000_2 = 0.53125$</p>
+                            <p>Putting it all together, we get: $(-1)^1 \times (1 + 0.53125) \times 2^3 = -1.53125 \times 8 = -12.25$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
