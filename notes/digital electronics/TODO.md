@@ -1,6 +1,8 @@
 IEEE 754 float arithemetic
+hex editors (like HXD)
 ASCII
 
+timing diagrams
 seven segment displays
 tri state buffer
 logic gate implementations
