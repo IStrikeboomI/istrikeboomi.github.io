@@ -191,7 +191,8 @@
                     {"name":"binary multiplication","title":"Binary Multiplication"},
                     {"name":"big endian and little endian","title":"Big Endian And Little Endian"},
                     {"name":"fractional binary","title":"Fractional Binary"},
-                    {"name":"ieee 754 floating point","title":"IEEE 754 Floating Point"}
+                    {"name":"ieee 754 floating point","title":"IEEE 754 Floating Point"},
+                    {"name":"ieee 754 floating point arithmetic","title":"IEEE 754 Floating Point Arithmetic"}
                 ]
             },
             {

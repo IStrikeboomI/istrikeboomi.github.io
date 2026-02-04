@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>IEEE 754 Floating Point Arithmetic</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Since we now have a system to store <a href="ieee 754 floating point.html">IEEE 754 Floating Point Numbers</a></p>
+            <p>We need to be able to perform arithmetic operations on them.</p>
+            <p>We're going to be able to add, subtract, and multiply (division is very difficult)</p>
+            <hr>
+            <h3>Multiplying</h3>
+            <p>We are going to start with multiplying first (because it's easier)</p>
+            <p>Since float is scientific notation, we can treat it like multiplying in scientific notation:</p>
+            <p>For example if we try to multiply: $(1.011_2 \times 2^4) \times (1.1011_2 \times 2^3)$</p>
+            <p>We can use the exponent addition rule: $2^4 \times 2^3 = 2^{4+3} = 2^7$</p>
+            <p>So we can rewrite the problem as: $(1.011_2 \times 1.1011_2) \times 2^{7}$</p>
+            <p>Then you can perform <a href="binary multiplication.html">binary multiplication</a>, then re-adjust the exponent</p>
+            <p>For the sign, we simply multiply the signs (if only one is negative, whole thing is negative if not, it's positive)</p>
+            <br>
+            <p>For example, multiply $0b0 \ 10000001 \ 00100000000000000000000$ ($4.5$) by $0 \ 10000001 \ 10111100000000000000000$ ($6.9375$)</p>
+            <p>First convert to scientific notation:</p>
+            <p>$4.5 = 1.001_2 \times 2^2$</p>
+            <p>$6.9375 = 1.101111_2 \times 2^2$</p>
+            <p>Then multiply the significands and add the exponents:</p>
+            <p>$(1.001_2 \times 1.101111_2) \times 2^{4}$</p>
+            <p>Now we do <a href="fractional binary.html#arithmetic">fractional binary multiplication</a></p>
+            <p>$$\begin{align}
+                1101111 \\
+                \times 1001 \\
+                \hline
+                1101111\\
+                0000000 \ \ \\
+                0000000 \ \ \ \ \\
+                + 1101111 \ \ \ \ \ \ \\
+                \hline
+                1111100111
+                \end{align}$$</p>
+            <p>So we have $1.111100111 \times 2^4$</p>
+            <p>Now we need to normalize it (it's already normalized)</p>
+            <p>Then we can convert it back to IEEE 754 format:</p>
+            <p>Sign bit: $0$ (both numbers were positive)</p>
+            <p>Exponent: $4 + 127 = 131 = 10000011_2$</p>
+            <p>Significand: $11110011100000000000000$ (23 bits)</p>
+            <p>So the result is $0b0 \ 10000011 \ 11110011100000000000000$</p>
+            <hr>
+            <h3>Adding and Subtracting</h3>
+            <p>Adding and subtracting is a bit more complicated</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>Practice 1</summary>
+                            <p>$$\begin{align} 
+
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
