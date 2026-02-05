@@ -24,9 +24,11 @@
             <p>We can use the exponent addition rule: $2^4 \times 2^3 = 2^{4+3} = 2^7$</p>
             <p>So we can rewrite the problem as: $(1.011_2 \times 1.1011_2) \times 2^{7}$</p>
             <p>Then you can perform <a href="binary multiplication.html">binary multiplication</a>, then re-adjust the exponent</p>
-            <p>For the sign, we simply multiply the signs (if only one is negative, whole thing is negative if not, it's positive)</p>
+            <p>For the sign, we simply multiply the signs </p>
+            <p>If only one is negative, whole thing is negative if not, it's positive</p>
             <br>
-            <p>For example, multiply $0b0 \ 10000001 \ 00100000000000000000000$ ($4.5$) by $0 \ 10000001 \ 10111100000000000000000$ ($6.9375$)</p>
+            <p>For example, multiply $0b0 \ 10000001 \ 00100000000000000000000$ ($4.5$)</p>
+            <p>by $0 \ 10000001 \ 10111100000000000000000$ ($6.9375$)</p>
             <p>First convert to scientific notation:</p>
             <p>$4.5 = 1.001_2 \times 2^2$</p>
             <p>$6.9375 = 1.101111_2 \times 2^2$</p>
@@ -51,19 +53,99 @@
             <p>Exponent: $4 + 127 = 131 = 10000011_2$</p>
             <p>Significand: $11110011100000000000000$ (23 bits)</p>
             <p>So the result is $0b0 \ 10000011 \ 11110011100000000000000$</p>
+            <br>
+            <p>Another example, multiply $0b0 \ 01111111 \ 10000000000000000000000$ ($1.5$) by itself</p>
+            <p>First convert to scientific notation:</p>
+            <p>$1.5 = 1.1_2 \times 2^0$</p>
+            <p>Then multiply the significands and add the exponents:</p>
+            <p>$(1.1_2 \times 1.1_2) \times 2^{0+0} = 10.01_2 \times 2^0$</p>
+            <p>Now we need to normalize it:</p>
+            <p>$10.01_2 = 1.001_2 \times 2^1$</p>
+            <p>Then we can convert it back to IEEE 754 format:</p>
+            <p>Sign bit: $0$ (both numbers were positive)</p>
+            <p>Exponent: $1 + 127 = 128 = 10000000_2$</p>
+            <p>Significand: $00100000000000000000000$ (23 bits)</p>
+            <p>So the result is $0b0 \ 10000000 \ 00100000000000000000000$</p>
             <hr>
             <h3>Adding and Subtracting</h3>
             <p>Adding and subtracting is a bit more complicated</p>
+            <p>For example do $0b0 \ 01000000 \ 111000000000000000000000$ ($7$) + $0b0 \ 10000011 \ 00010000000000000000000$ ($17$)</p>
+            <p>If we try to add in scientific notation: $(1.11_2 \times 2^2) + (1.0001_2 \times 2^4)$</p>
+            <p>We need to make the exponents equal (so we can factor them out)</p>
+            <p>We can rewrite the first number as: $0.0111_2 \times 2^4$</p>
+            <p>Then we can factor out the $2^4$: $(0.0111_2 + 1.0001_2) \times 2^4$</p>
+            <p>Then we can add the significands (using <a href="fractional binary.html#arithmetic">binary addition</a>), then re-adjust the exponent</p>
+            <p>If we try to add $0.0111_2 + 1.0001_2$, we get $1.1000_2$</p>
+            <p>So the result is $1.1000_2 \times 2^4 = 1.1000_2 \times 2^4$</p>
+            <p>Now we need to normalize it (it's already normalized)</p>
+            <p>Then we can convert it back to IEEE 754 format:</p>
+            <p>Sign bit: $0$ (both numbers were positive)</p>
+            <p>Exponent: $4 + 127 = 131 = 10000011_2$</p>
+            <p>Significand: $1000000000000000000000$ (23 bits)</p>
+            <p>So the result is $0b0 \ 10000011 \ 10000000000000000000000$ ($24$)</p>
+            <br>
+            <p>Now if the sign bits are different, we have to be careful about the subtraction</p>
+            <p>When you do the binary addition, you have to convert the negative number to its <a href="negative binary.html">two's complement form</a></p>
+            <p>For example do $-9 + 12$</p>
+            <p>First convert to IEEE 754 format:</p>
+            <p>$-9 = 0b1 \ 10000010 \ 00100000000000000000000$</p>
+            <p>$12 = 0b0 \ 10000010 \ 10000000000000000000000$</p>
+            <p>Then we can convert to scientific notation:</p>
+            <p>$-9 = -1.001_2 \times 2^3$</p>
+            <p>$12 = 1.100_2 \times 2^3$</p>
+            <p>Then we can rewrite the problem as: $(-1.001_2 + 1.1_2) \times 2^3$</p>
+            <p>Now we can convert the negative number to its two's complement form:</p>
+            <p>$-1.001$ becomes $0.111_2$ (in two's complement, flip all the bits and add 1 to lowest decimal)</p>
+            <p>If we add $0.111_2 + 1.100_2$, we get $0.011_2$ (ignore the overflow bit because two's complement has fixed width)</p>
+            <p>Then we can normalize it: $0.011_2 = 1.1_2 \times 2^{-2}$</p>
+            <p>Since the normalized exponent is $-2$ and the original exponents were $3$, the final exponent is $3 + (-2) = 1$</p>
+            <p>Since the positive number was larger, the result is positive, so sign bit is 0</p>
+            <p>So the result is $0b0 \ 10000000 \ 10000000000000000000000$ ($3$)</p>
+            <hr>
+            <h3>Precision Issues</h3>
+            <p>As discussed <a href="ieee 754 floating point.html">earlier</a>, float can't perfectly represent all numbers due to limited precision.</p>
+            <p>This precision loss causes compounding issues when do arithmetic</p>
+            <p>For example $.1 + .2 = .3$, in float,</p>
+            <p>$.1$ is $0b0 \ 01111011 \ 10011001100110011001100$</p>
+            <p>$.2$ is $0b0 \ 01111100 \ 10011001100110011001100$</p>
+            <p>But when you add them, you get $0b0 \ 01111101 \ 00110011001100110011010$</p>
+            <p>If you convert this back you get $.300000011920928955078125$ instead of $.3$</p>
             <hr>
             <details open>
                 <summary>Practice Problems</summary>
                 <ul class="no-bullets">
                     <li>
                         <details>
-                            <summary>Practice 1</summary>
-                            <p>$$\begin{align} 
-
-                            \end{align}$$</p>
+                            <summary>Do $-587 + 244$ in float</summary>
+                            <p>$-587$ is $0b1 \ 10001000 \ 00100101100000000000000$</p>
+                            <p>$244$ is $0b0 \ 10000110 \ 11101000000000000000000$</p>
+                            <p>In scientific notation:</p>
+                            <p>$-587 = -1.001001011_2 \times 2^9$</p>
+                            <p>$244 = 1.1110100_2 \times 2^7$</p>
+                            <p>Now we make the exponents equal:</p>
+                            <p>$-587 = -0.01001001011_2 \times 2^9$</p>
+                            <p>If we convert to twos complement form: we get $1.10110110101$</p>
+                            <p>Then we can add: $1.10110110101 + 1.1110100_2 = 0.101010111_2$</p>
+                            <p>Then we can normalize it: $0.101010111_2 = 1.01010111_2 \times 2^{-1}$</p>
+                            <p>Since the normalized exponent is $-1$ and the original exponents were $7$, the final exponent is $9 + (-1) = 8$</p>
+                            <p>Since the negative number was larger, the result is negative, so sign bit is 1</p>
+                            <p>So the result is $0b1 \ 10000111 \ 01010111000000000000000$ ($-343$)</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Do $-9 \times 428$ in float</summary>
+                            <p>$-9$ is $0b1 \ 10000010 \ 001000000000000000000000$</p>
+                            <p>$428$ is $0b0 \ 10000111 \ 10101100000000000000000$</p>
+                            <p>In scientific notation:</p>
+                            <p>$-9 = -1.001_2 \times 2^3$</p>
+                            <p>$428 = 1.101011_2 \times 2^8$</p>
+                            <p>Now we can multiply the significands and add the exponents:</p>
+                            <p>$(1.001_2 \times 1.101011_2) \times 2^{3+8} = 1.111000011​_2 \times 2^{11}$</p>
+                            <p>Now we need to normalize it (it's already normalized)</p>
+                            <p>Since there is one negative number, the result is negative, so sign bit is 1</p>
+                            <p>So the result is $0b1 \ 10001010 \ 11100001100000000000000$ ($-3852$)</p>
+                            
                         </details>
                     </li>
                 </ul>

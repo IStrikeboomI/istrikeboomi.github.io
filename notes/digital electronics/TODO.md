@@ -1,4 +1,3 @@
-IEEE 754 float arithemetic
 hex editors (like HXD)
 ASCII
 
