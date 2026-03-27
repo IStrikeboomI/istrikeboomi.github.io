@@ -212,6 +212,7 @@
                 "notes":[
                     {"name":"digital circuits and logic gates","title":"Digital Circuits And Logic Gates"},
                     {"name":"adders","title":"Adders"},
+                    {"name":"simulating digital circuits in logisim evolution","title":"Simulating Digital Circuits in Logisim Evolution"},
                     {"name":"seven segment displays","title":"Seven Segment Displays"}
                 ]
             }

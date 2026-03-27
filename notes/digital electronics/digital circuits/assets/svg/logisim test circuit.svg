@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" height="274" version="1.1" viewBox="0 0 473 274" width="473">
+   <path d="M357,110 H417" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M117,260 H147" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M87,260 H67 V130 H127 V110 H147" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M147,150 H127 V220 H147" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M147,50 H127 V110" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <circle cx="127" cy="110" fill="#000000" r="5" stroke="none" stroke-width="3"/>
+   <circle cx="67" cy="130" fill="#000000" r="5" stroke="none" stroke-width="3"/>
+   <circle cx="127" cy="220" fill="#000000" r="5" stroke="none" stroke-width="3"/>
+   <path d="M172,55 A25,25 90 0,0 172,5" fill="none" stroke="#000000" stroke-width="2"/>
+   <path d="M172,5 H148 V55 H172" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <path d="M172,155 A25,25 90 0,0 172,105" fill="none" stroke="#000000" stroke-width="2"/>
+   <path d="M172,105 H148 V155 H172" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <path d="M197,30 H307 V90" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M197,130 H287 V110 H312" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M197,240 H297 V130 H307" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M357,110 Q337,85 307,85 Q320,110 307,135 Q337,135 357,110 Z" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <path d="M172,265 A25,25 90 0,0 172,215" fill="none" stroke="#000000" stroke-width="2"/>
+   <path d="M172,215 H148 V265 H172" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <path d="M52,130 H67" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M18,121 H42 L52,130 L42,139 H18 Z" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <text fill="#000000" font-family="monospace" font-size="12" x="23" y="137">x1</text>
+   <text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" x="5" y="138">b</text>
+   <circle cx="57" cy="130" fill="#000000" r="2" stroke="none" stroke-width="2"/>
+   <path d="M52,220 H127" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M18,211 H42 L52,220 L42,229 H18 Z" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <text fill="#000000" font-family="monospace" font-size="12" x="23" y="227">x1</text>
+   <text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" x="6" y="228">c</text>
+   <circle cx="57" cy="220" fill="#000000" r="2" stroke="none" stroke-width="2"/>
+   <path d="M52,30 H127 V10 H147" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M18,21 H42 L52,30 L42,39 H18 Z" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <text fill="#000000" font-family="monospace" font-size="12" x="23" y="37">x1</text>
+   <text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" x="6" y="38">a</text>
+   <circle cx="57" cy="30" fill="#000000" r="2" stroke="none" stroke-width="2"/>
+   <path d="M107,260 L88,253 V267 L107,260" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <circle cx="112" cy="260" fill="none" r="4.5" stroke="#000000" stroke-width="2"/>
+   <circle cx="117" cy="260" fill="#000000" r="2" stroke="none" stroke-width="2"/>
+   <circle cx="87" cy="260" fill="#000000" r="2" stroke="none" stroke-width="2"/>
+   <path d="M421,110 H418" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="3"/>
+   <path d="M423,101 H447 L457,110 L447,119 H423 Z" fill="none" stroke="#000000" stroke-linecap="square" stroke-width="2"/>
+   <text fill="#000000" font-family="monospace" font-size="12" x="423" y="117">x1</text>
+   <text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" x="459" y="118">y</text>
+   <circle cx="417" cy="110" fill="#000000" r="2" stroke="none" stroke-width="2"/>
+</svg>

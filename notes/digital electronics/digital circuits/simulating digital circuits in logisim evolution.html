@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Simulating Digital Circuits in Logisim Evolution</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>So far, we have made and designed some digital circuits</p>
+            <p>But the issue is it's difficult to test them before building them</p>
+            <p>To solve this problem, we can use a software called <a href="https://github.com/logisim-evolution/logisim-evolution">Logisim Evolution</a></p>
+            <p><a href="https://github.com/logisim-evolution/logisim-evolution/releases">Download</a> (Requires Java) (If on windows, select .msi file)</p>
+            <hr>
+            <h3>Building Circuits</h3>
+            <p>Opening Logisim, we can start building our digital circuits.</p>
+            <img src="assets/png/logisim empty.png" alt="Logisim Evolution" class="center" width="750px">
+            <p>All of the digital circuit we learn about later can be either found or implemented in Logisim.</p>
+            <P>Right now we will just focus on using the gates, on the side panel open the folder that says gates</P>
+            <img src="assets/png/logisim gates.png" alt="Logisim Evolution Gates" class="center" width="250px">
+            <p>To place a gate, select the gate from the folder and hover onto the canvas. left click to place it.</p>
+            <p>You can also use the toolbar at the top to quickly choose a gate</p>
+            <p>The circuit we will simulate for this example will be $y = ab + bc + b'c$</p>
+            <p>This will require three AND gates, a NOT gate, and a three input OR gate</p>
+            <img src="assets/png/logisim just gates.png" width="500px">
+            <p>To make the OR gate 3 input, select it and under properties, change the number of inputs to 3</p>
+            <p>To select an object, first select the pointer icon at the top bar and select the component</p>
+            <p>Now we need to add inputs and outputs, we do this using pins</p>
+            <p>You can find pins at the top bar, they look like the squares with the triangles at the end</p>
+            <p>The one with a line pointing right is input and the one with a line pointing left is output</p>
+            <p>To use the pins, we need to rename them, this can be done by either double-clicking on and setting the name</p>
+            <p>Or selecting the pin and changing the name under properties</p>
+            <p>For this example we need three input pins $a,b,c$ and one output pin $y$</p>
+            <p>After we have all our components placed, we can connect them with wires</p>
+            <p>To connect them, drag from the green circle the draw wires between</p>
+            <p>A solid green dot on a wire indicates a split or junction</p>
+            <p>This gives the following circuit:</p>
+            <img src="assets/png/logisim wired.png" width="500px">
+            <p>Now from start to finish,</p>
+            <video controls class="center" width="750px">
+                <source src="assets/mp4/logisim building circuit.mp4" type="video/mp4">
+            </video>
+            <img src="assets/svg/logisim test circuit.svg">
+            <hr>
+            <h3>Testing Circuits</h3>
+            <p>To test the circuit, we can click on the input pins to change their value</p>
+            <p>We first need to switch to simulation mode by selecting the hand icon next to the pointer icon</p>
+            <p>After that we can click on the input pins and see the wires light up if it's a 1</p>
+            <p>We can also click the wires to see the values</p>
+            <p>Here is a video of testing the circuit</p>
+            <video controls class="center" width="750px">
+                <source src="assets/mp4/logisim testing circuit.mp4" type="video/mp4">
+            </video>
+            <hr>
+            <h3>Making Truth Tables and SOP</h3>
+            <p>Logisim also has a built in feature to make truth tables and SOP forms</p>
+            <p>It utilizes the pin names, which is why we need to name our pins appropriately</p>
+            <p>This can be done under Project > Analyze Circuit and selecting either expression or table</p>
+            <video controls class="center" width="750px">
+                <source src="assets/mp4/logisim creating truth table.mp4" type="video/mp4">
+            </video>
+            <hr>
+            <h3>Exporting Circuit Images</h3>
+            <p>To export the circuit as an image, go to File > Export Image</p>
+            <p>You can choose the format (PNG, SVG, etc.)</p>
+            <p>This is how I got the circuit above</p>
+            <hr>
+            <h3>Subcircuits</h3>
+            <p>Sometimes you need to repeat circuits, and this can be done by copy and pasting</p>
+            <p>But that will lead to a cluttered design and make it harder to maintain</p>
+            <p>We can create subcircuits to encapsulate and reuse components in a nicer package</p>
+            <p>This can be done by selecting the green plus icon under design</p>
+            <p>After that, you can give the subcircuit a name and start designing it</p>
+            <p>For example I will make a subcircuit for a full adder</p>
+            <video controls class="center" width="750px">
+                <source src="assets/mp4/logisim subcircuit.mp4" type="video/mp4">
+            </video>
+            <hr>
+            <h3>Conclusion</h3>
+            <p>Logisim is a powerful tool for simulating digital circuits and can help you design and test your circuits efficiently.</p>
+            <p>This was just a brief surface level overview of Logisim's features.</p>
+            <p>There are many more features and capabilities that you can explore on your own.</p>
+            <p>You can find more info at the <a href="https://cburch.com/logisim/docs.html">Logisim Docs</a></p>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
