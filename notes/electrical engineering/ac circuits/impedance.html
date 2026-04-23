@@ -22,15 +22,152 @@
         <p>We can treat components with impedance (resistors, inductors, and capacitors) as resistance</p>
         <p>This means we can add them in series and parallel the same way as resistance</p>
         <p>We can also use voltage and current dividers</p>
-        <P>We can also use Ohm's law $$V = I \cdot z$$</P>
+        <P>We can also use Ohm's law $$V = I \cdot Z$$</P>
         <p>The formulas for impedance are:</p>
         <p>Resistor: $z_R = R$</p>
-        <p>Inductor: $z_L = j\omega L$</p>
-        <p>Capacitor: $z_C = \frac{1}{j\omega C}$</p>
+        <p>Inductor: $z_L = j\omega L$ = $j2\pi fL$</p>
+        <p>Capacitor: $z_C = \frac{1}{j\omega C}$ = $\frac{1}{j2\pi fC}$ = $-\frac{j}{2\pi fC}$</p>
         <p>Where $\omega$ is the angular frequency of the AC signal, $\omega = 2\pi f$, where $f$ is the frequency in hertz (Hz).</p>
+        <p>And R is the resistance. L is the inductance. C is the capacitance.</p>
+        <br>
+        <p>Commonly rectangular form is used for impedance addition or subtraction.</p>
+        <p><a href="../../pre-calculus/complex numbers/eulers formula and polar form.html">Polar Form</a> is used for impedance multiplication or division, or analysis of AC circuits.</p>
+        <p>We typically write polar form using <b>phasors</b>: $Z = |Z|e^{j\theta} (\text{polar form})$ or $Z = |Z| \angle \theta (\text{phasor form})$</p>
         <hr>
         <h3>Motivation</h3>
-
+        <p>If we have a simple AC circuit, with just an AC source and a resistor, the current is simply a scaled version of the voltage.</p>
+        <img src="assets/svg/impedance resistor circuit.svg">
+        <img src="assets/svg/impedance resistor current.svg">
+        <p>However, if we have an inductor or a capacitor in the circuit, the curernt is also scaled, but it also <b>phase-shifted</b></p>
+        <p>The reason for this is because voltage and current through these components are related by differential equations</p>
+        <p>For a 1F capacitor,</p>
+        <p>$$\begin{align}
+            I(t) &= C \frac{dV(t)}{dt} \\
+            &= 1 \cdot \frac{d(5\sin(2\pi t))}{dt} \\
+            &= 10\pi \cos(2\pi t) \\
+            &= 10\pi \sin\left(2\pi t + \frac{\pi}{2}\right)
+        \end{align}$$</p>
+        <p>For a 1H inductor,</p>
+        <p>$$\begin{align}
+            V(t) &= L \frac{dI(t)}{dt} \\
+            5\sin(2\pi t) &= 1 \cdot \frac{dI(t)}{dt} \\
+            I(t) &= \int 5\sin(2\pi t) \, dt \\
+            &= -\frac{5}{2\pi}\cos(2\pi t) + C\\
+            &= \frac{5}{2\pi}\sin\left(2\pi t - \frac{\pi}{2}\right)
+        \end{align}$$</p>
+        <p>We can ignore the constant of integration $C$, because it represents a DC component</p>
+        <p>The DC component decays away over time, and we are typically interested in the steady-state response.</p>
+        
+        <img src="assets/svg/impedance capacitor inductor circuit.svg">
+        <img src="assets/svg/impedance capacitor inductor current.svg">
+        <p>Notice how the current is not in phase with the voltage (because of the $\pm \frac{\pi}{2}$)</p>
+        <p>Also, the frequency of the current is the same as the voltage, so that remains unchanged.</p>
+        <hr>
+        <h3>Generalizing and Derivation</h3>
+        <p>For any voltage values, and component values, assume voltage is $V(t) = V_m \sin(\omega t + \phi) = V_m \sin(2\pi ft + \phi)$</p>
+        <p>$V_m$ is the amplitude, $\omega$ is the angular frequency, $f$ is the frequency, and $\phi$ is the phase angle.</p>
+        <p>Then, the current through a resistor is $I_R(t) = \frac{V_m}{R} \sin(\omega t + \phi)$</p>
+        <p>The current through an inductor is $I_L(t) = \frac{V_m}{\omega L}\sin\left(\omega t + \phi - \frac{\pi}{2}\right)$</p>
+        <p>The current through a capacitor is $I_C(t) = \omega C V_m \sin\left(\omega t + \phi + \frac{\pi}{2}\right)$</p>
+        <p>If we have a circuit with multiple of these components, we could use differential equations to solve it</p>
+        <p>Or can use an easier system that makes it an algebraic problem</p>
+        <p>In order to get impedance, we need it to be $$Z = \frac{V}{I}$$</p>
+        <p>If we convert the above, (using Euler's formula $\sin(x) = \frac{e^{jx} - e^{-jx}}{2j}$ $\cos(x) = \frac{e^{jx} + e^{-jx}}{2}$)</p>
+        <p>Resistor: $Z_R = R$</p>
+        <p>Inductor: $Z_L = \frac{V}{I} = \frac{V_m \sin(\omega t + \phi)}{\frac{V_m}{\omega L}\sin\left(\omega t + \phi - \frac{\pi}{2}\right)} = \omega L\frac{\sin(\omega t + \phi)}{\cos\left(\omega t + \phi\right)} = \omega L \frac{(e^{j\omega t + \phi} - e^{-j\omega t - \phi})/2j}{(e^{j\omega t + \phi} + e^{-j\omega t - \phi})/2}$ = $j\omega L$</p>
+        <p>Capacitor: $Z_C = \frac{V}{I} = \frac{V_m \sin(\omega t + \phi)}{\omega C V_m \sin\left(\omega t + \phi + \frac{\pi}{2}\right)} = \frac{1}{\omega C}\frac{\sin(\omega t + \phi)}{\cos\left(\omega t + \phi\right)}$ = $\frac{1}{j\omega C}$</p>
+        <hr>
+        <details>
+            <summary><h3>Alternate Derivation Using <a href="../../pre-calculus/complex numbers/eulers formula and polar form.html">Euler's Formula</a></h3></summary>
+            <p>If our voltage source is $V(t) = V_m \cos(\omega t + \phi)$, and $e^{j(\omega t + \phi)} = \cos(\omega t + \phi) + j\sin(\omega t + \phi)$</p>
+            <p>Then $V(t) = \Re\{V_m e^{j(\omega t + \phi)}\}$, we can do our process without the $\Re$, and just get the real part at the end</p>
+            <p>The reason why the voltage here is cosine instead of sine is because it's a more convenient form for the analysis</p>
+            <p>They are equivalent if you take phase into account $\cos(x) = \sin(x + \frac{\pi}{2})$</p>
+            <p>Taking derivatives of complex numbers works the same, just treat as a constant</p>
+            <p>Capacitor:</p>
+            <p>$$\begin{align}
+                I(t) &= C \frac{dV(t)}{dt} \\
+                &= C \frac{dV_m e^{j(\omega t + \phi)}}{dt} \\
+                &= j\omega C V_m e^{j(\omega t + \phi)} \\
+                &= j\omega C V(t)\\
+                Z_C &= \frac{V(t)}{I(t)} = \frac{1}{j\omega C}
+                \end{align}$$</p>
+            <p>Inductor:</p>
+            <p>Since voltage is sinusoidal, current is also sinusoidal same frequency, but different amplitude and phase, $I(t) = I_m e^{j(\omega t + \phi_c)}$</p>
+            <p>$$\begin{align}
+                V(t) &= L \frac{dI(t)}{dt} \\
+                &= L \frac{dI_m e^{j(\omega t + \phi_c)}}{dt} \\
+                &= j\omega L I_m e^{j(\omega t + \phi_c)} \\
+                &= j\omega L I(t)\\
+                Z_L &= \frac{V(t)}{I(t)} = j\omega L
+                \end{align}$$</p>
+        </details>
+        <hr>
+        <details>
+            <summary><h3>Alternate Derivation Using Fourier Transform</h3></summary>
+            <p>If our voltage source is $V(t) = V_m \cos(\omega t + \phi)$, then current is similar form $I(t) = I_m \cos(\omega t + \phi_c)$</p>
+            <p>The only thing that changes is the amplitude and phase</p>
+            <p>If the amplitude and phase stay constant, but the frequency changes, the impedance will also change</p>
+            <p>This means our impedance is a function of frequency</p>
+            <p>We can use a fourier transform to convert our time-domain signals to the frequency domain</p>
+            <p>We can use the derivative property of the Fourier transform:</p>
+            <p>$$\begin{align}
+                \mathcal{F}\left\{a\frac{d}{dt}f(t)\right\} &= aj\omega F(\omega) \\
+            \end{align}$$</p>
+            <p>Resistor: $V(t) = RI(t) \rightarrow V(\omega) = \mathcal{F}\left\{R I(\omega)\right\} = R I(\omega) \rightarrow Z_R = R$</p>
+            <p>Capacitor: $I(t) = C \frac{dV(t)}{dt} \rightarrow I(\omega) = \mathcal{F}\left\{C V(\omega)\right\} = j\omega C V(\omega) \rightarrow Z_C = \frac{1}{j\omega C}$</p>
+            <p>Inductor: $V(t) = L \frac{dI(t)}{dt} \rightarrow V(\omega) = \mathcal{F}\left\{L I(\omega)\right\} = j\omega L I(\omega) \rightarrow Z_L = j\omega L$</p>
+        </details>
+        <hr>
+        <h3>Properties</h3>
+        <p>Since we can treat inductance as resistance, we can add in series and parallel the same way</p>
+        <p>Since we can treat inductance as resistance, we can use voltage and current dividers the same way</p>
+        <p>$$\begin{align}
+            Z_{eq} = Z_1 + Z_2 + ... + Z_n \ \text{(series)} \\
+            \frac{1}{Z_{eq}} = \frac{1}{Z_1} + \frac{1}{Z_2} + ... + \frac{1}{Z_n} \ \text{(parallel)} \\
+            V_1 = V \cdot \frac{Z_1}{Z_1 + Z_2} \ \text{(voltage divider)} \\
+            I_1 = I \cdot \frac{Z_2}{Z_1 + Z_2} \ \text{(current divider)}
+            \end{align}$$</p>
+        <hr>
+        <h3>Example Circuit</h3>
+        <p>Find the equivalent impedance of the circuit shown, and find the voltage across each element.</p>
+        <img src="assets/svg/impedance example 1 circuit.svg">
+        <p>First find the individual impedances:</p>
+        <p>$$\begin{align}
+            Z_R &= 150 \Omega \\
+            Z_C &= \frac{-j}{\omega C} = \frac{-j}{2 \cdot \pi \cdot 50 \cdot 68 \times 10^{-9}} \approx -j46810.277 \Omega \\
+            Z_L &= j\omega L = j \cdot 2 \cdot \pi \cdot 50 \cdot 10 \times 10^{-6} \approx  .0031j\Omega
+            \end{align}$$</p>
+        <p>Then find the equivalent impedance (they are in series):</p>
+        <p>$$\begin{align}
+            Z_{eq} &= Z_R + Z_C + Z_L \\
+            &= 150 - j46810.277 +  .0031j \\
+            &\approx 150 - j46810.274 \Omega
+        \end{align}$$</p>
+        <p>To find the voltage across each element, use the voltage divider rule:</p>
+        <p>$$\begin{align}
+            V_R &= V \cdot \frac{Z_R}{Z_{eq}} \\
+            V_C &= V \cdot \frac{Z_C}{Z_{eq}} \\
+            V_L &= V \cdot \frac{Z_L}{Z_{eq}}
+        \end{align}$$</p>
+        <p>Since we are dividing complex numbers, it will be easier if we convert to polar form for all our components:</p>
+        <p>$$\begin{align}
+            Z_R &= 150 \angle 0^\circ \\
+            Z_C &\approx 46810.277 \angle -90^\circ \\
+            Z_L &\approx 0.0031 \angle 90^\circ \\
+            Z_{eq} &\approx 46810.5 \angle -89.82^\circ
+        \end{align}$$</p>
+        <p>Then we can do the division easily:</p>
+        <p>$$\begin{align}
+            V_R &\approx 5 \angle 0^\circ \cdot \frac{150 \angle 0^\circ}{46810.5 \angle -89.82^\circ} \\
+            &\approx 0.016 \angle 89.82^\circ \ V \\
+            V_C &\approx 5 \angle 0^\circ \cdot \frac{46810.277 \angle -90^\circ}{46810.5 \angle -89.82^\circ} \\
+            &\approx 4.999 \angle -0.18^\circ \ V \\
+            V_L &\approx 5 \angle 0^\circ \cdot \frac{0.0031 \angle 90^\circ}{46810.5 \angle -89.82^\circ} \\
+            &\approx 3.3\times10^{-7} \angle 179.82^\circ \ V
+        \end{align}$$</p>
+        <hr>
+        <h3>Analysis</h3>
         <hr>
         <details open>
             <summary>Practice Problems</summary>

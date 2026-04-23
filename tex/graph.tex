@@ -14,31 +14,24 @@
 \begin{axis}[
   axis lines=middle,
   grid=major,
-  xmin=-2,
-  xmax= 2,
-  ymin=-2,
-  ymax=2,
-  xlabel=$\Re(z)$,
-  ylabel=$\Im(z)$,
-  xtick={-2,-1,...,2},
-  ytick={-2,-1,...,2},
+  xmin=0,
+  xmax=6,
+  ymin=-33,
+  ymax=33,
+  xlabel=$t$,
+  ylabel=$V(t)$,
+  xtick={0,1,...,6},
+  ytick={-31,-15,0,15,30},
   xticklabel = \empty,
   yticklabel = \empty,
   tick style={very thick},
   %restrict y to domain = -2:30,
   legend style={at={(rel axis cs:0,1)},anchor=north west,draw=none,inner sep=0pt, fill = white}
 ]
-\draw[red,very thick] (1,0) arc (0:60:1);
-\draw[-latex,red ,very thick] (0,0) -- (.5,.866) node [above] {$e^{i\theta}$};
+\addplot[red,very thick,domain=0:6,samples=1000,name path=f] gnuplot {5 * sin(2*pi*x)};
+\addplot[blue,very thick,domain=0:6,samples=1000,name path=f] gnuplot {10*pi*sin(2*pi*x + pi/2)};
+\addplot[green,very thick,domain=0:6,samples=1000,name path=f] gnuplot {(5/(2*pi))*(sin(2*pi*x + pi/2))};
 
-\coordinate (A) at (.5,.866);
-\coordinate (O) at (0,0);
-\coordinate (B) at (1,0);
-
-\pic [draw,fill=blue!30, "$\theta$"] {angle = B--O--A};
-\draw [dashed,blue] (0,0) -- (.5,0) node [midway, below] {$\cos \theta$};
-\draw [dashed,blue] (.5,0) -- (.5,.866) node [midway, right] {$\sin \theta$};
-%\addplot[blue,very thick,domain=0:10,samples=100,name path=f] gnuplot {5 };
 %\addplot[red,very thick,domain=0:10,samples=100,name path=f] gnuplot {5*(1-exp(-x/3))};
 %\addplot[blue,very thick,domain=-1:3,samples=100,name path=f] gnuplot {log(x+1)};
 %\addplot[green,very thick,domain=-1:3,samples=100,name path=f] gnuplot {x};
@@ -63,7 +56,10 @@
 %\addplot[excl, draw=blue] coordinates {(-2,0)};
 
 
-%\addlegendentry{$V(t) = 5$};
+\addlegendentry{$V(t) = 5\sin(2\pi t) \ V$};
+\addlegendentry{$I_C(t) = 10\pi\sin(2\pi t + \frac{\pi}{2}) \ A$};
+\addlegendentry{$I_L(t) = \frac{5}{2\pi}\sin(2\pi t + \frac{\pi}{2}) \ A$};
+
 %\addlegendentry{$V_C(t) = V\left(1 - e^{-\frac{t}{RC}}\right)$};
 %\addlegendentry{$n = 2$};
 %\addlegendentry{$n = 3$};

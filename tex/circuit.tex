@@ -7,8 +7,7 @@
 \begin{document}
 \begin{circuitikz}[american]
 
-\draw (0,2) -- (0,0);
-\draw (0,0) to[C,l_=$C$] (2,0) -- (2,2) to[R,l_=$R$] (0,2);
+\draw (0,8) to[sV_=$5 \ V$,a^=$50 \ \text{Hz}$] (0,0) -- (3,0) to[generic,l_=$68 \ nF$] (3,2) to[L,l_=$10 \ \mu H$] (3,5) to[R,l_=$150 \Omega$] (3,8) to[short] (0,8);
 \node[anchor=north, yshift=-5mm, font=\large]
     at (current bounding box.south)
       {istrikeboomi.github.io};
