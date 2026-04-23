@@ -12,14 +12,18 @@
 \ctikzset{
     logic ports=ieee
 }
-\node[nand port] (NAND1) at (0,0) {};
-\node[and port,number inputs = 3] (AND1) at (3,-1) {};
-\draw (NAND1.in 1) -- ++(-1,0) node[left] (A) {A};
-\draw (NAND1.in 2) -- ++(-1,0) node[left] (B) {B};
-\draw (NAND1.out) -| (AND1.in 1);
-\draw (AND1.in 2) -| ++(-3,.225) to[crossing] ++(0,1) to[short,-*] ++(0,.065);
-\draw (AND1.in 3) -- ++(-3.5,0) to[short,-*] ++(0,1.1);
-\draw (AND1.out) -- ++(.5,0) node[right] (Out) {Out};
+\draw (0,0) node[seven segment val=2 dot none box on] () {};
+\draw (1,0) node[seven segment val=B dot none box on] () {};
+\draw (2,0) node[seven segment val=1 dot none box on] () {};
+\draw (3,0) node[seven segment val=8 dot none box on] () {};
+%\node[nand port] (NAND1) at (0,0) {};
+%\node[and port,number inputs = 3] (AND1) at (3,-1) {};
+%\draw (NAND1.in 1) -- ++(-1,0) node[left] (A) {A};
+%\draw (NAND1.in 2) -- ++(-1,0) node[left] (B) {B};
+%\draw (NAND1.out) -| (AND1.in 1);
+%\draw (AND1.in 2) -| ++(-3,.225) to[crossing] ++(0,1) to[short,-*] ++(0,.065);
+%\draw (AND1.in 3) -- ++(-3.5,0) to[short,-*] ++(0,1.1);
+%\draw (AND1.out) -- ++(.5,0) node[right] (Out) {Out};
 %\node [and port] (AND1) at (0,0) {};
 %\node [or port] (OR1) at (0,-2) {};
 %\draw (NOT1.in) -- ++(-1,0) node[left] (A) {A};

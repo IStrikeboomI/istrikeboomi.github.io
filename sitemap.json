@@ -171,6 +171,12 @@
                 "notes":[
                     {"name":"rc circuits","title":"RC Circuits (Charging and Discharging Capacitors)"}
                 ]
+            },
+            {
+                "section":"AC Circuits",
+                "notes":[
+                    {"name":"impedance","title":"Impedance"}
+                ]
             }
         ]
     },

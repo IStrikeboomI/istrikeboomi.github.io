@@ -2,7 +2,6 @@ hex editors (like HXD)
 ASCII
 
 timing diagrams
-seven segment displays
 tri state buffer
 logic gate implementations
 logic ICs

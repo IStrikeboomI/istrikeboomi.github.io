@@ -13,10 +13,23 @@
     </head>
     <body>
         <div id="content">
-            <p>Content</p>
+            <p>A seven segment display is a device that uses seven LED segments to display decimal digits.</p>
+            <p>The benefit of them is they can cheaply display the digits 0-9 and A-F</p>
+            <p>This means you can display binary, decimal, and <a href="../binary/hexadecimal.html">hexadecimal</a> numbers</p>
+            <img src="assets/svg/seven segment display off on.svg">
+            <p>The arrangement of the seven segment display LEDs starts from the top with $a$</p>
+            <p>Then moves clockwise down with b,c,d,e,f, then the center LED is g</p>
+            <img src="assets/svg/seven segment display arrangement.svg">
+            <p>They are also common to include an extra LED for a decimal point</p>
+            <img src="assets/svg/seven segment display decimal point.svg">
+            <p>In order to actually drive the semgments, you need a seven segment display decoder</p>
+            <p>This is a circuit which converts binary to the segment signals, we will design this later</p>
             <hr>
-            <h3>Boolean Expressions</h3>
-            <p>Here is the truth table for a seven segment display ($D_0$ is the <a href="../binary/number bases.html">MSB</a>):</p>
+            <h3>Seven Segment Displays for 0 to 0xF (16)</h3>
+            <img src="assets/svg/seven segment display 0 to f.svg">
+            <hr>
+            <h3>Boolean Expressions For Seven Segment Display Decoder</h3>
+            <p>Here is the truth table for a seven segment display decoder ($D_0$ is the <a href="../binary/number bases.html">MSB</a>):</p>
 
             <p>$$\begin{align}
                 \begin{array} {c  c  c  c | c |c  c  c  c  c  c}
@@ -93,20 +106,48 @@
                 <li>$D _3D _2' + D _2D _0' + D _3D _1 + D _1'D _0' + D _3'D _2D _1'$</li>
                 <li>$D _2D _0' + D _3D _2' + D _2'D _1 + D _3D _0 + D _3'D _2D _1'$</li>
             </ol>
+            <p>Building this decoder requires a lot of hardware, because of the amount of gates </p>
+            <p>But luckily there are integrated circuits available that can perform this function. (like the 74LS47/74LS48)</p>
             <hr>
-            <details open>
-                <summary>Practice Problems</summary>
-                <ul class="no-bullets">
-                    <li>
-                        <details>
-                            <summary>Practice 1</summary>
-                            <p>$$\begin{align} 
-
-                            \end{align}$$</p>
-                        </details>
-                    </li>
-                </ul>
-            </details>
+            <h3>Driving the Display</h3>
+            <p>Seven segment displays can be either common anode or common cathode</p>
+            <p>In a common anode display, the anodes (positive) of the LEDs are connected together</p>
+            <p>In a common cathode display, the cathodes (negative) of the LEDs are connected together</p>
+            <p>In a common anode display, you need to drive the segments low to turn them on</p>
+            <p>In a common cathode display, you need to drive the segments high to turn them on</p>
+            <p>The more common type is the common cathode display, so you can directly drive the segments</p>
+            <br>
+            <p>Typically <b>resistors</b> are used to limit the current through each segment</p>
+            <p>If your decoder is current limited, this may not be needed, but it is good practice to include them (safety)</p>
+            <hr>
+            <h3>Multiple Display Control/Multiplexing</h3>
+            <p>When you have multiple seven segment displays, it is expensive to use individual drivers for each display</p>
+            <p>For example: </p>
+            <img src="assets/svg/seven segment display 2b18.svg">
+            <p>This would need 4 decoders, and 7*4=28 resistors, and all the wires</p>
+            <p>Instead, you can use a technique called multiplexing to control multiple displays with fewer resources</p>
+            <p>In multiplexing, you connect all the segments of the displays together</p>
+            <p>Then you control which display is active at any given time by controlling the common anode/cathode</p>
+            <p>This can be done with a transistor switch</p>
+            <p>Then you can rapidly switch between the displays to create the illusion of all being active simultaneously</p>
+            <p>This works because the eye has persistence of vision, so they all look on</p>
+            <br>
+            <p>For the example above, use only one decoder and 7 resistors</p>
+            <p>Connect each segment together</p>
+            <p>Then use 4 transistors to switch the common cathode of each display on and off</p>
+            <p>By default all are off</p>
+            <p>In the first unit of time, activate the first display (others off), and send binary of 2 to the decoder</p>
+            <p>In the second unit of time, activate the second display (others off), and send binary of b (11) to the decoder</p>
+            <p>In the third unit of time, activate the third display (others off), and send binary of 1 to the decoder</p>
+            <p>In the fourth unit of time, activate the fourth display (others off), and send binary of 8 to the decoder</p>
+            <p>Repeat this for however long you want to display</p>
+            <p>Make sure the unit of time is fast enough (< 10ms) </p>
+            <p>To control this, you would need more advance circuitry then we have covered, but it is possible</p>
+            <hr>
+            <h3>Applications</h3>
+            <p>Seven segment displays are very commonly used in devices to cheaply show numbers</p>
+            <p>Some common applications include digital clocks, calculators, and car speedometers</p>
+            <p>There are extensions like the <a href="https://en.wikipedia.org/wiki/Fourteen-segment_display">14-segment display</a> or <a href="https://en.wikipedia.org/wiki/Sixteen-segment_display">16-segment display</a> to display more complex characters</p>
         </div>  
         <script src="/main.js"></script>
     </body>
