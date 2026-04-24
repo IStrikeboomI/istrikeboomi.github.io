@@ -70,15 +70,10 @@
         <p>The current through an inductor is $I_L(t) = \frac{V_m}{\omega L}\sin\left(\omega t + \phi - \frac{\pi}{2}\right)$</p>
         <p>The current through a capacitor is $I_C(t) = \omega C V_m \sin\left(\omega t + \phi + \frac{\pi}{2}\right)$</p>
         <p>If we have a circuit with multiple of these components, we could use differential equations to solve it</p>
-        <p>Or can use an easier system that makes it an algebraic problem</p>
-        <p>In order to get impedance, we need it to be $$Z = \frac{V}{I}$$</p>
-        <p>If we convert the above, (using Euler's formula $\sin(x) = \frac{e^{jx} - e^{-jx}}{2j}$ $\cos(x) = \frac{e^{jx} + e^{-jx}}{2}$)</p>
-        <p>Resistor: $Z_R = R$</p>
-        <p>Inductor: $Z_L = \frac{V}{I} = \frac{V_m \sin(\omega t + \phi)}{\frac{V_m}{\omega L}\sin\left(\omega t + \phi - \frac{\pi}{2}\right)} = \omega L\frac{\sin(\omega t + \phi)}{\cos\left(\omega t + \phi\right)} = \omega L \frac{(e^{j\omega t + \phi} - e^{-j\omega t - \phi})/2j}{(e^{j\omega t + \phi} + e^{-j\omega t - \phi})/2}$ = $j\omega L$</p>
-        <p>Capacitor: $Z_C = \frac{V}{I} = \frac{V_m \sin(\omega t + \phi)}{\omega C V_m \sin\left(\omega t + \phi + \frac{\pi}{2}\right)} = \frac{1}{\omega C}\frac{\sin(\omega t + \phi)}{\cos\left(\omega t + \phi\right)}$ = $\frac{1}{j\omega C}$</p>
+        <p>Or can use an easier system that makes it an algebraic problem, which is our complex impedance approach</p>
         <hr>
         <details>
-            <summary><h3>Alternate Derivation Using <a href="../../pre-calculus/complex numbers/eulers formula and polar form.html">Euler's Formula</a></h3></summary>
+            <summary><h3>Derivation Using <a href="../../pre-calculus/complex numbers/eulers formula and polar form.html">Euler's Formula</a></h3></summary>
             <p>If our voltage source is $V(t) = V_m \cos(\omega t + \phi)$, and $e^{j(\omega t + \phi)} = \cos(\omega t + \phi) + j\sin(\omega t + \phi)$</p>
             <p>Then $V(t) = \Re\{V_m e^{j(\omega t + \phi)}\}$, we can do our process without the $\Re$, and just get the real part at the end</p>
             <p>The reason why the voltage here is cosine instead of sine is because it's a more convenient form for the analysis</p>
@@ -104,7 +99,7 @@
         </details>
         <hr>
         <details>
-            <summary><h3>Alternate Derivation Using Fourier Transform</h3></summary>
+            <summary><h3>Derivation Using Fourier Transform</h3></summary>
             <p>If our voltage source is $V(t) = V_m \cos(\omega t + \phi)$, then current is similar form $I(t) = I_m \cos(\omega t + \phi_c)$</p>
             <p>The only thing that changes is the amplitude and phase</p>
             <p>If the amplitude and phase stay constant, but the frequency changes, the impedance will also change</p>
@@ -168,16 +163,31 @@
         \end{align}$$</p>
         <hr>
         <h3>Analysis</h3>
+        <p>We can see the voltage in the inductor leads the current by 90 degrees.</p>
+        <p>We can see the voltage in the capacitor lags the current by 90 degrees.</p>
+        <p>This is a common saying called <b>ELI The ICE Man</b>, where E stans for electromotive force (voltage)</p>
+        <p>L stands for inductance, I stands for current, and C stands for capacitance</p>
+        <p>ELI means voltage leads current in an inductor, and ICE means current leads voltage in a capacitor</p>
         <hr>
         <details open>
             <summary>Practice Problems</summary>
             <ul class="no-bullets">
                 <li>
                     <details>
-                        <summary>Practice 1</summary>
+                        <summary>Find the equivalent impedance if a $1k \Omega$ resistor, $300 \mu F$ capacitor, and $100  mH$ inductor are connected in parallel at $2500 \text{Hz}$</summary>
                         <p>$$\begin{align}
-
-                            \end{align}$$</p>
+                            Z_R &= 1000 \Omega \\
+                            Z_C &= \frac{-j}{\omega C} = \frac{-j}{2 \cdot \pi \cdot 2500 \cdot 300 \times 10^{-6}} \approx -j0.2122 \Omega \\
+                            Z_L &= j\omega L = j \cdot 2 \cdot \pi \cdot 2500 \cdot 100 \times 10^{-3} = 1570.796j\Omega
+                        \end{align}$$</p>
+                        <p>Then find the equivalent impedance (they are in parallel):</p>
+                        <p>$$\begin{align}
+                            \frac{1}{Z_{eq}} &= \frac{1}{Z_R} + \frac{1}{Z_C} + \frac{1}{Z_L} \\
+                            &= \frac{1}{1000} + \frac{1}{-j0.2122} + \frac{1}{j1570.796j} \\
+                            &\approx 0.001 + 4.712j - 0.0006366j \\
+                            &\approx 0.001 + 4.713j \approx 4.711 \angle 89.98^\circ \\
+                            Z_{eq} &\approx 0.2122 \angle -89.98^\circ \Omega
+                        \end{align}$$</p>
                     </details>
                 </li>
             </ul>

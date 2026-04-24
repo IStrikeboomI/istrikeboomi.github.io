@@ -30,7 +30,7 @@
 ]
 \addplot[red,very thick,domain=0:6,samples=1000,name path=f] gnuplot {5 * sin(2*pi*x)};
 \addplot[blue,very thick,domain=0:6,samples=1000,name path=f] gnuplot {10*pi*sin(2*pi*x + pi/2)};
-\addplot[green,very thick,domain=0:6,samples=1000,name path=f] gnuplot {(5/(2*pi))*(sin(2*pi*x + pi/2))};
+\addplot[green,very thick,domain=0:6,samples=1000,name path=f] gnuplot {(5/(2*pi))*(sin(2*pi*x - pi/2))};
 
 %\addplot[red,very thick,domain=0:10,samples=100,name path=f] gnuplot {5*(1-exp(-x/3))};
 %\addplot[blue,very thick,domain=-1:3,samples=100,name path=f] gnuplot {log(x+1)};
@@ -58,7 +58,7 @@
 
 \addlegendentry{$V(t) = 5\sin(2\pi t) \ V$};
 \addlegendentry{$I_C(t) = 10\pi\sin(2\pi t + \frac{\pi}{2}) \ A$};
-\addlegendentry{$I_L(t) = \frac{5}{2\pi}\sin(2\pi t + \frac{\pi}{2}) \ A$};
+\addlegendentry{$I_L(t) = \frac{5}{2\pi}\sin(2\pi t - \frac{\pi}{2}) \ A$};
 
 %\addlegendentry{$V_C(t) = V\left(1 - e^{-\frac{t}{RC}}\right)$};
 %\addlegendentry{$n = 2$};

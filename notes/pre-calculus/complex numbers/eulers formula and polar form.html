@@ -73,6 +73,16 @@
             <p>Or for a polar form complex number</p>
             <p>$$\left(re^{i\theta}\right)^n = r^n e^{in\theta} = r^n\left(\cos(n\theta) + i \sin(n\theta)\right)$$</p>
             <hr>
+            <h3>Complex Sine and Cosine</h3>
+            <p>Using Euler's formula, we can express sine and cosine in terms of exponentials:</p>
+            <p>$$\cos x = \frac{e^{ix} + e^{-ix}}{2}$$</p>
+            <p>$$\sin x = \frac{e^{ix} - e^{-ix}}{2i}$$</p>
+            <p>These formulas allow us to extend the definitions of sine and cosine to complex numbers</p>
+            <p>This can be derived by using $e^{-ix} = \cos(-x) + i\sin(-x) = \cos(x) - i\sin(x)$</p>
+            <p>Because cosine is even and sine is odd</p>
+            <p>$$\frac{e^{ix} + e^{-ix}}{2} = \frac{\cos(x) + i\sin(x) + \cos(x) - i\sin(x)}{2} = \cos(x)$$</p>
+            <p>$$\frac{e^{ix} - e^{-ix}}{2i} = \frac{\cos(x) + i\sin(x) - \cos(x) + i\sin(x)}{2i} = \sin(x)$$</p>
+            <hr>
             <details open>
                 <summary>Practice Problems</summary>
                 <ul class="no-bullets">
@@ -153,6 +163,16 @@
                                 \end{align}$$</p>
                             <p>This gives us</p>
                             <p>$$\text{Rectangular Form} \approx -26 + 66i$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Find $\cos(i)$</summary>
+                            <p>$$\begin{align}
+                                \cos(i) &= \frac{e^{i \cdot i} + e^{-i \cdot i}}{2} \\
+                                &= \frac{e^{-1} + e^{1}}{2} \\
+                                &= \frac{1/e + e}{2} \approx 1.543
+                                \end{align}$$</p>
                         </details>
                     </li>
                 </ul>
