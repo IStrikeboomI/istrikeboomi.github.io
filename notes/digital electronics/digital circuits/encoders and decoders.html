@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>Encoders and Decoders</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>Encoders and Decoders are components that convert from one base of input lines to another base of output lines</p>
+            <p>Most commonly, an encoder converts a decimal input to a binary output</p>
+            <p>And a decoder converts a binary input to a decimal output</p>
+            <p>We refer to encoders as $2^n$ to $n$ converters, and decoders as $n$ to $2^n$ converters</p>
+            <p>A Priority Encoder is a type of encoder that gives priority to certain inputs over others</p>
+            <p>Commonly an enable signal is used to control if the component is active</p>
+            <hr>
+            <h3>Encoder Boolean Expressions</h3>
+            <p>Lets design a 2 to 1, 4 to 2, and a 8 to 3 encoder</p>
+            <p>If the index 0 input is on, the output is 0b000</p>
+            <p>If the index 1 input is on, the output is 0b001</p>
+            <p>If the index 2 input is on, the output is 0b010</p>
+            <p>If the index 3 input is on, the output is 0b011</p>
+            <p>And so on an so forth, lets make the truth tables, we have $2^n$ inputs and $n$ outputs</p>
+            <p>We denote the X as "don't care" (meaning they could be either 0 or 1 but it doesn't matter)</p>
+            <p>$$\begin{align}
+                \begin{array} {c c | c}
+                D_1 & D_0 & B_0 \\
+                \hline
+                0 & 1 & 0 \\
+                1 & X & 1 \\
+                \end{array}
+                \end{align}$$</p>
+            <p>$$\begin{align}
+                \begin{array} {c c c c | c c}
+                D_3 & D_2 & D_1 & D_0  & B_1 & B_0 \\
+                \hline
+                0 & 0 & 0 & 1 & 0 & 0 \\
+                0 & 0 & 1 & X & 0 & 1 \\
+                0 & 1 & X & X & 1 & 0 \\
+                1 & X & X & X & 1 & 1 \\
+                \end{array}
+                \end{align}$$</p>
+            <p>$$\begin{align}
+                \begin{array} {c c c c c c c c | c c c}
+                D_7 & D_6 & D_5 & D_4 & D_3 & D_2 & D_1 & D_0 & B_2 & B_1 & B_0 \\
+                \hline
+                0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+                0 & 0 & 0 & 0 & 0 & 0 & 1 & X & 0 & 0 & 1 \\
+                0 & 0 & 0 & 0 & 0 & 1 & X & X & 0 & 1 & 0 \\
+                0 & 0 & 0 & 0 & 1 & X & X & X & 0 & 1 & 1 \\
+                0 & 0 & 0 & 1 & X & X & X & X & 1 & 0 & 0 \\
+                0 & 0 & 1 & X & X & X & X & X & 1 & 0 & 1 \\
+                0 & 1 & X & X & X & X & X & X & 1 & 1 & 0 \\
+                1 & X & X & X & X & X & X & X & 1 & 1 & 1 \\
+                \end{array}
+                \end{align}$$</p>
+            <p>What you might notice the is output pattern is the same as counting in binary</p>
+            <p>If we make the SOP expressions for each output:</p>
+            <p>$$\begin{align}
+                B_2 &= D_7 + D_6 + D_5 + D_4 \\
+                B_1 &= D_7 + D_6 + D_3 + D_2 \\
+                B_0 &= D_7 + D_5 + D_3 + D_1 \\
+            \end{align}$$</p>
+            <p>If we wanted to add an enable signal $E$:</p>
+            <p>$$\begin{align}
+                B_2 &= (D_7 + D_6 + D_5 + D_4) \cdot E \\
+                B_1 &= (D_7 + D_6 + D_3 + D_2) \cdot E \\
+                B_0 &= (D_7 + D_5 + D_3 + D_1) \cdot E \\
+            \end{align}$$</p>
+            <hr>
+            <h3>Decoder Boolean Expressions</h3>
+            <p>Lets design a 3 to 8 decoder</p>
+            <p>If the input is 0b00, the output is 0b0001</p>
+            <p>If the input is 0b01, the output is 0b0010</p>
+            <p>If the input is 0b10, the output is 0b0100</p>
+            <p>If the input is 0b11, the output is 0b1000</p>
+            <p>And so on an so forth, lets make the truth tables, we have $n$ inputs and $2^n$ outputs</p>
+            <p>$$\begin{align}
+                \begin{array} {c c c | c c c c}
+                B_2 & B_1 & B_0 & D_7 & D_6 & D_5 & D_4 & D_3 & D_2 & D_1 & D_0 \\
+                \hline
+                0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1  \\
+                0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0  \\
+                0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0  \\
+                0 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0  \\
+                1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0  \\
+                1 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0  \\
+                1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\
+                1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0  \\
+                \end{array}
+                \end{align}$$</p>
+            <p>IF we make the SOP expressions for each output:</p>
+            <p>$$\begin{align}
+                D_0 &= B_2' \cdot B_1' \cdot B_0' \\
+                D_1 &= B_2' \cdot B_1' \cdot B_0 \\
+                D_2 &= B_2' \cdot B_1 \cdot B_0' \\
+                D_3 &= B_2' \cdot B_1 \cdot B_0 \\
+                D_4 &= B_2 \cdot B_1' \cdot B_0' \\
+                D_5 &= B_2 \cdot B_1' \cdot B_0 \\
+                D_6 &= B_2 \cdot B_1 \cdot B_0' \\
+                D_7 &= B_2 \cdot B_1 \cdot B_0 \\
+            \end{align}$$</p>
+            <p>If we wanted to add an enable signal $E$:</p>
+            <p>$$\begin{align}
+                D_0 &= (B_2' \cdot B_1' \cdot B_0') \cdot E \\
+                D_1 &= (B_2' \cdot B_1' \cdot B_0) \cdot E \\
+                D_2 &= (B_2' \cdot B_1 \cdot B_0') \cdot E \\
+                D_3 &= (B_2' \cdot B_1 \cdot B_0) \cdot E \\
+                D_4 &= (B_2 \cdot B_1' \cdot B_0') \cdot E \\
+                D_5 &= (B_2 \cdot B_1' \cdot B_0) \cdot E \\
+                D_6 &= (B_2 \cdot B_1 \cdot B_0') \cdot E \\
+                D_7 &= (B_2 \cdot B_1 \cdot B_0) \cdot E \\
+            \end{align}$$</p> 
+            <hr>
+            <h3>Circuit and Component Block Diagram</h3>
+            <p>8-to-3 Encoder:</p>
+            <img src="assets/svg/encoder circuit diagram.svg">
+            <p>2-to-4 Decoder:</p>
+            <img src="assets/svg/decoder circuit diagram.svg">
+            <p>In action:</p>
+            <video controls class="center" width="250px">
+                <source src="assets/mp4/encoder circuit diagram.mp4" type="video/mp4">
+            </video>
+            <video controls class="center" width="250px">
+                <source src="assets/mp4/decoder circuit diagram.mp4" type="video/mp4">
+            </video>
+            <p>In Logisim, decoders and encoders are already implemented as components</p>
+            <p>The encoder (which is a priority encoder) is a rectangle and the decoder is a trapezoid</p>
+            <p>They use busses, so be aware of that</p>
+            <video controls class="center" width="450px">
+                <source src="assets/mp4/encoder decoder logisim.mp4" type="video/mp4">
+            </video>
+            <hr>
+            <h3>Priority Encoder</h3>
+            <p>There's an issue with our current encoder, it requires exactly one input to be high at a time</p>
+            <p>So what if none of the inputs are on? or what if multiple inputs are on at the same time?</p>
+            <p>A priority encoder addresses this issue by giving priority to the highest-order input that is high.</p>
+            <p>If none of the inputs are on, the output is typically all zeros.</p>
+            <p>There is also (sometimes) an additional output to indicate if input is valid (at least one is on)</p>
+            <p>If we want to design a priority encoder,</p>
+            <p>We need to make sure the less significant inputs are not given priority over more significant ones.</p>
+            <p>We can do this by ANDing the inverse of the higher input with the lower input.</p>
+            <p>For example with our 8-3 encoder, if we take the previous expressions:</p>
+            <p>$$\begin{align}
+                B_2 &= D_7 + D_6 + D_5 + D_4 \\
+                B_1 &= D_7 + D_6 + D_3 + D_2 \\
+                B_0 &= D_7 + D_5 + D_3 + D_1 \\
+                \end{align}$$</p>
+            <p>We can modify them to give priority to the higher inputs:</p>
+            <p>For the valid signal, only one needs to be on, which is an OR gate</p>
+            <p>$$\begin{align}
+                B_2 &= D_7 + D_6 + D_5 + D_4 \\
+                B_1 &= D_7 + D_6 + D_5'D_4'D_3 + D_5'D_4'D_2 \\
+                B_0 &= D_7 + D_6'D_5 + D_6'D_4'D_3 + D_6'D_4'D_2'D_1 \\
+                V &= D_7 + D_6 + D_5 + D_4 + D_3 + D_2 + D_1 + D_0 \\
+                \end{align}$$</p>
+            <hr>
+            <h3>Making Larger Decoder From Smaller Decoder</h3>
+            <p>Typically  decoder ICs come in small sizes (like 2-to-4 or 3-to-8)</p>
+            <p>If instead we need a larger decoder, we can combine multiple smaller ones.</p>
+            <p>For example to make a 3 to 8 decoder, we can use 2 2-to-4 decoders (that have an enable input)</p>
+            <p>The MSB can be used to enable one of the 2-to-4 decoders</p>
+            <p>If the MSB is 0, the first decoder is enabled; if it's 1, the second decoder is enabled.</p>
+            <p>We can feed the other 2 inputs into both decoders</p>
+            <img src="assets/svg/3 to 8 decoder from 2 2 to 4 decoders.svg">
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>

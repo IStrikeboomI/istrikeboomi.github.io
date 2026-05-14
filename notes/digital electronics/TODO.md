@@ -1,17 +1,14 @@
 hex editors (like HXD)
 ASCII
 
-timing diagrams
 tri state buffer
 logic gate implementations
 logic ICs
-encoders and decoders
 muxs and demuxs
 alus
 converting to nand and nor
-clocks
+timing diagrams and clocks
 data buses
-Simulating Digital circuit in logisim evolution
 
 registers and register files
 sr and d latch
