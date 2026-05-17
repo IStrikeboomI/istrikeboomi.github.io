@@ -153,6 +153,18 @@
         ]
     },
     {
+        "subject" : "Differential Equations",
+        "topics" : 
+        [
+            {
+                "section":"Ordinary Differential Equations",
+                "notes":[
+                    {"name":"first order linear differential equations","title":"First Order Linear Differential Equations"}
+                ]
+            }
+        ]
+    },
+    {
         "subject" : "Electrical Engineering",
         "topics" : 
         [

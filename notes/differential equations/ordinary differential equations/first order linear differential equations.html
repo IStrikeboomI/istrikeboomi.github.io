@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/main.css">
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <meta charset="utf-8">
+        <title>First Order Linear Differential Equations</title>
+        <link rel="author" content="Strikeboom" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/icon.png">
+    </head>
+    <body>
+        <div id="content">
+            <p>A first-order linear differential equation is an equation of the form:</p>
+            <p>$$\frac{dy}{dx} + P(x)y = Q(x)$$</p>
+            <p>Where $P(x)$ and $Q(x)$ are functions of $x$.</p>
+            <p>To solve this type of equation, we can use an integrating factor, which is given by:</p>
+            <p>$$\mu(x) = e^{\int P(x) dx}$$</p>
+            <p>Multiplying both sides of the original equation by the integrating factor, we get:</p>
+            <p>$$\mu(x)\frac{dy}{dx} + \mu(x)P(x)y = \mu(x)Q(x)$$</p>
+            <p>The left side of this equation is the derivative of $\mu(x)y$ with respect to $x$:</p>
+            <p>$$\frac{d}{dx}[\mu(x)y] = \mu(x)Q(x)$$</p>
+            <p>Integrating both sides with respect to $x$:</p>
+            <p>$$\mu(x)y = \int \mu(x)Q(x) dx + C$$</p>
+            <p>Finally, solving for $y$:</p>
+            <p>$$y = \frac{1}{\mu(x)}\left(\int \mu(x)Q(x) dx + C\right)$$</p>
+            <hr>
+            <h3>Derivation</h3>
+            <p>Our original function is in the form of </p>
+            <p>$$\frac{dy}{dx} + P(x)y = Q(x)$$</p>
+            <p>This almost looks like the derivative of a product (<a href="../../calculus 1/derivatives/advanced derivative properties.html">product rule</a>):</p>
+            <p>$$\frac{d}{dx}[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)$$</p>
+            <p>If we have an integrating factor $\mu(x)$, we can multiply the entire equation by it:</p>
+            <p>$$\mu(x)\frac{dy}{dx} + \mu(x)P(x)y = \mu(x)Q(x)$$</p>
+            <p>The left side of this equation is the derivative of $\mu(x)y$ with respect to $x$:</p>
+            <p>$$\frac{d}{dx}[\mu(x)y] = \mu(x)Q(x)$$</p>
+            <p>This would mean</p>
+            <p>$$\frac{d}{dx}[\mu(x)y] = \mu(x)\frac{dy}{dx} + \mu'(x)y = \mu(x)\frac{dy}{dx} + \mu(x)P(x)y$$</p>
+            <p>So $$\mu'(x) = \mu(x)P(x)$$</p>
+            <p>This becomes a <a href="seperable differential equations.html">separable differential equation</a></p>
+            <p>$$\frac{d\mu}{dx} = P(x)\mu$$</p>
+            <p>$$\frac{1}{\mu}d\mu = P(x)dx$$</p>
+            <p>$$\int \frac{1}{\mu}d\mu = \int P(x)dx$$</p>
+            <p>$$\ln|\mu| = \int P(x)dx + C$$</p>
+            <p>$$\mu = e^{\int P(x)dx + C_0} = e^{C_0}e^{\int P(x)dx} = C e^{\int P(x)dx}$$</p>
+            <P>This $C$ term is just a constant of integration, which is going to be considered at the end</P>
+            <p>We can ignore the C term by setting $C_0 = 0$/$C=1$:</p>
+            <p>$$\mu = e^{\int P(x)dx}$$</p>
+            <br>
+            <P>If we go back to our original equation:</P>
+            <p>$$\frac{d}{dx}[\mu(x)y] = \mu(x)Q(x)$$</p>
+            <p>Integrating both sides with respect to $x$:</p>
+            <p>$$\mu(x)y = \int \mu(x)Q(x) dx + C$$</p>
+            <p>Finally, solving for $y$:</p>
+            <p>$$y = \frac{1}{\mu(x)}\left(\int \mu(x)Q(x) dx + C\right)$$</p>
+            <hr>
+            <h3>Examples</h3>
+            <p>$$\begin{align}
+                \frac{dy}{dt} + \frac{4}{t}y = t^4
+            \end{align}$$</p>
+            <p>$$\begin{align}
+                \mu(t) = e^{\int \frac{4}{t} dt} = e^{4\ln|t|} = t^4
+            \end{align}$$</p>
+            <p>$$\begin{align}
+                \frac{d}{dt}[t^4y] &= t^4\cdot t^4 = t^8 \\
+                t^4y &= \int t^8 dt + C = \frac{t^9}{9} + C \\
+                y &= \frac{t^5}{9} + \frac{C}{t^4}
+            \end{align}$$</p>
+            <br>
+            <p>$$\begin{align}
+                x\frac{dy}{dx} - 2x^2y = 6x^2
+            \end{align}$$</p>
+            <p>This is not in the standard form, so we need to divide by $x$:</p>
+            <p>$$\begin{align}
+                \frac{dy}{dx} - 2xy = 6x
+            \end{align}$$</p>
+            <p>$$\begin{align}
+                \mu(x) = e^{\int -2x dx} = e^{-x^2}
+            \end{align}$$</p>
+            <p>$$\begin{align}
+                \frac{d}{dx}[e^{-x^2}y] &= e^{-x^2}\cdot 6x \\
+                e^{-x^2}y &= \int 6xe^{-x^2} dx + C = -3e^{-x^2} + C \\
+                y &= -3 + Ce^{x^2}
+            \end{align}$$</p>
+            <hr>
+            <details open>
+                <summary>Practice Problems</summary>
+                <ul class="no-bullets">
+                    <li>
+                        <details>
+                            <summary>$\cos(x)\frac{dy}{dx} + \sin(x)y = x\cos^2(x)$</summary>
+                            <p>$$\begin{align} 
+                                \cos(x)\frac{dy}{dx} + \sin(x)y &= x\cos^2(x) \\
+                                \frac{dy}{dx} + \tan(x)y &= x\cos(x) \\
+                                \mu(x) = e^{\int \tan(x) dx} &= e^{-\ln|\cos(x)|} = \sec(x) \\
+                                \frac{d}{dx}[\sec(x)y] &= x\cos(x)\sec(x) = x\\
+                                \sec(x)y &= \int x \ dx + C = \frac{x^2}{2} + C \\
+                                y &= \frac{x^2}{2}\cos(x) + C\cos(x)
+                            \end{align}$$</p>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>$t^2\frac{dy}{dt} + \frac{dy}{dt} + 4ty = \frac{t}{(t^2+1)^2}$</summary>
+                            <p>$$\begin{align}
+                                t^2\frac{dy}{dt} + \frac{dy}{dt} + 4ty &= \frac{t}{(t^2+1)^2} \\
+                                (t^2+1)\frac{dy}{dt} + 4ty &= \frac{t}{(t^2+1)^2} \\
+                                \frac{dy}{dt} + \frac{4t}{t^2+1}y &= \frac{t}{(t^2+1)^3} \\
+                                \mu(t) = e^{\int \frac{4t}{t^2+1} dt} &= e^{2\ln|t^2+1|} = (t^2+1)^2 &&\text{$u = t^2 + 1, du = 2t \, dt$}\\
+                                \frac{d}{dt}[(t^2+1)^2y] &= \frac{t}{(t^2+1)^3}(t^2+1)^2 = \frac{t}{t^2+1} \\
+                                (t^2+1)^2y = \int \frac{t}{t^2+1} dt + C &= \frac{1}{2}\ln|t^2+1| + C \\
+                                y = \frac{\ln|t^2+1|}{2(t^2+1)^2} + \frac{C}{(t^2+1)^2} &= \frac{\ln(t^2+1) + 2C}{2(t^2+1)^2}
+                                \end{align}$$</p>
+                        </details>
+                    </li>
+                </ul>
+            </details>
+        </div>  
+        <script src="/main.js"></script>
+    </body>
+</html>
